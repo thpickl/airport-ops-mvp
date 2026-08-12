@@ -1,0 +1,57 @@
+table gold_workforce_coverage
+
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+
+	column work_team_id
+		dataType: string
+		isHidden
+		sourceColumn: work_team_id
+
+	column discipline
+		dataType: string
+		sourceColumn: discipline
+
+	column team_type
+		dataType: string
+		sourceColumn: team_type
+
+	column shift_name
+		dataType: string
+		sourceColumn: shift_name
+
+	column rostered_employees
+		dataType: int64
+		sourceColumn: rostered_employees
+
+	column planned_hours
+		dataType: double
+		sourceColumn: planned_hours
+
+	column staffing_coverage_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: staffing_coverage_pct
+
+	column staffing_status
+		dataType: string
+		sourceColumn: staffing_status
+
+	measure 'Staffing Coverage %' = DIVIDE(AVERAGE(gold_workforce_coverage[staffing_coverage_pct]), 100.0)
+		formatString: 0.0%
+		displayFolder: Workforce
+
+	measure 'Rostered Employees' = SUM(gold_workforce_coverage[rostered_employees])
+		formatString: #,0
+		displayFolder: Workforce
+
+	partition gold_workforce_coverage = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_workforce_coverage"]}[Data]
+				in
+					Data

@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "environment": "dev",
+  "resource_prefix": "fao-demo",
+  "deployment_mode": "dry-run",
+  "allow_create_or_update": true,
+  "allow_destructive_teardown": false,
+  "external_adapters": {
+    "azure_event_hubs": false,
+    "azure_iot_hub": false,
+    "azure_digital_twins": false,
+    "azure_machine_learning": false,
+    "azure_openai": false,
+    "azure_maps": false,
+    "dynamics_365_commerce": false
+  }
+}

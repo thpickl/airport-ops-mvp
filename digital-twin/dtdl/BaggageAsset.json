@@ -1,0 +1,14 @@
+{
+  "@id": "dtmi:com:fictionalairport:BaggageAsset;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic baggage asset",
+  "description": "Synthetic descriptive baggage asset with no BHS write or command capability.",
+  "contents": [
+    {"@type": "Property", "name": "assetId", "schema": "string"},
+    {"@type": "Property", "name": "assetClass", "schema": "string"},
+    {"@type": "Telemetry", "name": "healthScore", "schema": "double"},
+    {"@type": "Property", "name": "isSynthetic", "schema": "boolean"},
+    {"@type": "Relationship", "name": "locatedIn", "target": "dtmi:com:fictionalairport:Zone;1"}
+  ]
+}

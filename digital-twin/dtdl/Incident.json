@@ -1,0 +1,15 @@
+{
+  "@id": "dtmi:com:fictionalairport:Incident;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic incident",
+  "description": "Synthetic analytical incident record; it is not an official report or operational command.",
+  "contents": [
+    {"@type": "Property", "name": "incidentId", "schema": "string"},
+    {"@type": "Property", "name": "severity", "schema": "integer"},
+    {"@type": "Property", "name": "status", "schema": "string"},
+    {"@type": "Property", "name": "humanReviewRequired", "schema": "boolean"},
+    {"@type": "Property", "name": "isSynthetic", "schema": "boolean"},
+    {"@type": "Relationship", "name": "affects", "target": "dtmi:com:fictionalairport:Asset;1"}
+  ]
+}

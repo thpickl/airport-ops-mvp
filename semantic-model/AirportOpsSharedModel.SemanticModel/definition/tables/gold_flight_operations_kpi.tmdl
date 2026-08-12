@@ -1,0 +1,50 @@
+table gold_flight_operations_kpi
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column on_time_arrival_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: on_time_arrival_pct
+	column on_time_departure_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: on_time_departure_pct
+	column avg_arrival_delay_min
+		dataType: double
+		sourceColumn: avg_arrival_delay_min
+	column avg_departure_delay_min
+		dataType: double
+		sourceColumn: avg_departure_delay_min
+	column avg_turnaround_min
+		dataType: double
+		sourceColumn: avg_turnaround_min
+	column turnaround_target_attainment_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: turnaround_target_attainment_pct
+	column milestone_adherence_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: milestone_adherence_pct
+	column gate_utilization_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: gate_utilization_pct
+	column stand_utilization_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: stand_utilization_pct
+	column gate_conflict_count
+		dataType: int64
+		sourceColumn: gate_conflict_count
+	measure 'On-Time Arrival %' = DIVIDE(AVERAGE(gold_flight_operations_kpi[on_time_arrival_pct]),100.0)
+		formatString: 0.0%
+		displayFolder: Flight Operations
+	measure 'Turnaround Target Attainment %' = DIVIDE(AVERAGE(gold_flight_operations_kpi[turnaround_target_attainment_pct]),100.0)
+		formatString: 0.0%
+		displayFolder: Flight Operations
+	partition gold_flight_operations_kpi = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_flight_operations_kpi"]}[Data] in Data

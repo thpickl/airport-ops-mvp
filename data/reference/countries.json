@@ -1,0 +1,68 @@
+{
+  "schema_version": "4.0",
+  "data_classification": "PublicReference",
+  "source_as_of_date": "2026-08-09",
+  "records": [
+    {
+      "country_id": "REF-COUNTRY-FR",
+      "country_name": "France",
+      "iso_country_code": "FR",
+      "operating_region_id": "SYN-REG-FRANCE",
+      "iana_time_zones": [
+        "Europe/Paris"
+      ],
+      "is_synthetic": false,
+      "data_classification": "PublicReference",
+      "source_name": "Checked-in airport reference snapshot",
+      "source_url": "repo://config/reference/airport-anchors.json",
+      "source_as_of_date": "2026-08-08",
+      "record_source": "CheckedInPublicReferenceSnapshot"
+    },
+    {
+      "country_id": "REF-COUNTRY-IT",
+      "country_name": "Italy",
+      "iso_country_code": "IT",
+      "operating_region_id": "SYN-REG-ITALY",
+      "iana_time_zones": [
+        "Europe/Rome"
+      ],
+      "is_synthetic": false,
+      "data_classification": "PublicReference",
+      "source_name": "Checked-in airport reference snapshot",
+      "source_url": "repo://config/reference/airport-anchors.json",
+      "source_as_of_date": "2026-08-08",
+      "record_source": "CheckedInPublicReferenceSnapshot"
+    },
+    {
+      "country_id": "REF-COUNTRY-PT",
+      "country_name": "Portugal",
+      "iso_country_code": "PT",
+      "operating_region_id": "SYN-REG-PORTUGAL",
+      "iana_time_zones": [
+        "Europe/Lisbon",
+        "Atlantic/Madeira"
+      ],
+      "is_synthetic": false,
+      "data_classification": "PublicReference",
+      "source_name": "Checked-in airport reference snapshot",
+      "source_url": "repo://config/reference/airport-anchors.json",
+      "source_as_of_date": "2026-08-08",
+      "record_source": "CheckedInPublicReferenceSnapshot"
+    },
+    {
+      "country_id": "REF-COUNTRY-JO",
+      "country_name": "Jordan",
+      "iso_country_code": "JO",
+      "operating_region_id": "SYN-REG-JORDAN",
+      "iana_time_zones": [
+        "Asia/Amman"
+      ],
+      "is_synthetic": false,
+      "data_classification": "PublicReference",
+      "source_name": "Checked-in airport reference snapshot",
+      "source_url": "repo://config/reference/airport-anchors.json",
+      "source_as_of_date": "2026-08-08",
+      "record_source": "CheckedInPublicReferenceSnapshot"
+    }
+  ]
+}

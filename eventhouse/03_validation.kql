@@ -1,0 +1,60 @@
+// Fail-visible validation queries. Zero rows from any *_failures query is required.
+
+let raw_synthetic_failures =
+    union withsource=SourceTable FlightOperationsRaw, BaggageEventsRaw, QueueEventsRaw, AssetTelemetryRaw, PosEventsRaw, TurnaroundTaskEventsRaw, EnergyEventsRaw, IncidentEventsRaw
+    | where IsSynthetic != true
+    | summarize FailureCount=count() by CheckName="raw_synthetic_only", SourceTable;
+raw_synthetic_failures
+
+let flight_duplicate_failures =
+    FlightOperationsCurated
+    | summarize Records=count() by EventId
+    | where Records > 1
+    | summarize FailureCount=count()
+    | extend CheckName="flight_event_id_unique";
+flight_duplicate_failures
+
+let baggage_range_failures =
+    BaggageEventsCurated
+    | where JourneyMinutes < 0.0 or isempty(BagToken) or IsSynthetic != true
+    | summarize FailureCount=count()
+    | extend CheckName="baggage_ranges_and_tokens";
+baggage_range_failures
+
+let queue_range_failures =
+    QueueEventsCurated
+    | where QueueLength < 0 or WaitTimeMinutes < 0.0 or ThroughputPassengers < 0
+    | summarize FailureCount=count()
+    | extend CheckName="queue_nonnegative";
+queue_range_failures
+
+let turnaround_range_failures =
+    TurnaroundTaskEventsCurated
+    | where TaskSequence !between (1 .. 5) or TaskDurationMinutes < 0.0
+    | summarize FailureCount=count()
+    | extend CheckName="turnaround_task_ranges";
+turnaround_range_failures
+
+let energy_range_failures =
+    EnergyEventsCurated
+    | where EnergyKwh < 0.0 or DemandKw < 0.0
+    | summarize FailureCount=count()
+    | extend CheckName="energy_nonnegative";
+energy_range_failures
+
+let incident_range_failures =
+    IncidentEventsCurated
+    | where DelayMinutes < 0.0 or ResolutionMinutes < 0.0 or Severity !in ("Low","Medium","High")
+    | summarize FailureCount=count()
+    | extend CheckName="incident_ranges";
+incident_range_failures
+
+let freshness_summary =
+    union withsource=SourceTable FlightOperationsRaw, BaggageEventsRaw, QueueEventsRaw, AssetTelemetryRaw, PosEventsRaw, TurnaroundTaskEventsRaw, EnergyEventsRaw, IncidentEventsRaw
+    | summarize LatestEvent=max(EventTimestamp), Records=count() by SourceTable
+    | extend IsSyntheticDemo=true;
+freshness_summary
+
+fn_realtime_agent_grounding(datetime(2026-07-01T00:00:00Z), datetime(2026-07-02T00:00:00Z))
+| project AirportId, ObservationStart, ObservationEnd, ConfidenceCategory,
+          HumanApprovalRequired, AdvisoryOnly, IsSynthetic, SourceReferences

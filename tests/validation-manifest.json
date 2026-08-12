@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "random_seed": 42,
+  "base_date": "2026-01-01",
+  "expected_notebooks": 18,
+  "expected_dtdl_models": 15,
+  "expected_twin_instances": 15,
+  "expected_twin_relationships": 14,
+  "expected_ontology_entities": 19,
+  "expected_enterprise_ontology_entities": 13,
+  "expected_tmdl_tables": 27,
+  "expected_persona_pages": 25,
+  "expected_eventhouse_scripts": 6,
+  "expected_enterprise_warehouse_views": 34,
+  "geojson": {
+    "airports.geojson": {
+      "geometry_type": "Point",
+      "feature_count": 15,
+      "sha256": "9d4ba072354f5ffbb682ea10b852dd2a434f3b7e969cd7889aaa314a21fce9ca"
+    },
+    "terminals.geojson": {
+      "geometry_type": "Polygon",
+      "feature_count": 30,
+      "sha256": "14165c8e349000fa9743625caf1f2b06f70a7cf104112ef8651adc23988c32e8"
+    },
+    "zones.geojson": {
+      "geometry_type": "Polygon",
+      "feature_count": 60,
+      "sha256": "42103a210b7088749f0cc77888577118d4f3e19da82bda4cfa5b15e83fb49690"
+    },
+    "gates.geojson": {
+      "geometry_type": "Point",
+      "feature_count": 90,
+      "sha256": "56950420dbed7d3e9cd03d3d2e8488007c0561e3d806fae9abb0da8d18316c48"
+    },
+    "stands.geojson": {
+      "geometry_type": "Point",
+      "feature_count": 90,
+      "sha256": "a378ff3813d0dc3a6d9593ff279c28e5a36a5bcf7b2235d5242c7d8643edaf86"
+    },
+    "passenger_flows.geojson": {
+      "geometry_type": "LineString",
+      "feature_count": 30,
+      "sha256": "b02fc1de48e1bb66ae03a04fb1beb708f29c2539b59faf6d47e088800bb9215a"
+    },
+    "baggage_flows.geojson": {
+      "geometry_type": "LineString",
+      "feature_count": 15,
+      "sha256": "ac1fe78051752fa140ab45a44eaae7e8c665e68f22d2933dd4af75ddd457b7a8"
+    },
+    "energy.geojson": {
+      "geometry_type": "Point",
+      "feature_count": 90,
+      "sha256": "7f04fa1d96a87a558cdf0fc8651d96e1a323ded4f35b221482fc43d96bb64915"
+    },
+    "incidents.geojson": {
+      "geometry_type": "Point",
+      "feature_count": 45,
+      "sha256": "98f7b0d82451ebd02fb76f5fe23ef1a932d9b3840c17bfde59762fed69849838"
+    }
+  },
+  "fabric_default_row_counts": {
+    "bronze_flight_turnaround": 450,
+    "bronze_passenger_queue": 5760,
+    "bronze_energy": 8640,
+    "bronze_asset_registry": 540,
+    "dim_terminal": 30,
+    "dim_zone": 60,
+    "dim_checkpoint": 60,
+    "dim_stand": 90,
+    "dim_asset": 540,
+    "fact_asset_state": 2160,
+    "fact_zone_occupancy": 5760,
+    "gold_executive_scorecard": 15,
+    "gold_gate_turnaround_performance": 90,
+    "gold_asset_reliability": 540,
+    "gold_spatial_operational_status": 60,
+    "gold_it_service_health": 8,
+    "agent_context": 90,
+    "bronze_route": 120,
+    "bronze_aircraft_fleet": 48,
+    "bronze_work_team": 105,
+    "bronze_employee": 720,
+    "bronze_employee_roster": 720,
+    "bronze_retail_outlet": 120,
+    "bronze_retail_product": 12,
+    "bronze_flight_route": 450,
+    "bronze_retail_pos": 2880,
+    "bronze_turnaround_phase": 2250,
+    "bronze_customer_experience": 1350,
+    "gold_persona_scorecard": 105,
+    "gold_data_agent_enterprise_context": 15
+  }
+}

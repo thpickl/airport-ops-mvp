@@ -1,0 +1,89 @@
+{
+  "schema_version": "2.0",
+  "files": {
+    "airports.geojson": {
+      "feature_count": 18,
+      "geometry_types": [
+        "Point"
+      ],
+      "sha256": "0b550e488e3cb3449659603f73fc0f99c3aa9110181b0de8a5ca19a0a324030b"
+    },
+    "operating_regions.geojson": {
+      "feature_count": 4,
+      "geometry_types": [
+        "Polygon"
+      ],
+      "sha256": "8bc276a3cd73b56da329863b970d75f47d86c7753be0193e70ec266a613b8e3e"
+    },
+    "terminals.geojson": {
+      "feature_count": 36,
+      "geometry_types": [
+        "Polygon"
+      ],
+      "sha256": "f1e1958680b83e931c419b22935bcc72c193066714a61546322dff9e23b7bfee"
+    },
+    "zones.geojson": {
+      "feature_count": 72,
+      "geometry_types": [
+        "Polygon"
+      ],
+      "sha256": "81b6c1b2ee8804c877a2b8e4a243909b9c151e142e0ef8c67223699fd2da2c13"
+    },
+    "gates.geojson": {
+      "feature_count": 108,
+      "geometry_types": [
+        "Point"
+      ],
+      "sha256": "75a6adda874e879449f56d1ebb07feb62cd450042e7ff5526beeea72c2f93475"
+    },
+    "stands.geojson": {
+      "feature_count": 108,
+      "geometry_types": [
+        "Point"
+      ],
+      "sha256": "177dad36bb420b152e6c8ac8b2a433b6fde9e80e9be73d6b8848ff474c503dcc"
+    },
+    "routes.geojson": {
+      "feature_count": 18,
+      "geometry_types": [
+        "LineString"
+      ],
+      "sha256": "3b6fc861a034a8461be99fa840712bdd06ee8e87792ce5f889c96798f1b5ee53"
+    },
+    "passenger_flows.geojson": {
+      "feature_count": 36,
+      "geometry_types": [
+        "LineString"
+      ],
+      "sha256": "7a32df01b0a85b4e2e2b94e2970c65237cd5e56acf886f8686f8605c9de1ce54"
+    },
+    "baggage_flows.geojson": {
+      "feature_count": 18,
+      "geometry_types": [
+        "LineString"
+      ],
+      "sha256": "c44f0cef0b47eda4ef4ab799678e2acf6ba0670a5bf5f5dcfc3097d205af4acc"
+    },
+    "assets.geojson": {
+      "feature_count": 108,
+      "geometry_types": [
+        "Point"
+      ],
+      "sha256": "bca3abfd8e188c776214cdff6e9147ac00dfd09207579feebe0f8160f36d1496"
+    },
+    "energy.geojson": {
+      "feature_count": 108,
+      "geometry_types": [
+        "Point"
+      ],
+      "sha256": "107482bc73211b9ad3d7d9fa9609f97784affe05051c0d75cfdec37c801aa0ab"
+    },
+    "incidents.geojson": {
+      "feature_count": 54,
+      "geometry_types": [
+        "Point"
+      ],
+      "sha256": "29795d373e02a020b7bd544513f6fd6a1e8478a8aadab204d00f111a95ef2b6f"
+    }
+  }
+}

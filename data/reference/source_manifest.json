@@ -1,0 +1,68 @@
+{
+  "schema_version": "3.0",
+  "source_as_of_date": "2026-08-09",
+  "generator_version": "4.0.0",
+  "random_seed": 39039,
+  "classification_policy": {
+    "PublicReference": "Airport, country, airline, manufacturer, aircraft-type identity, public codes, dimensions, coordinates, elevation, and time zones.",
+    "SyntheticMaster": "Fictional organization, portfolio relationship, facilities, people, fleets, seat assumptions, and turnaround targets.",
+    "SyntheticOperational": "All schedules, routes, flights, events, telemetry, transactions, incidents, and outcomes.",
+    "DerivedAnalytical": "All Silver/Gold enrichments, Warehouse/KQL products, semantic measures, forecasts, benchmarks, and recommendations."
+  },
+  "fictional_scope_statement": "Real airport identities are public reference anchors only. Ownership, infrastructure, operations, people, events, KPIs, recommendations, and outcomes are synthetic.",
+  "sources": [
+    {
+      "source_id": "OURAIRPORTS-2026-08-08",
+      "name": "OurAirports open airport data",
+      "url": "https://ourairports.com/data/airports.csv",
+      "retrieved_utc": "2026-08-08T00:00:00Z",
+      "usage_notes": "Public reference facts only. Consult the source site for current terms and attribution guidance.",
+      "fields": [
+        "name",
+        "city",
+        "country_code",
+        "iata_code",
+        "icao_code",
+        "latitude",
+        "longitude",
+        "elevation_ft"
+      ]
+    },
+    {
+      "source_id": "IANA-TZDB-2026-08-08",
+      "name": "IANA Time Zone Database",
+      "url": "https://data.iana.org/time-zones/tzdb/zone.tab",
+      "retrieved_utc": "2026-08-08T00:00:00Z",
+      "usage_notes": "IANA identifiers assigned by airport locality for deterministic local-time conversion.",
+      "fields": [
+        "time_zone"
+      ]
+    },
+    {
+      "source_id": "SRC-SYNTHETIC-GENERATOR",
+      "source_name": "Deterministic Synthetic Reference Generator",
+      "source_url": "repo://data/reference/generate_fictional_reference.py",
+      "used_for": [
+        "fictional portfolio relationships and operational master data"
+      ]
+    },
+    {
+      "source_id": "SRC-IATA-CODE-SEARCH",
+      "source_name": "IATA Airline Coding Directory",
+      "source_url": "https://www.iata.org/en/publications/directories/code-search/",
+      "source_as_of_date": "2026-08-09",
+      "used_for": [
+        "airline names and public IATA/ICAO codes"
+      ]
+    },
+    {
+      "source_id": "SRC-ICAO-DOC8643",
+      "source_name": "ICAO Doc 8643 Aircraft Type Designators",
+      "source_url": "https://www.icao.int/publications/DOC8643/Pages/Search.aspx",
+      "source_as_of_date": "2026-08-09",
+      "used_for": [
+        "aircraft type designators"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "2.0",
+  "features": {
+    "deploy_eventhouse": true,
+    "deploy_semantic_model": true,
+    "deploy_pbir_reports": true,
+    "deploy_data_agent_when_supported": false,
+    "deploy_fabric_app_when_supported": false,
+    "enable_rayfin_module": false,
+    "deploy_digital_twin": false,
+    "run_second_pass_idempotency": true
+  },
+  "rayfin": {
+    "status": "unsupported-unverified",
+    "activation_prerequisite": "A documented target capability and supported deployment API must be verified before enable_rayfin_module can be true.",
+    "safe_fallback": "Use the configurable mock-safe module manifest only."
+  }
+}

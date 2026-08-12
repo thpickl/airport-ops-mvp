@@ -1,0 +1,42 @@
+// Parameter-free curated serving views implemented as stored KQL functions.
+
+.create-or-alter function with (folder="AirportOps/ServingViews", docstring="Synthetic flight serving view")
+view_flight_operations() {
+    FlightOperationsHourly
+    | extend OnTimeDeparturePct=round(100.0*OnTimeFlights/max_of(Flights,1),1),
+             DataClassification="Derived analytical data", IsSynthetic=true
+}
+
+.create-or-alter function with (folder="AirportOps/ServingViews", docstring="Synthetic baggage serving view")
+view_baggage_performance() {
+    BaggagePerformanceHourly
+    | extend MishandledBagsPer1000=round(1000.0*MishandledBags/max_of(CheckedBags,1),2),
+             DataClassification="Derived analytical data", IsSynthetic=true
+}
+
+.create-or-alter function with (folder="AirportOps/ServingViews", docstring="Synthetic queue serving view")
+view_queue_health() {
+    QueueHealth15Minute
+    | extend QueueStatus=case(PeakWaitMinutes>=25.0,"Action",PeakWaitMinutes>=15.0,"Watch","Normal"),
+             DataClassification="Derived analytical data", IsSynthetic=true
+}
+
+.create-or-alter function with (folder="AirportOps/ServingViews", docstring="Synthetic turnaround serving view")
+view_turnaround_tasks() {
+    TurnaroundTasksHourly
+    | extend LateTaskPct=round(100.0*LateTasks/max_of(Tasks,1),1),
+             DataClassification="Derived analytical data", IsSynthetic=true
+}
+
+.create-or-alter function with (folder="AirportOps/ServingViews", docstring="Synthetic energy serving view")
+view_energy_performance() {
+    EnergyPerformanceHourly
+    | extend SyntheticBenchmarkKwh=450.0,
+             DataClassification="Derived analytical data", IsSynthetic=true
+}
+
+.create-or-alter function with (folder="AirportOps/ServingViews", docstring="Synthetic incident serving view")
+view_incident_performance() {
+    IncidentPerformanceHourly
+    | extend DataClassification="Derived analytical data", IsSynthetic=true
+}

@@ -1,0 +1,50 @@
+table gold_customer_experience
+
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+
+	column route_id
+		dataType: string
+		isHidden
+		sourceColumn: route_id
+
+	column customer_segment
+		dataType: string
+		sourceColumn: customer_segment
+
+	column respondents
+		dataType: int64
+		sourceColumn: respondents
+
+	column satisfaction_score
+		dataType: double
+		formatString: 0.00
+		sourceColumn: satisfaction_score
+
+	column nps_proxy
+		dataType: double
+		formatString: 0.0
+		sourceColumn: nps_proxy
+
+	column customer_experience_status
+		dataType: string
+		sourceColumn: customer_experience_status
+
+	measure 'Customer Satisfaction' = AVERAGE(gold_customer_experience[satisfaction_score])
+		formatString: 0.00
+		displayFolder: Customer Experience
+
+	measure 'Synthetic NPS' = DIVIDE(SUMX(gold_customer_experience, gold_customer_experience[nps_proxy] * gold_customer_experience[respondents]), SUM(gold_customer_experience[respondents]))
+		formatString: 0.0
+		displayFolder: Customer Experience
+
+	partition gold_customer_experience = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_customer_experience"]}[Data]
+				in
+					Data

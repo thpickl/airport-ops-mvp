@@ -1,0 +1,30 @@
+table gold_energy_sustainability_kpi
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column total_kwh
+		dataType: double
+		sourceColumn: total_kwh
+	column kwh_per_passenger
+		dataType: double
+		sourceColumn: kwh_per_passenger
+	column kwh_per_flight
+		dataType: double
+		sourceColumn: kwh_per_flight
+	column peak_demand_kwh
+		dataType: double
+		sourceColumn: peak_demand_kwh
+	column energy_benchmark_variance_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: energy_benchmark_variance_pct
+	column estimated_synthetic_emissions_kg_co2e
+		dataType: double
+		sourceColumn: estimated_synthetic_emissions_kg_co2e
+	measure 'Energy Benchmark Variance %' = DIVIDE(AVERAGE(gold_energy_sustainability_kpi[energy_benchmark_variance_pct]),100.0)
+		formatString: 0.0%
+		displayFolder: Energy
+	partition gold_energy_sustainability_kpi = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_energy_sustainability_kpi"]}[Data] in Data

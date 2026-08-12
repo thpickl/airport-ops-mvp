@@ -1,0 +1,59 @@
+{
+  "schema_version": "4.0",
+  "profiles": {
+    "unit": {
+      "description": "Minimal deterministic local tests",
+      "scale_factor": 1,
+      "simulation_hours": 48,
+      "flights_per_gate": 2,
+      "queue_interval_minutes": 30,
+      "asset_state_interval_hours": 8,
+      "passengers_per_flight_target": 24,
+      "retail_outlets_per_terminal": 2,
+      "maintenance_event_count": 8,
+      "incident_event_count": 4
+    },
+    "smoke": {
+      "description": "Default end-to-end deployment validation",
+      "scale_factor": 1,
+      "simulation_hours": 720,
+      "flights_per_gate": 8,
+      "queue_interval_minutes": 15,
+      "asset_state_interval_hours": 6,
+      "passengers_per_flight_target": 72,
+      "retail_outlets_per_terminal": 4,
+      "maintenance_event_count": 60,
+      "incident_event_count": 40
+    },
+    "demo": {
+      "description": "Stakeholder demonstration volume",
+      "scale_factor": 3,
+      "simulation_hours": 2160,
+      "flights_per_gate": 24,
+      "queue_interval_minutes": 5,
+      "asset_state_interval_hours": 3,
+      "passengers_per_flight_target": 120,
+      "retail_outlets_per_terminal": 8,
+      "maintenance_event_count": 240,
+      "incident_event_count": 160
+    },
+    "enterprise": {
+      "description": "Configurable high-volume generation for Fabric storage only",
+      "scale_factor": 12,
+      "simulation_hours": 8760,
+      "flights_per_gate": 96,
+      "queue_interval_minutes": 5,
+      "asset_state_interval_hours": 1,
+      "passengers_per_flight_target": 180,
+      "retail_outlets_per_terminal": 12,
+      "maintenance_event_count": 2400,
+      "incident_event_count": 1200
+    }
+  },
+  "invariant_catalog_counts": {
+    "airport_count": 18,
+    "airline_count": 20,
+    "aircraft_type_count": 16,
+    "operating_region_count": 4
+  }
+}

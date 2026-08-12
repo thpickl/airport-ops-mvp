@@ -1,0 +1,11 @@
+{
+  "@id": "dtmi:com:fictionalairport:MaintenanceAsset;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Maintainable Asset",
+  "extends": "dtmi:com:fictionalairport:Asset;1",
+  "contents": [
+    {"@type": "Property", "name": "maintenanceClass", "schema": "string"},
+    {"@type": "Property", "name": "serviceIntervalHours", "schema": "integer"}
+  ]
+}

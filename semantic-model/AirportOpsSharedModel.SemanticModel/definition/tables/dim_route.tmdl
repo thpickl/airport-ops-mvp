@@ -1,0 +1,38 @@
+table dim_route
+
+	column route_id
+		dataType: string
+		isHidden
+		sourceColumn: route_id
+
+	column origin_airport_id
+		dataType: string
+		isHidden
+		sourceColumn: origin_airport_id
+
+	column destination_airport_id
+		dataType: string
+		sourceColumn: destination_airport_id
+
+	column airline_id
+		dataType: string
+		isHidden
+		sourceColumn: airline_id
+
+	column route_category
+		dataType: string
+		sourceColumn: route_category
+
+	column distance_km
+		dataType: int64
+		formatString: #,0 km
+		sourceColumn: distance_km
+
+	partition dim_route = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_dim_route"]}[Data]
+				in
+					Data

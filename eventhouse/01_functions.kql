@@ -1,0 +1,80 @@
+// Curated, synthetic-only serving functions for Eventhouse consumers and the Data Agent.
+
+.create-or-alter function with (folder="AirportOps/Serving", docstring="Synthetic flight operations in a bounded event-time window")
+fn_flight_operations(start_time:datetime, end_time:datetime) {
+    FlightOperationsRaw
+    | where IsSynthetic == true and EventTimestamp between (start_time .. end_time)
+    | summarize Flights=dcount(FlightEventId),
+                OnTimeDeparturePct=round(100.0 * avg(iif(DelayMinutes <= 15.0, 1.0, 0.0)), 1),
+                AvgTurnaroundMinutes=round(avg(TurnaroundMinutes), 1),
+                Passengers=sum(PassengerCount)
+      by AirportId, AirlineId, RouteId, bin(EventTimestamp, 1h)
+}
+
+.create-or-alter function with (folder="AirportOps/Serving", docstring="Synthetic baggage journey and exception performance")
+fn_baggage_performance(start_time:datetime, end_time:datetime) {
+    BaggageEventsRaw
+    | where IsSynthetic == true and EventTimestamp between (start_time .. end_time)
+    | summarize CheckedBags=dcount(BagToken),
+                MishandledBags=dcountif(BagToken, MishandledFlag),
+                AvgJourneyMinutes=round(avg(JourneyMinutes), 1)
+      by AirportId, DestinationAirportId, bin(EventTimestamp, 1h)
+    | extend MishandledBagsPer1000=round(1000.0 * MishandledBags / max_of(CheckedBags, 1), 2)
+}
+
+.create-or-alter function with (folder="AirportOps/Serving", docstring="Synthetic passenger queue health")
+fn_queue_health(start_time:datetime, end_time:datetime) {
+    QueueEventsRaw
+    | where IsSynthetic == true and EventTimestamp between (start_time .. end_time)
+    | summarize AvgWaitMinutes=round(avg(WaitTimeMinutes), 1),
+                PeakWaitMinutes=round(max(WaitTimeMinutes), 1),
+                AvgQueueLength=round(avg(QueueLength), 1),
+                ThroughputPassengers=sum(ThroughputPassengers)
+      by AirportId, TerminalId, CheckpointId, QueueType, bin(EventTimestamp, 15m)
+    | extend QueueStatus=case(PeakWaitMinutes >= 25.0, "Action", PeakWaitMinutes >= 15.0, "Watch", "Normal")
+}
+
+.create-or-alter function with (folder="AirportOps/Serving", docstring="Approved real-time grounding; advisory analytics only")
+fn_realtime_agent_grounding(start_time:datetime, end_time:datetime) {
+    let flights = fn_flight_operations(start_time, end_time)
+        | summarize OnTimeDeparturePct=round(avg(OnTimeDeparturePct), 1),
+                    AvgTurnaroundMinutes=round(avg(AvgTurnaroundMinutes), 1) by AirportId;
+    let baggage = fn_baggage_performance(start_time, end_time)
+        | summarize MishandledBagsPer1000=round(avg(MishandledBagsPer1000), 2) by AirportId;
+    let queues = fn_queue_health(start_time, end_time)
+        | summarize PeakWaitMinutes=max(PeakWaitMinutes) by AirportId;
+    flights
+    | join kind=leftouter baggage on AirportId
+    | join kind=leftouter queues on AirportId
+    | extend ObservationStart=start_time, ObservationEnd=end_time,
+             ConfidenceCategory=iif(isnotnull(MishandledBagsPer1000) and isnotnull(PeakWaitMinutes), "High", "Medium"),
+             HumanApprovalRequired=PeakWaitMinutes >= 25.0 or MishandledBagsPer1000 >= 15.0,
+             AdvisoryOnly=true, IsSynthetic=true,
+             SourceReferences="fn_flight_operations;fn_baggage_performance;fn_queue_health"
+}
+
+.create-or-alter function with (folder="AirportOps/Serving", docstring="Synthetic turnaround task performance")
+fn_turnaround_tasks(start_time:datetime, end_time:datetime) {
+    TurnaroundTaskEventsCurated
+    | where IsSynthetic == true and EventTimestamp between (start_time .. end_time)
+    | summarize Tasks=count(), LateTasks=countif(TaskStatus == "Late"),
+                AvgTaskDurationMinutes=round(avg(TaskDurationMinutes), 1)
+      by AirportId, GateId, TaskName, bin(EventTimestamp, 1h)
+}
+
+.create-or-alter function with (folder="AirportOps/Serving", docstring="Synthetic energy performance and benchmark variance")
+fn_energy_performance(start_time:datetime, end_time:datetime) {
+    EnergyEventsCurated
+    | where IsSynthetic == true and EventTimestamp between (start_time .. end_time)
+    | summarize TotalKwh=round(sum(EnergyKwh), 1), PeakDemandKw=round(max(DemandKw), 1)
+      by AirportId, Source, bin(EventTimestamp, 1h)
+}
+
+.create-or-alter function with (folder="AirportOps/Serving", docstring="Synthetic incident analytics; no security or control detail")
+fn_incident_performance(start_time:datetime, end_time:datetime) {
+    IncidentEventsCurated
+    | where IsSynthetic == true and EventTimestamp between (start_time .. end_time)
+    | summarize Incidents=count(), HighSeverity=countif(Severity == "High"),
+                AvgResolutionMinutes=round(avg(ResolutionMinutes), 1)
+      by AirportId, Category, bin(EventTimestamp, 1h)
+}

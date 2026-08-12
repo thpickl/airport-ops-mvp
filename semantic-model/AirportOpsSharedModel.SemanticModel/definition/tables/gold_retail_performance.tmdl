@@ -1,0 +1,59 @@
+table gold_retail_performance
+
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+
+	column terminal_id
+		dataType: string
+		sourceColumn: terminal_id
+
+	column outlet_id
+		dataType: string
+		isHidden
+		sourceColumn: outlet_id
+
+	column outlet_category
+		dataType: string
+		sourceColumn: outlet_category
+
+	column transactions
+		dataType: int64
+		sourceColumn: transactions
+
+	column net_revenue_proxy
+		dataType: double
+		formatString: $#,0.00
+		sourceColumn: net_revenue_proxy
+
+	column average_basket_proxy
+		dataType: double
+		formatString: $0.00
+		sourceColumn: average_basket_proxy
+
+	column revenue_per_departing_passenger_proxy
+		dataType: double
+		formatString: $0.00
+		sourceColumn: revenue_per_departing_passenger_proxy
+
+	column commercial_status
+		dataType: string
+		sourceColumn: commercial_status
+
+	measure 'Synthetic Net Retail Revenue' = SUM(gold_retail_performance[net_revenue_proxy])
+		formatString: $#,0.00
+		displayFolder: Commercial
+
+	measure 'Synthetic Revenue per Departing Passenger' = AVERAGE(gold_retail_performance[revenue_per_departing_passenger_proxy])
+		formatString: $0.00
+		displayFolder: Commercial
+
+	partition gold_retail_performance = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_retail_performance"]}[Data]
+				in
+					Data

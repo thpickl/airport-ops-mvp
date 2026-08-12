@@ -1,0 +1,14 @@
+{
+  "@id": "dtmi:com:fictionalairport:MaintenanceWorkOrder;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Maintenance Work Order",
+  "description": "Synthetic analytical work-order record; it cannot create or update a maintenance system.",
+  "contents": [
+    {"@type":"Property","name":"workOrderId","schema":"string"},
+    {"@type":"Property","name":"workOrderType","schema":"string"},
+    {"@type":"Property","name":"status","schema":"string"},
+    {"@type":"Property","name":"approvalStatus","schema":"string"},
+    {"@type":"Property","name":"isSynthetic","schema":"boolean"}
+  ]
+}

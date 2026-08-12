@@ -1,0 +1,16 @@
+[
+  {"$relationshipId":"SYN-REL-AP-CDG-CONTAINS-TER-01","$sourceId":"SYN-TWIN-AP-CDG","$relationshipName":"contains","$targetId":"SYN-TWIN-TER-CDG-01","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-TER-CDG-01-CONTAINS-ZON-01","$sourceId":"SYN-TWIN-TER-CDG-01","$relationshipName":"containsZones","$targetId":"SYN-TWIN-ZON-CDG-01","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-TER-CDG-01-CONTAINS-GAT-01","$sourceId":"SYN-TWIN-TER-CDG-01","$relationshipName":"containsGates","$targetId":"SYN-TWIN-GAT-CDG-01","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-ZON-CDG-01-CONTAINS-CHK-01","$sourceId":"SYN-TWIN-ZON-CDG-01","$relationshipName":"containsCheckpoints","$targetId":"SYN-TWIN-CHK-CDG-01","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-ZON-CDG-01-CONTAINS-AST-01","$sourceId":"SYN-TWIN-ZON-CDG-01","$relationshipName":"containsAssets","$targetId":"SYN-TWIN-AST-CDG-01","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-GAT-CDG-01-SERVES-STD-01","$sourceId":"SYN-TWIN-GAT-CDG-01","$relationshipName":"serves","$targetId":"SYN-TWIN-STD-CDG-01","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-GAT-CDG-01-SERVES-FLT-00001","$sourceId":"SYN-TWIN-GAT-CDG-01","$relationshipName":"servesFlight","$targetId":"SYN-TWIN-FLT-CDG-00001","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-FLT-CDG-00001-USES-ACT-001","$sourceId":"SYN-TWIN-FLT-CDG-00001","$relationshipName":"usesAircraftType","$targetId":"SYN-TWIN-ACT-001","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-QUE-CDG-01-LOCATED-ZON-01","$sourceId":"SYN-TWIN-QUE-CDG-01","$relationshipName":"locatedIn","$targetId":"SYN-TWIN-ZON-CDG-01","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-BAG-CDG-01-LOCATED-ZON-01","$sourceId":"SYN-TWIN-BAG-CDG-01","$relationshipName":"locatedIn","$targetId":"SYN-TWIN-ZON-CDG-01","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-AST-CDG-01-LOCATED-ZON-01","$sourceId":"SYN-TWIN-AST-CDG-01","$relationshipName":"locatedIn","$targetId":"SYN-TWIN-ZON-CDG-01","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-AST-CDG-01-MONITORED-MTR-01","$sourceId":"SYN-TWIN-AST-CDG-01","$relationshipName":"monitoredBy","$targetId":"SYN-TWIN-MTR-CDG-01","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-AST-CDG-01-HAS-WO-00001","$sourceId":"SYN-TWIN-AST-CDG-01","$relationshipName":"hasWorkOrder","$targetId":"SYN-TWIN-WO-CDG-00001","isSynthetic":true},
+  {"$relationshipId":"SYN-REL-INC-CDG-00001-AFFECTS-AST-01","$sourceId":"SYN-TWIN-INC-CDG-00001","$relationshipName":"affects","$targetId":"SYN-TWIN-AST-CDG-01","isSynthetic":true}
+]

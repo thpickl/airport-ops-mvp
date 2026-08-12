@@ -1,0 +1,53 @@
+table gold_it_service_health
+
+	column data_product
+		dataType: string
+		sourceColumn: data_product
+
+	column layer
+		dataType: string
+		sourceColumn: layer
+
+	column data_quality_pass_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: data_quality_pass_pct
+
+	column pipeline_run_status
+		dataType: string
+		sourceColumn: pipeline_run_status
+
+	column refresh_status
+		dataType: string
+		sourceColumn: refresh_status
+
+	column synthetic_capacity_usage_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: synthetic_capacity_usage_pct
+
+	column synthetic_cost_proxy_units
+		dataType: double
+		formatString: 0.0
+		sourceColumn: synthetic_cost_proxy_units
+
+	column security_control_status
+		dataType: string
+		sourceColumn: security_control_status
+
+	measure 'Data Quality Pass %' = DIVIDE(AVERAGE(gold_it_service_health[data_quality_pass_pct]), 100.0)
+		formatString: 0.0%
+		displayFolder: IT Health
+
+	measure 'Synthetic Capacity Usage %' = DIVIDE(AVERAGE(gold_it_service_health[synthetic_capacity_usage_pct]), 100.0)
+		formatString: 0.0%
+		displayFolder: IT Health
+
+	partition gold_it_service_health = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_it_service_health"]}[Data]
+				in
+					Data

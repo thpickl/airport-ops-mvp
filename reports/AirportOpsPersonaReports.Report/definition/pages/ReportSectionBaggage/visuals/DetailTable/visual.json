@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "DetailTable",
+  "position": {
+    "x": 36,
+    "y": 36,
+    "z": 0,
+    "height": 190,
+    "width": 1208,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_baggage_kpi"
+                    }
+                  },
+                  "Property": "bags_processed"
+                }
+              },
+              "queryRef": "gold_baggage_kpi.bags_processed",
+              "nativeQueryRef": "bags_processed"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_baggage_kpi"
+                    }
+                  },
+                  "Property": "bags_per_flight"
+                }
+              },
+              "queryRef": "gold_baggage_kpi.bags_per_flight",
+              "nativeQueryRef": "bags_per_flight"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_baggage_kpi"
+                    }
+                  },
+                  "Property": "mishandled_bags_per_1000"
+                }
+              },
+              "queryRef": "gold_baggage_kpi.mishandled_bags_per_1000",
+              "nativeQueryRef": "mishandled_bags_per_1000"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_baggage_kpi"
+                    }
+                  },
+                  "Property": "scan_completeness_pct"
+                }
+              },
+              "queryRef": "gold_baggage_kpi.scan_completeness_pct",
+              "nativeQueryRef": "scan_completeness_pct"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Baggage - synthetic demonstration, advisory only'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Baggage - synthetic demonstration, advisory only. Synthetic demonstration data.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "@id": "dtmi:com:fictionalairport:Airport;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Airport reference anchor",
+  "description": "Public airport identity anchor with an explicitly fictional demonstration relationship.",
+  "contents": [
+    {"@type": "Property", "name": "airportId", "schema": "string"},
+    {"@type": "Property", "name": "iataCode", "schema": "string"},
+    {"@type": "Property", "name": "airportName", "schema": "string"},
+    {"@type": "Property", "name": "isSynthetic", "schema": "boolean"},
+    {"@type": "Relationship", "name": "contains", "target": "dtmi:com:fictionalairport:Terminal;1"}
+  ]
+}

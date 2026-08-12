@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "DetailTable",
+  "position": {
+    "x": 36,
+    "y": 36,
+    "z": 0,
+    "height": 190,
+    "width": 1208,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_commercial_kpi"
+                    }
+                  },
+                  "Property": "revenue_proxy"
+                }
+              },
+              "queryRef": "gold_commercial_kpi.revenue_proxy",
+              "nativeQueryRef": "revenue_proxy"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_commercial_kpi"
+                    }
+                  },
+                  "Property": "revenue_per_passenger_proxy"
+                }
+              },
+              "queryRef": "gold_commercial_kpi.revenue_per_passenger_proxy",
+              "nativeQueryRef": "revenue_per_passenger_proxy"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_commercial_kpi"
+                    }
+                  },
+                  "Property": "conversion_rate_pct"
+                }
+              },
+              "queryRef": "gold_commercial_kpi.conversion_rate_pct",
+              "nativeQueryRef": "conversion_rate_pct"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_commercial_kpi"
+                    }
+                  },
+                  "Property": "average_transaction_value_proxy"
+                }
+              },
+              "queryRef": "gold_commercial_kpi.average_transaction_value_proxy",
+              "nativeQueryRef": "average_transaction_value_proxy"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Retail and revenue - synthetic demonstration, advisory only'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Retail and revenue - synthetic demonstration, advisory only. Synthetic demonstration data.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

@@ -1,0 +1,26 @@
+table gold_aircraft_rotation_kpi
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column rotation_legs
+		dataType: int64
+		sourceColumn: rotation_legs
+	column aircraft_instances
+		dataType: int64
+		sourceColumn: aircraft_instances
+	column avg_ground_interval_min
+		dataType: double
+		sourceColumn: avg_ground_interval_min
+	column overlap_count
+		dataType: int64
+		sourceColumn: overlap_count
+	column legs_per_aircraft
+		dataType: double
+		sourceColumn: legs_per_aircraft
+	measure 'Rotation Legs per Aircraft' = AVERAGE(gold_aircraft_rotation_kpi[legs_per_aircraft])
+		formatString: 0.0
+		displayFolder: Flight Operations
+	partition gold_aircraft_rotation_kpi = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_aircraft_rotation_kpi"]}[Data] in Data

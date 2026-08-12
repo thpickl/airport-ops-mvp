@@ -1,0 +1,11 @@
+{
+  "@id": "dtmi:com:fictionalairport:Stand;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Aircraft Stand",
+  "contents": [
+    {"@type": "Property", "name": "standId", "schema": "string"},
+    {"@type": "Property", "name": "standName", "schema": "string"},
+    {"@type": "Property", "name": "isSynthetic", "schema": "boolean"}
+  ]
+}

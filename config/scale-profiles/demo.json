@@ -1,0 +1,10 @@
+{
+  "name": "demo",
+  "history_days": 90,
+  "flights_per_airport_day": 24,
+  "passengers_per_flight": 120,
+  "queue_observations_per_flight": 6,
+  "retail_transactions_per_flight": 6,
+  "asset_observations_per_airport_day": 24,
+  "event_fault_rate": 0.005
+}

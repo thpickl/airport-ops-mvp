@@ -1,0 +1,173 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "DetailTable",
+  "position": {
+    "x": 36,
+    "y": 36,
+    "z": 0,
+    "height": 610,
+    "width": 1208,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_maintenance_kpi"
+                    }
+                  },
+                  "Property": "asset_availability_pct"
+                }
+              },
+              "queryRef": "gold_maintenance_kpi.asset_availability_pct",
+              "nativeQueryRef": "asset_availability_pct"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_maintenance_kpi"
+                    }
+                  },
+                  "Property": "failure_count"
+                }
+              },
+              "queryRef": "gold_maintenance_kpi.failure_count",
+              "nativeQueryRef": "failure_count"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_maintenance_kpi"
+                    }
+                  },
+                  "Property": "mean_time_to_repair_hours"
+                }
+              },
+              "queryRef": "gold_maintenance_kpi.mean_time_to_repair_hours",
+              "nativeQueryRef": "mean_time_to_repair_hours"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_maintenance_kpi"
+                    }
+                  },
+                  "Property": "open_work_order_backlog"
+                }
+              },
+              "queryRef": "gold_maintenance_kpi.open_work_order_backlog",
+              "nativeQueryRef": "open_work_order_backlog"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_maintenance_kpi"
+                    }
+                  },
+                  "Property": "predicted_failure_risk_pct"
+                }
+              },
+              "queryRef": "gold_maintenance_kpi.predicted_failure_risk_pct",
+              "nativeQueryRef": "predicted_failure_risk_pct"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_maintenance_kpi"
+                    }
+                  },
+                  "Property": "avg_inspection_score"
+                }
+              },
+              "queryRef": "gold_maintenance_kpi.avg_inspection_score",
+              "nativeQueryRef": "avg_inspection_score"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_maintenance_kpi"
+                    }
+                  },
+                  "Property": "inspection_compliance_pct"
+                }
+              },
+              "queryRef": "gold_maintenance_kpi.inspection_compliance_pct",
+              "nativeQueryRef": "inspection_compliance_pct"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_maintenance_kpi"
+                    }
+                  },
+                  "Property": "inspection_follow_up_count"
+                }
+              },
+              "queryRef": "gold_maintenance_kpi.inspection_follow_up_count",
+              "nativeQueryRef": "inspection_follow_up_count"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Maintenance and assets - synthetic demonstration, advisory only'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Maintenance and assets - synthetic demonstration, advisory only. Synthetic demonstration data.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

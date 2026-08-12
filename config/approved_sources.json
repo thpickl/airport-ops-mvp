@@ -1,0 +1,8 @@
+{
+  "schema_version": "2.0",
+  "agent_policy": "Allow only derived Gold, curated Warehouse views, and curated KQL serving functions.",
+  "allow_patterns": ["gold_*", "ops.vw_*", "view_*", "fn_*"],
+  "deny_patterns": ["bronze_*", "silver_*", "*_quarantine_*", "Files/*", "raw:*", "external:*", "operational:*"],
+  "prohibited_write_targets": ["ATC", "AODB", "BHS", "BMS", "aircraft", "gate control", "equipment", "asset control", "staff assignment"],
+  "action_tools_enabled": false
+}

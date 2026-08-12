@@ -1,0 +1,23 @@
+table dim_airline
+
+	column airline_id
+		dataType: string
+		isHidden
+		sourceColumn: airline_id
+
+	column airline_name
+		dataType: string
+		sourceColumn: airline_name
+
+	column alliance
+		dataType: string
+		sourceColumn: alliance
+
+	partition dim_airline = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_dim_airline"]}[Data]
+				in
+					Data

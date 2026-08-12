@@ -1,0 +1,33 @@
+{
+  "schema_version": "3.0",
+  "environments": {
+    "development": {
+      "workspace_id": "${FABRIC_DEV_WORKSPACE_ID}",
+      "workspace_name": "FictionalAirportOps-Dev",
+      "capacity_reference": "${FABRIC_DEV_CAPACITY_REFERENCE}",
+      "item_name_suffix": "-Dev",
+      "simulation_profile": "small",
+      "deployment_mode": "validate-create-update",
+      "dry_run": true
+    },
+    "test": {
+      "workspace_id": "${FABRIC_TEST_WORKSPACE_ID}",
+      "workspace_name": "FictionalAirportOps-Test",
+      "capacity_reference": "${FABRIC_TEST_CAPACITY_REFERENCE}",
+      "item_name_suffix": "-Test",
+      "simulation_profile": "medium",
+      "deployment_mode": "validate-create-update",
+      "dry_run": true
+    },
+    "production": {
+      "workspace_id": "${FABRIC_PROD_WORKSPACE_ID}",
+      "workspace_name": "FictionalAirportOps-Prod",
+      "capacity_reference": "${FABRIC_PROD_CAPACITY_REFERENCE}",
+      "item_name_suffix": "-Prod",
+      "simulation_profile": "large",
+      "deployment_mode": "validate-create-update",
+      "dry_run": true
+    }
+  },
+  "note": "Copy outside source control or inject values at runtime. Never replace placeholders with committed environment identifiers."
+}

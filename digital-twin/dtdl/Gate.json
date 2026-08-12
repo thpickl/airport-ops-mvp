@@ -1,0 +1,15 @@
+{
+  "@id": "dtmi:com:fictionalairport:Gate;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Gate",
+  "contents": [
+    {"@type": "Property", "name": "gateId", "schema": "string"},
+    {"@type": "Property", "name": "gateCode", "schema": "string"},
+    {"@type": "Property", "name": "gateType", "schema": "string"},
+    {"@type": "Property", "name": "isSynthetic", "schema": "boolean"},
+    {"@type": "Relationship", "name": "serves", "target": "dtmi:com:fictionalairport:Stand;1"},
+    {"@type": "Relationship", "name": "servesFlight", "target": "dtmi:com:fictionalairport:Flight;1"},
+    {"@type": "Relationship", "name": "locatedIn", "target": "dtmi:com:fictionalairport:Terminal;1"}
+  ]
+}

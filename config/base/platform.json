@@ -1,0 +1,37 @@
+{
+  "schema_version": "4.0",
+  "environment": "dev",
+  "resource_prefix": "fao-demo",
+  "seed": 42,
+  "airport_count": 18,
+  "simulation_start_utc": "2026-01-01T00:00:00Z",
+  "scale_profile": "smoke",
+  "deployment_mode": "dry-run",
+  "destructive_operations_enabled": false,
+  "external_integrations_enabled": false,
+  "data_classification": "SyntheticOperational",
+  "recommendation_mode": "AdvisoryOnly",
+  "generator_version": "4.0.0",
+  "reference_mode": "public_reference",
+  "reference_snapshot": "config/reference/airport-anchors.json",
+  "fictional_reference_snapshot": "config/reference/airport-anchors.fictional.json",
+  "disclaimer": "Real airport identities are used only as public geographic reference anchors. All ownership, infrastructure, flights, passengers, employees, operations, performance, incidents, commercial activity, recommendations, and outcomes are synthetic.",
+  "required_identifier_prefix": "SYN-",
+  "prohibited_control_targets": [
+    "ATC",
+    "aircraft",
+    "AODB",
+    "BHS",
+    "BMS",
+    "equipment",
+    "operational technology",
+    "workforce systems"
+  ],
+  "runtime_environment_variables": {
+    "workspace_id": "FABRIC_WORKSPACE_ID",
+    "warehouse_server": "FABRIC_WAREHOUSE_SERVER",
+    "warehouse_database": "FABRIC_WAREHOUSE_DATABASE",
+    "kql_query_uri": "FABRIC_KQL_QUERY_URI",
+    "kql_database": "FABRIC_KQL_DATABASE"
+  }
+}

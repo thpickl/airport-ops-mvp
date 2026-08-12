@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "DetailTable",
+  "position": {
+    "x": 36,
+    "y": 36,
+    "z": 0,
+    "height": 610,
+    "width": 1208,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_incident_customer_kpi"
+                    }
+                  },
+                  "Property": "incident_count"
+                }
+              },
+              "queryRef": "gold_incident_customer_kpi.incident_count",
+              "nativeQueryRef": "incident_count"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_incident_customer_kpi"
+                    }
+                  },
+                  "Property": "incidents_per_100_flights"
+                }
+              },
+              "queryRef": "gold_incident_customer_kpi.incidents_per_100_flights",
+              "nativeQueryRef": "incidents_per_100_flights"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_incident_customer_kpi"
+                    }
+                  },
+                  "Property": "high_severity_incidents"
+                }
+              },
+              "queryRef": "gold_incident_customer_kpi.high_severity_incidents",
+              "nativeQueryRef": "high_severity_incidents"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_incident_customer_kpi"
+                    }
+                  },
+                  "Property": "time_to_resolution_proxy_min"
+                }
+              },
+              "queryRef": "gold_incident_customer_kpi.time_to_resolution_proxy_min",
+              "nativeQueryRef": "time_to_resolution_proxy_min"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Incidents - synthetic demonstration, advisory only'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Incidents - synthetic demonstration, advisory only. Synthetic demonstration data.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

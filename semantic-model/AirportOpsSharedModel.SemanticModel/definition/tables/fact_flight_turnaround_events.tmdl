@@ -1,0 +1,100 @@
+table fact_flight_turnaround_events
+
+	column flight_event_id
+		dataType: string
+		isKey
+		isHidden
+		sourceColumn: flight_event_id
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column airline_id
+		dataType: string
+		isHidden
+		sourceColumn: airline_id
+	column date_key
+		dataType: int64
+		isHidden
+		sourceColumn: date_key
+	column arrival_date_key
+		dataType: int64
+		isHidden
+		sourceColumn: arrival_date_key
+	column actual_departure_date_key
+		dataType: int64
+		isHidden
+		sourceColumn: actual_departure_date_key
+	column event_hour
+		dataType: int64
+		sourceColumn: event_hour
+	column passenger_count
+		dataType: int64
+		sourceColumn: passenger_count
+	column arrival_delay_minutes
+		dataType: double
+		sourceColumn: arrival_delay_minutes
+	column departure_delay_minutes
+		dataType: double
+		sourceColumn: departure_delay_minutes
+	column turnaround_minutes
+		dataType: double
+		sourceColumn: turnaround_minutes
+	measure 'Flight Count' = DISTINCTCOUNT(fact_flight_turnaround_events[flight_event_id])
+		formatString: #,0
+		displayFolder: Flight Operations
+	measure 'Passenger Count' = SUM(fact_flight_turnaround_events[passenger_count])
+		formatString: #,0
+		displayFolder: Flight Operations
+	measure 'On-Time Arrival 0 %' = DIVIDE(COUNTROWS(FILTER(fact_flight_turnaround_events, fact_flight_turnaround_events[arrival_delay_minutes] <= 0)), [Flight Count])
+		formatString: 0.0%
+		displayFolder: Flight Operations\On-Time
+	measure 'On-Time Arrival 15 %' = DIVIDE(COUNTROWS(FILTER(fact_flight_turnaround_events, fact_flight_turnaround_events[arrival_delay_minutes] <= 15)), [Flight Count])
+		formatString: 0.0%
+		displayFolder: Flight Operations\On-Time
+	measure 'On-Time Arrival 30 %' = DIVIDE(COUNTROWS(FILTER(fact_flight_turnaround_events, fact_flight_turnaround_events[arrival_delay_minutes] <= 30)), [Flight Count])
+		formatString: 0.0%
+		displayFolder: Flight Operations\On-Time
+	measure 'On-Time Departure 0 %' = DIVIDE(COUNTROWS(FILTER(fact_flight_turnaround_events, fact_flight_turnaround_events[departure_delay_minutes] <= 0)), [Flight Count])
+		formatString: 0.0%
+		displayFolder: Flight Operations\On-Time
+	measure 'On-Time Departure 15 %' = DIVIDE(COUNTROWS(FILTER(fact_flight_turnaround_events, fact_flight_turnaround_events[departure_delay_minutes] <= 15)), [Flight Count])
+		formatString: 0.0%
+		displayFolder: Flight Operations\On-Time
+	measure 'On-Time Departure 30 %' = DIVIDE(COUNTROWS(FILTER(fact_flight_turnaround_events, fact_flight_turnaround_events[departure_delay_minutes] <= 30)), [Flight Count])
+		formatString: 0.0%
+		displayFolder: Flight Operations\On-Time
+	measure 'Average Arrival Delay Minutes' = AVERAGE(fact_flight_turnaround_events[arrival_delay_minutes])
+		formatString: 0.0
+		displayFolder: Flight Operations\Delay
+	measure 'Average Departure Delay Minutes' = AVERAGE(fact_flight_turnaround_events[departure_delay_minutes])
+		formatString: 0.0
+		displayFolder: Flight Operations\Delay
+	measure 'Departure Delay P50 Minutes' = PERCENTILEX.INC(fact_flight_turnaround_events, fact_flight_turnaround_events[departure_delay_minutes], 0.50)
+		formatString: 0.0
+		displayFolder: Flight Operations\Delay
+	measure 'Departure Delay P90 Minutes' = PERCENTILEX.INC(fact_flight_turnaround_events, fact_flight_turnaround_events[departure_delay_minutes], 0.90)
+		formatString: 0.0
+		displayFolder: Flight Operations\Delay
+	measure 'Departure Delay P95 Minutes' = PERCENTILEX.INC(fact_flight_turnaround_events, fact_flight_turnaround_events[departure_delay_minutes], 0.95)
+		formatString: 0.0
+		displayFolder: Flight Operations\Delay
+	measure 'Average Turnaround Minutes' = AVERAGE(fact_flight_turnaround_events[turnaround_minutes])
+		formatString: 0.0
+		displayFolder: Turnaround
+	measure 'Turnaround P50 Minutes' = PERCENTILEX.INC(fact_flight_turnaround_events, fact_flight_turnaround_events[turnaround_minutes], 0.50)
+		formatString: 0.0
+		displayFolder: Turnaround
+	measure 'Turnaround P90 Minutes' = PERCENTILEX.INC(fact_flight_turnaround_events, fact_flight_turnaround_events[turnaround_minutes], 0.90)
+		formatString: 0.0
+		displayFolder: Turnaround
+	measure 'Turnaround P95 Minutes' = PERCENTILEX.INC(fact_flight_turnaround_events, fact_flight_turnaround_events[turnaround_minutes], 0.95)
+		formatString: 0.0
+		displayFolder: Turnaround
+	measure 'Turnaround Target Attainment Event %' = DIVIDE(COUNTROWS(FILTER(fact_flight_turnaround_events, fact_flight_turnaround_events[turnaround_minutes] <= 38)), [Flight Count])
+		formatString: 0.0%
+		displayFolder: Turnaround
+
+	partition fact_flight_turnaround_events = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_fact_flight_turnaround_events"]}[Data] in Data

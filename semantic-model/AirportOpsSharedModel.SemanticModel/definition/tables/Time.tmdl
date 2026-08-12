@@ -1,0 +1,19 @@
+table Time
+
+	column TimeKey = [Value]
+		dataType: int64
+		isHidden
+
+	column Hour = INT(DIVIDE([Value], 4))
+		dataType: int64
+
+	column Minute = MOD([Value], 4) * 15
+		dataType: int64
+
+	column TimeLabel = FORMAT(TIME([Hour], [Minute], 0), "HH:mm")
+		dataType: string
+		sortByColumn: TimeKey
+
+	partition Time = calculated
+		mode: import
+		source = GENERATESERIES(0, 95, 1)

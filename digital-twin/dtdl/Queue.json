@@ -1,0 +1,15 @@
+{
+  "@id": "dtmi:com:fictionalairport:Queue;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic passenger queue",
+  "description": "Descriptive synthetic queue state; no control commands are exposed.",
+  "contents": [
+    {"@type": "Property", "name": "queueId", "schema": "string"},
+    {"@type": "Property", "name": "queueType", "schema": "string"},
+    {"@type": "Telemetry", "name": "waitMinutes", "schema": "double"},
+    {"@type": "Telemetry", "name": "passengerCount", "schema": "integer"},
+    {"@type": "Property", "name": "isSynthetic", "schema": "boolean"},
+    {"@type": "Relationship", "name": "locatedIn", "target": "dtmi:com:fictionalairport:Zone;1"}
+  ]
+}

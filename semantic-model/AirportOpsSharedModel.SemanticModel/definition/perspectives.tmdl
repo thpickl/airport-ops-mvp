@@ -1,0 +1,90 @@
+perspective Airport
+	perspectiveTable dim_airport
+	perspectiveTable gold_persona_scorecard
+	perspectiveTable gold_baggage_performance
+	perspectiveTable gold_customer_experience
+	perspectiveTable gold_flight_operations_kpi
+	perspectiveTable gold_passenger_flow_kpi
+	perspectiveTable gold_baggage_kpi
+	perspectiveTable gold_incident_customer_kpi
+
+perspective Airline
+	perspectiveTable dim_airline
+	perspectiveTable dim_route
+	perspectiveTable gold_airline_route_performance
+	perspectiveTable gold_baggage_performance
+	perspectiveTable gold_customer_experience
+	perspectiveTable gold_flight_operations_kpi
+	perspectiveTable gold_baggage_kpi
+	perspectiveTable gold_aircraft_rotation_kpi
+
+perspective Executive
+	perspectiveTable dim_airport
+	perspectiveTable gold_persona_scorecard
+	perspectiveTable gold_airline_route_performance
+	perspectiveTable gold_retail_performance
+	perspectiveTable gold_it_service_health
+	perspectiveTable gold_flight_operations_kpi
+	perspectiveTable gold_energy_sustainability_kpi
+	perspectiveTable gold_commercial_kpi
+	perspectiveTable gold_incident_customer_kpi
+
+perspective Regional
+	perspectiveTable dim_airport
+	perspectiveTable gold_persona_scorecard
+	perspectiveTable gold_flight_operations_kpi
+	perspectiveTable gold_passenger_flow_kpi
+	perspectiveTable gold_energy_sustainability_kpi
+	perspectiveTable gold_incident_customer_kpi
+
+perspective Operations
+	perspectiveTable dim_airport
+	perspectiveTable dim_route
+	perspectiveTable gold_airline_route_performance
+	perspectiveTable gold_baggage_performance
+	perspectiveTable gold_workforce_coverage
+	perspectiveTable gold_turnaround_phase_performance
+	perspectiveTable gold_flight_operations_kpi
+	perspectiveTable gold_passenger_flow_kpi
+	perspectiveTable gold_baggage_kpi
+	perspectiveTable gold_workforce_kpi
+	perspectiveTable gold_aircraft_rotation_kpi
+
+perspective Maintenance
+	perspectiveTable dim_airport
+	perspectiveTable gold_asset_reliability
+	perspectiveTable gold_workforce_coverage
+	perspectiveTable gold_maintenance_kpi
+	perspectiveTable gold_energy_sustainability_kpi
+
+perspective Commercial
+	perspectiveTable dim_airport
+	perspectiveTable gold_retail_performance
+	perspectiveTable gold_customer_experience
+	perspectiveTable gold_commercial_kpi
+	perspectiveTable gold_incident_customer_kpi
+	perspectiveTable gold_retail_inventory_kpi
+
+perspective Sustainability
+	perspectiveTable dim_airport
+	perspectiveTable gold_energy_sustainability_kpi
+	perspectiveTable gold_asset_reliability
+	perspectiveTable gold_it_service_health
+
+perspective Compliance
+	perspectiveTable dim_airport
+	perspectiveTable gold_incident_customer_kpi
+	perspectiveTable gold_data_agent_enterprise_context
+	perspectiveTable gold_it_service_health
+
+perspective CustomerExperience
+	perspectiveTable dim_airport
+	perspectiveTable dim_route
+	perspectiveTable gold_customer_experience
+	perspectiveTable gold_incident_customer_kpi
+	perspectiveTable gold_data_agent_enterprise_context
+
+perspective IT
+	perspectiveTable gold_it_service_health
+	perspectiveTable gold_data_agent_enterprise_context
+	perspectiveTable gold_incident_customer_kpi

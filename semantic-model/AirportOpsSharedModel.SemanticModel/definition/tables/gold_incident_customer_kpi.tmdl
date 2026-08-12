@@ -1,0 +1,36 @@
+table gold_incident_customer_kpi
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column incident_count
+		dataType: int64
+		sourceColumn: incident_count
+	column incidents_per_100_flights
+		dataType: double
+		sourceColumn: incidents_per_100_flights
+	column high_severity_incidents
+		dataType: int64
+		sourceColumn: high_severity_incidents
+	column time_to_resolution_proxy_min
+		dataType: double
+		sourceColumn: time_to_resolution_proxy_min
+	column customer_satisfaction
+		dataType: double
+		sourceColumn: customer_satisfaction
+	column synthetic_nps
+		dataType: double
+		sourceColumn: synthetic_nps
+	column complaints_per_1000_responses
+		dataType: double
+		sourceColumn: complaints_per_1000_responses
+	column recommendation_acceptance_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: recommendation_acceptance_pct
+	measure 'Recommendation Acceptance %' = DIVIDE(AVERAGE(gold_incident_customer_kpi[recommendation_acceptance_pct]),100.0)
+		formatString: 0.0%
+		displayFolder: Customer Experience
+	partition gold_incident_customer_kpi = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_incident_customer_kpi"]}[Data] in Data

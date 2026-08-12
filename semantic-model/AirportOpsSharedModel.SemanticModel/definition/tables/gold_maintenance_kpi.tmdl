@@ -1,0 +1,45 @@
+table gold_maintenance_kpi
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column asset_availability_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: asset_availability_pct
+	column failure_count
+		dataType: int64
+		sourceColumn: failure_count
+	column mean_time_between_failures_hours
+		dataType: double
+		sourceColumn: mean_time_between_failures_hours
+	column mean_time_to_repair_hours
+		dataType: double
+		sourceColumn: mean_time_to_repair_hours
+	column preventive_maintenance_compliance_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: preventive_maintenance_compliance_pct
+	column open_work_order_backlog
+		dataType: int64
+		sourceColumn: open_work_order_backlog
+	column predicted_failure_risk_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: predicted_failure_risk_pct
+	column avg_inspection_score
+		dataType: double
+		sourceColumn: avg_inspection_score
+	column inspection_compliance_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: inspection_compliance_pct
+	column inspection_follow_up_count
+		dataType: int64
+		sourceColumn: inspection_follow_up_count
+	measure 'Predicted Failure Risk %' = DIVIDE(AVERAGE(gold_maintenance_kpi[predicted_failure_risk_pct]),100.0)
+		formatString: 0.0%
+		displayFolder: Maintenance
+	partition gold_maintenance_kpi = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_maintenance_kpi"]}[Data] in Data

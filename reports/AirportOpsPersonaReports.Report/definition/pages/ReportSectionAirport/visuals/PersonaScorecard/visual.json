@@ -1,0 +1,131 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "PersonaScorecard",
+  "position": {
+    "x": 36,
+    "y": 36,
+    "z": 0,
+    "height": 190,
+    "width": 1208,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_persona_scorecard"
+                    }
+                  },
+                  "Property": "primary_kpi_name"
+                }
+              },
+              "queryRef": "gold_persona_scorecard.primary_kpi_name",
+              "nativeQueryRef": "primary_kpi_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_persona_scorecard"
+                    }
+                  },
+                  "Property": "primary_kpi_value"
+                }
+              },
+              "queryRef": "gold_persona_scorecard.primary_kpi_value",
+              "nativeQueryRef": "primary_kpi_value"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_persona_scorecard"
+                    }
+                  },
+                  "Property": "secondary_kpi_name"
+                }
+              },
+              "queryRef": "gold_persona_scorecard.secondary_kpi_name",
+              "nativeQueryRef": "secondary_kpi_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_persona_scorecard"
+                    }
+                  },
+                  "Property": "secondary_kpi_value"
+                }
+              },
+              "queryRef": "gold_persona_scorecard.secondary_kpi_value",
+              "nativeQueryRef": "secondary_kpi_value"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_persona_scorecard"
+                    }
+                  },
+                  "Property": "scorecard_status"
+                }
+              },
+              "queryRef": "gold_persona_scorecard.scorecard_status",
+              "nativeQueryRef": "scorecard_status"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Airport scorecard - synthetic demonstration, advisory only'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Airport scorecard - synthetic demonstration, advisory only. Synthetic demonstration data.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

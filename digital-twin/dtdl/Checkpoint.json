@@ -1,0 +1,12 @@
+{
+  "@id": "dtmi:com:fictionalairport:Checkpoint;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Passenger Checkpoint",
+  "contents": [
+    {"@type": "Property", "name": "checkpointId", "schema": "string"},
+    {"@type": "Property", "name": "checkpointCode", "schema": "string"},
+    {"@type": "Property", "name": "checkpointName", "schema": "string"},
+    {"@type": "Property", "name": "isSynthetic", "schema": "boolean"}
+  ]
+}

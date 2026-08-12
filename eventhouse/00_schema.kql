@@ -1,0 +1,84 @@
+// AirportOpsRealtime schema. All records are deterministic and synthetic.
+// Execute each command in order against the configured KQL database.
+
+.create-merge table FlightOperationsRaw (
+    EventId:string, EventTimestamp:datetime, AirportId:string, GateId:string,
+    AirlineId:string, RouteId:string, FlightEventId:string, EventType:string,
+    DelayMinutes:real, TurnaroundMinutes:real, PassengerCount:long,
+    PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+
+.create-or-alter table FlightOperationsRaw ingestion json mapping "FlightOperationsRawJson" '[{"column":"EventId","path":"$.event_id"},{"column":"EventTimestamp","path":"$.event_timestamp"},{"column":"AirportId","path":"$.airport_id"},{"column":"GateId","path":"$.gate_id"},{"column":"AirlineId","path":"$.airline_id"},{"column":"RouteId","path":"$.route_id"},{"column":"FlightEventId","path":"$.flight_event_id"},{"column":"EventType","path":"$.event_type"},{"column":"DelayMinutes","path":"$.delay_minutes"},{"column":"TurnaroundMinutes","path":"$.turnaround_minutes"},{"column":"PassengerCount","path":"$.passenger_count"},{"column":"PayloadHash","path":"$.payload_hash"},{"column":"BatchId","path":"$.batch_id"},{"column":"IsSynthetic","path":"$.is_synthetic"}]'
+
+.create-merge table BaggageEventsRaw (
+    EventId:string, EventTimestamp:datetime, AirportId:string, DestinationAirportId:string,
+    FlightEventId:string, BagToken:string, EventType:string, JourneyStatus:string,
+    JourneyMinutes:real, MishandledFlag:bool, PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+
+.create-or-alter table BaggageEventsRaw ingestion json mapping "BaggageEventsRawJson" '[{"column":"EventId","path":"$.event_id"},{"column":"EventTimestamp","path":"$.event_timestamp"},{"column":"AirportId","path":"$.airport_id"},{"column":"DestinationAirportId","path":"$.destination_airport_id"},{"column":"FlightEventId","path":"$.flight_event_id"},{"column":"BagToken","path":"$.bag_token"},{"column":"EventType","path":"$.event_type"},{"column":"JourneyStatus","path":"$.journey_status"},{"column":"JourneyMinutes","path":"$.journey_minutes"},{"column":"MishandledFlag","path":"$.mishandled_flag"},{"column":"PayloadHash","path":"$.payload_hash"},{"column":"BatchId","path":"$.batch_id"},{"column":"IsSynthetic","path":"$.is_synthetic"}]'
+
+.create-merge table QueueEventsRaw (
+    EventId:string, EventTimestamp:datetime, AirportId:string, TerminalId:string,
+    CheckpointId:string, QueueType:string, QueueLength:long, WaitTimeMinutes:real,
+    ThroughputPassengers:long, PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+
+.create-or-alter table QueueEventsRaw ingestion json mapping "QueueEventsRawJson" '[{"column":"EventId","path":"$.event_id"},{"column":"EventTimestamp","path":"$.event_timestamp"},{"column":"AirportId","path":"$.airport_id"},{"column":"TerminalId","path":"$.terminal_id"},{"column":"CheckpointId","path":"$.checkpoint_id"},{"column":"QueueType","path":"$.queue_type"},{"column":"QueueLength","path":"$.queue_length"},{"column":"WaitTimeMinutes","path":"$.wait_time_minutes"},{"column":"ThroughputPassengers","path":"$.throughput_passengers"},{"column":"PayloadHash","path":"$.payload_hash"},{"column":"BatchId","path":"$.batch_id"},{"column":"IsSynthetic","path":"$.is_synthetic"}]'
+
+.create-merge table AssetTelemetryRaw (
+    EventId:string, EventTimestamp:datetime, AirportId:string, AssetId:string,
+    AssetType:string, AvailabilityPct:real, HealthStatus:string, AnomalyFlag:bool,
+    EnergyKwh:real, PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+
+.create-or-alter table AssetTelemetryRaw ingestion json mapping "AssetTelemetryRawJson" '[{"column":"EventId","path":"$.event_id"},{"column":"EventTimestamp","path":"$.event_timestamp"},{"column":"AirportId","path":"$.airport_id"},{"column":"AssetId","path":"$.asset_id"},{"column":"AssetType","path":"$.asset_type"},{"column":"AvailabilityPct","path":"$.availability_pct"},{"column":"HealthStatus","path":"$.health_status"},{"column":"AnomalyFlag","path":"$.anomaly_flag"},{"column":"EnergyKwh","path":"$.energy_kwh"},{"column":"PayloadHash","path":"$.payload_hash"},{"column":"BatchId","path":"$.batch_id"},{"column":"IsSynthetic","path":"$.is_synthetic"}]'
+
+.create-merge table PosEventsRaw (
+    EventId:string, EventTimestamp:datetime, AirportId:string, TerminalId:string,
+    OutletId:string, ProductId:string, TransactionCount:long, GrossSalesProxy:real,
+    RefundProxy:real, PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+
+.create-or-alter table PosEventsRaw ingestion json mapping "PosEventsRawJson" '[{"column":"EventId","path":"$.event_id"},{"column":"EventTimestamp","path":"$.event_timestamp"},{"column":"AirportId","path":"$.airport_id"},{"column":"TerminalId","path":"$.terminal_id"},{"column":"OutletId","path":"$.outlet_id"},{"column":"ProductId","path":"$.product_id"},{"column":"TransactionCount","path":"$.transaction_count"},{"column":"GrossSalesProxy","path":"$.gross_sales_proxy"},{"column":"RefundProxy","path":"$.refund_proxy"},{"column":"PayloadHash","path":"$.payload_hash"},{"column":"BatchId","path":"$.batch_id"},{"column":"IsSynthetic","path":"$.is_synthetic"}]'
+
+.create-merge table TurnaroundTaskEventsRaw (
+    EventId:string, EventTimestamp:datetime, AirportId:string, GateId:string,
+    FlightEventId:string, TaskName:string, TaskSequence:long, TaskDurationMinutes:real,
+    TaskStatus:string, PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+.create-or-alter table TurnaroundTaskEventsRaw ingestion json mapping "TurnaroundTaskEventsRawJson" '[{"column":"EventId","path":"$.event_id"},{"column":"EventTimestamp","path":"$.event_timestamp"},{"column":"AirportId","path":"$.airport_id"},{"column":"GateId","path":"$.gate_id"},{"column":"FlightEventId","path":"$.flight_event_id"},{"column":"TaskName","path":"$.task_name"},{"column":"TaskSequence","path":"$.task_sequence"},{"column":"TaskDurationMinutes","path":"$.task_duration_minutes"},{"column":"TaskStatus","path":"$.task_status"},{"column":"PayloadHash","path":"$.payload_hash"},{"column":"BatchId","path":"$.batch_id"},{"column":"IsSynthetic","path":"$.is_synthetic"}]'
+.create-or-alter table TurnaroundTaskEventsRaw ingestion csv mapping "TurnaroundTaskEventsRawCsv" '[{"Name":"EventId","Ordinal":0},{"Name":"EventTimestamp","Ordinal":1},{"Name":"AirportId","Ordinal":2},{"Name":"GateId","Ordinal":3},{"Name":"FlightEventId","Ordinal":4},{"Name":"TaskName","Ordinal":5},{"Name":"TaskSequence","Ordinal":6},{"Name":"TaskDurationMinutes","Ordinal":7},{"Name":"TaskStatus","Ordinal":8},{"Name":"PayloadHash","Ordinal":9},{"Name":"BatchId","Ordinal":10},{"Name":"IsSynthetic","Ordinal":11}]'
+
+.create-merge table EnergyEventsRaw (
+    EventId:string, EventTimestamp:datetime, AirportId:string, GateId:string,
+    MeterId:string, Source:string, EnergyKwh:real, DemandKw:real,
+    PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+.create-or-alter table EnergyEventsRaw ingestion json mapping "EnergyEventsRawJson" '[{"column":"EventId","path":"$.event_id"},{"column":"EventTimestamp","path":"$.event_timestamp"},{"column":"AirportId","path":"$.airport_id"},{"column":"GateId","path":"$.gate_id"},{"column":"MeterId","path":"$.meter_id"},{"column":"Source","path":"$.source"},{"column":"EnergyKwh","path":"$.energy_kwh"},{"column":"DemandKw","path":"$.demand_kw"},{"column":"PayloadHash","path":"$.payload_hash"},{"column":"BatchId","path":"$.batch_id"},{"column":"IsSynthetic","path":"$.is_synthetic"}]'
+.create-or-alter table EnergyEventsRaw ingestion csv mapping "EnergyEventsRawCsv" '[{"Name":"EventId","Ordinal":0},{"Name":"EventTimestamp","Ordinal":1},{"Name":"AirportId","Ordinal":2},{"Name":"GateId","Ordinal":3},{"Name":"MeterId","Ordinal":4},{"Name":"Source","Ordinal":5},{"Name":"EnergyKwh","Ordinal":6},{"Name":"DemandKw","Ordinal":7},{"Name":"PayloadHash","Ordinal":8},{"Name":"BatchId","Ordinal":9},{"Name":"IsSynthetic","Ordinal":10}]'
+
+.create-merge table IncidentEventsRaw (
+    EventId:string, EventTimestamp:datetime, AirportId:string, GateId:string,
+    Category:string, Severity:string, Status:string, DelayMinutes:real,
+    ResolutionMinutes:real, PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+.create-or-alter table IncidentEventsRaw ingestion json mapping "IncidentEventsRawJson" '[{"column":"EventId","path":"$.event_id"},{"column":"EventTimestamp","path":"$.event_timestamp"},{"column":"AirportId","path":"$.airport_id"},{"column":"GateId","path":"$.gate_id"},{"column":"Category","path":"$.category"},{"column":"Severity","path":"$.severity"},{"column":"Status","path":"$.status"},{"column":"DelayMinutes","path":"$.delay_minutes"},{"column":"ResolutionMinutes","path":"$.resolution_minutes"},{"column":"PayloadHash","path":"$.payload_hash"},{"column":"BatchId","path":"$.batch_id"},{"column":"IsSynthetic","path":"$.is_synthetic"}]'
+
+.alter-merge table FlightOperationsRaw policy retention softdelete = 30d recoverability = enabled
+.alter-merge table BaggageEventsRaw policy retention softdelete = 30d recoverability = enabled
+.alter-merge table QueueEventsRaw policy retention softdelete = 30d recoverability = enabled
+.alter-merge table AssetTelemetryRaw policy retention softdelete = 30d recoverability = enabled
+.alter-merge table PosEventsRaw policy retention softdelete = 30d recoverability = enabled
+.alter-merge table TurnaroundTaskEventsRaw policy retention softdelete = 30d recoverability = enabled
+.alter-merge table EnergyEventsRaw policy retention softdelete = 30d recoverability = enabled
+.alter-merge table IncidentEventsRaw policy retention softdelete = 30d recoverability = enabled
+
+.alter table FlightOperationsRaw policy caching hot = 3d
+.alter table BaggageEventsRaw policy caching hot = 3d
+.alter table QueueEventsRaw policy caching hot = 3d
+.alter table AssetTelemetryRaw policy caching hot = 3d
+.alter table PosEventsRaw policy caching hot = 3d
+.alter table TurnaroundTaskEventsRaw policy caching hot = 3d
+.alter table EnergyEventsRaw policy caching hot = 3d
+.alter table IncidentEventsRaw policy caching hot = 3d

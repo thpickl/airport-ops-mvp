@@ -1,0 +1,38 @@
+table gold_passenger_flow_kpi
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column avg_queue_length
+		dataType: double
+		sourceColumn: avg_queue_length
+	column peak_queue_length
+		dataType: int64
+		sourceColumn: peak_queue_length
+	column avg_wait_min
+		dataType: double
+		sourceColumn: avg_wait_min
+	column peak_wait_min
+		dataType: double
+		sourceColumn: peak_wait_min
+	column throughput_pax
+		dataType: int64
+		sourceColumn: throughput_pax
+	column predicted_congestion_risk_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: predicted_congestion_risk_pct
+	column boarding_window_risk_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: boarding_window_risk_pct
+	column missed_connection_risk_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: missed_connection_risk_pct
+	measure 'Predicted Congestion Risk %' = DIVIDE(AVERAGE(gold_passenger_flow_kpi[predicted_congestion_risk_pct]),100.0)
+		formatString: 0.0%
+		displayFolder: Passenger Flow
+	partition gold_passenger_flow_kpi = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_passenger_flow_kpi"]}[Data] in Data

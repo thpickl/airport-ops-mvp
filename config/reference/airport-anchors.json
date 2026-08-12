@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "snapshot_date": "2026-08-08",
+  "validation_status": "SOURCE_VERIFIED",
+  "ownership_assertion": "None. This is a fictional demonstration portfolio and does not represent common ownership or operation.",
+  "operational_data_policy": "No real operational data is included or implied.",
+  "sources": [
+    {
+      "source_id": "OURAIRPORTS-2026-08-08",
+      "name": "OurAirports open airport data",
+      "url": "https://ourairports.com/data/airports.csv",
+      "retrieved_utc": "2026-08-08T00:00:00Z",
+      "usage_notes": "Public reference facts only. Consult the source site for current terms and attribution guidance.",
+      "fields": ["name", "city", "country_code", "iata_code", "icao_code", "latitude", "longitude", "elevation_ft"]
+    },
+    {
+      "source_id": "IANA-TZDB-2026-08-08",
+      "name": "IANA Time Zone Database",
+      "url": "https://data.iana.org/time-zones/tzdb/zone.tab",
+      "retrieved_utc": "2026-08-08T00:00:00Z",
+      "usage_notes": "IANA identifiers assigned by airport locality for deterministic local-time conversion.",
+      "fields": ["time_zone"]
+    }
+  ],
+  "records": [
+    {"airport_reference_id":"REF-AP-CDG","name":"Paris Charles de Gaulle","city":"Paris","country":"France","country_code":"FR","region":"France","iata_code":"CDG","icao_code":"LFPG","latitude":49.00896,"longitude":2.554117,"elevation_ft":392,"time_zone":"Europe/Paris"},
+    {"airport_reference_id":"REF-AP-ORY","name":"Paris Orly","city":"Paris","country":"France","country_code":"FR","region":"France","iata_code":"ORY","icao_code":"LFPO","latitude":48.729499,"longitude":2.358963,"elevation_ft":291,"time_zone":"Europe/Paris"},
+    {"airport_reference_id":"REF-AP-NCE","name":"Nice Cote d'Azur","city":"Nice","country":"France","country_code":"FR","region":"France","iata_code":"NCE","icao_code":"LFMN","latitude":43.658401,"longitude":7.21587,"elevation_ft":12,"time_zone":"Europe/Paris"},
+    {"airport_reference_id":"REF-AP-LYS","name":"Lyon Saint-Exupery","city":"Lyon","country":"France","country_code":"FR","region":"France","iata_code":"LYS","icao_code":"LFLL","latitude":45.725996,"longitude":5.090139,"elevation_ft":821,"time_zone":"Europe/Paris"},
+    {"airport_reference_id":"REF-AP-MRS","name":"Marseille Provence","city":"Marseille","country":"France","country_code":"FR","region":"France","iata_code":"MRS","icao_code":"LFML","latitude":43.438088,"longitude":5.2125,"elevation_ft":74,"time_zone":"Europe/Paris"},
+    {"airport_reference_id":"REF-AP-TLS","name":"Toulouse-Blagnac","city":"Toulouse","country":"France","country_code":"FR","region":"France","iata_code":"TLS","icao_code":"LFBO","latitude":43.629101,"longitude":1.36382,"elevation_ft":499,"time_zone":"Europe/Paris"},
+    {"airport_reference_id":"REF-AP-FCO","name":"Rome Fiumicino","city":"Rome","country":"Italy","country_code":"IT","region":"Italy","iata_code":"FCO","icao_code":"LIRF","latitude":41.804532,"longitude":12.251998,"elevation_ft":13,"time_zone":"Europe/Rome"},
+    {"airport_reference_id":"REF-AP-MXP","name":"Milan Malpensa","city":"Milan","country":"Italy","country_code":"IT","region":"Italy","iata_code":"MXP","icao_code":"LIMC","latitude":45.6306,"longitude":8.72811,"elevation_ft":768,"time_zone":"Europe/Rome"},
+    {"airport_reference_id":"REF-AP-VCE","name":"Venice Marco Polo","city":"Venice","country":"Italy","country_code":"IT","region":"Italy","iata_code":"VCE","icao_code":"LIPZ","latitude":45.505299,"longitude":12.3519,"elevation_ft":7,"time_zone":"Europe/Rome"},
+    {"airport_reference_id":"REF-AP-NAP","name":"Naples International","city":"Naples","country":"Italy","country_code":"IT","region":"Italy","iata_code":"NAP","icao_code":"LIRN","latitude":40.886002,"longitude":14.2908,"elevation_ft":294,"time_zone":"Europe/Rome"},
+    {"airport_reference_id":"REF-AP-BLQ","name":"Bologna Guglielmo Marconi","city":"Bologna","country":"Italy","country_code":"IT","region":"Italy","iata_code":"BLQ","icao_code":"LIPE","latitude":44.5354,"longitude":11.2887,"elevation_ft":123,"time_zone":"Europe/Rome"},
+    {"airport_reference_id":"REF-AP-LIS","name":"Lisbon Humberto Delgado","city":"Lisbon","country":"Portugal","country_code":"PT","region":"Portugal","iata_code":"LIS","icao_code":"LPPT","latitude":38.7813,"longitude":-9.13592,"elevation_ft":374,"time_zone":"Europe/Lisbon"},
+    {"airport_reference_id":"REF-AP-OPO","name":"Porto Francisco Sa Carneiro","city":"Porto","country":"Portugal","country_code":"PT","region":"Portugal","iata_code":"OPO","icao_code":"LPPR","latitude":41.2481002808,"longitude":-8.68138980865,"elevation_ft":228,"time_zone":"Europe/Lisbon"},
+    {"airport_reference_id":"REF-AP-FAO","name":"Faro","city":"Faro","country":"Portugal","country_code":"PT","region":"Portugal","iata_code":"FAO","icao_code":"LPFR","latitude":37.015909,"longitude":-7.970939,"elevation_ft":24,"time_zone":"Europe/Lisbon"},
+    {"airport_reference_id":"REF-AP-FNC","name":"Madeira Cristiano Ronaldo","city":"Funchal","country":"Portugal","country_code":"PT","region":"Portugal","iata_code":"FNC","icao_code":"LPMA","latitude":32.697812,"longitude":-16.774613,"elevation_ft":192,"time_zone":"Atlantic/Madeira"},
+    {"airport_reference_id":"REF-AP-PDL","name":"Joao Paulo II Airport","city":"Ponta Delgada","country":"Portugal","country_code":"PT","region":"Portugal","iata_code":"PDL","icao_code":"LPPD","latitude":37.7411994934,"longitude":-25.6979007721,"elevation_ft":259,"time_zone":"Atlantic/Azores"},
+    {"airport_reference_id":"REF-AP-AMM","name":"Queen Alia International","city":"Amman","country":"Jordan","country_code":"JO","region":"Jordan","iata_code":"AMM","icao_code":"OJAI","latitude":31.7226009369,"longitude":35.9931983948,"elevation_ft":2395,"time_zone":"Asia/Amman"},
+    {"airport_reference_id":"REF-AP-AQJ","name":"King Hussein International","city":"Aqaba","country":"Jordan","country_code":"JO","region":"Jordan","iata_code":"AQJ","icao_code":"OJAQ","latitude":29.611601,"longitude":35.018101,"elevation_ft":175,"time_zone":"Asia/Amman"}
+  ],
+  "field_provenance": {
+    "name": "OURAIRPORTS-2026-08-08",
+    "city": "OURAIRPORTS-2026-08-08",
+    "country_code": "OURAIRPORTS-2026-08-08",
+    "iata_code": "OURAIRPORTS-2026-08-08",
+    "icao_code": "OURAIRPORTS-2026-08-08",
+    "latitude": "OURAIRPORTS-2026-08-08",
+    "longitude": "OURAIRPORTS-2026-08-08",
+    "elevation_ft": "OURAIRPORTS-2026-08-08",
+    "time_zone": "IANA-TZDB-2026-08-08"
+  }
+}

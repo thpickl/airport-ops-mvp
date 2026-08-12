@@ -1,0 +1,27 @@
+table gold_retail_inventory_kpi
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column inventory_snapshots
+		dataType: int64
+		sourceColumn: inventory_snapshots
+	column total_on_hand_units
+		dataType: int64
+		sourceColumn: total_on_hand_units
+	column reorder_items
+		dataType: int64
+		sourceColumn: reorder_items
+	column reorder_rate_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: reorder_rate_pct
+	column avg_on_hand_units
+		dataType: double
+		sourceColumn: avg_on_hand_units
+	measure 'Inventory Reorder Rate %' = DIVIDE(AVERAGE(gold_retail_inventory_kpi[reorder_rate_pct]),100.0)
+		formatString: 0.0%
+		displayFolder: Commercial
+	partition gold_retail_inventory_kpi = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_retail_inventory_kpi"]}[Data] in Data

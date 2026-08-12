@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "policy": "Enterprise Data Agent concepts use aggregate Gold or curated ops Warehouse views only. Passenger-level, booking-level, employee-level, Bronze, and Silver sources are excluded from agent grounding.",
+  "authoritative_sources": [
+    "ops.vw_dim_organization",
+    "ops.vw_dim_route",
+    "ops.vw_dim_aircraft_fleet",
+    "ops.vw_airline_route_performance",
+    "ops.vw_baggage_performance",
+    "ops.vw_workforce_coverage",
+    "ops.vw_retail_performance",
+    "ops.vw_customer_experience",
+    "ops.vw_turnaround_phase_performance",
+    "ops.vw_data_agent_enterprise_grounding",
+    "ops.vw_aircraft_rotation_kpi",
+    "ops.vw_retail_inventory_kpi",
+    "ops.vw_maintenance_kpi"
+  ],
+  "entity_sources": {
+    "Organization": {"view": "ops.vw_dim_organization", "key": "org_unit_id"},
+    "Route": {"view": "ops.vw_dim_route", "key": "route_id"},
+    "AircraftFleet": {"view": "ops.vw_dim_aircraft_fleet", "key": "aircraft_instance_id"},
+    "WorkforceCoverage": {"view": "ops.vw_workforce_coverage", "key": "work_team_id"},
+    "PassengerCohort": {"view": "ops.vw_customer_experience", "key": "route_id + customer_segment"},
+    "BookingPerformance": {"view": "ops.vw_airline_route_performance", "key": "route_id"},
+    "BaggageJourney": {"view": "ops.vw_baggage_performance", "key": "airport_id + destination_airport_id"},
+    "RetailPerformance": {"view": "ops.vw_retail_performance", "key": "outlet_id"},
+    "TurnaroundPhase": {"view": "ops.vw_turnaround_phase_performance", "key": "gate_id + phase_name"},
+    "CustomerExperience": {"view": "ops.vw_customer_experience", "key": "route_id + customer_segment"},
+    "AircraftRotation": {"view": "ops.vw_aircraft_rotation_kpi", "key": "airport_id + airline_id"},
+    "RetailInventory": {"view": "ops.vw_retail_inventory_kpi", "key": "airport_id + snapshot_date"},
+    "AssetInspection": {"view": "ops.vw_maintenance_kpi", "key": "airport_id + operation_date"}
+  },
+  "join_paths": [
+    "Organization.operating_region -> Airport.region",
+    "Route.origin_airport_id -> Airport.airport_id; Route.airline_id -> Airline.airline_id",
+    "AircraftFleet.airline_id -> Airline.airline_id; AircraftFleet.base_airport_id -> Airport.airport_id",
+    "BaggageJourney.airport_id -> Airport.airport_id",
+    "WorkforceCoverage.airport_id -> Airport.airport_id",
+    "RetailPerformance.airport_id -> Airport.airport_id",
+    "CustomerExperience.route_id -> Route.route_id",
+    "TurnaroundPhase.gate_id -> Gate.gate_id",
+    "AircraftRotation.airline_id -> Airline.airline_id; AircraftRotation.airport_id -> Airport.airport_id",
+    "RetailInventory.airport_id -> Airport.airport_id",
+    "AssetInspection.airport_id -> Airport.airport_id"
+  ]
+}

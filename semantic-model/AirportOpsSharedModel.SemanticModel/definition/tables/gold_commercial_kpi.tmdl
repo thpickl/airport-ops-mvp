@@ -1,0 +1,34 @@
+table gold_commercial_kpi
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column revenue_proxy
+		dataType: double
+		formatString: $#,0.00
+		sourceColumn: revenue_proxy
+	column revenue_per_passenger_proxy
+		dataType: double
+		formatString: $0.00
+		sourceColumn: revenue_per_passenger_proxy
+	column transactions_per_passenger
+		dataType: double
+		sourceColumn: transactions_per_passenger
+	column conversion_rate_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: conversion_rate_pct
+	column average_transaction_value_proxy
+		dataType: double
+		formatString: $0.00
+		sourceColumn: average_transaction_value_proxy
+	column concession_benchmark_variance_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: concession_benchmark_variance_pct
+	measure 'Commercial Conversion %' = DIVIDE(AVERAGE(gold_commercial_kpi[conversion_rate_pct]),100.0)
+		formatString: 0.0%
+		displayFolder: Commercial
+	partition gold_commercial_kpi = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_commercial_kpi"]}[Data] in Data

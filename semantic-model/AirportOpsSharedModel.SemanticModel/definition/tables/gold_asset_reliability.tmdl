@@ -1,0 +1,53 @@
+table gold_asset_reliability
+
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+
+	column asset_id
+		dataType: string
+		isHidden
+		sourceColumn: asset_id
+
+	column asset_type
+		dataType: string
+		sourceColumn: asset_type
+
+	column criticality
+		dataType: string
+		sourceColumn: criticality
+
+	column availability_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: availability_pct
+
+	column anomaly_count
+		dataType: int64
+		sourceColumn: anomaly_count
+
+	column open_maintenance_count
+		dataType: int64
+		sourceColumn: open_maintenance_count
+
+	column reliability_status
+		dataType: string
+		sourceColumn: reliability_status
+
+	measure 'Asset Availability %' = DIVIDE(AVERAGE(gold_asset_reliability[availability_pct]), 100.0)
+		formatString: 0.0%
+		displayFolder: Maintenance
+
+	measure 'Open Maintenance Items' = SUM(gold_asset_reliability[open_maintenance_count])
+		formatString: #,0
+		displayFolder: Maintenance
+
+	partition gold_asset_reliability = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_asset_reliability"]}[Data]
+				in
+					Data

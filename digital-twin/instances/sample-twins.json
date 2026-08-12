@@ -1,0 +1,17 @@
+[
+  {"$dtId":"SYN-TWIN-AP-CDG","$metadata":{"$model":"dtmi:com:fictionalairport:Airport;1"},"airportId":"SYN-AP-CDG","iataCode":"CDG","airportName":"Paris Charles de Gaulle","isSynthetic":false},
+  {"$dtId":"SYN-TWIN-TER-CDG-01","$metadata":{"$model":"dtmi:com:fictionalairport:Terminal;1"},"terminalId":"SYN-TER-CDG-01","terminalCode":"SYN-T01","floorCount":3,"isSynthetic":true},
+  {"$dtId":"SYN-TWIN-ZON-CDG-01","$metadata":{"$model":"dtmi:com:fictionalairport:Zone;1"},"zoneId":"SYN-ZON-CDG-01","zoneType":"SyntheticPublicProcessing","floorLevel":0,"isSynthetic":true},
+  {"$dtId":"SYN-TWIN-CHK-CDG-01","$metadata":{"$model":"dtmi:com:fictionalairport:Checkpoint;1"},"checkpointId":"SYN-CHK-CDG-01","checkpointCode":"SYN-SEC-01","checkpointName":"Synthetic Security Queue","isSynthetic":true},
+  {"$dtId":"SYN-TWIN-GAT-CDG-01","$metadata":{"$model":"dtmi:com:fictionalairport:Gate;1"},"gateId":"SYN-GAT-CDG-01","gateCode":"SYN-G01","gateType":"SyntheticContact","isSynthetic":true},
+  {"$dtId":"SYN-TWIN-STD-CDG-01","$metadata":{"$model":"dtmi:com:fictionalairport:Stand;1"},"standId":"SYN-STD-CDG-01","standName":"Synthetic Stand 01","isSynthetic":true},
+  {"$dtId":"SYN-TWIN-ACT-001","$metadata":{"$model":"dtmi:com:fictionalairport:AircraftType;1"},"aircraftTypeId":"SYN-ACT-001","icaoTypeDesignator":"A320","manufacturer":"Airbus","model":"A320 family reference","isSynthetic":true},
+  {"$dtId":"SYN-TWIN-FLT-CDG-00001","$metadata":{"$model":"dtmi:com:fictionalairport:Flight;1"},"flightEventId":"SYN-FLT-CDG-00001","syntheticFlightNumber":"SYNAL01-0001","status":"SyntheticScheduled","isSynthetic":true},
+  {"$dtId":"SYN-TWIN-QUE-CDG-01","$metadata":{"$model":"dtmi:com:fictionalairport:Queue;1"},"queueId":"SYN-QUE-CDG-01","queueType":"Security","waitMinutes":18.4,"passengerCount":42,"isSynthetic":true},
+  {"$dtId":"SYN-TWIN-BAG-CDG-01","$metadata":{"$model":"dtmi:com:fictionalairport:BaggageAsset;1"},"assetId":"SYN-BAG-AST-CDG-01","assetClass":"SyntheticBaggageBelt","healthScore":0.91,"isSynthetic":true},
+  {"$dtId":"SYN-TWIN-AST-CDG-01","$metadata":{"$model":"dtmi:com:fictionalairport:Asset;1"},"assetId":"SYN-AST-CDG-01","assetType":"SyntheticEscalator","criticality":"Medium","isSynthetic":true},
+  {"$dtId":"SYN-TWIN-MAST-CDG-01","$metadata":{"$model":"dtmi:com:fictionalairport:MaintenanceAsset;1"},"assetId":"SYN-MAST-CDG-01","assetType":"SyntheticPassengerBoardingBridge","criticality":"High","isSynthetic":true,"maintenanceClass":"GateEquipment","serviceIntervalHours":720},
+  {"$dtId":"SYN-TWIN-MTR-CDG-01","$metadata":{"$model":"dtmi:com:fictionalairport:EnergyMeter;1"},"assetId":"SYN-MTR-CDG-01","meterKind":"Electricity","unit":"kWh","isSynthetic":true},
+  {"$dtId":"SYN-TWIN-WO-CDG-00001","$metadata":{"$model":"dtmi:com:fictionalairport:MaintenanceWorkOrder;1"},"workOrderId":"SYN-WO-CDG-00001","workOrderType":"Preventive","status":"Open","approvalStatus":"HumanReviewRequired","isSynthetic":true},
+  {"$dtId":"SYN-TWIN-INC-CDG-00001","$metadata":{"$model":"dtmi:com:fictionalairport:Incident;1"},"incidentId":"SYN-INC-CDG-00001","severity":2,"status":"InReview","humanReviewRequired":true,"isSynthetic":true}
+]

@@ -1,0 +1,14 @@
+{
+  "@id": "dtmi:com:fictionalairport:Flight;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Flight",
+  "description": "Synthetic flight state for analytical demonstration only; not an AODB or control record.",
+  "contents": [
+    {"@type":"Property","name":"flightEventId","schema":"string"},
+    {"@type":"Property","name":"syntheticFlightNumber","schema":"string"},
+    {"@type":"Property","name":"status","schema":"string"},
+    {"@type":"Property","name":"isSynthetic","schema":"boolean"},
+    {"@type":"Relationship","name":"usesAircraftType","target":"dtmi:com:fictionalairport:AircraftType;1"}
+  ]
+}

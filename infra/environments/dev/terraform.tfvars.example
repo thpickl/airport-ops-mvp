@@ -1,0 +1,10 @@
+environment     = "dev"
+resource_prefix = "fao-demo"
+
+# Provide a self-provisioned Fabric Capacity ID at runtime; never commit a real value.
+# Prefer: TF_VAR_capacity_id environment variable.
+# capacity_id = "00000000-0000-0000-0000-000000000000"
+
+enable_workspace_identity            = true
+lakehouse_enable_schemas              = false
+eventhouse_minimum_consumption_units = 0

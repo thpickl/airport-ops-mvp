@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "owner_tag": "airport-ops-synthetic-demo",
+  "api_base": "https://api.fabric.microsoft.com/v1",
+  "authentication": "notebookutils.credentials.getToken('pbi')",
+  "workspace_policy": "Existing workspace ID is required at runtime; the repository never creates or deletes a workspace.",
+  "items": [
+    {"key": "lakehouse", "display_name": "AirportOpsLakehouse", "type": "Lakehouse", "deployment": "supported_generic_item_api", "depends_on": []},
+    {"key": "warehouse", "display_name": "AirportOpsWarehouse", "type": "Warehouse", "deployment": "supported_generic_item_api", "depends_on": []},
+    {"key": "eventhouse", "display_name": "AirportOpsEventhouse", "type": "Eventhouse", "deployment": "supported_generic_item_api", "depends_on": []},
+    {"key": "kql_database", "display_name": "AirportOpsRealtime", "type": "KQLDatabase", "deployment": "supported_generic_item_api", "depends_on": ["eventhouse"], "creation_payload": {"databaseType": "ReadWrite", "parentEventhouseItemId": "${eventhouse.item_id}"}},
+    {"key": "semantic_model", "display_name": "AirportOpsSharedModel", "type": "SemanticModel", "deployment": "supported_definition_api_when_tmdl_enabled", "depends_on": ["warehouse"], "definition_root": "semantic-model/AirportOpsSharedModel.SemanticModel", "runtime_replacements": ["${WAREHOUSE_SERVER}", "${WAREHOUSE_DATABASE}"]},
+    {"key": "report", "display_name": "AirportOpsPersonaReports", "type": "Report", "deployment": "pbir_definition_api_with_runtime_byConnection_binding", "depends_on": ["semantic_model"], "definition_root": "reports/AirportOpsPersonaReports.Report"},
+    {"key": "data_agent", "display_name": "AirportOpsDataAgent", "type": "DataAgent", "deployment": "native_staging_settings_datasource_elements_publish_apis", "depends_on": ["warehouse", "kql_database"], "definition_root": "data-agent", "source_allowlist": "data-agent/definition.json"},
+    {"key": "fabric_app", "display_name": "Airport Operations Command Center", "type": "FabricApp", "deployment": "capability_checked_conditional", "depends_on": ["report", "data_agent"], "definition_root": "fabric-app", "on_unsupported": "SKIPPED_UNSUPPORTED"},
+    {"key": "rayfin", "display_name": "Rayfin", "type": "ConfigurableAppModule", "deployment": "source_package_only", "depends_on": ["fabric_app"], "definition_root": "fabric-app/rayfin-module.json", "on_unsupported": "SKIPPED_UNSUPPORTED"}
+  ],
+  "notebook_execution_order": [
+    "00_Validate_Prerequisites",
+    "01_Generate_Sample_Data",
+    "02_Bronze_to_Silver",
+    "03_Silver_to_Gold",
+    "04_Generate_Physical_Spatial_Context",
+    "05_Build_Agent_Ontology_Context",
+    "07_Generate_Enterprise_Bronze",
+    "08_Enterprise_Bronze_to_Silver",
+    "09_Enterprise_Silver_to_Gold",
+    "06_Validate_Extended_MVP",
+    "10_Deploy_Platform_Artifacts",
+    "12_Validate_Production_Demo",
+    "14_Deploy_Digital_Twin",
+    "16_Lakehouse_Maintenance",
+    "15_Deployment_Status"
+  ],
+  "warehouse_scripts": [
+    "warehouse/00_enterprise_schema.sql",
+    "warehouse/AirportOpsWarehouse_views.sql",
+    "warehouse/AirportOpsWarehouse_extended.sql",
+    "warehouse/01_enterprise_views.sql",
+    "warehouse/02_security.sql",
+    "warehouse/03_persona_security.sql",
+    "warehouse/gold_kpi_checks.sql",
+    "warehouse/extended_quality_checks.sql",
+    "warehouse/03_enterprise_kpi_checks.sql"
+  ],
+  "eventhouse_scripts": [
+    "eventhouse/00_schema.kql",
+    "eventhouse/01_functions.kql",
+    "eventhouse/02_update_policies.kql",
+    "eventhouse/04_serving_views.kql",
+    "eventhouse/03_validation.kql"
+  ],
+  "eventhouse_teardown_scripts": [
+    "eventhouse/05_teardown.kql"
+  ],
+  "conditional_capabilities": {
+    "DataAgent": "Notebook 10 creates or reuses the native item, applies governed instructions, reconciles 29 Warehouse views and 13 KQL functions/views with zero raw KQL tables, and publishes staging.",
+    "FabricApp": "Fabric apps project support is capability-checked; app publication or audience assignment may remain a platform prerequisite.",
+    "Rayfin": "No verified native Fabric Rayfin item/API is assumed. The repository deploys only the configurable module source package."
+  },
+  "optional_external_deployments": [
+    {
+      "key": "digital_twin_graph",
+      "notebook": "14_Deploy_Digital_Twin",
+      "definition_root": "digital-twin",
+      "runtime_parameter": "digital_twins_endpoint",
+      "authentication": "notebookutils.credentials.getToken('https://digitaltwins.azure.net/')",
+      "default_mode": "DRY_RUN",
+      "depends_on": ["05_Build_Agent_Ontology_Context"],
+      "scope": "Portable DTDL models, synthetic twin instances, and relationships only"
+    }
+  ],
+  "optional_lakehouse_maintenance": {
+    "notebook": "16_Lakehouse_Maintenance",
+    "default_mode": "DRY_RUN",
+    "minimum_vacuum_retention_hours": 168,
+    "optimize_capability": "capability-checked"
+  },
+  "official_references": [
+    "https://learn.microsoft.com/en-us/rest/api/fabric/core/items/create-item",
+    "https://learn.microsoft.com/en-us/rest/api/fabric/core/items/update-item-definition",
+    "https://learn.microsoft.com/en-us/rest/api/fabric/core/job-scheduler/run-on-demand-item-job",
+    "https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview",
+    "https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-data-agent",
+    "https://learn.microsoft.com/en-us/fabric/apps/create-app"
+  ]
+}

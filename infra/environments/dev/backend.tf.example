@@ -1,0 +1,12 @@
+# Remote state guidance (example only; do not commit real backend config with secrets).
+# For team use, store state in Azure Storage with an azurerm backend and restrict access.
+#
+# terraform {
+#   backend "azurerm" {
+#     resource_group_name  = "REPLACE_RG"
+#     storage_account_name = "REPLACE_SA"
+#     container_name       = "tfstate"
+#     key                  = "fao-demo/dev/fabric.tfstate"
+#     use_azuread_auth     = true
+#   }
+# }

@@ -1,0 +1,14 @@
+{
+  "@id": "dtmi:com:fictionalairport:Zone;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Indoor Zone",
+  "contents": [
+    {"@type": "Property", "name": "zoneId", "schema": "string"},
+    {"@type": "Property", "name": "zoneType", "schema": "string"},
+    {"@type": "Property", "name": "floorLevel", "schema": "integer"},
+    {"@type": "Property", "name": "isSynthetic", "schema": "boolean"},
+    {"@type": "Relationship", "name": "containsCheckpoints", "target": "dtmi:com:fictionalairport:Checkpoint;1"},
+    {"@type": "Relationship", "name": "containsAssets", "target": "dtmi:com:fictionalairport:Asset;1"}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "@id": "dtmi:com:fictionalairport:AircraftType;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Aircraft Type",
+  "description": "Fictional aircraft-type attributes and operating assumptions for demonstration only.",
+  "contents": [
+    {"@type":"Property","name":"aircraftTypeId","schema":"string"},
+    {"@type":"Property","name":"icaoTypeDesignator","schema":"string"},
+    {"@type":"Property","name":"manufacturer","schema":"string"},
+    {"@type":"Property","name":"model","schema":"string"},
+    {"@type":"Property","name":"isSynthetic","schema":"boolean"}
+  ]
+}

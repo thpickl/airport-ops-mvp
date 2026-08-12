@@ -1,0 +1,39 @@
+{
+  "schema_version": "2.0",
+  "module_id": "rayfin",
+  "display_name": "Rayfin",
+  "implementation": "ConfigurableFabricAppModule",
+  "native_experience_supported": false,
+  "feature_flag": "enable_rayfin_module",
+  "enabled_by_default": false,
+  "assumption": "No documented, generally available Microsoft Fabric Rayfin item or deployment API was verified for this repository. Rayfin is packaged as a configurable app module and is not represented as a deployed native experience.",
+  "deployment_status_when_native_api_absent": "UNSUPPORTED",
+  "configuration": {
+    "semantic_model": "AirportOpsSharedModel",
+    "report": "AirportOpsPersonaReports",
+    "default_persona": "Operations",
+    "airport_filter": "All configured public reference anchors with synthetic operations",
+    "observation_timestamp": "2026-01-31T23:59:00Z",
+    "disclaimer": "Real airport identities are used only as public geographic reference anchors. All ownership, infrastructure, flights, passengers, employees, operations, performance, incidents, commercial activity, recommendations, and outcomes are synthetic.",
+    "recommendation_contract": {
+      "advisory_only": true,
+      "evidence_required": true,
+      "provenance_required": true,
+      "freshness_required": true,
+      "confidence_required": true,
+      "quality_warnings_required": true,
+      "human_approval_required": true,
+      "approval_history_required": true,
+      "decision_audit_trail_required": true
+    },
+    "geojson_resources": [
+      "../geospatial/azure-maps/airports.geojson",
+      "../geospatial/azure-maps/terminals.geojson",
+      "../geospatial/azure-maps/zones.geojson",
+      "../geospatial/azure-maps/passenger_flows.geojson",
+      "../geospatial/azure-maps/baggage_flows.geojson"
+    ],
+    "allowed_actions": ["filter", "drill_through", "ask_data_agent", "export_synthetic_summary"],
+    "prohibited_actions": ["control", "dispatch", "command", "write_operational_system", "assign_staff"]
+  }
+}

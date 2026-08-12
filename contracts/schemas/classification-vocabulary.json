@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "classifications": {
+    "PublicReference": "Non-sensitive public airport, country, airline, manufacturer, and aircraft-type reference attributes.",
+    "SyntheticMaster": "Fictional organizations, facilities, fleets, pseudonymous people, assets, products, and operating assumptions.",
+    "SyntheticOperational": "Deterministic synthetic schedules, events, telemetry, transactions, incidents, workflows, and outcomes.",
+    "DerivedAnalytical": "Conformed enrichments, dimensions, facts, aggregates, KPIs, forecasts, ontology products, and recommendations."
+  }
+}

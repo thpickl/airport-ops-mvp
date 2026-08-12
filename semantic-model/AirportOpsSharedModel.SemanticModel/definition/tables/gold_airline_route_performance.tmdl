@@ -1,0 +1,79 @@
+table gold_airline_route_performance
+
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+
+	column airline_id
+		dataType: string
+		isHidden
+		sourceColumn: airline_id
+
+	column route_id
+		dataType: string
+		isHidden
+		sourceColumn: route_id
+
+	column destination_airport_id
+		dataType: string
+		sourceColumn: destination_airport_id
+
+	column flights
+		dataType: int64
+		sourceColumn: flights
+
+	column passengers
+		dataType: int64
+		sourceColumn: passengers
+
+	column load_factor_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: load_factor_pct
+
+	column on_time_departure_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: on_time_departure_pct
+
+	column avg_turnaround_min
+		dataType: double
+		formatString: 0.0
+		sourceColumn: avg_turnaround_min
+
+	column ticket_revenue_proxy
+		dataType: double
+		formatString: $#,0.00
+		sourceColumn: ticket_revenue_proxy
+
+	column mishandled_bags_per_1000
+		dataType: double
+		formatString: 0.00
+		sourceColumn: mishandled_bags_per_1000
+
+	column satisfaction_score
+		dataType: double
+		formatString: 0.00
+		sourceColumn: satisfaction_score
+
+	measure 'On-Time Departure %' = DIVIDE(AVERAGE(gold_airline_route_performance[on_time_departure_pct]), 100.0)
+		formatString: 0.0%
+		displayFolder: Operations
+
+	measure 'Load Factor %' = DIVIDE(SUM(gold_airline_route_performance[passengers]), SUMX(gold_airline_route_performance, DIVIDE(gold_airline_route_performance[passengers], gold_airline_route_performance[load_factor_pct] / 100.0)))
+		formatString: 0.0%
+		displayFolder: Airline
+
+	measure 'Synthetic Ticket Revenue' = SUM(gold_airline_route_performance[ticket_revenue_proxy])
+		formatString: $#,0.00
+		displayFolder: Airline
+
+	partition gold_airline_route_performance = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_airline_route_performance"]}[Data]
+				in
+					Data

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "terms": {
+    "airport": ["station", "port", "network location"],
+    "terminal": ["concourse"],
+    "zone": ["area", "indoor area", "processing area"],
+    "checkpoint": ["check-in", "security", "immigration", "boarding"],
+    "gate": ["boarding gate", "contact gate", "remote gate"],
+    "stand": ["aircraft stand", "parking stand", "bay"],
+    "turnaround": ["turn", "ground time", "gate turn"],
+    "on_time_departure": ["OTD", "on time", "departure punctuality"],
+    "passenger_flow": ["queue", "wait", "throughput", "occupancy"],
+    "asset": ["equipment", "device", "jetbridge", "baggage belt", "HVAC"],
+    "operational_incident": ["incident", "exception", "disruption"],
+    "recommendation": ["suggested action", "next action", "advisory action"],
+    "OEE": ["Operational Excellence Executive"],
+    "route": ["city pair", "service lane"],
+    "baggage_performance": ["bag flow", "bag journey", "mishandled bags"],
+    "staffing_coverage": ["roster coverage", "workforce coverage", "shift coverage"],
+    "retail_performance": ["POS", "concession", "commercial performance"],
+    "customer_experience": ["CX", "satisfaction", "NPS"],
+    "turnaround_phase": ["milestone", "ground operation step"],
+    "aircraft_rotation": ["tail rotation", "fleet assignment", "aircraft sequence"],
+    "retail_inventory": ["store inventory", "concession stock", "stock position"],
+    "asset_inspection": ["equipment check", "maintenance inspection", "asset check"]
+  },
+  "disallowed_interpretations": {
+    "OEE": "Do not interpret as manufacturing Overall Equipment Effectiveness.",
+    "passenger": "Only aggregate synthetic counts exist; never infer or request passenger identity.",
+    "capacity": "CIO capacity values are synthetic proxy indicators, not Fabric tenant capacity telemetry.",
+    "cost": "Cost proxy units are synthetic and are not currency or billing data.",
+    "revenue": "Ticket and retail revenue values are synthetic proxies, not financial records.",
+    "passenger_token": "Never reveal or enumerate pseudonymous passenger or bag tokens; use aggregate Gold products only.",
+    "staffing": "Staffing values are aggregate synthetic coverage indicators and cannot be used to assign people."
+  }
+}

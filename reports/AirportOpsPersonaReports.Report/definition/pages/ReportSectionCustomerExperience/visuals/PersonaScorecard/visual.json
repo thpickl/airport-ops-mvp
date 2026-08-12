@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "PersonaScorecard",
+  "position": {
+    "x": 36,
+    "y": 36,
+    "z": 0,
+    "height": 190,
+    "width": 1208,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_incident_customer_kpi"
+                    }
+                  },
+                  "Property": "customer_satisfaction"
+                }
+              },
+              "queryRef": "gold_incident_customer_kpi.customer_satisfaction",
+              "nativeQueryRef": "customer_satisfaction"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_incident_customer_kpi"
+                    }
+                  },
+                  "Property": "synthetic_nps"
+                }
+              },
+              "queryRef": "gold_incident_customer_kpi.synthetic_nps",
+              "nativeQueryRef": "synthetic_nps"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_incident_customer_kpi"
+                    }
+                  },
+                  "Property": "complaints_per_1000_responses"
+                }
+              },
+              "queryRef": "gold_incident_customer_kpi.complaints_per_1000_responses",
+              "nativeQueryRef": "complaints_per_1000_responses"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_incident_customer_kpi"
+                    }
+                  },
+                  "Property": "recommendation_acceptance_pct"
+                }
+              },
+              "queryRef": "gold_incident_customer_kpi.recommendation_acceptance_pct",
+              "nativeQueryRef": "recommendation_acceptance_pct"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'CustomerExperience scorecard - synthetic demonstration, advisory only'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'CustomerExperience scorecard - synthetic demonstration, advisory only. Synthetic demonstration data.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

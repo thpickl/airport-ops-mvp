@@ -1,0 +1,50 @@
+table fact_passenger_queue_metrics
+
+	column queue_metric_id
+		dataType: string
+		isKey
+		isHidden
+		sourceColumn: queue_metric_id
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column date_key
+		dataType: int64
+		isHidden
+		sourceColumn: date_key
+	column event_hour
+		dataType: int64
+		sourceColumn: event_hour
+	column wait_time_min
+		dataType: double
+		sourceColumn: wait_time_min
+	column throughput_pax
+		dataType: int64
+		sourceColumn: throughput_pax
+	column queue_length
+		dataType: int64
+		sourceColumn: queue_length
+	column predicted_wait_time_min
+		dataType: double
+		sourceColumn: predicted_wait_time_min
+
+	measure 'Queue Wait P50 Minutes' = PERCENTILEX.INC(fact_passenger_queue_metrics, fact_passenger_queue_metrics[wait_time_min], 0.50)
+		formatString: 0.0
+		displayFolder: Passenger Flow
+	measure 'Queue Wait P90 Minutes' = PERCENTILEX.INC(fact_passenger_queue_metrics, fact_passenger_queue_metrics[wait_time_min], 0.90)
+		formatString: 0.0
+		displayFolder: Passenger Flow
+	measure 'Queue Wait P95 Minutes' = PERCENTILEX.INC(fact_passenger_queue_metrics, fact_passenger_queue_metrics[wait_time_min], 0.95)
+		formatString: 0.0
+		displayFolder: Passenger Flow
+	measure 'Passenger Throughput' = SUM(fact_passenger_queue_metrics[throughput_pax])
+		formatString: #,0
+		displayFolder: Passenger Flow
+	measure 'Queue Forecast Accuracy %' = 1 - DIVIDE(SUMX(fact_passenger_queue_metrics, ABS(fact_passenger_queue_metrics[predicted_wait_time_min] - fact_passenger_queue_metrics[wait_time_min])), SUM(fact_passenger_queue_metrics[wait_time_min]))
+		formatString: 0.0%
+		displayFolder: Passenger Flow\Forecast
+
+	partition fact_passenger_queue_metrics = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_fact_passenger_queue_metrics"]}[Data] in Data

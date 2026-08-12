@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/airport-ops/contracts/event-envelope-1.0.json",
+  "title": "Synthetic Airport Operations Event Envelope",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "event_id",
+    "event_type",
+    "event_schema_version",
+    "event_timestamp_utc",
+    "source_system",
+    "correlation_id",
+    "record_version",
+    "is_synthetic",
+    "data_classification"
+  ],
+  "properties": {
+    "event_id": {"type": "string", "pattern": "^SYN-EVT-[0-9a-f-]{36}$"},
+    "event_type": {"type": "string", "minLength": 1},
+    "event_schema_version": {"const": "1.0"},
+    "event_timestamp_utc": {"type": "string", "format": "date-time", "pattern": "Z$"},
+    "source_system": {"type": "string", "pattern": "^SYN-"},
+    "correlation_id": {"type": "string", "pattern": "^SYN-COR-"},
+    "causation_id": {"type": ["string", "null"]},
+    "record_version": {"type": "integer", "minimum": 1},
+    "is_synthetic": {"const": true},
+    "data_classification": {"enum": ["PublicReference", "SyntheticMaster", "SyntheticOperational", "DerivedAnalytical"]}
+  }
+}

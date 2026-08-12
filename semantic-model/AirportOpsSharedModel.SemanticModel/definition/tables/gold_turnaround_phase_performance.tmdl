@@ -1,0 +1,54 @@
+table gold_turnaround_phase_performance
+
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+
+	column gate_id
+		dataType: string
+		sourceColumn: gate_id
+
+	column phase_name
+		dataType: string
+		sourceColumn: phase_name
+
+	column phase_sequence
+		dataType: int64
+		isHidden
+		sourceColumn: phase_sequence
+
+	column observed_flights
+		dataType: int64
+		sourceColumn: observed_flights
+
+	column avg_phase_duration_min
+		dataType: double
+		formatString: 0.00
+		sourceColumn: avg_phase_duration_min
+
+	column delayed_milestones
+		dataType: int64
+		sourceColumn: delayed_milestones
+
+	column milestone_adherence_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: milestone_adherence_pct
+
+	column phase_status
+		dataType: string
+		sourceColumn: phase_status
+
+	measure 'Turnaround Milestone Adherence %' = DIVIDE(AVERAGE(gold_turnaround_phase_performance[milestone_adherence_pct]), 100.0)
+		formatString: 0.0%
+		displayFolder: Operations
+
+	partition gold_turnaround_phase_performance = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_turnaround_phase_performance"]}[Data]
+				in
+					Data

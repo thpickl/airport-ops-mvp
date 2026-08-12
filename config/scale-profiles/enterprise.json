@@ -1,0 +1,11 @@
+{
+  "name": "enterprise",
+  "history_days": 365,
+  "flights_per_airport_day": 96,
+  "passengers_per_flight": 180,
+  "queue_observations_per_flight": 8,
+  "retail_transactions_per_flight": 12,
+  "asset_observations_per_airport_day": 96,
+  "event_fault_rate": 0.002,
+  "warning": "Generate in Fabric storage; do not commit generated enterprise data."
+}

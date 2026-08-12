@@ -1,0 +1,35 @@
+table dim_airport
+
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+
+	column airport_name
+		dataType: string
+		sourceColumn: airport_name
+
+	column region
+		dataType: string
+		sourceColumn: region
+
+	column latitude
+		dataType: double
+		formatString: 0.000000
+		sourceColumn: latitude
+		dataCategory: Latitude
+
+	column longitude
+		dataType: double
+		formatString: 0.000000
+		sourceColumn: longitude
+		dataCategory: Longitude
+
+	partition dim_airport = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_dim_airport"]}[Data]
+				in
+					Data

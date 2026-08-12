@@ -1,0 +1,131 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "RotationStatus",
+  "position": {
+    "x": 36,
+    "y": 250,
+    "z": 0,
+    "height": 430,
+    "width": 1208,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_aircraft_rotation_kpi"
+                    }
+                  },
+                  "Property": "rotation_legs"
+                }
+              },
+              "queryRef": "gold_aircraft_rotation_kpi.rotation_legs",
+              "nativeQueryRef": "rotation_legs"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_aircraft_rotation_kpi"
+                    }
+                  },
+                  "Property": "aircraft_instances"
+                }
+              },
+              "queryRef": "gold_aircraft_rotation_kpi.aircraft_instances",
+              "nativeQueryRef": "aircraft_instances"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_aircraft_rotation_kpi"
+                    }
+                  },
+                  "Property": "avg_ground_interval_min"
+                }
+              },
+              "queryRef": "gold_aircraft_rotation_kpi.avg_ground_interval_min",
+              "nativeQueryRef": "avg_ground_interval_min"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_aircraft_rotation_kpi"
+                    }
+                  },
+                  "Property": "overlap_count"
+                }
+              },
+              "queryRef": "gold_aircraft_rotation_kpi.overlap_count",
+              "nativeQueryRef": "overlap_count"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_aircraft_rotation_kpi"
+                    }
+                  },
+                  "Property": "legs_per_aircraft"
+                }
+              },
+              "queryRef": "gold_aircraft_rotation_kpi.legs_per_aircraft",
+              "nativeQueryRef": "legs_per_aircraft"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Aircraft rotation status - synthetic demonstration'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Aircraft rotation status - synthetic demonstration. Synthetic demonstration data.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

@@ -1,0 +1,54 @@
+table gold_baggage_performance
+
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+
+	column destination_airport_id
+		dataType: string
+		sourceColumn: destination_airport_id
+
+	column checked_bags
+		dataType: int64
+		sourceColumn: checked_bags
+
+	column mishandled_bags
+		dataType: int64
+		sourceColumn: mishandled_bags
+
+	column mishandled_bags_per_1000
+		dataType: double
+		formatString: 0.00
+		sourceColumn: mishandled_bags_per_1000
+
+	column avg_baggage_journey_min
+		dataType: double
+		formatString: 0.0
+		sourceColumn: avg_baggage_journey_min
+
+	column within_demo_sla_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: within_demo_sla_pct
+
+	column baggage_status
+		dataType: string
+		sourceColumn: baggage_status
+
+	measure 'Mishandled Bags per 1,000' = DIVIDE(SUM(gold_baggage_performance[mishandled_bags]) * 1000.0, SUM(gold_baggage_performance[checked_bags]))
+		formatString: 0.00
+		displayFolder: Baggage
+
+	measure 'Baggage Within Demo SLA %' = DIVIDE(AVERAGE(gold_baggage_performance[within_demo_sla_pct]), 100.0)
+		formatString: 0.0%
+		displayFolder: Baggage
+
+	partition gold_baggage_performance = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_baggage_performance"]}[Data]
+				in
+					Data

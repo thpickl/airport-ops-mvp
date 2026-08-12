@@ -1,0 +1,109 @@
+relationship AirportRouteOrigin
+	fromColumn: dim_route.origin_airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirlineRoute
+	fromColumn: dim_route.airline_id
+	toColumn: dim_airline.airline_id
+
+relationship AirportPersona
+	fromColumn: gold_persona_scorecard.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship RouteAirlinePerformance
+	fromColumn: gold_airline_route_performance.route_id
+	toColumn: dim_route.route_id
+
+relationship AirportBaggage
+	fromColumn: gold_baggage_performance.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportWorkforce
+	fromColumn: gold_workforce_coverage.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportRetail
+	fromColumn: gold_retail_performance.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportCustomerExperience
+	fromColumn: gold_customer_experience.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportAssetReliability
+	fromColumn: gold_asset_reliability.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportEnterpriseAgent
+	fromColumn: gold_data_agent_enterprise_context.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportFlightKpi
+	fromColumn: gold_flight_operations_kpi.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportPassengerFlowKpi
+	fromColumn: gold_passenger_flow_kpi.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportBaggageKpi
+	fromColumn: gold_baggage_kpi.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportWorkforceKpi
+	fromColumn: gold_workforce_kpi.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportMaintenanceKpi
+	fromColumn: gold_maintenance_kpi.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportEnergyKpi
+	fromColumn: gold_energy_sustainability_kpi.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportCommercialKpi
+	fromColumn: gold_commercial_kpi.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportIncidentCustomerKpi
+	fromColumn: gold_incident_customer_kpi.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportAircraftRotationKpi
+	fromColumn: gold_aircraft_rotation_kpi.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportRetailInventoryKpi
+	fromColumn: gold_retail_inventory_kpi.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirportFlightEvents
+	fromColumn: fact_flight_turnaround_events.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship AirlineFlightEvents
+	fromColumn: fact_flight_turnaround_events.airline_id
+	toColumn: dim_airline.airline_id
+
+relationship ScheduledDepartureDate
+	fromColumn: fact_flight_turnaround_events.date_key
+	toColumn: Date.DateKey
+
+relationship ScheduledArrivalDate
+	isActive: false
+	fromColumn: fact_flight_turnaround_events.arrival_date_key
+	toColumn: Date.DateKey
+
+relationship ActualDepartureDate
+	isActive: false
+	fromColumn: fact_flight_turnaround_events.actual_departure_date_key
+	toColumn: Date.DateKey
+
+relationship AirportQueueEvents
+	fromColumn: fact_passenger_queue_metrics.airport_id
+	toColumn: dim_airport.airport_id
+
+relationship QueueDate
+	fromColumn: fact_passenger_queue_metrics.date_key
+	toColumn: Date.DateKey

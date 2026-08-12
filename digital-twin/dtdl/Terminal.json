@@ -1,0 +1,14 @@
+{
+  "@id": "dtmi:com:fictionalairport:Terminal;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Terminal",
+  "contents": [
+    {"@type": "Property", "name": "terminalId", "schema": "string"},
+    {"@type": "Property", "name": "terminalCode", "schema": "string"},
+    {"@type": "Property", "name": "floorCount", "schema": "integer"},
+    {"@type": "Property", "name": "isSynthetic", "schema": "boolean"},
+    {"@type": "Relationship", "name": "containsZones", "target": "dtmi:com:fictionalairport:Zone;1"},
+    {"@type": "Relationship", "name": "containsGates", "target": "dtmi:com:fictionalairport:Gate;1"}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "rule_version": "1.0",
+  "rules": [
+    {"id": "DQ-001", "scope": "all_events", "rule": "required envelope fields are present", "failure_action": "quarantine"},
+    {"id": "DQ-002", "scope": "all_events", "rule": "event timestamp is UTC and timezone-aware", "failure_action": "quarantine"},
+    {"id": "DQ-003", "scope": "all_events", "rule": "is_synthetic is true", "failure_action": "reject"},
+    {"id": "DQ-004", "scope": "silver", "rule": "highest record_version wins for an event_id", "failure_action": "audit superseded versions"},
+    {"id": "DQ-005", "scope": "silver", "rule": "foreign keys resolve to conformed reference objects", "failure_action": "quarantine"},
+    {"id": "DQ-006", "scope": "passenger_employee", "rule": "identifiers are deterministic pseudonyms prefixed SYN-", "failure_action": "reject"},
+    {"id": "DQ-007", "scope": "gold", "rule": "one row per documented grain and business key", "failure_action": "fail publication"},
+    {"id": "DQ-008", "scope": "data_agent", "rule": "only approved Gold, Warehouse, and KQL sources are exposed", "failure_action": "deny source"}
+  ]
+}

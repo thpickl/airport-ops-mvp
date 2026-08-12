@@ -1,0 +1,15 @@
+{
+  "@id": "dtmi:com:fictionalairport:Asset;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Airport Asset",
+  "contents": [
+    {"@type": "Property", "name": "assetId", "schema": "string"},
+    {"@type": "Property", "name": "assetType", "schema": "string"},
+    {"@type": "Property", "name": "criticality", "schema": "string"},
+    {"@type": "Property", "name": "isSynthetic", "schema": "boolean"},
+    {"@type": "Relationship", "name": "monitoredBy", "target": "dtmi:com:fictionalairport:EnergyMeter;1"},
+    {"@type": "Relationship", "name": "hasWorkOrder", "target": "dtmi:com:fictionalairport:MaintenanceWorkOrder;1"},
+    {"@type": "Relationship", "name": "locatedIn", "target": "dtmi:com:fictionalairport:Zone;1"}
+  ]
+}

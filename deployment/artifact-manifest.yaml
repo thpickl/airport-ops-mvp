@@ -1,0 +1,90 @@
+schema_version: "2.0"
+generated_for: "AI-Driven Operational Intelligence for a European Airport Group"
+default_mode: dry-run
+environment: dev
+resource_prefix: fao-demo
+workspace_from_environment: FABRIC_WORKSPACE_ID
+cloud_deployment_status: BLOCKED
+cloud_deployment_blocker: "Supported Fabric content is deployed; native FabricApp is unsupported and Azure Digital Twins runtime is blocked because no approved instance exists."
+status_values: [IMPLEMENTED, VALIDATED, DEPLOYED, BLOCKED, UNSUPPORTED]
+artifacts:
+  - key: lakehouse
+    type: Lakehouse
+    status: DEPLOYED
+    depends_on: []
+    deployment: Terraform item retrieved through Fabric REST; Bronze, Silver, Gold, ontology, spatial, and governed agent-context products query-validated through Spark
+  - key: eventhouse
+    type: Eventhouse
+    status: DEPLOYED
+    depends_on: []
+    deployment: Terraform item retrieved through Fabric REST; 14 tables, 13 functions, and 6 materialized views deployed and retrieved
+  - key: kql_database
+    type: KQLDatabase
+    status: DEPLOYED
+    depends_on: [eventhouse]
+    deployment: Terraform microsoft/fabric provider with parent Eventhouse; item retrieved through Fabric REST
+  - key: warehouse
+    type: Warehouse
+    status: DEPLOYED
+    depends_on: [lakehouse]
+    deployment: Terraform item retrieved through Fabric REST; 77 ops views and 13 least-privilege roles deployed; representative queries validated
+  - key: semantic_model
+    type: SemanticModel
+    status: DEPLOYED
+    depends_on: [warehouse]
+    deployment: Item definition API using TMDL project
+  - key: reports
+    type: Report
+    status: DEPLOYED
+    depends_on: [semantic_model]
+    deployment: PBIR item definition API; 25 pages, 12 GeoJSON resources, and semantic-model binding retrieved and validated
+  - key: fabric_app
+    type: FabricAppProject
+    status: UNSUPPORTED
+    depends_on: [reports, data_agent]
+    deployment: Target returned InvalidItemType for FabricApp; source project remains validated and no native item is claimed
+  - key: rayfin_native
+    type: Unverified
+    status: UNSUPPORTED
+    depends_on: [fabric_app]
+    deployment: None; use rayfin_fallback
+  - key: rayfin_fallback
+    type: ConfigurableAppModule
+    status: VALIDATED
+    depends_on: [fabric_app]
+    deployment: Source package only
+  - key: digital_twin
+    type: PortableDTDL
+    status: VALIDATED
+    depends_on: [lakehouse]
+    deployment: 15 DTDL v2 models and compact synthetic graph validated; runtime adapter not executed
+  - key: digital_twin_runtime
+    type: AzureDigitalTwins
+    status: BLOCKED
+    depends_on: [digital_twin]
+    deployment: No Azure Digital Twins instance exists in the active subscription; endpoint, resource ownership, region, and RBAC require an explicit decision
+  - key: ontology
+    type: PortableOntology
+    status: VALIDATED
+    depends_on: [warehouse, kql_database]
+    deployment: Source definition and Gold node/edge generation
+  - key: data_agent
+    type: DataAgent
+    status: DEPLOYED
+    depends_on: [ontology, warehouse, kql_database]
+    deployment: Native item published with exactly two sources, 29 allowlisted Warehouse ops views, 13 allowlisted KQL functions/views, zero raw KQL tables, and no extra source
+  - key: infrastructure
+    type: TerraformFabricProvider
+    status: DEPLOYED
+    depends_on: []
+    deployment: "microsoft/fabric ~> 1.12 (verified 1.12.1); apply succeeded; Fabric REST retrieval and no-change plan passed; workspace identity disabled for target capability"
+validation_order:
+  - configuration
+  - deterministic_simulation
+  - medallion_quality
+  - kpi_reconciliation
+  - geospatial_and_twin
+  - semantic_and_report_structure
+  - security_and_data_agent
+  - infrastructure_terraform
+  - deployment_dry_run

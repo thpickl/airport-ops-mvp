@@ -1,0 +1,59 @@
+name: Validate Fabric Airport Demo
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  portable-validation:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install portable dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Generate reference catalogs
+        run: python data/reference/generate_fictional_reference.py
+      - name: Generate GeoJSON
+        run: python geospatial/generate_geojson.py
+      - name: Generate PBIR
+        run: python reports/generate_pbir.py
+      - name: Validate portable artifacts
+        run: python tests/validate_platform.py
+      - name: Validate Fabric dry-run plan
+        run: python deployment/scripts/fabric.py plan
+      - name: Verify generated source is committed
+        shell: pwsh
+        run: |
+          if (git status --porcelain) {
+            git status --short
+            throw 'Generated source differs from committed artifacts.'
+          }
+
+  terraform-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.5
+      - name: Terraform format check
+        run: terraform fmt -check -recursive infra
+      - name: Terraform validate (dev)
+        working-directory: infra/environments/dev
+        run: |
+          terraform init -backend=false -input=false
+          terraform validate
+
+  tenant-validation-not-run:
+    runs-on: windows-latest
+    steps:
+      - name: Record boundary
+        run: Write-Output 'Fabric tenant deployment and runtime notebook tests require authorized workspace/capacity credentials and are intentionally not run in portable CI.'

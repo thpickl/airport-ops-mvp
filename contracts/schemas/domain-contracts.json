@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "event_envelope": "contracts/events/event-envelope.schema.json",
+  "domains": {
+    "organization_geography": ["organization", "region", "airport", "terminal", "zone", "gate", "stand"],
+    "aviation": ["airline", "aircraft", "flight_operation", "turnaround_milestone"],
+    "workforce": ["employee", "workforce_shift"],
+    "maintenance_assets": ["asset", "asset_telemetry", "maintenance_work_order"],
+    "passenger_customer": ["passenger_journey", "customer_feedback"],
+    "baggage": ["baggage_journey"],
+    "passenger_flow": ["queue_observation"],
+    "commercial": ["retail_transaction"],
+    "facilities_sustainability": ["weather_observation", "energy_observation"],
+    "incidents_compliance": ["incident", "regulatory_workflow"]
+  },
+  "privacy_prohibitions": ["real_name", "address", "passport", "phone", "payment_card", "biometric"],
+  "operational_write_capability": false
+}

@@ -1,0 +1,38 @@
+// SCOPED DEMO TEARDOWN. Run only after ownership confirmation and dry-run review.
+// This script never drops the KQL database or Eventhouse.
+
+.drop function view_incident_performance ifexists
+.drop function view_energy_performance ifexists
+.drop function view_turnaround_tasks ifexists
+.drop function view_queue_health ifexists
+.drop function view_baggage_performance ifexists
+.drop function view_flight_operations ifexists
+.drop function fn_incident_performance ifexists
+.drop function fn_energy_performance ifexists
+.drop function fn_turnaround_tasks ifexists
+.drop function fn_realtime_agent_grounding ifexists
+.drop function fn_queue_health ifexists
+.drop function fn_baggage_performance ifexists
+.drop function fn_flight_operations ifexists
+
+.drop materialized-view IncidentPerformanceHourly ifexists
+.drop materialized-view EnergyPerformanceHourly ifexists
+.drop materialized-view TurnaroundTasksHourly ifexists
+.drop materialized-view QueueHealth15Minute ifexists
+.drop materialized-view BaggagePerformanceHourly ifexists
+.drop materialized-view FlightOperationsHourly ifexists
+
+.drop table IncidentEventsCurated ifexists
+.drop table EnergyEventsCurated ifexists
+.drop table TurnaroundTaskEventsCurated ifexists
+.drop table QueueEventsCurated ifexists
+.drop table BaggageEventsCurated ifexists
+.drop table FlightOperationsCurated ifexists
+.drop table IncidentEventsRaw ifexists
+.drop table EnergyEventsRaw ifexists
+.drop table TurnaroundTaskEventsRaw ifexists
+.drop table PosEventsRaw ifexists
+.drop table AssetTelemetryRaw ifexists
+.drop table QueueEventsRaw ifexists
+.drop table BaggageEventsRaw ifexists
+.drop table FlightOperationsRaw ifexists

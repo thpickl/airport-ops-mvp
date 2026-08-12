@@ -1,0 +1,57 @@
+table gold_persona_scorecard
+
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+
+	column persona
+		dataType: string
+		sourceColumn: persona
+
+	column primary_kpi_name
+		dataType: string
+		sourceColumn: primary_kpi_name
+
+	column primary_kpi_value
+		dataType: double
+		sourceColumn: primary_kpi_value
+
+	column secondary_kpi_name
+		dataType: string
+		sourceColumn: secondary_kpi_name
+
+	column secondary_kpi_value
+		dataType: double
+		sourceColumn: secondary_kpi_value
+
+	column scorecard_status
+		dataType: string
+		sourceColumn: scorecard_status
+
+	column observation_timestamp
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:mm
+		sourceColumn: observation_timestamp
+
+	column advisory_only
+		dataType: boolean
+		isHidden
+		sourceColumn: advisory_only
+
+	measure 'Persona Primary KPI' = AVERAGE(gold_persona_scorecard[primary_kpi_value])
+		formatString: 0.00
+		displayFolder: Executive
+
+	measure 'Airports Requiring Attention' = CALCULATE(DISTINCTCOUNT(gold_persona_scorecard[airport_id]), gold_persona_scorecard[scorecard_status] = "Action")
+		formatString: #,0
+		displayFolder: Executive
+
+	partition gold_persona_scorecard = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_persona_scorecard"]}[Data]
+				in
+					Data

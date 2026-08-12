@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "DetailTable",
+  "position": {
+    "x": 36,
+    "y": 36,
+    "z": 0,
+    "height": 190,
+    "width": 1208,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_passenger_flow_kpi"
+                    }
+                  },
+                  "Property": "avg_queue_length"
+                }
+              },
+              "queryRef": "gold_passenger_flow_kpi.avg_queue_length",
+              "nativeQueryRef": "avg_queue_length"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_passenger_flow_kpi"
+                    }
+                  },
+                  "Property": "peak_wait_min"
+                }
+              },
+              "queryRef": "gold_passenger_flow_kpi.peak_wait_min",
+              "nativeQueryRef": "peak_wait_min"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_passenger_flow_kpi"
+                    }
+                  },
+                  "Property": "throughput_pax"
+                }
+              },
+              "queryRef": "gold_passenger_flow_kpi.throughput_pax",
+              "nativeQueryRef": "throughput_pax"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_passenger_flow_kpi"
+                    }
+                  },
+                  "Property": "predicted_congestion_risk_pct"
+                }
+              },
+              "queryRef": "gold_passenger_flow_kpi.predicted_congestion_risk_pct",
+              "nativeQueryRef": "predicted_congestion_risk_pct"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Passenger flow - synthetic demonstration, advisory only'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Passenger flow - synthetic demonstration, advisory only. Synthetic demonstration data.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/2.0.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU10",
+      "reportVersionAtImport": "5.59",
+      "type": "SharedResources"
+    }
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "airports.geojson",
+          "path": "GeoJSON/airports.geojson",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "assets.geojson",
+          "path": "GeoJSON/assets.geojson",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "baggage_flows.geojson",
+          "path": "GeoJSON/baggage_flows.geojson",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "energy.geojson",
+          "path": "GeoJSON/energy.geojson",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "gates.geojson",
+          "path": "GeoJSON/gates.geojson",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "incidents.geojson",
+          "path": "GeoJSON/incidents.geojson",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "operating_regions.geojson",
+          "path": "GeoJSON/operating_regions.geojson",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "passenger_flows.geojson",
+          "path": "GeoJSON/passenger_flows.geojson",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "routes.geojson",
+          "path": "GeoJSON/routes.geojson",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "stands.geojson",
+          "path": "GeoJSON/stands.geojson",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "terminals.geojson",
+          "path": "GeoJSON/terminals.geojson",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "zones.geojson",
+          "path": "GeoJSON/zones.geojson",
+          "type": "ShapeMap"
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "name": "AirportOpsDisclaimer",
+      "value": "Real airport identities are used only as public geographic reference anchors. All ownership, infrastructure, flights, passengers, employees, operations, performance, incidents, commercial activity, recommendations, and outcomes are synthetic."
+    },
+    {
+      "name": "AirportOpsSafetyBoundary",
+      "value": "AI recommendations are advisory, include provenance and confidence, and require human review before any decision."
+    },
+    {
+      "name": "AirportOpsDataAsOf",
+      "value": "2026-01-31T23:59:00Z"
+    }
+  ]
+}

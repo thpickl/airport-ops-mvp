@@ -1,0 +1,144 @@
+// ============================================================================
+// measures.dax
+// DAX measures for the Airport Ops MVP semantic model.
+// Add these to the semantic model built on the Gold tables (see model.md).
+// Most headline numbers are pre-aggregated in gold_kpi_daily_summary, so these
+// measures mainly AVERAGE / SUM those columns for slicer-friendly cards.
+// ============================================================================
+
+// --- Headline KPI cards (from gold_kpi_daily_summary) ---
+On-Time Departure % =
+DIVIDE (
+	SUMX (
+		gold_kpi_daily_summary,
+		gold_kpi_daily_summary[on_time_departure_rate] * gold_kpi_daily_summary[flights]
+	),
+	SUM ( gold_kpi_daily_summary[flights] )
+)
+
+Avg Turnaround (min) =
+DIVIDE (
+	SUMX (
+		gold_kpi_daily_summary,
+		gold_kpi_daily_summary[avg_turnaround_min] * gold_kpi_daily_summary[flights]
+	),
+	SUM ( gold_kpi_daily_summary[flights] )
+)
+
+Avg Queue Wait (min) =
+AVERAGE ( gold_kpi_daily_summary[avg_queue_wait_min] )
+
+Total Flights =
+SUM ( gold_kpi_daily_summary[flights] )
+
+Maintenance Anomalies =
+SUM ( gold_kpi_daily_summary[maintenance_anomaly_count] )
+
+Energy per Flight (kWh) =
+AVERAGE ( gold_kpi_daily_summary[energy_kwh_per_flight] )
+
+Energy per Passenger (kWh) =
+AVERAGE ( gold_kpi_daily_summary[energy_kwh_per_pax] )
+
+Incident Count =
+SUM ( gold_kpi_daily_summary[incident_count] )
+
+// --- Trend measures (from hourly Gold tables) ---
+Turnaround by Hour =
+AVERAGE ( gold_turnaround_by_hour[avg_turnaround_min] )
+
+Queue Wait by Hour =
+AVERAGE ( gold_queue_by_hour[avg_wait_min] )
+
+Gate Utilization % =
+AVERAGE ( gold_gate_utilization[utilization_pct] )
+
+Energy by Hour (kWh) =
+SUM ( gold_energy_summary[total_kwh] )
+
+// --- Executive and Operational Excellence ---
+Operational Risk Score =
+AVERAGE ( gold_executive_scorecard[operational_risk_score] )
+
+High-Risk Airports =
+CALCULATE (
+	DISTINCTCOUNT ( gold_executive_scorecard[airport_id] ),
+	gold_executive_scorecard[risk_category] = "High"
+)
+
+Open High-Severity Incidents =
+SUM ( gold_executive_scorecard[open_high_incidents] )
+
+Turnaround Target Adherence % =
+DIVIDE (
+	SUMX (
+		gold_gate_turnaround_performance,
+		gold_gate_turnaround_performance[target_adherence_pct] * gold_gate_turnaround_performance[flights]
+	),
+	SUM ( gold_gate_turnaround_performance[flights] )
+)
+
+Passenger Throughput =
+SUM ( gold_terminal_flow_summary[passenger_throughput] )
+
+Peak Queue Wait (min) =
+MAX ( gold_terminal_flow_summary[peak_queue_wait_min] )
+
+Asset Availability % =
+AVERAGE ( gold_asset_reliability[availability_pct] )
+
+Anomalous Assets =
+CALCULATE (
+	DISTINCTCOUNT ( gold_asset_reliability[asset_id] ),
+	gold_asset_reliability[reliability_status] = "Anomalous"
+)
+
+Open Maintenance Items =
+SUM ( gold_asset_reliability[open_maintenance_count] )
+
+// --- CIO and IT Professional (all usage/cost/capacity values are synthetic proxies) ---
+Data Quality Pass % =
+AVERAGE ( gold_it_service_health[data_quality_pass_pct] )
+
+Failed Data Products =
+CALCULATE (
+	DISTINCTCOUNT ( gold_it_service_health[data_product] ),
+	gold_it_service_health[pipeline_run_status] <> "SyntheticSuccess"
+)
+
+Late Records =
+SUM ( gold_it_service_health[late_record_count] )
+
+Quarantined Records =
+SUM ( gold_it_service_health[quarantined_record_count] )
+
+Synthetic Capacity Usage % =
+AVERAGE ( gold_it_service_health[synthetic_capacity_usage_pct] )
+
+Synthetic Cost Proxy Units =
+SUM ( gold_it_service_health[synthetic_cost_proxy_units] )
+
+Latest Data Product Observation =
+MAX ( gold_it_service_health[observation_timestamp] )
+
+// --- Agent grounding and human approval ---
+Recommendations Requiring Approval =
+CALCULATE (
+	COUNTROWS ( agent_context ),
+	agent_context[human_approval_required] = TRUE ()
+)
+
+Action-Status Gates =
+CALCULATE (
+	DISTINCTCOUNT ( agent_context[gate_id] ),
+	agent_context[operational_status] = "Action"
+)
+
+Current Grounding Context % =
+DIVIDE (
+	CALCULATE (
+		COUNTROWS ( agent_context ),
+		agent_context[data_freshness_indicator] = "CurrentWithin6Hours"
+	),
+	COUNTROWS ( agent_context )
+) * 100

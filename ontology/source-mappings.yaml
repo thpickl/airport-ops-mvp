@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "policy": "Data Agent answers use Gold products or curated ops Warehouse views only; Bronze is prohibited.",
+  "authoritative_sources": [
+    "ops.vw_executive_scorecard",
+    "ops.vw_airport_performance",
+    "ops.vw_terminal_performance",
+    "ops.vw_gate_turnaround_performance",
+    "ops.vw_checkpoint_performance",
+    "ops.vw_asset_reliability",
+    "ops.vw_energy_efficiency",
+    "ops.vw_incident_details",
+    "ops.vw_it_service_health",
+    "ops.vw_spatial_operational_context",
+    "ops.vw_data_agent_grounding"
+  ],
+  "entity_sources": {
+    "Airport": {"view": "ops.vw_airport_performance", "key": "airport_id"},
+    "Terminal": {"view": "ops.vw_dim_terminal", "key": "terminal_id"},
+    "Zone": {"view": "ops.vw_spatial_operational_context", "key": "zone_id"},
+    "Checkpoint": {"view": "ops.vw_dim_checkpoint", "key": "checkpoint_id"},
+    "Gate": {"view": "ops.vw_gate_turnaround_performance", "key": "gate_id"},
+    "Stand": {"view": "ops.vw_dim_stand", "key": "stand_id"},
+    "Flight": {"view": "ops.vw_fact_turnaround", "key": "flight_event_id"},
+    "Turnaround": {"view": "ops.vw_fact_turnaround", "key": "flight_event_id"},
+    "Airline": {"view": "ops.vw_dim_airline", "key": "airline_id"},
+    "Aircraft": {"view": "ops.vw_dim_aircraft", "key": "aircraft_type_id"},
+    "PassengerFlowObservation": {"view": "ops.vw_fact_zone_occupancy", "key": "zone_occupancy_id"},
+    "Asset": {"view": "ops.vw_asset_reliability", "key": "asset_id"},
+    "MaintenanceEvent": {"view": "ops.vw_fact_maintenance_events", "key": "maintenance_id"},
+    "EnergyObservation": {"view": "ops.vw_fact_energy_metering", "key": "meter_reading_id"},
+    "WeatherObservation": {"view": "ops.vw_fact_weather", "key": "weather_id"},
+    "OperationalIncident": {"view": "ops.vw_incident_details", "key": "incident_id"},
+    "ServiceTeam": {"view": "ops.vw_dim_service_team", "key": "team_id"},
+    "KPI": {"view": "ops.vw_executive_scorecard", "key": "airport_id"},
+    "Recommendation": {"view": "ops.vw_data_agent_grounding", "key": "gate_id"}
+  },
+  "join_paths": [
+    "Airport.airport_id -> Terminal.airport_id -> Zone.terminal_id -> Checkpoint.zone_id",
+    "Airport.airport_id -> Gate.airport_id -> Stand.gate_id",
+    "Flight.gate_id -> Gate.gate_id; Flight.airline_id -> Airline.airline_id; Flight.aircraft_type_id -> Aircraft.aircraft_type_id",
+    "Asset.zone_id -> Zone.zone_id; Asset.gate_id -> Gate.gate_id",
+    "MaintenanceEvent.gate_id + asset_type -> Asset.gate_id + asset_type",
+    "Recommendation.gate_id -> Gate.gate_id; Recommendation.asset_id -> Asset.asset_id; Recommendation.zone_id -> Zone.zone_id"
+  ]
+}

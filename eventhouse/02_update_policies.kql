@@ -1,0 +1,94 @@
+// Curated tables, transactional update policies, and materialized serving aggregates.
+
+.create-merge table FlightOperationsCurated (
+    EventId:string, EventTimestamp:datetime, AirportId:string, GateId:string,
+    AirlineId:string, RouteId:string, FlightEventId:string, EventType:string,
+    DelayMinutes:real, TurnaroundMinutes:real, PassengerCount:long,
+    PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+
+.create-merge table BaggageEventsCurated (
+    EventId:string, EventTimestamp:datetime, AirportId:string, DestinationAirportId:string,
+    FlightEventId:string, BagToken:string, EventType:string, JourneyStatus:string,
+    JourneyMinutes:real, MishandledFlag:bool, PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+
+.create-merge table QueueEventsCurated (
+    EventId:string, EventTimestamp:datetime, AirportId:string, TerminalId:string,
+    CheckpointId:string, QueueType:string, QueueLength:long, WaitTimeMinutes:real,
+    ThroughputPassengers:long, PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+
+.create-merge table TurnaroundTaskEventsCurated (
+    EventId:string, EventTimestamp:datetime, AirportId:string, GateId:string,
+    FlightEventId:string, TaskName:string, TaskSequence:long, TaskDurationMinutes:real,
+    TaskStatus:string, PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+
+.create-merge table EnergyEventsCurated (
+    EventId:string, EventTimestamp:datetime, AirportId:string, GateId:string,
+    MeterId:string, Source:string, EnergyKwh:real, DemandKw:real,
+    PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+
+.create-merge table IncidentEventsCurated (
+    EventId:string, EventTimestamp:datetime, AirportId:string, GateId:string,
+    Category:string, Severity:string, Status:string, DelayMinutes:real,
+    ResolutionMinutes:real, PayloadHash:string, BatchId:string, IsSynthetic:bool
+)
+
+.alter table FlightOperationsCurated policy update @'[{"IsEnabled":true,"Source":"FlightOperationsRaw","Query":"FlightOperationsRaw | where IsSynthetic == true | summarize arg_max(EventTimestamp, *) by EventId","IsTransactional":true,"PropagateIngestionProperties":true}]'
+
+.alter table BaggageEventsCurated policy update @'[{"IsEnabled":true,"Source":"BaggageEventsRaw","Query":"BaggageEventsRaw | where IsSynthetic == true | summarize arg_max(EventTimestamp, *) by EventId","IsTransactional":true,"PropagateIngestionProperties":true}]'
+
+.alter table QueueEventsCurated policy update @'[{"IsEnabled":true,"Source":"QueueEventsRaw","Query":"QueueEventsRaw | where IsSynthetic == true | summarize arg_max(EventTimestamp, *) by EventId","IsTransactional":true,"PropagateIngestionProperties":true}]'
+
+.alter table TurnaroundTaskEventsCurated policy update @'[{"IsEnabled":true,"Source":"TurnaroundTaskEventsRaw","Query":"TurnaroundTaskEventsRaw | where IsSynthetic == true | summarize arg_max(EventTimestamp, *) by EventId","IsTransactional":true,"PropagateIngestionProperties":true}]'
+
+.alter table EnergyEventsCurated policy update @'[{"IsEnabled":true,"Source":"EnergyEventsRaw","Query":"EnergyEventsRaw | where IsSynthetic == true | summarize arg_max(EventTimestamp, *) by EventId","IsTransactional":true,"PropagateIngestionProperties":true}]'
+
+.alter table IncidentEventsCurated policy update @'[{"IsEnabled":true,"Source":"IncidentEventsRaw","Query":"IncidentEventsRaw | where IsSynthetic == true | summarize arg_max(EventTimestamp, *) by EventId","IsTransactional":true,"PropagateIngestionProperties":true}]'
+
+.create-or-alter materialized-view with (backfill=false, folder="AirportOps/Serving") FlightOperationsHourly on table FlightOperationsCurated {
+    FlightOperationsCurated
+    | summarize Flights=dcount(FlightEventId),
+                OnTimeFlights=dcountif(FlightEventId, DelayMinutes <= 15.0),
+                AvgTurnaroundMinutes=avg(TurnaroundMinutes),
+                Passengers=sum(PassengerCount)
+      by AirportId, AirlineId, RouteId, EventHour=bin(EventTimestamp, 1h)
+}
+
+.create-or-alter materialized-view with (backfill=false, folder="AirportOps/Serving") BaggagePerformanceHourly on table BaggageEventsCurated {
+    BaggageEventsCurated
+    | summarize CheckedBags=dcount(BagToken),
+                MishandledBags=dcountif(BagToken, MishandledFlag),
+                AvgJourneyMinutes=avg(JourneyMinutes)
+      by AirportId, DestinationAirportId, EventHour=bin(EventTimestamp, 1h)
+}
+
+.create-or-alter materialized-view with (backfill=false, folder="AirportOps/Serving") QueueHealth15Minute on table QueueEventsCurated {
+    QueueEventsCurated
+    | summarize AvgWaitMinutes=avg(WaitTimeMinutes), PeakWaitMinutes=max(WaitTimeMinutes),
+                AvgQueueLength=avg(QueueLength), ThroughputPassengers=sum(ThroughputPassengers)
+      by AirportId, TerminalId, CheckpointId, QueueType, EventWindow=bin(EventTimestamp, 15m)
+}
+
+.create-or-alter materialized-view with (backfill=false, folder="AirportOps/Serving") TurnaroundTasksHourly on table TurnaroundTaskEventsCurated {
+    TurnaroundTaskEventsCurated
+    | summarize Tasks=count(), LateTasks=countif(TaskStatus == "Late"),
+                AvgTaskDurationMinutes=avg(TaskDurationMinutes)
+      by AirportId, GateId, TaskName, EventHour=bin(EventTimestamp, 1h)
+}
+
+.create-or-alter materialized-view with (backfill=false, folder="AirportOps/Serving") EnergyPerformanceHourly on table EnergyEventsCurated {
+    EnergyEventsCurated
+    | summarize TotalKwh=sum(EnergyKwh), PeakDemandKw=max(DemandKw)
+      by AirportId, Source, EventHour=bin(EventTimestamp, 1h)
+}
+
+.create-or-alter materialized-view with (backfill=false, folder="AirportOps/Serving") IncidentPerformanceHourly on table IncidentEventsCurated {
+    IncidentEventsCurated
+    | summarize Incidents=count(), HighSeverity=countif(Severity == "High"),
+                AvgResolutionMinutes=avg(ResolutionMinutes)
+      by AirportId, Category, EventHour=bin(EventTimestamp, 1h)
+}

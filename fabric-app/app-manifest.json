@@ -1,0 +1,43 @@
+{
+  "schema_version": "2.0",
+  "item_type": "FabricApp",
+  "display_name": "Airport Operations Command Center",
+  "description": "Real airport identities are used only as public geographic reference anchors. All ownership, infrastructure, flights, passengers, employees, operations, performance, incidents, commercial activity, recommendations, and outcomes are synthetic.",
+  "deployment": {
+    "api_status": "capability_checked",
+    "definition_api_required": true,
+    "on_unsupported": "SKIPPED_UNSUPPORTED",
+    "never_report_skipped_as_success": true
+  },
+  "navigation": [
+    {"label": "Executive", "report": "AirportOpsPersonaReports", "page": "ReportSectionExecutive", "audience": "Executive"},
+    {"label": "Regional", "report": "AirportOpsPersonaReports", "page": "ReportSectionRegional", "audience": "Regional"},
+    {"label": "Airport", "report": "AirportOpsPersonaReports", "page": "ReportSectionAirport", "audience": "Airport"},
+    {"label": "Airline", "report": "AirportOpsPersonaReports", "page": "ReportSectionAirline", "audience": "Airline"},
+    {"label": "Operations", "report": "AirportOpsPersonaReports", "page": "ReportSectionOperations", "audience": "Operations"},
+    {"label": "Maintenance", "report": "AirportOpsPersonaReports", "page": "ReportSectionMaintenance", "audience": "Maintenance"},
+    {"label": "Commercial", "report": "AirportOpsPersonaReports", "page": "ReportSectionCommercial", "audience": "Commercial"},
+    {"label": "Sustainability", "report": "AirportOpsPersonaReports", "page": "ReportSectionSustainability", "audience": "Sustainability"},
+    {"label": "Safety and Compliance", "report": "AirportOpsPersonaReports", "page": "ReportSectionCompliance", "audience": "Compliance"},
+    {"label": "Customer Experience", "report": "AirportOpsPersonaReports", "page": "ReportSectionCustomerExperience", "audience": "CustomerExperience"},
+    {"label": "IT", "report": "AirportOpsPersonaReports", "page": "ReportSectionIT", "audience": "IT"}
+  ],
+  "support_navigation": [
+    {"label":"Data Agent","artifact":"AirportOpsDataAgent","conditional":true},
+    {"label":"Deployment Runbook","path":"../docs/deployment-runbook.md"},
+    {"label":"Support and Troubleshooting","path":"../docs/troubleshooting.md"},
+    {"label":"Rayfin","module":"rayfin","feature_flag":"enable_rayfin_module","default_enabled":false}
+  ],
+  "modules": [
+    {"module_id": "persona-reports", "type": "PowerBIReport", "artifact": "AirportOpsPersonaReports"},
+    {"module_id": "data-agent", "type": "FabricDataAgent", "artifact": "AirportOpsDataAgent", "conditional": true},
+    {"module_id": "rayfin", "type": "ConfigurableModule", "definition": "rayfin-module.json", "feature_flag": "enable_rayfin_module", "enabled_by_default": false}
+  ],
+  "safety": {
+    "banner": "Real airport identities are used only as public geographic reference anchors. All ownership, infrastructure, flights, passengers, employees, operations, performance, incidents, commercial activity, recommendations, and outcomes are synthetic.",
+    "advisory_notice": "AI recommendations are advisory and require explicit human review before any decision.",
+    "freshness_timestamp": "2026-01-31T23:59:00Z",
+    "human_approval_required_for_consequential_recommendations": true,
+    "prohibited_control_targets": ["ATC", "AODB", "BHS", "BMS", "aircraft", "equipment", "staff"]
+  }
+}

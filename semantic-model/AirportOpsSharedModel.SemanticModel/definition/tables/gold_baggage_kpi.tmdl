@@ -1,0 +1,31 @@
+table gold_baggage_kpi
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column bags_processed
+		dataType: int64
+		sourceColumn: bags_processed
+	column bags_per_flight
+		dataType: double
+		sourceColumn: bags_per_flight
+	column mishandled_bags_per_1000
+		dataType: double
+		sourceColumn: mishandled_bags_per_1000
+	column transfer_bag_risk_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: transfer_bag_risk_pct
+	column avg_delivery_time_min
+		dataType: double
+		sourceColumn: avg_delivery_time_min
+	column scan_completeness_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: scan_completeness_pct
+	measure 'Baggage Scan Completeness %' = DIVIDE(AVERAGE(gold_baggage_kpi[scan_completeness_pct]),100.0)
+		formatString: 0.0%
+		displayFolder: Baggage
+	partition gold_baggage_kpi = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_baggage_kpi"]}[Data] in Data

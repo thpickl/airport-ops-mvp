@@ -1,0 +1,22 @@
+# Runtime and environment material
+.env
+.env.*
+!config/environments.example.json
+config/environments.local.json
+*.token
+*.secret
+
+# Python/Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Power BI/Fabric local caches
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.fabric/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/settings.json

@@ -1,0 +1,34 @@
+table gold_workforce_kpi
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column planned_hours
+		dataType: double
+		sourceColumn: planned_hours
+	column actual_hours
+		dataType: double
+		sourceColumn: actual_hours
+	column overtime_hours
+		dataType: double
+		sourceColumn: overtime_hours
+	column roster_coverage_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: roster_coverage_pct
+	column skill_coverage_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: skill_coverage_pct
+	column tasks_per_team
+		dataType: double
+		sourceColumn: tasks_per_team
+	column staffing_recommendation_variance_hours
+		dataType: double
+		sourceColumn: staffing_recommendation_variance_hours
+	measure 'Roster Coverage %' = DIVIDE(AVERAGE(gold_workforce_kpi[roster_coverage_pct]),100.0)
+		formatString: 0.0%
+		displayFolder: Workforce
+	partition gold_workforce_kpi = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_workforce_kpi"]}[Data] in Data

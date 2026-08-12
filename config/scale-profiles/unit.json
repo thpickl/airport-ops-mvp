@@ -1,0 +1,10 @@
+{
+  "name": "unit",
+  "history_days": 2,
+  "flights_per_airport_day": 4,
+  "passengers_per_flight": 24,
+  "queue_observations_per_flight": 2,
+  "retail_transactions_per_flight": 2,
+  "asset_observations_per_airport_day": 4,
+  "event_fault_rate": 0.04
+}

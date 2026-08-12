@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "pageOrder": [
+    "ReportSectionExecutive",
+    "ReportSectionRegional",
+    "ReportSectionAirport",
+    "ReportSectionAirline",
+    "ReportSectionOperations",
+    "ReportSectionMaintenance",
+    "ReportSectionCommercial",
+    "ReportSectionSustainability",
+    "ReportSectionCompliance",
+    "ReportSectionCustomerExperience",
+    "ReportSectionIT",
+    "ReportSectionGroupOverview",
+    "ReportSectionAirportComparison",
+    "ReportSectionFlightPerformance",
+    "ReportSectionTurnaroundControl",
+    "ReportSectionPassengerFlow",
+    "ReportSectionBaggage",
+    "ReportSectionGatesAndStands",
+    "ReportSectionWorkforce",
+    "ReportSectionMaintenanceAssets",
+    "ReportSectionEnergy",
+    "ReportSectionRetailRevenue",
+    "ReportSectionIncidents",
+    "ReportSectionCustomerExperienceDetail",
+    "ReportSectionDataQualityPlatform"
+  ],
+  "activePageName": "ReportSectionExecutive"
+}

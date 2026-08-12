@@ -1,0 +1,71 @@
+table gold_data_agent_enterprise_context
+
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+
+	column risk_category
+		dataType: string
+		sourceColumn: risk_category
+
+	column operational_risk_score
+		dataType: double
+		sourceColumn: operational_risk_score
+
+	column baggage_status
+		dataType: string
+		sourceColumn: baggage_status
+
+	column staffing_status
+		dataType: string
+		sourceColumn: staffing_status
+
+	column recommendation_text
+		dataType: string
+		sourceColumn: recommendation_text
+
+	column human_approval_required
+		dataType: boolean
+		sourceColumn: human_approval_required
+
+	column source_table_references
+		dataType: string
+		isHidden
+		sourceColumn: source_table_references
+
+	column observation_timestamp
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:mm
+		sourceColumn: observation_timestamp
+
+	column data_freshness_indicator
+		dataType: string
+		sourceColumn: data_freshness_indicator
+
+	column confidence_category
+		dataType: string
+		sourceColumn: confidence_category
+
+	column advisory_only
+		dataType: boolean
+		isHidden
+		sourceColumn: advisory_only
+
+	column is_synthetic
+		dataType: boolean
+		isHidden
+		sourceColumn: is_synthetic
+
+	measure 'Recommendations Requiring Approval' = CALCULATE(COUNTROWS(gold_data_agent_enterprise_context), gold_data_agent_enterprise_context[human_approval_required] = TRUE())
+		formatString: #,0
+		displayFolder: Agent Grounding
+
+	partition gold_data_agent_enterprise_context = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_data_agent_enterprise_grounding"]}[Data]
+				in
+					Data

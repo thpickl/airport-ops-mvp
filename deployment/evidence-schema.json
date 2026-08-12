@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Airport Operations Deployment Evidence",
+  "type": "object",
+  "required": ["deployment_run_id", "environment_name", "generated_at_utc", "artifacts"],
+  "properties": {
+    "deployment_run_id": {"type":"string"},
+    "environment_name": {"type":"string"},
+    "generated_at_utc": {"type":"string","format":"date-time"},
+    "git_commit": {"type":["string","null"]},
+    "artifacts": {
+      "type":"array",
+      "items": {
+        "type":"object",
+        "required":["artifact_name","artifact_type","deployment_method","status","dependency_status","validation_status","deployment_timestamp"],
+        "properties": {
+          "artifact_name":{"type":"string"},
+          "artifact_type":{"type":"string"},
+          "deployment_method":{"type":"string"},
+          "status":{"enum":["SUCCEEDED","DRY_RUN","SKIPPED_PREREQUISITE","SKIPPED_UNSUPPORTED","FAILED"]},
+          "item_id":{"type":["string","null"]},
+          "dependency_status":{"type":"string"},
+          "validation_status":{"type":"string"},
+          "unsupported_manual_status":{"type":["string","null"]},
+          "error_details":{"type":["string","null"]},
+          "request_id":{"type":["string","null"]},
+          "deployment_timestamp":{"type":"string","format":"date-time"}
+        }
+      }
+    }
+  }
+}

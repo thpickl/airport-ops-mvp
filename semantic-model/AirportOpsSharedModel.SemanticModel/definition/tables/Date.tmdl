@@ -1,0 +1,41 @@
+table Date
+
+	column Date
+		dataType: dateTime
+		formatString: yyyy-MM-dd
+		isKey
+		dataCategory: PaddedDateTableDates
+		sourceColumn: [Date]
+
+	column DateKey = VALUE(FORMAT([Date], "yyyymmdd"))
+		dataType: int64
+		isHidden
+
+	column Year = YEAR([Date])
+		dataType: int64
+
+	column MonthNumber = MONTH([Date])
+		dataType: int64
+		isHidden
+
+	column Month = FORMAT([Date], "MMM")
+		dataType: string
+		sortByColumn: MonthNumber
+
+	column Day = DAY([Date])
+		dataType: int64
+
+	column DayOfWeek = FORMAT([Date], "ddd")
+		dataType: string
+
+	hierarchy Calendar
+		level Year
+			column: Year
+		level Month
+			column: Month
+		level Day
+			column: Day
+
+	partition Date = calculated
+		mode: import
+		source = CALENDAR(DATE(2026,1,1), DATE(2026,12,31))

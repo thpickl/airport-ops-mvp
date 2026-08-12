@@ -1,0 +1,33 @@
+role AirportOpsReportReader
+	modelPermission: read
+
+role AirportOpsDataAgentReader
+	modelPermission: read
+	tablePermission gold_data_agent_enterprise_context = [advisory_only] = TRUE() && [is_synthetic] = TRUE()
+
+role AirportOpsRegionalReader
+	modelPermission: read
+
+role AirportOpsAirportReader
+	modelPermission: read
+
+role AirportOpsAirlineReader
+	modelPermission: read
+
+role AirportOpsOperationsReader
+	modelPermission: read
+
+role AirportOpsMaintenanceReader
+	modelPermission: read
+
+role AirportOpsCommercialReader
+	modelPermission: read
+
+role AirportOpsSustainabilityReader
+	modelPermission: read
+
+role AirportOpsComplianceReader
+	modelPermission: read
+
+role AirportOpsITReader
+	modelPermission: read
