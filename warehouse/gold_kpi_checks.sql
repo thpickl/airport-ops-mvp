@@ -18,7 +18,7 @@ SELECT ROUND(AVG(on_time_departure_rate), 1) AS network_on_time_pct
 FROM gold_kpi_daily_summary;
 
 -- 3. Busiest queue hours (top 10 by average wait)
-SELECT TOP (10) airport_id, checkpoint, event_hour, avg_wait_min
+SELECT TOP (10) airport_id, [checkpoint], event_hour, avg_wait_min
 FROM gold_queue_by_hour
 ORDER BY avg_wait_min DESC;
 

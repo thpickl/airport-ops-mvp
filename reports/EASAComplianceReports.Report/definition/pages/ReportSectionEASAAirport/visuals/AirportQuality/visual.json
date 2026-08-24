@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "AirportQuality",
+  "position": {
+    "x": 30,
+    "y": 360,
+    "z": 0,
+    "height": 310,
+    "width": 570,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_data_quality"
+                    }
+                  },
+                  "Property": "quality_dimension"
+                }
+              },
+              "queryRef": "easa_data_quality.quality_dimension",
+              "nativeQueryRef": "quality_dimension"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_data_quality"
+                    }
+                  },
+                  "Property": "rule_id"
+                }
+              },
+              "queryRef": "easa_data_quality.rule_id",
+              "nativeQueryRef": "rule_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_data_quality"
+                    }
+                  },
+                  "Property": "result_status"
+                }
+              },
+              "queryRef": "easa_data_quality.result_status",
+              "nativeQueryRef": "result_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_data_quality"
+                    }
+                  },
+                  "Property": "failed_record_count"
+                }
+              },
+              "queryRef": "easa_data_quality.failed_record_count",
+              "nativeQueryRef": "failed_record_count"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Airport quality detail'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Airport quality detail'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-	annotation PBI_QueryOrder = ["Date","Time","dim_airport","dim_airline","dim_route","fact_flight_turnaround_events","fact_passenger_queue_metrics","gold_persona_scorecard","gold_airline_route_performance","gold_baggage_performance","gold_workforce_coverage","gold_retail_performance","gold_customer_experience","gold_turnaround_phase_performance","gold_asset_reliability","gold_it_service_health","gold_data_agent_enterprise_context","gold_flight_operations_kpi","gold_aircraft_rotation_kpi","gold_passenger_flow_kpi","gold_baggage_kpi","gold_workforce_kpi","gold_maintenance_kpi","gold_energy_sustainability_kpi","gold_commercial_kpi","gold_retail_inventory_kpi","gold_incident_customer_kpi"]
+	annotation PBI_QueryOrder = ["Date","Time","dim_airport","dim_airline","dim_route","fact_flight_turnaround_events","fact_passenger_queue_metrics","gold_persona_scorecard","gold_airline_route_performance","gold_baggage_performance","gold_workforce_coverage","gold_retail_performance","gold_customer_experience","gold_turnaround_phase_performance","gold_asset_reliability","gold_it_service_health","gold_data_agent_enterprise_context","gold_flight_operations_kpi","gold_aircraft_rotation_kpi","gold_passenger_flow_kpi","gold_baggage_kpi","gold_workforce_kpi","gold_maintenance_kpi","gold_energy_sustainability_kpi","gold_commercial_kpi","gold_retail_inventory_kpi","gold_incident_customer_kpi","gold_scenario_kpi","gold_scenario_outcome_comparison"]
 
 	annotation AirportOpsDataClassification = PublicAirportReferenceAnchorsAndSyntheticOperations
 

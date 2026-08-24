@@ -2,10 +2,14 @@
 
 - Public airport names, IATA/ICAO codes, approximate WGS84 points, elevation, and time zones come from the checked-in, attributed snapshot. They are geographic anchors only.
 - The fictional organization does not own or operate the 18 airports. Every portfolio relationship, facility, layout, airline, operation, person, transaction, incident, KPI, forecast, recommendation, and outcome is synthetic.
-- Seed `39039`, fixed start `2026-01-01T00:00:00Z`, generator version `4.0.0`, canonical configuration, and the 2026-08-08 reference snapshot define reproducibility.
+- Seed `42`, fixed start `2026-01-01T00:00:00Z`, generator version `4.0.0`, canonical configuration, and the 2026-08-08 reference snapshot define reproducibility.
 - The default operating window is 30 days under the `smoke` profile; `unit`, `demo`, and `enterprise` are versioned alternatives.
 - Passenger and worker records use deterministic pseudonymous tokens without source identity. Data Agent grounding excludes passenger-, booking-, bag-, and worker-level sources.
 - Revenue, cost, capacity, NPS, ticket, and retail values are demonstration proxies, not financial or telemetry records.
+- Retail transaction volume is generated from passenger throughput using `retail_conversion_propensity`. It is not generated per outlet-hour independently, because that made transactions scale with `simulation_hours` while passengers did not.
+- KPI benchmarks live in `config/simulation_profiles.json` under `kpi_benchmarks`. `energy_kwh_per_gate_hour_benchmark` is the modelled design base load (HVAC + lighting + jetbridge + GPU) and is scale-invariant; a per-flight benchmark is not, because energy accrues per gate-hour while flights do not.
+- Counterfactual scenarios are defined in `config/scenarios.json`. The `optimised` scenario applies documented intervention effect sizes to the mechanism each intervention acts on, computed from observed baseline facts. Effect sizes are stated engineering assumptions requiring domain-owner review; they are not measured results and must not be adjusted to make a programme target appear achieved.
+- Scenario outcome targets are recorded in `bronze_outcome_target` for gap reporting only. They never feed the generator or the scenario calculation.
 - All WGS84 coordinates and geometry are illustrative and do not represent real airports, terminals, restricted areas, security boundaries, or navigation paths.
 - The target Fabric workspace and capacity already exist. Workspace lifecycle is not automated to avoid cross-domain destructive behavior.
 - Warehouse SQL and KQL execution require runtime endpoints supplied to notebook 10. They are not stored in source.

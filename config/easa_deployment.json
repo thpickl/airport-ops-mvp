@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "solution_name": "EASARegulatoryReporting",
+  "default_environment": "dev",
+  "environments": {
+    "dev": {
+      "workspace_id": "${FABRIC_DEV_WORKSPACE_ID}",
+      "lakehouse_name": "AirportOpsLakehouse",
+      "warehouse_name": "AirportOpsWarehouse",
+      "semantic_model_name": "EASARegulatoryModel-Dev",
+      "interactive_report_name": "EASAComplianceReports-Dev",
+      "paginated_report_name": "EASASubmissionReview-Dev",
+      "allow_synthetic_test_data": true,
+      "real_source_ingestion_enabled": false,
+      "scheduled_pipeline_enabled": false,
+      "event_pipeline_enabled": false,
+      "export_enabled": false,
+      "transmission_enabled": false
+    },
+    "test": {
+      "workspace_id": "${FABRIC_TEST_WORKSPACE_ID}",
+      "lakehouse_name": "EASARegulatoryLakehouse-Test",
+      "warehouse_name": "EASARegulatoryWarehouse-Test",
+      "semantic_model_name": "EASARegulatoryModel-Test",
+      "interactive_report_name": "EASAComplianceReports-Test",
+      "paginated_report_name": "EASASubmissionReview-Test",
+      "allow_synthetic_test_data": true,
+      "real_source_ingestion_enabled": false,
+      "scheduled_pipeline_enabled": false,
+      "event_pipeline_enabled": false,
+      "export_enabled": false,
+      "transmission_enabled": false
+    },
+    "prod": {
+      "workspace_id": "${FABRIC_PROD_WORKSPACE_ID}",
+      "lakehouse_name": "EASARegulatoryLakehouse-Prod",
+      "warehouse_name": "EASARegulatoryWarehouse-Prod",
+      "semantic_model_name": "EASARegulatoryModel-Prod",
+      "interactive_report_name": "EASAComplianceReports-Prod",
+      "paginated_report_name": "EASASubmissionReview-Prod",
+      "allow_synthetic_test_data": false,
+      "real_source_ingestion_enabled": false,
+      "scheduled_pipeline_enabled": false,
+      "event_pipeline_enabled": false,
+      "export_enabled": false,
+      "transmission_enabled": false
+    }
+  },
+  "release_policy": {
+    "required_quality_dimensions": ["RECONCILIATION", "COMPLETENESS", "VALIDITY", "DUPLICATE", "TIMELINESS", "CROSS_FIELD"],
+    "blocking_rules_must_pass": true,
+    "quarantine_must_be_empty_for_submission_scope": true,
+    "human_approval_required": true,
+    "approved_report_version_hash_required": true,
+    "official_interface_required_for_transmission": true,
+    "explicit_transmission_authorization_required": true
+  },
+  "retention": {
+    "regulatory_record_retention_days": "TODO_COMPLIANCE_OWNER_DEFINE_BY_JURISDICTION_AND_RECORD_CLASS",
+    "legal_hold_supported": true,
+    "delta_vacuum_minimum_hours": 168,
+    "production_cleanup_enabled": false
+  },
+  "gdpr": {
+    "direct_identifiers_prohibited_in_gold": true,
+    "pseudonymization_required_before_silver": true,
+    "data_minimization_required": true,
+    "subject_rights_process": "TODO_PRIVACY_OWNER_APPROVE",
+    "cross_border_transfer_assessment": "TODO_PRIVACY_OWNER_APPROVE"
+  }
+}

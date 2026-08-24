@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/2.0.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU10",
+      "reportVersionAtImport": "5.59",
+      "type": "SharedResources"
+    }
+  },
+  "annotations": [
+    {
+      "name": "EASAGovernanceBoundary",
+      "value": "Only approved inventory contributes to automation coverage."
+    },
+    {
+      "name": "EASAReleaseBoundary",
+      "value": "No export without exact-version human approval; no automatic authority submission."
+    }
+  ]
+}

@@ -8,6 +8,12 @@ All targets, thresholds, forecasts, benchmarks, emissions factors, commercial va
 | Flight | On-time departure | airport/day | departures <= scheduled + 15 min / flights | % | 90% | Synthetic schedule |
 | Flight | Arrival/departure delay | airport/day | average actual - scheduled UTC timestamp | min | 0 | Nonnegative generated delays |
 | Turnaround | Average duration | airport/day | average turnaround end - start | min | narrow-body 38 | Representative target; configurations vary |
+| Turnaround | Narrow-body average | airport | average turnaround for `Narrow-body jet` only | min | 38 | Fleet-wide average is not comparable to a narrow-body target |
+| Scenario | Turnaround (scenario) | scenario/airport | aircraft target + avoidable gap x (1 - variance reduction) | min | 39 | Projection from baseline facts, not an observed outcome |
+| Scenario | Peak queue wait (scenario) | scenario/airport | baseline peak wait x (1 - queue reduction) | min | -38% vs baseline | Projection; bounded by rostered staff availability |
+| Scenario | Revenue per passenger (scenario) | scenario/airport | baseline revenue per passenger x (1 + conversion uplift) | proxy | +22% vs baseline | Projection on a synthetic revenue proxy |
+| Scenario | Energy variance (scenario) | scenario/airport | load x (1 - controllable share x controllable reduction) vs gate-hour benchmark | % | towards zero | Only HVAC and lighting are treated as schedulable |
+| Scenario | Outcome result | outcome measure | comparison of optimised value against recorded target | status | MET / NOT_MET | `NOT_EVALUATED` where a governance gate blocks modelling |
 | Turnaround | Target attainment | airport/day | turns <= aircraft-type target / turns | % | 90% | Aircraft targets are assumptions |
 | Turnaround | Milestone adherence | airport/day | on-plan milestones / milestones | % | 95% | Five generated milestones |
 | Flight | Late-inbound contribution | airport/day | arrivals >15 min late / flights | % | <10% | Synthetic causal proxy |

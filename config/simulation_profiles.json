@@ -50,6 +50,11 @@
       "incident_event_count": 1200
     }
   },
+  "kpi_benchmarks": {
+    "energy_kwh_per_gate_hour_benchmark": 75.0,
+    "retail_conversion_propensity": 0.35,
+    "concession_revenue_per_passenger_benchmark": 8.5
+  },
   "invariant_catalog_counts": {
     "airport_count": 18,
     "airline_count": 20,

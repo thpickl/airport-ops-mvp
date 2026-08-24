@@ -1,0 +1,257 @@
+@prefix ao: <https://data.fictional-airport-group.example/airport-operations/ontology#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <https://data.fictional-airport-group.example/airport-operations/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.fictional-airport-group.example/airport-operations/ontology/sample-data> a owl:Ontology ;
+    dcterms:title "Representative Airport Operations RDF Instances"@en ;
+    owl:versionInfo "1.0.0" ;
+    prov:wasDerivedFrom <urn:repo:digital-twin:sample-graph> .
+
+res:SYN-TWIN-MAST-CDG-01 a ao:MaintenanceAsset ;
+    rdfs:label "SYN-MAST-CDG-01"@en ;
+    dcterms:identifier "SYN-TWIN-MAST-CDG-01" ;
+    ao:assetId "SYN-MAST-CDG-01" ;
+    ao:assetType "SyntheticPassengerBoardingBridge" ;
+    ao:criticality "High" ;
+    ao:dataClassification "SyntheticMaster" ;
+    ao:isSynthetic true ;
+    ao:twinIdentifier "SYN-TWIN-MAST-CDG-01" .
+
+res:MEASURE-AVG-QUEUE-WAIT-MIN a ao:MeasureDefinition ;
+    rdfs:label "Average queue wait"@en ;
+    dcterms:identifier "Avg Queue Wait (min)" ;
+    ao:formulaReference "semantic-model/measures.dax" ;
+    ao:formulaText "AVG(fact_passenger_queue_metrics.wait_time_min)" ;
+    ao:grainText "checkpoint and 15-minute interval" ;
+    ao:hasObservation res:MEASURE-OBS-SYN-QUE-CDG-01 ;
+    ao:unitCode "min" .
+
+res:SYN-TURN-CDG-00001 a ao:Turnaround ;
+    rdfs:label "Synthetic turnaround for SYN-FLT-CDG-00001"@en ;
+    ao:dataClassification "SyntheticOperational" ;
+    ao:identifier "SYN-TURN-CDG-00001" ;
+    ao:isSynthetic true ;
+    ao:turnaroundMinutes 65.0 ;
+    ao:turnaroundOfFlight res:SYN-TWIN-FLT-CDG-00001 .
+
+res:SYN-TWIN-ACT-001 a ao:AircraftType ;
+    rdfs:label "A320 family reference"@en ;
+    dcterms:identifier "SYN-TWIN-ACT-001" ;
+    ao:aircraftTypeId "SYN-ACT-001" ;
+    ao:aircraftTypeUsedByFlight res:SYN-TWIN-FLT-CDG-00001 ;
+    ao:dataClassification "SyntheticMaster" ;
+    ao:isSynthetic true ;
+    ao:twinIdentifier "SYN-TWIN-ACT-001" .
+
+res:SYN-TWIN-AP-ORY a ao:Airport,
+        ao:PublicReferenceAnchor ;
+    rdfs:label "Paris Orly"@en ;
+    ao:airportId "SYN-AP-ORY" ;
+    ao:dataClassification "PublicReference" ;
+    ao:destinationForRoute res:SYN-ROUTE-CDG-ORY-REF-AL-001 ;
+    ao:iataCode "ORY" ;
+    ao:icaoCode "LFPO" ;
+    ao:isSynthetic false ;
+    ao:latitude 48.729499 ;
+    ao:longitude 2.358963 .
+
+res:SYN-TWIN-BAG-CDG-01 a ao:Asset ;
+    rdfs:label "SYN-BAG-AST-CDG-01"@en ;
+    dcterms:identifier "SYN-TWIN-BAG-CDG-01" ;
+    ao:assetId "SYN-BAG-AST-CDG-01" ;
+    ao:assetLocatedInZone res:SYN-TWIN-ZON-CDG-01 ;
+    ao:dataClassification "SyntheticMaster" ;
+    ao:isSynthetic true ;
+    ao:twinIdentifier "SYN-TWIN-BAG-CDG-01" .
+
+res:SYN-TWIN-CHK-CDG-01 a ao:Checkpoint ;
+    rdfs:label "Synthetic Security Queue"@en ;
+    dcterms:identifier "SYN-TWIN-CHK-CDG-01" ;
+    ao:checkpointCode "SYN-SEC-01" ;
+    ao:checkpointId "SYN-CHK-CDG-01" ;
+    ao:checkpointOfZone res:SYN-TWIN-ZON-CDG-01 ;
+    ao:dataClassification "SyntheticMaster" ;
+    ao:isSynthetic true ;
+    ao:twinIdentifier "SYN-TWIN-CHK-CDG-01" .
+
+res:SYN-TWIN-INC-CDG-00001 a ao:OperationalIncident ;
+    rdfs:label "SYN-INC-CDG-00001"@en ;
+    dcterms:identifier "SYN-TWIN-INC-CDG-00001" ;
+    ao:affectsAsset res:SYN-TWIN-AST-CDG-01 ;
+    ao:dataClassification "SyntheticOperational" ;
+    ao:incidentId "SYN-INC-CDG-00001" ;
+    ao:isSynthetic true ;
+    ao:status "InReview" ;
+    ao:twinIdentifier "SYN-TWIN-INC-CDG-00001" .
+
+res:SYN-TWIN-MTR-CDG-01 a ao:EnergyMeter ;
+    rdfs:label "SYN-MTR-CDG-01"@en ;
+    dcterms:identifier "SYN-TWIN-MTR-CDG-01" ;
+    ao:assetId "SYN-MTR-CDG-01" ;
+    ao:dataClassification "SyntheticMaster" ;
+    ao:isSynthetic true ;
+    ao:monitorsAsset res:SYN-TWIN-AST-CDG-01 ;
+    ao:twinIdentifier "SYN-TWIN-MTR-CDG-01" .
+
+res:SYN-TWIN-STD-CDG-01 a ao:Stand ;
+    rdfs:label "Synthetic Stand 01"@en ;
+    dcterms:identifier "SYN-TWIN-STD-CDG-01" ;
+    ao:dataClassification "SyntheticMaster" ;
+    ao:isSynthetic true ;
+    ao:standId "SYN-STD-CDG-01" ;
+    ao:standServedByGate res:SYN-TWIN-GAT-CDG-01 ;
+    ao:twinIdentifier "SYN-TWIN-STD-CDG-01" .
+
+res:SYN-TWIN-WO-CDG-00001 a ao:MaintenanceWorkOrder ;
+    rdfs:label "SYN-WO-CDG-00001"@en ;
+    dcterms:identifier "SYN-TWIN-WO-CDG-00001" ;
+    ao:dataClassification "SyntheticOperational" ;
+    ao:isSynthetic true ;
+    ao:status "Open" ;
+    ao:twinIdentifier "SYN-TWIN-WO-CDG-00001" ;
+    ao:workOrderForAsset res:SYN-TWIN-AST-CDG-01 ;
+    ao:workOrderId "SYN-WO-CDG-00001" .
+
+res:DIM-AIRPORT-SYN-AP-CDG a ao:AirportDimensionRecord ;
+    ao:dimensionMemberOfFact res:FACT-QUEUE-SYN-QUE-CDG-01 ;
+    ao:recordIdentifier "SYN-AP-CDG" ;
+    ao:representsEntity res:SYN-TWIN-AP-CDG .
+
+res:FACT-QUEUE-SYN-QUE-CDG-01 a ao:PassengerQueueFactRecord ;
+    ao:hasDimensionMember res:DIM-AIRPORT-SYN-AP-CDG ;
+    ao:recordIdentifier "SYN-QUE-CDG-01" ;
+    ao:representsEvent res:SYN-TWIN-QUE-CDG-01 .
+
+res:MEASURE-OBS-SYN-QUE-CDG-01 a ao:MeasureObservation ;
+    ao:numericValue 18.4 ;
+    ao:observationTimestamp "2026-01-31T23:59:00+00:00"^^xsd:dateTime ;
+    ao:observedFor res:SYN-TWIN-QUE-CDG-01 ;
+    ao:observesMeasure res:MEASURE-AVG-QUEUE-WAIT-MIN ;
+    ao:recordIdentifier "MEASURE-OBS-SYN-QUE-CDG-01" ;
+    ao:valueType "actual" .
+
+res:REF-AL-001 a ao:Airline,
+        ao:PublicReferenceAnchor ;
+    rdfs:label "Air France"@en ;
+    ao:airlineId "REF-AL-001" ;
+    ao:airlineOperatesFlight res:SYN-TWIN-FLT-CDG-00001 ;
+    ao:airlineOperatesRoute res:SYN-ROUTE-CDG-ORY-REF-AL-001 ;
+    ao:dataClassification "PublicReference" ;
+    ao:iataCode "AF" ;
+    ao:icaoCode "AFR" ;
+    ao:isSynthetic false .
+
+res:SYN-TWIN-AP-CDG a ao:Airport,
+        ao:PublicReferenceAnchor ;
+    rdfs:label "Paris Charles de Gaulle"@en ;
+    dcterms:identifier "SYN-TWIN-AP-CDG" ;
+    ao:airportId "SYN-AP-CDG" ;
+    ao:dataClassification "PublicReference" ;
+    ao:hasDimensionRecord res:DIM-AIRPORT-SYN-AP-CDG ;
+    ao:hasTerminal res:SYN-TWIN-TER-CDG-01 ;
+    ao:iataCode "CDG" ;
+    ao:icaoCode "LFPG" ;
+    ao:isSynthetic false ;
+    ao:latitude 49.00896 ;
+    ao:longitude 2.554117 ;
+    ao:originForRoute res:SYN-ROUTE-CDG-ORY-REF-AL-001 ;
+    ao:twinIdentifier "SYN-TWIN-AP-CDG" .
+
+res:SYN-TWIN-GAT-CDG-01 a ao:Gate ;
+    rdfs:label "SYN-G01"@en ;
+    dcterms:identifier "SYN-TWIN-GAT-CDG-01" ;
+    ao:dataClassification "SyntheticMaster" ;
+    ao:gateCode "SYN-G01" ;
+    ao:gateId "SYN-GAT-CDG-01" ;
+    ao:gateOfTerminal res:SYN-TWIN-TER-CDG-01 ;
+    ao:isSynthetic true ;
+    ao:servesFlight res:SYN-TWIN-FLT-CDG-00001 ;
+    ao:servesStand res:SYN-TWIN-STD-CDG-01 ;
+    ao:twinIdentifier "SYN-TWIN-GAT-CDG-01" .
+
+res:SYN-TWIN-QUE-CDG-01 a ao:PassengerFlowObservation ;
+    rdfs:label "SYN-QUE-CDG-01"@en ;
+    dcterms:identifier "SYN-TWIN-QUE-CDG-01" ;
+    ao:dataClassification "SyntheticOperational" ;
+    ao:eventTime "2026-01-01T07:15:00+00:00"^^xsd:dateTime ;
+    ao:hasFactRecord res:FACT-QUEUE-SYN-QUE-CDG-01 ;
+    ao:hasMeasureObservation res:MEASURE-OBS-SYN-QUE-CDG-01 ;
+    ao:isSynthetic true ;
+    ao:passengerCount 42 ;
+    ao:passengerFlowObservedInZone res:SYN-TWIN-ZON-CDG-01 ;
+    ao:queueObservationId "SYN-QUE-CDG-01" ;
+    ao:twinIdentifier "SYN-TWIN-QUE-CDG-01" ;
+    ao:waitTimeMinutes 18.4 .
+
+res:SYN-TWIN-TER-CDG-01 a ao:Terminal ;
+    rdfs:label "SYN-T01"@en ;
+    dcterms:identifier "SYN-TWIN-TER-CDG-01" ;
+    ao:dataClassification "SyntheticMaster" ;
+    ao:hasGate res:SYN-TWIN-GAT-CDG-01 ;
+    ao:hasZone res:SYN-TWIN-ZON-CDG-01 ;
+    ao:isSynthetic true ;
+    ao:terminalCode "SYN-T01" ;
+    ao:terminalId "SYN-TER-CDG-01" ;
+    ao:terminalOfAirport res:SYN-TWIN-AP-CDG ;
+    ao:twinIdentifier "SYN-TWIN-TER-CDG-01" .
+
+res:SYN-ROUTE-CDG-ORY-REF-AL-001 a ao:Route ;
+    rdfs:label "Synthetic CDG to ORY demonstration route"@en ;
+    ao:destinationAirport res:SYN-TWIN-AP-ORY ;
+    ao:isSynthetic true ;
+    ao:originAirport res:SYN-TWIN-AP-CDG ;
+    ao:routeHasFlight res:SYN-TWIN-FLT-CDG-00001 ;
+    ao:routeId "SYN-ROUTE-CDG-ORY-REF-AL-001" ;
+    ao:routeOperatedByAirline res:REF-AL-001 .
+
+res:SYN-TWIN-AST-CDG-01 a ao:Asset ;
+    rdfs:label "SYN-AST-CDG-01"@en ;
+    dcterms:identifier "SYN-TWIN-AST-CDG-01" ;
+    ao:affectedByIncident res:SYN-TWIN-INC-CDG-00001 ;
+    ao:assetId "SYN-AST-CDG-01" ;
+    ao:assetLocatedInZone res:SYN-TWIN-ZON-CDG-01 ;
+    ao:assetType "SyntheticEscalator" ;
+    ao:criticality "Medium" ;
+    ao:dataClassification "SyntheticMaster" ;
+    ao:hasWorkOrder res:SYN-TWIN-WO-CDG-00001 ;
+    ao:isSynthetic true ;
+    ao:monitoredBy res:SYN-TWIN-MTR-CDG-01 ;
+    ao:twinIdentifier "SYN-TWIN-AST-CDG-01" .
+
+res:SYN-TWIN-FLT-CDG-00001 a ao:FlightOperation ;
+    rdfs:label "SYNAL01-0001"@en ;
+    dcterms:identifier "SYN-TWIN-FLT-CDG-00001" ;
+    ao:actualArrival "2026-01-01T07:04:00+00:00"^^xsd:dateTime ;
+    ao:actualDeparture "2026-01-01T08:09:00+00:00"^^xsd:dateTime ;
+    ao:dataClassification "SyntheticOperational" ;
+    ao:departureDelayMinutes 9.0 ;
+    ao:flightEventId "SYN-FLT-CDG-00001" ;
+    ao:flightOnRoute res:SYN-ROUTE-CDG-ORY-REF-AL-001 ;
+    ao:flightOperatedByAirline res:REF-AL-001 ;
+    ao:hasTurnaround res:SYN-TURN-CDG-00001 ;
+    ao:isSynthetic true ;
+    ao:scheduledArrival "2026-01-01T07:00:00+00:00"^^xsd:dateTime ;
+    ao:scheduledDeparture "2026-01-01T08:00:00+00:00"^^xsd:dateTime ;
+    ao:servedAtGate res:SYN-TWIN-GAT-CDG-01 ;
+    ao:status "SyntheticScheduled" ;
+    ao:twinIdentifier "SYN-TWIN-FLT-CDG-00001" ;
+    ao:usesAircraftType res:SYN-TWIN-ACT-001 .
+
+res:SYN-TWIN-ZON-CDG-01 a ao:Zone ;
+    rdfs:label "SYN-ZON-CDG-01"@en ;
+    dcterms:identifier "SYN-TWIN-ZON-CDG-01" ;
+    ao:containsAsset res:SYN-TWIN-AST-CDG-01,
+        res:SYN-TWIN-BAG-CDG-01 ;
+    ao:dataClassification "SyntheticMaster" ;
+    ao:hasCheckpoint res:SYN-TWIN-CHK-CDG-01 ;
+    ao:hasPassengerFlowObservation res:SYN-TWIN-QUE-CDG-01 ;
+    ao:isSynthetic true ;
+    ao:twinIdentifier "SYN-TWIN-ZON-CDG-01" ;
+    ao:zoneId "SYN-ZON-CDG-01" ;
+    ao:zoneOfTerminal res:SYN-TWIN-TER-CDG-01 ;
+    ao:zoneType "SyntheticPublicProcessing" .
+

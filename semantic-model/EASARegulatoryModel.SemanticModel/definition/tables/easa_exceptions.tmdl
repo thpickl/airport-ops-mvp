@@ -1,0 +1,68 @@
+table easa_exceptions
+
+	column exception_id
+		dataType: string
+		isHidden
+		sourceColumn: exception_id
+
+	column submission_id
+		dataType: string
+		isHidden
+		sourceColumn: submission_id
+
+	column airport_id
+		dataType: string
+		sourceColumn: airport_id
+
+	column requirement_id
+		dataType: string
+		isHidden
+		sourceColumn: requirement_id
+
+	column exception_type
+		dataType: string
+		sourceColumn: exception_type
+
+	column severity
+		dataType: string
+		sourceColumn: severity
+
+	column exception_status
+		dataType: string
+		sourceColumn: exception_status
+
+	column exception_detail
+		dataType: string
+		sourceColumn: exception_detail
+
+	column owner_object_id
+		dataType: string
+		isHidden
+		sourceColumn: owner_object_id
+
+	column opened_at_utc
+		dataType: dateTime
+		formatString: dd MMM yyyy HH:mm
+		sourceColumn: opened_at_utc
+
+	column closed_at_utc
+		dataType: dateTime
+		formatString: dd MMM yyyy HH:mm
+		sourceColumn: closed_at_utc
+
+	measure 'Open Exceptions' = CALCULATE(COUNTROWS(easa_exceptions), easa_exceptions[exception_status] <> "CLOSED")
+		formatString: #,0
+		displayFolder: Exceptions
+
+	measure 'Blocking Exceptions' = CALCULATE(COUNTROWS(easa_exceptions), easa_exceptions[severity] = "BLOCKING", easa_exceptions[exception_status] <> "CLOSED")
+		formatString: #,0
+		displayFolder: Exceptions
+
+	partition easa_exceptions = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_easa_exceptions"]}[Data]
+				in
+					Data

@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "policy": "Only sources approved by the named data owner and compliance owner may be ingested outside synthetic tests.",
+  "default_decision": "DENY",
+  "sources": [
+    {
+      "domain": "operational",
+      "source_id": "TODO-OPERATIONAL-SOURCE",
+      "source_system": "TODO_DATA_OWNER_VERIFY",
+      "connector_type": "TODO_VERIFY_SUPPORTED_CONNECTOR",
+      "connection_reference": "${EASA_OPERATIONAL_CONNECTION_REFERENCE}",
+      "data_contract_reference": "TODO_APPROVED_DATA_CONTRACT",
+      "data_classification": "TODO_PRIVACY_OWNER_CLASSIFY",
+      "approved": false,
+      "ingestion_enabled": false,
+      "approved_by": null,
+      "approved_at_utc": null
+    },
+    {
+      "domain": "safety",
+      "source_id": "TODO-SAFETY-SOURCE",
+      "source_system": "TODO_DATA_OWNER_VERIFY",
+      "connector_type": "TODO_VERIFY_SUPPORTED_CONNECTOR",
+      "connection_reference": "${EASA_SAFETY_CONNECTION_REFERENCE}",
+      "data_contract_reference": "TODO_APPROVED_DATA_CONTRACT",
+      "data_classification": "TODO_PRIVACY_OWNER_CLASSIFY",
+      "approved": false,
+      "ingestion_enabled": false,
+      "approved_by": null,
+      "approved_at_utc": null
+    },
+    {
+      "domain": "flight",
+      "source_id": "TODO-FLIGHT-SOURCE",
+      "source_system": "TODO_DATA_OWNER_VERIFY",
+      "connector_type": "TODO_VERIFY_SUPPORTED_CONNECTOR",
+      "connection_reference": "${EASA_FLIGHT_CONNECTION_REFERENCE}",
+      "data_contract_reference": "TODO_APPROVED_DATA_CONTRACT",
+      "data_classification": "TODO_PRIVACY_OWNER_CLASSIFY",
+      "approved": false,
+      "ingestion_enabled": false,
+      "approved_by": null,
+      "approved_at_utc": null
+    },
+    {
+      "domain": "passenger",
+      "source_id": "TODO-PASSENGER-SOURCE",
+      "source_system": "TODO_DATA_OWNER_VERIFY",
+      "connector_type": "TODO_VERIFY_SUPPORTED_CONNECTOR",
+      "connection_reference": "${EASA_PASSENGER_CONNECTION_REFERENCE}",
+      "data_contract_reference": "TODO_APPROVED_DATA_CONTRACT",
+      "data_classification": "TODO_PRIVACY_OWNER_CLASSIFY",
+      "approved": false,
+      "ingestion_enabled": false,
+      "approved_by": null,
+      "approved_at_utc": null
+    },
+    {
+      "domain": "environmental",
+      "source_id": "TODO-ENVIRONMENTAL-SOURCE",
+      "source_system": "TODO_DATA_OWNER_VERIFY",
+      "connector_type": "TODO_VERIFY_SUPPORTED_CONNECTOR",
+      "connection_reference": "${EASA_ENVIRONMENTAL_CONNECTION_REFERENCE}",
+      "data_contract_reference": "TODO_APPROVED_DATA_CONTRACT",
+      "data_classification": "TODO_PRIVACY_OWNER_CLASSIFY",
+      "approved": false,
+      "ingestion_enabled": false,
+      "approved_by": null,
+      "approved_at_utc": null
+    },
+    {
+      "domain": "incident",
+      "source_id": "TODO-INCIDENT-SOURCE",
+      "source_system": "TODO_DATA_OWNER_VERIFY",
+      "connector_type": "TODO_VERIFY_SUPPORTED_CONNECTOR",
+      "connection_reference": "${EASA_INCIDENT_CONNECTION_REFERENCE}",
+      "data_contract_reference": "TODO_APPROVED_DATA_CONTRACT",
+      "data_classification": "TODO_PRIVACY_OWNER_CLASSIFY",
+      "approved": false,
+      "ingestion_enabled": false,
+      "approved_by": null,
+      "approved_at_utc": null
+    },
+    {
+      "domain": "synthetic_test",
+      "source_id": "SYNTHETIC-EASA-TEST",
+      "source_system": "Repository deterministic test generator",
+      "connector_type": "OneLakeFile",
+      "connection_reference": "Files/easa/test-input",
+      "data_contract_reference": "repo://contracts/easa/synthetic-test-record.schema.json",
+      "data_classification": "SyntheticTestData",
+      "approved": true,
+      "ingestion_enabled": true,
+      "allowed_environments": ["dev", "test"],
+      "approved_by": "REPOSITORY_TEST_POLICY",
+      "approved_at_utc": "2026-08-21T00:00:00Z"
+    }
+  ]
+}

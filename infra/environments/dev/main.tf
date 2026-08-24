@@ -14,7 +14,14 @@ locals {
   )
 }
 
+# Reuse an existing workspace when its ID is supplied; otherwise provision one.
+data "fabric_workspace" "existing" {
+  count = var.existing_workspace_id != "" ? 1 : 0
+  id    = var.existing_workspace_id
+}
+
 module "workspace" {
+  count                     = var.existing_workspace_id == "" ? 1 : 0
   source                    = "../../modules/fabric-workspace"
   environment               = var.environment
   resource_prefix           = var.resource_prefix
@@ -22,9 +29,15 @@ module "workspace" {
   enable_workspace_identity = var.enable_workspace_identity
 }
 
+locals {
+  effective_workspace_id = var.existing_workspace_id != "" ? var.existing_workspace_id : one(module.workspace[*].workspace_id)
+
+  effective_workspace_display_name = var.existing_workspace_id != "" ? one(data.fabric_workspace.existing[*].display_name) : one(module.workspace[*].workspace_display_name)
+}
+
 module "core_items" {
   source                               = "../../modules/fabric-core-items"
-  workspace_id                         = module.workspace.workspace_id
+  workspace_id                         = local.effective_workspace_id
   lakehouse_enable_schemas             = var.lakehouse_enable_schemas
   eventhouse_minimum_consumption_units = var.eventhouse_minimum_consumption_units
 }

@@ -1,0 +1,3 @@
+expression WarehouseServer = "${WAREHOUSE_SERVER}" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+
+expression WarehouseDatabase = "${WAREHOUSE_DATABASE}" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]

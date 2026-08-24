@@ -25,7 +25,8 @@
     "ReportSectionRetailRevenue",
     "ReportSectionIncidents",
     "ReportSectionCustomerExperienceDetail",
-    "ReportSectionDataQualityPlatform"
+    "ReportSectionDataQualityPlatform",
+    "ReportSectionScenarioOutcomes"
   ],
   "activePageName": "ReportSectionExecutive"
 }

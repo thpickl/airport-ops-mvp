@@ -1,8 +1,14 @@
 environment     = "dev"
 resource_prefix = "fao-demo"
 
+# Bind to an already-provisioned workspace. Leave empty ONLY when a new workspace
+# is genuinely intended; otherwise Terraform provisions an additional workspace.
+# Prefer: TF_VAR_existing_workspace_id environment variable.
+# existing_workspace_id = "00000000-0000-0000-0000-000000000000"
+
 # Provide a self-provisioned Fabric Capacity ID at runtime; never commit a real value.
 # Prefer: TF_VAR_capacity_id environment variable.
+# Ignored when existing_workspace_id is set.
 # capacity_id = "00000000-0000-0000-0000-000000000000"
 
 enable_workspace_identity            = true

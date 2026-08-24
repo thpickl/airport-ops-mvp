@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "EASAComplianceReports",
+    "description": "Human-approved regulatory preparation, status, quality, and exception reporting."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ef1e507f-72a5-4450-8f0f-91d93dd21e9c"
+  }
+}

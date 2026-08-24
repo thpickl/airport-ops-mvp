@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED_PENDING_APPROVED_BINDINGS",
+  "pipelines": [
+    {
+      "display_name": "EASA Scheduled Ingestion",
+      "trigger_type": "SCHEDULE",
+      "trigger_definition": "TODO_COMPLIANCE_OWNER_DEFINE_FREQUENCY_FROM_APPROVED_INVENTORY",
+      "notebook": "17_EASA_Validate_Transform",
+      "parameters": ["environment_name", "source_id", "input_path", "ingestion_run_id", "actor_object_id"],
+      "binding_enabled": false,
+      "blocker": "No approved source schedule or connector is present."
+    },
+    {
+      "display_name": "EASA Event Ingestion",
+      "trigger_type": "EVENT",
+      "trigger_definition": "TODO_DATA_OWNER_DOCUMENT_APPROVED_EVENT_SOURCE",
+      "notebook": "17_EASA_Validate_Transform",
+      "parameters": ["environment_name", "source_id", "input_path", "ingestion_run_id", "actor_object_id"],
+      "binding_enabled": false,
+      "blocker": "No approved event source or official event contract is present."
+    }
+  ],
+  "release_notebook": {
+    "display_name": "18_EASA_Release_Gate",
+    "automatic_authority_call": false,
+    "human_approval_required": true
+  }
+}

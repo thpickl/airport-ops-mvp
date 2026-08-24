@@ -1,0 +1,42 @@
+role EASAAirportFunctionReader
+	modelPermission: read
+	tablePermission easa_submission_status =
+		VAR CurrentUser = USERPRINCIPALNAME()
+		VAR AllowedAirports =
+			SELECTCOLUMNS(
+				FILTER(
+					easa_principal_scope,
+					easa_principal_scope[principal_name] = CurrentUser
+						&& easa_principal_scope[function_name] IN { "COMPLIANCE", "EXECUTIVE", "DATA_QUALITY", "AIRPORT" }
+				),
+				"AirportId", easa_principal_scope[airport_id]
+			)
+		RETURN easa_submission_status[airport_id] IN AllowedAirports
+	tablePermission easa_requirement_inventory =
+		COUNTROWS(
+			FILTER(
+				easa_principal_scope,
+				easa_principal_scope[principal_name] = USERPRINCIPALNAME()
+					&& easa_principal_scope[function_name] IN { "COMPLIANCE", "EXECUTIVE" }
+			)
+		) > 0
+	tablePermission easa_automation_coverage =
+		COUNTROWS(
+			FILTER(
+				easa_principal_scope,
+				easa_principal_scope[principal_name] = USERPRINCIPALNAME()
+					&& easa_principal_scope[function_name] IN { "COMPLIANCE", "EXECUTIVE" }
+			)
+		) > 0
+	tablePermission easa_manual_inventory =
+		COUNTROWS(
+			FILTER(
+				easa_principal_scope,
+				easa_principal_scope[principal_name] = USERPRINCIPALNAME()
+					&& easa_principal_scope[function_name] IN { "COMPLIANCE", "EXECUTIVE" }
+			)
+		) > 0
+	tablePermission easa_principal_scope = [principal_name] = USERPRINCIPALNAME()
+
+role EASAAuditor
+	modelPermission: read

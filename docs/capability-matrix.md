@@ -10,7 +10,7 @@ Documentation was retrieved successfully from Microsoft Learn on 2026-08-08. Ten
 | Eventhouse objects | KQL management/query commands | `eventhouse/` | IMPLEMENTED | Runtime KQL URI and database |
 | Semantic model | PBIP semantic model project with TMDL | `semantic-model/AirportOpsSharedModel.SemanticModel/` | IMPLEMENTED | Target definition API accepts TMDL payload |
 | Report | PBIP report project with PBIR | `reports/AirportOpsPersonaReports.Report/` | IMPLEMENTED | Target definition API accepts PBIR payload |
-| Fabric app project | Fabric app source project | `app/` | IMPLEMENTED | Publication/audiences may require tenant-supported workflow |
+| Fabric app project | Fabric app source project | `fabric-app/` | IMPLEMENTED | Publication/audiences may require tenant-supported workflow |
 | Fabric Data Agent | Product experience and capability-probed item definition | `data-agent/` | IMPLEMENTED | Item type/API acceptance must be proven in target |
 | Azure Maps report visual | PBIR visual plus packaged WGS84 GeoJSON | `geospatial/azure-maps/` | IMPLEMENTED | Tenant visual policy and supported PBIR schema |
 | Digital twin | Portable DTDL plus optional Azure Digital Twins REST adapter | `digital-twin/` | IMPLEMENTED | Disabled until endpoint and identity supplied |

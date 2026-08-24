@@ -4,8 +4,8 @@ default_mode: dry-run
 environment: dev
 resource_prefix: fao-demo
 workspace_from_environment: FABRIC_WORKSPACE_ID
-cloud_deployment_status: BLOCKED
-cloud_deployment_blocker: "Supported Fabric content is deployed; native FabricApp is unsupported and Azure Digital Twins runtime is blocked because no approved instance exists."
+cloud_deployment_status: DEPLOYED
+cloud_deployment_blocker: null
 status_values: [IMPLEMENTED, VALIDATED, DEPLOYED, BLOCKED, UNSUPPORTED]
 artifacts:
   - key: lakehouse
@@ -57,12 +57,12 @@ artifacts:
     type: PortableDTDL
     status: VALIDATED
     depends_on: [lakehouse]
-    deployment: 15 DTDL v2 models and compact synthetic graph validated; runtime adapter not executed
+    deployment: 15 DTDL v2 models and compact synthetic graph validated locally and against the live runtime
   - key: digital_twin_runtime
     type: AzureDigitalTwins
-    status: BLOCKED
+    status: DEPLOYED
     depends_on: [digital_twin]
-    deployment: No Azure Digital Twins instance exists in the active subscription; endpoint, resource ownership, region, and RBAC require an explicit decision
+    deployment: West Europe dev runtime deployed; 15 models, 15 twins, 14 relationships, telemetry, resource-scoped Data Owner RBAC, retrieval, and representative query verified
   - key: ontology
     type: PortableOntology
     status: VALIDATED

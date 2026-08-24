@@ -1,0 +1,145 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "ManualInventory",
+  "position": {
+    "x": 30,
+    "y": 190,
+    "z": 0,
+    "height": 480,
+    "width": 1170,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_manual_inventory"
+                    }
+                  },
+                  "Property": "submission_name"
+                }
+              },
+              "queryRef": "easa_manual_inventory.submission_name",
+              "nativeQueryRef": "submission_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_manual_inventory"
+                    }
+                  },
+                  "Property": "authority_name"
+                }
+              },
+              "queryRef": "easa_manual_inventory.authority_name",
+              "nativeQueryRef": "authority_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_manual_inventory"
+                    }
+                  },
+                  "Property": "airport_scope"
+                }
+              },
+              "queryRef": "easa_manual_inventory.airport_scope",
+              "nativeQueryRef": "airport_scope"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_manual_inventory"
+                    }
+                  },
+                  "Property": "annual_submission_count"
+                }
+              },
+              "queryRef": "easa_manual_inventory.annual_submission_count",
+              "nativeQueryRef": "annual_submission_count"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_manual_inventory"
+                    }
+                  },
+                  "Property": "approval_status"
+                }
+              },
+              "queryRef": "easa_manual_inventory.approval_status",
+              "nativeQueryRef": "approval_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_manual_inventory"
+                    }
+                  },
+                  "Property": "manual_reason"
+                }
+              },
+              "queryRef": "easa_manual_inventory.manual_reason",
+              "nativeQueryRef": "manual_reason"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Manual and unapproved annual inventory'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Manual and unapproved annual inventory'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

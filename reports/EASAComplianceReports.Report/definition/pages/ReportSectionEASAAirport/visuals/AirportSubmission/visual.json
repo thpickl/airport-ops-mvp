@@ -1,0 +1,159 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "AirportSubmission",
+  "position": {
+    "x": 30,
+    "y": 30,
+    "z": 0,
+    "height": 300,
+    "width": 1170,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_submission_status"
+                    }
+                  },
+                  "Property": "airport_id"
+                }
+              },
+              "queryRef": "easa_submission_status.airport_id",
+              "nativeQueryRef": "airport_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_submission_status"
+                    }
+                  },
+                  "Property": "submission_name"
+                }
+              },
+              "queryRef": "easa_submission_status.submission_name",
+              "nativeQueryRef": "submission_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_submission_status"
+                    }
+                  },
+                  "Property": "reporting_period_start"
+                }
+              },
+              "queryRef": "easa_submission_status.reporting_period_start",
+              "nativeQueryRef": "reporting_period_start"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_submission_status"
+                    }
+                  },
+                  "Property": "reporting_period_end"
+                }
+              },
+              "queryRef": "easa_submission_status.reporting_period_end",
+              "nativeQueryRef": "reporting_period_end"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_submission_status"
+                    }
+                  },
+                  "Property": "due_at_utc"
+                }
+              },
+              "queryRef": "easa_submission_status.due_at_utc",
+              "nativeQueryRef": "due_at_utc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_submission_status"
+                    }
+                  },
+                  "Property": "approval_status"
+                }
+              },
+              "queryRef": "easa_submission_status.approval_status",
+              "nativeQueryRef": "approval_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_submission_status"
+                    }
+                  },
+                  "Property": "release_status"
+                }
+              },
+              "queryRef": "easa_submission_status.release_status",
+              "nativeQueryRef": "release_status"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Airport submissions'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Airport submissions'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

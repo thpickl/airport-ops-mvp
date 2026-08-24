@@ -4,9 +4,10 @@
 
 ## Contents
 
-- `dtdl/`: fifteen DTDL v2 interfaces with stable `dtmi:com:fictionalairport:*;1` IDs, including Airport, Flight, Queue, BaggageAsset, Asset, EnergyMeter, MaintenanceWorkOrder, and Incident.
-- `instances/sample-twins.json`: one deterministic sample per DTDL v2 interface using `SYN-TWIN-` identifiers.
+- `dtdl/`: fifteen DTDL v2 interfaces with stable `dtmi:com:fictionalairport:*;1` IDs, including Airport, Flight, Queue, BaggageAsset, Asset, EnergyMeter, MaintenanceWorkOrder, and Incident, plus five `;2` interfaces (`Checkpoint`, `EnergyMeter`, `Gate`, `MaintenanceAsset`, `Terminal`) that add observed-state properties for the 3D scene graph.
+- `instances/sample-twins.json`: one deterministic sample per `;1` interface using `SYN-TWIN-` identifiers.
 - `relationships/sample-relationships.json`: deterministic graph-edge samples.
+- `3d-scenes/`: generated per-airport `.glb` geometry and the build manifest for the 18-airport scene package.
 - `mapping.md`: DTDL-to-Lakehouse/Warehouse lineage.
 
 Notebook `04_Generate_Physical_Spatial_Context` creates the configurable synthetic physical graph in `bronze_twin_relationships`; static JSON is a compact import sample and never represents a real airport layout.

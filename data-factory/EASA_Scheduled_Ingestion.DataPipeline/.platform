@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "EASA Scheduled Ingestion",
+    "description": "Governed scheduled-ingestion shell. Disabled until approved source connections and notebook bindings are signed."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "94fe4947-c5aa-41d8-8f38-9692ce5bb0f4"
+  }
+}

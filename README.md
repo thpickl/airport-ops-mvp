@@ -15,7 +15,10 @@ flowchart LR
     Bronze --> Silver[(Silver conformed facts and dimensions)]
     Silver --> Gold[(Gold persona and agent products)]
     Gold --> WH[Warehouse ops views]
-    Sim --> EH[Eventhouse raw and curated KQL]
+    Config --> Prod[Synthetic streaming producer]
+    Prod --> Hubs[Azure Event Hubs]
+    Hubs --> ES[Fabric Eventstream DirectIngestion]
+    ES --> EH[Eventhouse raw and curated KQL]
     WH --> Model[TMDL shared semantic model]
     EH --> Agent[Fabric Data Agent]
     WH --> Agent
@@ -36,37 +39,44 @@ flowchart LR
 - Passenger queues, zone occupancy, retail outlets/products/POS, weather, energy, assets, maintenance, and incidents
 - Aggregate customer experience, synthetic ticket/retail revenue, data quality, capacity, and cost proxies
 
-Default configuration: environment `dev`, resource prefix `fao-demo`, seed `39039`, fixed start `2026-01-01T00:00:00Z`, `smoke` profile, 18 airport anchors, 30 days, dry-run deployment, disabled destructive operations, and disabled external adapters. Select `unit`, `smoke`, `demo`, or `enterprise` through versioned configuration or notebook parameters.
+Default configuration: environment `dev`, resource prefix `fao-demo`, seed `42`, fixed start `2026-01-01T00:00:00Z`, `smoke` profile, 18 airport anchors, 30 days, dry-run deployment, disabled destructive operations, and disabled external adapters. Select `unit`, `smoke`, `demo`, or `enterprise` through versioned configuration or notebook parameters.
 
 ## Repository outputs
 
 | Area | Artifacts |
 |---|---|
-| Deployment | `00`, `10`, `11`, `13`, optional `14`, and read-only status notebook `15`; [deployment/manifest.json](deployment/manifest.json) |
+| Deployment | Preflight `00_Validate_Prerequisites`, bootstrap `00_Deploy_Fabric_Items`, `10`, `11`, `13`, optional `14` and `16`, and read-only status notebook `15`; [deployment/manifest.json](deployment/manifest.json) |
 | Medallion | Notebooks `01`-`09` for base, physical/spatial, and enterprise Bronze/Silver/Gold |
 | Fictional reference | [data/reference](data/reference/) generator, catalogs, and source manifest |
 | Validation | Notebooks `06` and `12`; local [tests/validate_platform.py](tests/validate_platform.py) |
 | Eventhouse | [eventhouse](eventhouse/) KQL schema, mappings, functions, update policies, materialized views, validation |
+| Streaming | Synthetic [Event Hubs producer](src/streaming/producer.py), [source registry template](config/streaming_sources.example.json), and Eventstream DirectIngestion into the Eventhouse raw tables |
 | Warehouse | [warehouse](warehouse/) schemas, curated views, roles/grants, KPI checks, teardown |
-| Semantic model | TMDL project [AirportOpsSharedModel.SemanticModel](semantic-model/AirportOpsSharedModel.SemanticModel/) and DAX specification |
-| Reports | Generated PBIR project with 7 persona and 14 detail pages [AirportOpsPersonaReports.Report](reports/AirportOpsPersonaReports.Report/) |
+| Semantic model | TMDL projects [AirportOpsSharedModel.SemanticModel](semantic-model/AirportOpsSharedModel.SemanticModel/) (29 tables, 11 perspectives) and [EASARegulatoryModel.SemanticModel](semantic-model/EASARegulatoryModel.SemanticModel/) |
+| Reports | Generated PBIR project with 11 persona and 15 detail pages [AirportOpsPersonaReports.Report](reports/AirportOpsPersonaReports.Report/), plus [EASAComplianceReports.Report](reports/EASAComplianceReports.Report/) and the RDL [paginated report](paginated-reports/) |
 | App | [fabric-app/app-manifest.json](fabric-app/app-manifest.json) and configurable [fabric-app/rayfin-module.json](fabric-app/rayfin-module.json) |
-| Infrastructure | Verified `microsoft/fabric` Terraform workspace and core items under [infra](infra/) |
+| Infrastructure | Verified `microsoft/fabric` Terraform workspace and core items under [infra](infra/), plus Bicep for the streaming platform and Azure Digital Twins |
 | Data Agent | [data-agent/definition.json](data-agent/definition.json), evaluations, ontology, synonyms, source mappings, instructions |
 | Spatial | Twelve generated WGS84 GeoJSON layers under [geospatial/azure-maps](geospatial/azure-maps/) |
-| Digital twin | Fifteen DTDL v2 models, sample twins/relationships, mappings, and optional REST deployment notebook |
+| Digital twin | 15 DTDL `;1` interfaces plus 5 `;2` observed-state interfaces, sample twins/relationships, an 18-airport 3D scene package, and optional REST deployment notebook |
+| Regulatory | EASA notebooks `17`-`18`, [governed configuration](config/easa_requirements_matrix.json), Warehouse schema/views/security, and Data Factory pipeline definitions |
+| Knowledge graph | Versioned [OWL/RDF ontology](ontology/README.md), SHACL shapes, Warehouse mappings, representative instances, and SPARQL queries |
 | Documentation | Architecture, runbook, dictionary, lineage, assumptions, API support, rollback, troubleshooting, limitations |
 
 ## Personas and KPIs
 
 | Persona | Primary experience |
 |---|---|
+| Executive | Operational risk, network outcomes, synthetic commercial indicators |
+| Regional | Region comparison across the four operating regions |
 | Airport | Network/airport health, queues, baggage, customer experience, Azure Maps |
 | Airline | Punctuality, load factor, route performance, baggage, ticket revenue proxy |
-| Executive | Operational risk, network outcomes, synthetic commercial indicators |
 | Operations | Turnaround phases, gate utilization, flow, staffing coverage, incidents |
 | Maintenance | Asset availability, anomalies, open maintenance, team coverage |
 | Commercial | POS transactions, net revenue proxy, basket value, revenue per passenger |
+| Sustainability | Energy, water, and emissions proxies |
+| Compliance | Incidents and regulatory preparation |
+| Customer Experience | Synthetic CSAT/NPS proxies and service recovery |
 | IT | Data quality, refresh/freshness, lineage, security status, capacity/cost proxies |
 
 KPIs include on-time departure, turnaround and milestone adherence, gate utilization, passenger wait/throughput, baggage exceptions/SLA, staffing coverage, maintenance/availability, energy per flight/passenger, incidents, synthetic revenue, satisfaction, and NPS proxy.
@@ -79,6 +89,8 @@ Review [prerequisites](docs/prerequisites.md) and [known issues](docs/known-issu
 
 ```powershell
 python -m pip install -r requirements.txt
+python ontology/generate_ontology.py --check
+python ontology/validate_ontology.py
 python tests/validate_platform.py
 ```
 
@@ -98,9 +110,9 @@ Notebook 00:
 
 ### 3. Run the complete graph
 
-Run notebook `11_Orchestrate_Deployment` with `run_second_pass = True`. Enable platform deployment only when runtime Warehouse/KQL endpoints are supplied.
+Run notebook `11_Orchestrate_Deployment` with `deployment_mode = 'apply'` and `run_second_pass = True`. Set `include_platform_deployment = True` only when runtime Warehouse/KQL endpoints are supplied.
 
-The final notebook `12_Validate_Production_Demo` run must use `require_second_run = True` and report zero mandatory failures.
+The orchestrator runs the preflight, both deterministic passes, and a final read-only status step. The notebook `12_Validate_Production_Demo` second-pass run uses `require_second_run = True` and must report zero mandatory failures.
 
 See [docs/deployment-runbook.md](docs/deployment-runbook.md) for exact parameters, dependency order, evidence tables, and conditional paths.
 
@@ -118,7 +130,7 @@ A submitted job or HTTP 202 response is never treated as success until polling r
 
 ## Fabric app, Rayfin, and Data Agent
 
-The Fabric app package links seven persona pages, support/runbook entries, and the governed Data Agent. App/Data Agent item definitions are capability-checked because target support can vary.
+The Fabric app package links eleven persona pages, support/runbook entries, and the governed Data Agent. App/Data Agent item definitions are capability-checked because target support can vary.
 
 No verified native Fabric experience named Rayfin is assumed. Rayfin is implemented as a configurable app module with filters, report/model bindings, GeoJSON resources, evidence, provenance, freshness, confidence, warnings, approval history, and explicit prohibited actions. Native deployment is `UNSUPPORTED`, not success.
 
@@ -126,7 +138,9 @@ The Data Agent allowlist contains aggregate Gold, curated `ops.vw_*` views, and 
 
 ## Digital twin
 
-Notebook `14_Deploy_Digital_Twin` validates the DTDL v2 package in dry-run and optionally deploys it to a runtime Azure Digital Twins endpoint. Existing identical model versions are reused; conflicting immutable versions fail. No endpoint or identity is stored in source.
+Notebook `14_Deploy_Digital_Twin` and `deployment/scripts/digital_twin.py` validate the DTDL v2 package in dry-run and optionally deploy it to a runtime Azure Digital Twins endpoint. Existing identical model versions are reused; conflicting immutable versions fail. Telemetry is sent through the ADT telemetry API rather than stored as twin properties. No endpoint or identity is stored in project source.
+
+Notebook `14` deploys the 15-twin `SYN-TWIN-` sample graph only. The 18-airport 3D scene graph produced by `deployment/scripts/generate_3d_scenes.py` uses a different identifier convention and is applied out of band; see [docs/limitations.md](docs/limitations.md).
 
 ## Reset and rollback
 
@@ -140,6 +154,7 @@ Item teardown is restricted to allowlisted IDs recorded as `Created item`; reuse
 
 ## Documentation
 
+- [EASA regulatory reporting architecture, deployment, validation, rollback, and sign-off](docs/easa/README.md)
 - [Architecture](docs/architecture.md)
 - [Prerequisites](docs/prerequisites.md)
 - [Known issues](docs/known-issues.md)
@@ -160,4 +175,4 @@ Item teardown is restricted to allowlisted IDs recorded as `Created item`; reuse
 
 ## Honest deployment boundary
 
-Fabric MCP and tenant credentials are unavailable in this development session, so no live Fabric, Power BI, Fabric app, Data Agent, Eventhouse, Warehouse, or Azure Digital Twins deployment was attempted. The checked-in deployment notebooks perform those operations only when executed in an authorized target with runtime parameters. The deployment ledger, not this README, is authoritative for actual status.
+Supported Fabric content and the Azure Digital Twins dev graph have been deployed and independently retrieved or queried in authorized targets. Native Fabric app deployment remains unsupported. The deployment ledger, not this README, is authoritative for actual status.

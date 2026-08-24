@@ -8,7 +8,7 @@ All dimensions, relationships, operating data, coordinates, analytical outputs, 
 flowchart LR
     Ref[Fictional region / airport / airline / aircraft catalogs] --> N01[01 Generate references + operations]
     Edge[Synthetic source-shaped domains\nflight / baggage / queue / POS / asset] --> N01
-    Config[demo_config.json\nseed 42 / fixed date] --> N01
+    Config[config/base/platform.json\nseed 42 / fixed date] --> N01
     Config --> N04[04 Physical + spatial]
     N01 --> Bronze[(Bronze Delta\nreplayable source shape)]
     Bronze --> N02[02 Clean + conform]
@@ -17,9 +17,12 @@ flowchart LR
     Silver --> N04
     N03 --> N05[05 Extended Gold + agent context]
     N04 --> N05
+    N07[07 Enterprise Bronze] --> N08[08 Enterprise Silver]
+    N08 --> N09[09 Enterprise Gold]
     N05 --> Gold[(Gold Delta\npersona / spatial / reliability / IT)]
+    N09 --> Gold
     Gold --> WH[AirportOpsWarehouse\ncurated ops views]
-    WH --> SM[AirportOpsSharedModel\n7 persona perspectives / 21 tables]
+    WH --> SM[AirportOpsSharedModel\n11 persona perspectives / 29 tables]
     WH --> Agent[Fabric Data Agent grounding]
     DTDL[DTDL + sample graph] -. optional notebook 14 .-> ADT[Azure Digital Twins]
     Geo[GeoJSON spatial layers] --> Maps[PBIR Azure Maps visuals]
@@ -167,12 +170,14 @@ flowchart TD
     Bootstrap --> Eventhouse
     Bootstrap --> KQLDB[KQL Database]
     Bootstrap --> Orchestrator[11 Job orchestration]
-    Orchestrator --> Pass1[First deterministic pass]
+    Orchestrator --> Preflight[00 Validate prerequisites]
+    Preflight --> Pass1[First deterministic pass]
     Pass1 --> Baseline[12 Fingerprint baseline]
     Baseline --> Pass2[Second deterministic pass]
-    Pass2 --> Serving[10 SQL / KQL / TMDL / PBIR]
-    Serving --> Compare[12 Required fingerprint comparison]
-    Compare --> Ledger[Deployment and validation evidence]
+    Pass2 --> Compare[12 Required fingerprint comparison]
+    Compare --> Serving[10 SQL / KQL / TMDL / PBIR]
+    Serving --> Status[15 Read-only status]
+    Status --> Ledger[Deployment and validation evidence]
     Ledger --> Reset[13 Scoped reset / teardown]
 ```
 

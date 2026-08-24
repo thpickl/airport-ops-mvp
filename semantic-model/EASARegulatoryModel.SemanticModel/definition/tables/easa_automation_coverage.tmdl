@@ -1,0 +1,47 @@
+table easa_automation_coverage
+
+	column approved_annual_submission_count
+		dataType: int64
+		sourceColumn: approved_annual_submission_count
+
+	column eligible_annual_submission_count
+		dataType: int64
+		sourceColumn: eligible_annual_submission_count
+
+	column automation_coverage_percent
+		dataType: double
+		formatString: 0.00
+		sourceColumn: automation_coverage_percent
+
+	column coverage_status
+		dataType: string
+		sourceColumn: coverage_status
+
+	measure 'Approved Annual Submissions' = SUM(easa_automation_coverage[approved_annual_submission_count])
+		formatString: #,0
+		displayFolder: Automation Coverage
+
+	measure 'Eligible Annual Submissions' = SUM(easa_automation_coverage[eligible_annual_submission_count])
+		formatString: #,0
+		displayFolder: Automation Coverage
+
+	measure 'Automation Coverage %' = DIVIDE([Eligible Annual Submissions], [Approved Annual Submissions])
+		formatString: 0.0%
+		displayFolder: Automation Coverage
+
+	measure 'Automation Target %' = 0.78
+		formatString: 0.0%
+		displayFolder: Automation Coverage
+
+	measure 'Automation Target Met' = IF(NOT ISBLANK([Automation Coverage %]) && [Automation Coverage %] >= [Automation Target %], 1, 0)
+		formatString: 0
+		displayFolder: Automation Coverage
+
+	partition easa_automation_coverage = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_easa_automation_coverage"]}[Data]
+				in
+					Data

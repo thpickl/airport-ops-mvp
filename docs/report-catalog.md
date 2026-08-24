@@ -1,6 +1,6 @@
 # Report Catalog
 
-The PBIR project contains 11 persona pages and 14 detail pages. Every generated page includes the required synthetic-data disclaimer, fixed data-as-of metadata, accessible alternative text, filters, and an advisory-AI notice.
+The PBIR project contains 11 persona pages and 15 detail pages. Every generated page includes the required synthetic-data disclaimer, fixed data-as-of metadata, accessible alternative text, filters, and an advisory-AI notice.
 
 | Persona page | Primary scope | Security scope |
 |---|---|---|
@@ -16,6 +16,6 @@ The PBIR project contains 11 persona pages and 14 detail pages. Every generated 
 | Customer Experience | synthetic CSAT/NPS and recovery | aggregate only |
 | IT | quality, freshness, lineage, security | platform |
 
-Detail pages cover group overview, airport comparison, flight performance, turnaround, passenger flow, baggage, gates/stands, workforce, maintenance/digital twin, energy, retail, incidents, customer experience, and data quality/platform operations.
+Detail pages cover group overview, airport comparison, flight performance, turnaround, passenger flow, baggage, gates/stands, workforce, maintenance/digital twin, energy, retail, incidents, customer experience, data quality/platform operations, and scenario outcomes.
 
 Azure Maps consumes packaged GeoJSON. Where a target PBIR schema or tenant policy does not accept a configured layer, the report retains latitude/longitude and packaged resources as the supported fallback; it must not be described as deployed Azure Maps until target validation succeeds.

@@ -1,0 +1,15 @@
+PREFIX ao: <https://data.fictional-airport-group.example/airport-operations/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# Competency: show the airport physical hierarchy from terminal through stand.
+SELECT ?airport ?airportLabel ?terminal ?zone ?checkpoint ?gate ?stand
+WHERE {
+  ?airport a ao:Airport ;
+           rdfs:label ?airportLabel ;
+           ao:hasTerminal ?terminal .
+  ?terminal ao:hasZone ?zone ;
+            ao:hasGate ?gate .
+  ?zone ao:hasCheckpoint ?checkpoint .
+  ?gate ao:servesStand ?stand .
+}
+ORDER BY ?airport ?terminal ?zone ?gate

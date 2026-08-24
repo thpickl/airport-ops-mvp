@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "AirportExceptions",
+  "position": {
+    "x": 630,
+    "y": 360,
+    "z": 0,
+    "height": 310,
+    "width": 570,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_exceptions"
+                    }
+                  },
+                  "Property": "exception_type"
+                }
+              },
+              "queryRef": "easa_exceptions.exception_type",
+              "nativeQueryRef": "exception_type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_exceptions"
+                    }
+                  },
+                  "Property": "severity"
+                }
+              },
+              "queryRef": "easa_exceptions.severity",
+              "nativeQueryRef": "severity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_exceptions"
+                    }
+                  },
+                  "Property": "exception_status"
+                }
+              },
+              "queryRef": "easa_exceptions.exception_status",
+              "nativeQueryRef": "exception_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_exceptions"
+                    }
+                  },
+                  "Property": "exception_detail"
+                }
+              },
+              "queryRef": "easa_exceptions.exception_detail",
+              "nativeQueryRef": "exception_detail"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Airport exceptions'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Airport exceptions'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

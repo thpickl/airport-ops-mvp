@@ -51,11 +51,11 @@
                       "Entity": "gold_energy_sustainability_kpi"
                     }
                   },
-                  "Property": "kwh_per_flight"
+                  "Property": "kwh_per_gate_hour"
                 }
               },
-              "queryRef": "gold_energy_sustainability_kpi.kwh_per_flight",
-              "nativeQueryRef": "kwh_per_flight"
+              "queryRef": "gold_energy_sustainability_kpi.kwh_per_gate_hour",
+              "nativeQueryRef": "kwh_per_gate_hour"
             },
             {
               "field": {

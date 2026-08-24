@@ -1,0 +1,11 @@
+relationship SubmissionRequirement
+	fromColumn: easa_submission_status.requirement_id
+	toColumn: easa_requirement_inventory.requirement_id
+
+relationship QualitySubmission
+	fromColumn: easa_data_quality.submission_id
+	toColumn: easa_submission_status.submission_id
+
+relationship ExceptionSubmission
+	fromColumn: easa_exceptions.submission_id
+	toColumn: easa_submission_status.submission_id

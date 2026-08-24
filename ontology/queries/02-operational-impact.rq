@@ -1,0 +1,11 @@
+PREFIX ao: <https://data.fictional-airport-group.example/airport-operations/ontology#>
+
+# Competency: identify incidents, affected assets, their zones, and open analytical work orders.
+SELECT ?incident ?asset ?zone ?workOrder
+WHERE {
+  ?incident a ao:OperationalIncident ;
+            ao:affectsAsset ?asset .
+  ?asset ao:assetLocatedInZone ?zone .
+  OPTIONAL { ?asset ao:hasWorkOrder ?workOrder }
+}
+ORDER BY ?incident ?asset

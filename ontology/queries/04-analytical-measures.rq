@@ -1,0 +1,16 @@
+PREFIX ao: <https://data.fictional-airport-group.example/airport-operations/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# Competency: return governed measure values with unit, subject, and fixed observation timestamp.
+SELECT ?measureLabel ?subject ?value ?unit ?valueType ?observedAt
+WHERE {
+  ?observation a ao:MeasureObservation ;
+               ao:observesMeasure ?measure ;
+               ao:observedFor ?subject ;
+               ao:numericValue ?value ;
+               ao:valueType ?valueType ;
+               ao:observationTimestamp ?observedAt .
+  ?measure rdfs:label ?measureLabel ;
+           ao:unitCode ?unit .
+}
+ORDER BY ?measureLabel ?subject

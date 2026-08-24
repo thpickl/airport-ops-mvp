@@ -30,7 +30,37 @@ infra/
     fabric-core-items/    # lakehouse, warehouse, eventhouse, kql database
   environments/
     dev/                  # composition root, tfvars example, backend example
+  platform/               # Bicep: ingestion, AI, and ML plane (AVM modules)
+  digital-twin/           # Bicep: Azure Digital Twins instance and 3D scene storage
 ```
+
+## Platform plane (Bicep)
+
+[platform/main.bicep](platform/main.bicep) provisions the ingestion, AI, and ML services
+that sit beside Fabric. It uses Azure Verified Modules only, assigns data-plane roles to a
+user-assigned managed identity and the operator, and emits endpoints — never keys.
+
+| Resource | Purpose | Auth posture |
+|---|---|---|
+| User-assigned identity | Single workload identity for cross-service access | — |
+| Log Analytics + App Insights | Observability sink for all diagnostic settings | — |
+| Key Vault | Runtime configuration and secret custody | RBAC only, purge protection on |
+| Azure OpenAI | Ground-ops orchestration, retail personalisation, grounding | `disableLocalAuth: true` |
+| Azure Maps | Terminal, stand, and flow geospatial layers | Entra ID, `Azure Maps Data Reader` |
+| Event Hubs | Streaming ingestion consumed by Fabric | `disableLocalAuth: true` |
+| IoT Hub | Stand, gate, checkpoint, and energy device telemetry | System-assigned identity |
+| Azure ML | 15-minute passenger-flow forecasting | `systemDatastoresAuthMode: Identity` |
+
+`operatorPrincipalId` is runtime-only. Supply it without committing a tenant principal ID:
+
+```powershell
+$env:AZ_OPERATOR_PRINCIPAL_ID = (az ad signed-in-user show --query id -o tsv)
+az deployment group what-if -g <rg> -f platform/main.bicep -p platform/main.dev.bicepparam
+az deployment group create  -g <rg> -f platform/main.bicep -p platform/main.dev.bicepparam
+```
+
+Azure Digital Twins is not offered in `francecentral`; the instance is deliberately placed in
+`westeurope`. This is a recorded regional deviation, not a defect.
 
 ## Safety
 

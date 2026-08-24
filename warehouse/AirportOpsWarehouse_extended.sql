@@ -172,8 +172,9 @@ FROM [AirportOpsLakehouse].[dbo].[gold_airport_operational_health];
 GO
 
 -- SERVING GRAIN: one row per airport, terminal, and hour.
+-- date_key is part of the hourly key; event_hour alone is hour-of-day (0-23).
 CREATE OR ALTER VIEW ops.vw_terminal_performance AS
-SELECT airport_id, terminal_id, event_hour, avg_zone_occupancy,
+SELECT airport_id, terminal_id, date_key, event_hour, avg_zone_occupancy,
        avg_queue_wait_min, peak_queue_wait_min, passenger_throughput,
        observed_checkpoints, flow_status, is_synthetic
 FROM [AirportOpsLakehouse].[dbo].[gold_terminal_flow_summary];

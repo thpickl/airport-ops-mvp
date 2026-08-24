@@ -3,7 +3,7 @@
 ## Reproducibility contract
 
 - Generator version: `4.0.0`
-- Default seed: `39039`
+- Default seed: `42`
 - Fixed start: `2026-01-01T00:00:00Z`
 - Default profile: `smoke`, 30 days, 18 airport anchors
 - Identity: typed UUIDv5 plus `SYN-` business identifiers
@@ -26,7 +26,9 @@ The simulator creates event records rather than KPI answer rows.
 | Regulatory preparation | Annualized activity frequency targets 840 | Stable-ranked 78% of improvement events receive automated drafts | annualized 800-880; automation 73-83% |
 | Energy | Passenger-linked benchmark multiplied by 1.26 | Factor reduced to 1.08 | baseline variance 23-29%; efficiency improvement >8% |
 
-The validated smoke result is approximately 48.08 to 39.09 turnaround minutes, 38.03% p95 queue reduction, 22.2% revenue-per-passenger uplift, 79.4% regulatory automation, and 14.3% energy-per-passenger improvement. These are simulated outcomes, not guaranteed business results.
+The validated smoke result is approximately 48.15 to 39.11 turnaround minutes, 37.86% p95 queue reduction, 22.20% revenue-per-passenger uplift, 79.41% regulatory preparation automation, and 14.33% energy-per-passenger improvement. These are simulated outcomes, not guaranteed business results.
+
+The regulatory preparation figure is a KPI of the synthetic operational scenario: the share of simulated regulatory workflow events that receive an automated draft. It is not EASA submission inventory coverage, which is computed separately from an approved annual inventory and currently reports `BLOCKED_NO_APPROVED_INVENTORY`. See [easa/README.md](easa/README.md).
 
 ## Fault model
 

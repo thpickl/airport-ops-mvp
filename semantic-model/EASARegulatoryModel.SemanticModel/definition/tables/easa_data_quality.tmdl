@@ -1,0 +1,65 @@
+table easa_data_quality
+
+	column submission_id
+		dataType: string
+		isHidden
+		sourceColumn: submission_id
+
+	column airport_id
+		dataType: string
+		sourceColumn: airport_id
+
+	column requirement_id
+		dataType: string
+		isHidden
+		sourceColumn: requirement_id
+
+	column quality_dimension
+		dataType: string
+		sourceColumn: quality_dimension
+
+	column rule_id
+		dataType: string
+		sourceColumn: rule_id
+
+	column severity
+		dataType: string
+		sourceColumn: severity
+
+	column result_status
+		dataType: string
+		sourceColumn: result_status
+
+	column evaluated_record_count
+		dataType: int64
+		sourceColumn: evaluated_record_count
+
+	column failed_record_count
+		dataType: int64
+		sourceColumn: failed_record_count
+
+	column result_detail
+		dataType: string
+		sourceColumn: result_detail
+
+	column evaluated_at_utc
+		dataType: dateTime
+		formatString: dd MMM yyyy HH:mm
+		sourceColumn: evaluated_at_utc
+
+	measure 'Data Quality Pass %' = DIVIDE(CALCULATE(COUNTROWS(easa_data_quality), easa_data_quality[result_status] = "PASS"), COUNTROWS(easa_data_quality))
+		formatString: 0.0%
+		displayFolder: Data Quality
+
+	measure 'Failed Quality Records' = SUM(easa_data_quality[failed_record_count])
+		formatString: #,0
+		displayFolder: Data Quality
+
+	partition easa_data_quality = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_easa_data_quality"]}[Data]
+				in
+					Data

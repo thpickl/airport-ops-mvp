@@ -1,0 +1,15 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+	annotation PBI_QueryOrder = ["easa_submission_status","easa_requirement_inventory","easa_data_quality","easa_exceptions","easa_automation_coverage","easa_manual_inventory","easa_principal_scope"]
+
+	annotation EASADataClassification = ConfidentialRegulatoryReportingMetadata
+
+	annotation EASAGovernanceBoundary = HumanApprovalRequiredNoAutomaticAuthoritySubmission
+
+	annotation EASARuleBoundary = OnlyComplianceOwnerApprovedInventoryAndRules

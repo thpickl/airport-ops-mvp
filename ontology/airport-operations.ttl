@@ -1,0 +1,2460 @@
+@prefix ao: <https://data.fictional-airport-group.example/airport-operations/ontology#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ao:Aircraft a owl:Class ;
+    rdfs:label "Aircraft"@en ;
+    rdfs:comment "Compatibility name retained from the existing base ontology; the source grain is aircraft type."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AircraftType ;
+    owl:deprecated true ;
+    owl:equivalentClass ao:AircraftType .
+
+ao:AircraftFleet a owl:Class ;
+    rdfs:label "Aircraft Fleet"@en ;
+    rdfs:comment "Compatibility name retained from the existing enterprise ontology."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AircraftInstance .
+
+ao:AircraftFleetDimensionRecord a owl:Class ;
+    rdfs:label "Aircraft Fleet Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per aircraft instance."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "aircraft_instance_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_aircraft_fleet" ;
+    ao:sourceView "ops.vw_dim_aircraft_fleet" ;
+    ao:warehouseGrain "one row per aircraft instance" .
+
+ao:AircraftRotationFactRecord a owl:Class ;
+    rdfs:label "Aircraft Rotation Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per aircraft rotation sequence and flight."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "aircraft_instance_id -> dim_aircraft_fleet.aircraft_instance_id",
+        "flight_event_id -> fact_flight_turnaround_events.flight_event_id" ;
+    ao:primaryKey "rotation_id" ;
+    ao:sourceTable "fact_aircraft_rotation" ;
+    ao:warehouseGrain "one row per aircraft rotation sequence and flight" .
+
+ao:AircraftRotationKPI a owl:Class ;
+    rdfs:label "Aircraft Rotation KPI"@en ;
+    rdfs:comment "Gold analytical product at one row per airport and day."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_aircraft_rotation_kpi" ;
+    ao:sourceView "ops.vw_aircraft_rotation_kpi" ;
+    ao:warehouseGrain "one row per airport and day" .
+
+ao:AircraftTypeDimensionRecord a owl:Class ;
+    rdfs:label "Aircraft Type Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per aircraft type."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "aircraft_type_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_aircraft" ;
+    ao:sourceView "ops.vw_dim_aircraft" ;
+    ao:warehouseGrain "one row per aircraft type" .
+
+ao:AirlineDimensionRecord a owl:Class ;
+    rdfs:label "Airline Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per airline reference."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "airline_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_airline" ;
+    ao:sourceView "ops.vw_dim_airline" ;
+    ao:warehouseGrain "one row per airline reference" .
+
+ao:AirlineRoutePerformance a owl:Class ;
+    rdfs:label "Airline Route Performance"@en ;
+    rdfs:comment "Gold analytical product at one row per airline and route."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_airline_route_performance" ;
+    ao:sourceView "ops.vw_airline_route_performance" ;
+    ao:warehouseGrain "one row per airline and route" .
+
+ao:AirportDimensionRecord a owl:Class ;
+    rdfs:label "Airport Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per airport."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "airport_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_airport" ;
+    ao:sourceView "ops.vw_dim_airport" ;
+    ao:warehouseGrain "one row per airport" .
+
+ao:AirportOperationalHealth a owl:Class ;
+    rdfs:label "Airport Operational Health"@en ;
+    rdfs:comment "Gold analytical product at one row per airport."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_airport_operational_health" ;
+    ao:sourceView "ops.vw_airport_performance" ;
+    ao:warehouseGrain "one row per airport" .
+
+ao:AssetDimensionRecord a owl:Class ;
+    rdfs:label "Asset Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per maintainable asset or meter."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "asset_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_asset" ;
+    ao:sourceView "ops.vw_dim_asset" ;
+    ao:warehouseGrain "one row per maintainable asset or meter" .
+
+ao:AssetInspection a owl:Class ;
+    rdfs:label "Asset Inspection"@en ;
+    rdfs:comment "A synthetic asset inspection with score, status, and follow-up flag."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "inspection_id" ;
+    ao:sourceTable "fact_asset_inspection" ;
+    ao:warehouseGrain "one row per asset inspection" .
+
+ao:AssetInspectionFactRecord a owl:Class ;
+    rdfs:label "Asset Inspection Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per asset inspection."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "asset_id -> dim_asset.asset_id" ;
+    ao:primaryKey "inspection_id" ;
+    ao:sourceTable "fact_asset_inspection" ;
+    ao:warehouseGrain "one row per asset inspection" .
+
+ao:AssetLocationBridgeRecord a owl:Class ;
+    rdfs:label "Asset Location Bridge Record"@en ;
+    rdfs:comment "Warehouse bridge record at one row per asset and location assignment."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BridgeRecord ;
+    ao:foreignKey "asset_id -> dim_asset.asset_id",
+        "location_id -> dim_location.location_id" ;
+    ao:primaryKey "asset_id + location_id" ;
+    ao:scdSemantics "effective_from, effective_to, and is_current are implemented; generator currently emits only current rows" ;
+    ao:sourceTable "bridge_asset_location" ;
+    ao:warehouseGrain "one row per asset and location assignment" .
+
+ao:AssetReliability a owl:Class ;
+    rdfs:label "Asset Reliability"@en ;
+    rdfs:comment "Gold analytical product at one row per asset."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_asset_reliability" ;
+    ao:sourceView "ops.vw_asset_reliability" ;
+    ao:warehouseGrain "one row per asset" .
+
+ao:AssetStateFactRecord a owl:Class ;
+    rdfs:label "Asset State Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per asset and six-hour observation."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "asset_id -> dim_asset.asset_id" ;
+    ao:primaryKey "asset_state_id" ;
+    ao:sourceTable "fact_asset_state" ;
+    ao:sourceView "ops.vw_fact_asset_state" ;
+    ao:warehouseGrain "one row per asset and six-hour observation" .
+
+ao:BaggageJourney a owl:Class ;
+    rdfs:label "Baggage Journey"@en ;
+    rdfs:comment "A synthetic checked-bag journey with load, reclaim, and exception outcome."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "bag_token" ;
+    ao:sourceTable "fact_baggage_journey" ;
+    ao:sourceView "ops.vw_fact_baggage_journey" ;
+    ao:warehouseGrain "one row per synthetic checked bag" .
+
+ao:BaggageJourneyFactRecord a owl:Class ;
+    rdfs:label "Baggage Journey Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per synthetic checked bag."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "booking_id -> fact_booking.booking_id" ;
+    ao:primaryKey "bag_token" ;
+    ao:sourceTable "fact_baggage_journey" ;
+    ao:sourceView "ops.vw_fact_baggage_journey" ;
+    ao:warehouseGrain "one row per synthetic checked bag" .
+
+ao:BaggageKPI a owl:Class ;
+    rdfs:label "Baggage KPI"@en ;
+    rdfs:comment "Gold analytical product at one row per airport and day."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_baggage_kpi" ;
+    ao:sourceView "ops.vw_baggage_kpi" ;
+    ao:warehouseGrain "one row per airport and day" .
+
+ao:BaggagePerformance a owl:Class ;
+    rdfs:label "Baggage Performance"@en ;
+    rdfs:comment "Gold analytical product at one row per origin and destination."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_baggage_performance" ;
+    ao:sourceView "ops.vw_baggage_performance" ;
+    ao:warehouseGrain "one row per origin and destination" .
+
+ao:BaggageScan a owl:Class ;
+    rdfs:label "Baggage Scan"@en ;
+    rdfs:comment "A sequenced synthetic baggage scan event."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "baggage_scan_id" ;
+    ao:sourceTable "fact_baggage_scan" ;
+    ao:warehouseGrain "one row per synthetic baggage scan" .
+
+ao:BaggageScanFactRecord a owl:Class ;
+    rdfs:label "Baggage Scan Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per synthetic baggage scan."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "bag_token -> fact_baggage_journey.bag_token" ;
+    ao:primaryKey "baggage_scan_id" ;
+    ao:sourceTable "fact_baggage_scan" ;
+    ao:warehouseGrain "one row per synthetic baggage scan" .
+
+ao:BoardingEvent a owl:Class ;
+    rdfs:label "Boarding Event"@en ;
+    rdfs:comment "A synthetic booking and flight boarding outcome."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "boarding_event_id" ;
+    ao:sourceTable "fact_boarding_event" ;
+    ao:warehouseGrain "one row per booking and flight boarding event" .
+
+ao:BoardingEventFactRecord a owl:Class ;
+    rdfs:label "Boarding Event Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per booking and flight boarding event."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "booking_id -> fact_booking.booking_id",
+        "flight_event_id -> fact_flight_turnaround_events.flight_event_id" ;
+    ao:primaryKey "boarding_event_id" ;
+    ao:sourceTable "fact_boarding_event" ;
+    ao:warehouseGrain "one row per booking and flight boarding event" .
+
+ao:Booking a owl:Class ;
+    rdfs:label "Booking"@en ;
+    rdfs:comment "A synthetic passenger-token and flight booking record."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "booking_id" ;
+    ao:sourceTable "fact_booking" ;
+    ao:sourceView "ops.vw_fact_booking" ;
+    ao:warehouseGrain "one row per synthetic passenger and flight booking" .
+
+ao:BookingFactRecord a owl:Class ;
+    rdfs:label "Booking Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per passenger and flight booking."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "passenger_token -> dim_passenger.passenger_token",
+        "route_id -> dim_route.route_id" ;
+    ao:primaryKey "booking_id" ;
+    ao:sourceTable "fact_booking" ;
+    ao:sourceView "ops.vw_fact_booking" ;
+    ao:warehouseGrain "one row per passenger and flight booking" .
+
+ao:BookingPerformance a owl:Class ;
+    rdfs:label "Booking Performance"@en ;
+    rdfs:comment "Aggregate synthetic booking and ticket-revenue proxy performance."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_airline_route_performance" ;
+    ao:sourceView "ops.vw_airline_route_performance" ;
+    ao:warehouseGrain "one row per airline and route" .
+
+ao:CheckpointDimensionRecord a owl:Class ;
+    rdfs:label "Checkpoint Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per passenger checkpoint."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "checkpoint_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_checkpoint" ;
+    ao:sourceView "ops.vw_dim_checkpoint" ;
+    ao:warehouseGrain "one row per passenger checkpoint" .
+
+ao:CommercialKPI a owl:Class ;
+    rdfs:label "Commercial KPI"@en ;
+    rdfs:comment "Gold analytical product at one row per airport and day."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_commercial_kpi" ;
+    ao:sourceView "ops.vw_commercial_kpi" ;
+    ao:warehouseGrain "one row per airport and day" .
+
+ao:CustomerDimensionRecord a owl:Class ;
+    rdfs:label "Customer Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per pseudonymous customer token."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "customer_token" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_customer" ;
+    ao:warehouseGrain "one row per pseudonymous customer token" .
+
+ao:CustomerExperience a owl:Class ;
+    rdfs:label "Customer Experience"@en ;
+    rdfs:comment "Gold analytical product at one row per route and customer segment."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_customer_experience" ;
+    ao:sourceView "ops.vw_customer_experience" ;
+    ao:warehouseGrain "one row per route and customer segment" .
+
+ao:CustomerExperienceFactRecord a owl:Class ;
+    rdfs:label "Customer Experience Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per flight and customer segment."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "route_id -> dim_route.route_id" ;
+    ao:primaryKey "cx_event_id" ;
+    ao:sourceTable "fact_customer_experience" ;
+    ao:sourceView "ops.vw_fact_customer_experience" ;
+    ao:warehouseGrain "one row per flight and customer segment" .
+
+ao:CustomerExperienceObservation a owl:Class ;
+    rdfs:label "Customer Experience Observation"@en ;
+    rdfs:comment "An aggregate synthetic route and customer-segment experience observation."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:Observation ;
+    ao:primaryKey "cx_event_id" ;
+    ao:sourceTable "fact_customer_experience" ;
+    ao:sourceView "ops.vw_fact_customer_experience" ;
+    ao:warehouseGrain "one row per flight and customer segment" .
+
+ao:CustomerSegmentDimensionRecord a owl:Class ;
+    rdfs:label "Customer Segment Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per customer segment."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "customer_segment_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_customer_segment" ;
+    ao:warehouseGrain "one row per customer segment" .
+
+ao:DateDimensionRecord a owl:Class ;
+    rdfs:label "Date Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per calendar date."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "date_key" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_date" ;
+    ao:sourceView "ops.vw_dim_date" ;
+    ao:warehouseGrain "one row per calendar date" .
+
+ao:EmployeeDimensionRecord a owl:Class ;
+    rdfs:label "Employee Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per pseudonymous workforce token."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "employee_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_employee" ;
+    ao:sourceView "ops.vw_dim_employee" ;
+    ao:warehouseGrain "one row per pseudonymous workforce token" .
+
+ao:EmployeeRosterAssignment a owl:Class ;
+    rdfs:label "Employee Roster Assignment"@en ;
+    rdfs:comment "A pseudonymous worker-to-team, shift, and location assignment."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "roster_assignment_id" ;
+    ao:sourceTable "fact_employee_roster" ;
+    ao:sourceView "ops.vw_fact_employee_roster" ;
+    ao:warehouseGrain "one row per worker and day assignment" .
+
+ao:EmployeeRosterFactRecord a owl:Class ;
+    rdfs:label "Employee Roster Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per worker and day assignment."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "employee_id -> dim_employee.employee_id",
+        "shift_id -> dim_shift.shift_id",
+        "work_team_id -> dim_work_team.work_team_id" ;
+    ao:primaryKey "roster_assignment_id" ;
+    ao:sourceTable "fact_employee_roster" ;
+    ao:sourceView "ops.vw_fact_employee_roster" ;
+    ao:warehouseGrain "one row per worker and day assignment" .
+
+ao:EmployeeSkillBridgeRecord a owl:Class ;
+    rdfs:label "Employee Skill Bridge Record"@en ;
+    rdfs:comment "Warehouse bridge record at one row per employee and skill capability."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BridgeRecord ;
+    ao:foreignKey "employee_id -> dim_employee.employee_id",
+        "skill_id -> dim_skill.skill_id" ;
+    ao:primaryKey "employee_skill_id" ;
+    ao:scdSemantics "current assignment only; no effective dates" ;
+    ao:sourceTable "bridge_employee_skill" ;
+    ao:warehouseGrain "one row per employee and skill capability" .
+
+ao:EnergyEfficiency a owl:Class ;
+    rdfs:label "Energy Efficiency"@en ;
+    rdfs:comment "Gold analytical product at one row per gate."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_energy_efficiency" ;
+    ao:sourceView "ops.vw_energy_efficiency" ;
+    ao:warehouseGrain "one row per gate" .
+
+ao:EnergyMeteringFactRecord a owl:Class ;
+    rdfs:label "Energy Metering Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per energy meter reading."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "gate_id -> dim_gate.gate_id" ;
+    ao:primaryKey "meter_reading_id" ;
+    ao:sourceTable "fact_energy_metering" ;
+    ao:sourceView "ops.vw_fact_energy_metering" ;
+    ao:warehouseGrain "one row per energy meter reading" .
+
+ao:EnergySustainabilityKPI a owl:Class ;
+    rdfs:label "Energy Sustainability KPI"@en ;
+    rdfs:comment "Gold analytical product at one row per airport and day."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_energy_sustainability_kpi" ;
+    ao:sourceView "ops.vw_energy_sustainability_kpi" ;
+    ao:warehouseGrain "one row per airport and day" .
+
+ao:ExecutiveScorecard a owl:Class ;
+    rdfs:label "Executive Scorecard"@en ;
+    rdfs:comment "Gold analytical product at one row per airport."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_executive_scorecard" ;
+    ao:sourceView "ops.vw_executive_scorecard" ;
+    ao:warehouseGrain "one row per airport" .
+
+ao:Flight a owl:Class ;
+    rdfs:label "Flight"@en ;
+    rdfs:comment "Compatibility name retained from the existing base ontology; the source grain is a flight turnaround event."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FlightOperation ;
+    owl:deprecated true ;
+    owl:equivalentClass ao:FlightOperation .
+
+ao:FlightLegFactRecord a owl:Class ;
+    rdfs:label "Flight Leg Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per flight leg."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "flight_event_id -> fact_flight_turnaround_events.flight_event_id",
+        "route_id -> dim_route.route_id" ;
+    ao:primaryKey "leg_id" ;
+    ao:sourceTable "fact_flight_leg" ;
+    ao:warehouseGrain "one row per flight leg" .
+
+ao:FlightOperationsKPI a owl:Class ;
+    rdfs:label "Flight Operations KPI"@en ;
+    rdfs:comment "Gold analytical product at one row per airport and day."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_flight_operations_kpi" ;
+    ao:sourceView "ops.vw_flight_operations_kpi" ;
+    ao:warehouseGrain "one row per airport and day" .
+
+ao:FlightRouteBridgeRecord a owl:Class ;
+    rdfs:label "Flight Route Bridge Record"@en ;
+    rdfs:comment "Warehouse bridge record at one row per flight and route assignment."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BridgeRecord ;
+    ao:foreignKey "aircraft_instance_id -> dim_aircraft_fleet.aircraft_instance_id",
+        "route_id -> dim_route.route_id" ;
+    ao:primaryKey "flight_event_id" ;
+    ao:scdSemantics "current assignment only; no effective dates" ;
+    ao:sourceTable "bridge_flight_route" ;
+    ao:warehouseGrain "one row per flight and route assignment" .
+
+ao:FlightTurnaroundFactRecord a owl:Class ;
+    rdfs:label "Flight Turnaround Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per flight turnaround event."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "aircraft_type_id -> dim_aircraft.aircraft_type_id",
+        "airline_id -> dim_airline.airline_id",
+        "airport_id -> dim_airport.airport_id",
+        "date_key -> dim_date.date_key",
+        "gate_id -> dim_gate.gate_id" ;
+    ao:primaryKey "flight_event_id" ;
+    ao:sourceTable "fact_flight_turnaround_events" ;
+    ao:sourceView "ops.vw_fact_turnaround" ;
+    ao:warehouseGrain "one row per flight turnaround event" .
+
+ao:GateDimensionRecord a owl:Class ;
+    rdfs:label "Gate Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per gate."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "gate_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_gate" ;
+    ao:sourceView "ops.vw_dim_gate" ;
+    ao:warehouseGrain "one row per gate" .
+
+ao:GateStandBridgeRecord a owl:Class ;
+    rdfs:label "Gate Stand Bridge Record"@en ;
+    rdfs:comment "Warehouse bridge record at one row per gate and stand assignment."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BridgeRecord ;
+    ao:foreignKey "gate_id -> dim_gate.gate_id",
+        "stand_id -> dim_stand.stand_id" ;
+    ao:primaryKey "gate_id + stand_id" ;
+    ao:scdSemantics "effective_from and is_current are implemented; no effective_to column" ;
+    ao:sourceTable "bridge_gate_stand" ;
+    ao:warehouseGrain "one row per gate and stand assignment" .
+
+ao:GateTurnaroundPerformance a owl:Class ;
+    rdfs:label "Gate Turnaround Performance"@en ;
+    rdfs:comment "Gold analytical product at one row per gate and stand."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_gate_turnaround_performance" ;
+    ao:sourceView "ops.vw_gate_turnaround_performance" ;
+    ao:warehouseGrain "one row per gate and stand" .
+
+ao:ITServiceHealth a owl:Class ;
+    rdfs:label "I T Service Health"@en ;
+    rdfs:comment "Gold analytical product at one row per data product."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_it_service_health" ;
+    ao:sourceView "ops.vw_it_service_health" ;
+    ao:warehouseGrain "one row per data product" .
+
+ao:IncidentCustomerKPI a owl:Class ;
+    rdfs:label "Incident Customer KPI"@en ;
+    rdfs:comment "Gold analytical product at one row per airport and day."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_incident_customer_kpi" ;
+    ao:sourceView "ops.vw_incident_customer_kpi" ;
+    ao:warehouseGrain "one row per airport and day" .
+
+ao:KPI a owl:Class ;
+    rdfs:label "KPI"@en ;
+    rdfs:comment "Compatibility concept retained from the base ontology for a governed semantic measure."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:MeasureDefinition ;
+    ao:sourceTable "gold_kpi_catalog" ;
+    ao:sourceView "ops.vw_kpi_catalog" ;
+    ao:warehouseGrain "one row per KPI" .
+
+ao:KPICatalog a owl:Class ;
+    rdfs:label "KPI Catalog"@en ;
+    rdfs:comment "Gold analytical product at one row per KPI."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_kpi_catalog" ;
+    ao:sourceView "ops.vw_kpi_catalog" ;
+    ao:warehouseGrain "one row per KPI" .
+
+ao:LocationDimensionRecord a owl:Class ;
+    rdfs:label "Location Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per physical or spatial location."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "location_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_location" ;
+    ao:sourceView "ops.vw_dim_location" ;
+    ao:warehouseGrain "one row per physical or spatial location" .
+
+ao:MaintenanceAsset a owl:Class ;
+    rdfs:label "Maintenance Asset"@en ;
+    rdfs:comment "A synthetic asset with maintenance class and service interval attributes."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:Asset ;
+    ao:primaryKey "asset_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_asset" ;
+    ao:sourceView "ops.vw_dim_asset" ;
+    ao:warehouseGrain "one row per maintainable asset" .
+
+ao:MaintenanceEvent a owl:Class ;
+    rdfs:label "Maintenance Event"@en ;
+    rdfs:comment "A synthetic maintenance observation associated with an airport asset type."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "maintenance_id" ;
+    ao:sourceTable "fact_maintenance_events" ;
+    ao:sourceView "ops.vw_fact_maintenance_events" ;
+    ao:warehouseGrain "one row per maintenance event" .
+
+ao:MaintenanceEventFactRecord a owl:Class ;
+    rdfs:label "Maintenance Event Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per maintenance event."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "airport_id -> dim_airport.airport_id",
+        "gate_id -> dim_gate.gate_id" ;
+    ao:primaryKey "maintenance_id" ;
+    ao:sourceTable "fact_maintenance_events" ;
+    ao:sourceView "ops.vw_fact_maintenance_events" ;
+    ao:warehouseGrain "one row per maintenance event" .
+
+ao:MaintenanceKPI a owl:Class ;
+    rdfs:label "Maintenance KPI"@en ;
+    rdfs:comment "Gold analytical product at one row per airport and day."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_maintenance_kpi" ;
+    ao:sourceView "ops.vw_maintenance_kpi" ;
+    ao:warehouseGrain "one row per airport and day" .
+
+ao:MaintenanceWorkOrderFactRecord a owl:Class ;
+    rdfs:label "Maintenance Work Order Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per maintenance work order."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "maintenance_id -> fact_maintenance_events.maintenance_id" ;
+    ao:primaryKey "work_order_id" ;
+    ao:sourceTable "fact_maintenance_work_order" ;
+    ao:warehouseGrain "one row per maintenance work order" .
+
+ao:OperationalIncidentFactRecord a owl:Class ;
+    rdfs:label "Operational Incident Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per operational incident."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "airport_id -> dim_airport.airport_id",
+        "gate_id -> dim_gate.gate_id" ;
+    ao:primaryKey "incident_id" ;
+    ao:sourceTable "fact_operational_incidents" ;
+    ao:sourceView "ops.vw_incident_details" ;
+    ao:warehouseGrain "one row per operational incident" .
+
+ao:Organization a owl:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:comment "A fictional corporate headquarters or operating-region unit."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BusinessEntity ;
+    ao:primaryKey "org_unit_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_organization" ;
+    ao:sourceView "ops.vw_dim_organization" ;
+    ao:warehouseGrain "one row per organization unit" .
+
+ao:OrganizationDimensionRecord a owl:Class ;
+    rdfs:label "Organization Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per organization unit."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "org_unit_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_organization" ;
+    ao:sourceView "ops.vw_dim_organization" ;
+    ao:warehouseGrain "one row per organization unit" .
+
+ao:PassengerCohort a owl:Class ;
+    rdfs:label "Passenger Cohort"@en ;
+    rdfs:comment "An aggregate synthetic passenger segment; it is not a person identity."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BusinessEntity ;
+    ao:ambiguityNote "Passenger and customer tokens exist in restricted facts, but agent-facing ontology mappings expose aggregate cohorts only." ;
+    ao:primaryKey "customer_segment_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_customer_segment" ;
+    ao:warehouseGrain "one row per customer segment" .
+
+ao:PassengerDimensionRecord a owl:Class ;
+    rdfs:label "Passenger Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per pseudonymous passenger token."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "passenger_token" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_passenger" ;
+    ao:sourceView "ops.vw_dim_passenger" ;
+    ao:warehouseGrain "one row per pseudonymous passenger token" .
+
+ao:PassengerFlowKPI a owl:Class ;
+    rdfs:label "Passenger Flow KPI"@en ;
+    rdfs:comment "Gold analytical product at one row per airport and day."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_passenger_flow_kpi" ;
+    ao:sourceView "ops.vw_passenger_flow_kpi" ;
+    ao:warehouseGrain "one row per airport and day" .
+
+ao:PassengerQueueFactRecord a owl:Class ;
+    rdfs:label "Passenger Queue Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per checkpoint and 15-minute observation."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "airport_id -> dim_airport.airport_id",
+        "date_key -> dim_date.date_key" ;
+    ao:primaryKey "queue_metric_id" ;
+    ao:sourceTable "fact_passenger_queue_metrics" ;
+    ao:sourceView "ops.vw_fact_passenger_flow" ;
+    ao:warehouseGrain "one row per checkpoint and 15-minute observation" .
+
+ao:PersonaScorecard a owl:Class ;
+    rdfs:label "Persona Scorecard"@en ;
+    rdfs:comment "Gold analytical product at one row per airport and persona."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_persona_scorecard" ;
+    ao:sourceView "ops.vw_persona_scorecard" ;
+    ao:warehouseGrain "one row per airport and persona" .
+
+ao:PseudonymousCustomer a owl:Class ;
+    rdfs:label "Pseudonymous Customer"@en ;
+    rdfs:comment "A pseudonymous synthetic customer profile without direct identifiers."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BusinessEntity ;
+    ao:primaryKey "customer_token" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_customer" ;
+    ao:warehouseGrain "one row per pseudonymous customer token" .
+
+ao:PseudonymousWorkforceMember a owl:Class ;
+    rdfs:label "Pseudonymous Workforce Member"@en ;
+    rdfs:comment "A synthetic workforce token with no real identity fields."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BusinessEntity ;
+    ao:primaryKey "employee_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_employee" ;
+    ao:sourceView "ops.vw_dim_employee" ;
+    ao:warehouseGrain "one row per pseudonymous workforce token" .
+
+ao:PublicReferenceAnchor a owl:Class ;
+    rdfs:label "Public Reference Anchor"@en ;
+    rdfs:comment "A public geographic or industry reference identity used only as an anchor."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DomainEntity .
+
+ao:RampServiceTask a owl:Class ;
+    rdfs:label "Ramp Service Task"@en ;
+    rdfs:comment "A deterministic ramp milestone task for a flight."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "ramp_task_id" ;
+    ao:sourceTable "fact_ramp_service_task" ;
+    ao:warehouseGrain "one row per flight and ramp task" .
+
+ao:RampServiceTaskFactRecord a owl:Class ;
+    rdfs:label "Ramp Service Task Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per flight and ramp task."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "flight_event_id -> fact_flight_turnaround_events.flight_event_id" ;
+    ao:primaryKey "ramp_task_id" ;
+    ao:sourceTable "fact_ramp_service_task" ;
+    ao:warehouseGrain "one row per flight and ramp task" .
+
+ao:RecommendationFactRecord a owl:Class ;
+    rdfs:label "Recommendation Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per advisory recommendation."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "airport_id -> dim_airport.airport_id" ;
+    ao:primaryKey "recommendation_id" ;
+    ao:sourceTable "fact_recommendation" ;
+    ao:warehouseGrain "one row per advisory recommendation" .
+
+ao:RetailInventory a owl:Class ;
+    rdfs:label "Retail Inventory"@en ;
+    rdfs:comment "Compatibility concept retained from the enterprise ontology for aggregate retail inventory performance."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:RetailInventoryKPI .
+
+ao:RetailInventoryFactRecord a owl:Class ;
+    rdfs:label "Retail Inventory Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per outlet and product inventory snapshot."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "outlet_id -> dim_retail_outlet.outlet_id",
+        "product_id -> dim_retail_product.product_id" ;
+    ao:primaryKey "inventory_snapshot_id" ;
+    ao:sourceTable "fact_retail_inventory" ;
+    ao:warehouseGrain "one row per outlet and product inventory snapshot" .
+
+ao:RetailInventorySnapshot a owl:Class ;
+    rdfs:label "Retail Inventory Snapshot"@en ;
+    rdfs:comment "A synthetic outlet and product inventory snapshot."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:Observation ;
+    ao:primaryKey "inventory_snapshot_id" ;
+    ao:sourceTable "fact_retail_inventory" ;
+    ao:warehouseGrain "one row per outlet and product inventory snapshot" .
+
+ao:RetailOutlet a owl:Class ;
+    rdfs:label "Retail Outlet"@en ;
+    rdfs:comment "A fictional concession outlet in an airport terminal."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BusinessEntity ;
+    ao:primaryKey "outlet_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_retail_outlet" ;
+    ao:sourceView "ops.vw_dim_retail_outlet" ;
+    ao:warehouseGrain "one row per retail outlet" .
+
+ao:RetailOutletDimensionRecord a owl:Class ;
+    rdfs:label "Retail Outlet Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per retail outlet."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "outlet_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_retail_outlet" ;
+    ao:sourceView "ops.vw_dim_retail_outlet" ;
+    ao:warehouseGrain "one row per retail outlet" .
+
+ao:RetailPerformance a owl:Class ;
+    rdfs:label "Retail Performance"@en ;
+    rdfs:comment "Gold analytical product at one row per retail outlet."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_retail_performance" ;
+    ao:sourceView "ops.vw_retail_performance" ;
+    ao:warehouseGrain "one row per retail outlet" .
+
+ao:RetailProduct a owl:Class ;
+    rdfs:label "Retail Product"@en ;
+    rdfs:comment "A fictional retail product with a synthetic unit-price proxy."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BusinessEntity ;
+    ao:primaryKey "product_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_retail_product" ;
+    ao:sourceView "ops.vw_dim_retail_product" ;
+    ao:warehouseGrain "one row per retail product" .
+
+ao:RetailProductDimensionRecord a owl:Class ;
+    rdfs:label "Retail Product Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per retail product."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "product_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_retail_product" ;
+    ao:sourceView "ops.vw_dim_retail_product" ;
+    ao:warehouseGrain "one row per retail product" .
+
+ao:RetailTransaction a owl:Class ;
+    rdfs:label "Retail Transaction"@en ;
+    rdfs:comment "An aggregate synthetic outlet, product, and hour POS event."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "pos_event_id" ;
+    ao:sourceTable "fact_retail_pos" ;
+    ao:sourceView "ops.vw_fact_retail_pos" ;
+    ao:warehouseGrain "one row per outlet, product, and event hour" .
+
+ao:RetailTransactionFactRecord a owl:Class ;
+    rdfs:label "Retail Transaction Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per outlet, product, and event hour."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "outlet_id -> dim_retail_outlet.outlet_id",
+        "product_id -> dim_retail_product.product_id" ;
+    ao:primaryKey "pos_event_id" ;
+    ao:sourceTable "fact_retail_pos" ;
+    ao:sourceView "ops.vw_fact_retail_pos" ;
+    ao:warehouseGrain "one row per outlet, product, and event hour" .
+
+ao:RouteDimensionRecord a owl:Class ;
+    rdfs:label "Route Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per route."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "route_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_route" ;
+    ao:sourceView "ops.vw_dim_route" ;
+    ao:warehouseGrain "one row per route" .
+
+ao:ServiceTeam a owl:Class ;
+    rdfs:label "Service Team"@en ;
+    rdfs:comment "A fictional service-team concept retained from the base ontology."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:WorkTeam ;
+    ao:primaryKey "team_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_service_team" ;
+    ao:sourceView "ops.vw_dim_service_team" ;
+    ao:warehouseGrain "one row per airport service team" .
+
+ao:Shift a owl:Class ;
+    rdfs:label "Shift"@en ;
+    rdfs:comment "A synthetic shift definition with UTC start and duration."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BusinessEntity ;
+    ao:primaryKey "shift_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_shift" ;
+    ao:warehouseGrain "one row per shift" .
+
+ao:ShiftDimensionRecord a owl:Class ;
+    rdfs:label "Shift Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per shift."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "shift_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_shift" ;
+    ao:warehouseGrain "one row per shift" .
+
+ao:Skill a owl:Class ;
+    rdfs:label "Skill"@en ;
+    rdfs:comment "A synthetic workforce capability or certification assumption."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BusinessEntity ;
+    ao:primaryKey "skill_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_skill" ;
+    ao:warehouseGrain "one row per skill" .
+
+ao:SkillDimensionRecord a owl:Class ;
+    rdfs:label "Skill Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per skill."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "skill_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_skill" ;
+    ao:warehouseGrain "one row per skill" .
+
+ao:SpatialOperationalStatus a owl:Class ;
+    rdfs:label "Spatial Operational Status"@en ;
+    rdfs:comment "Gold analytical product at one row per zone."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_spatial_operational_status" ;
+    ao:sourceView "ops.vw_spatial_operational_context" ;
+    ao:warehouseGrain "one row per zone" .
+
+ao:StandDimensionRecord a owl:Class ;
+    rdfs:label "Stand Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per aircraft stand."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "stand_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_stand" ;
+    ao:sourceView "ops.vw_dim_stand" ;
+    ao:warehouseGrain "one row per aircraft stand" .
+
+ao:TerminalDimensionRecord a owl:Class ;
+    rdfs:label "Terminal Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per terminal."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "terminal_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_terminal" ;
+    ao:sourceView "ops.vw_dim_terminal" ;
+    ao:warehouseGrain "one row per terminal" .
+
+ao:TerminalFlowSummary a owl:Class ;
+    rdfs:label "Terminal Flow Summary"@en ;
+    rdfs:comment "Gold analytical product at one row per airport, terminal, and hour."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_terminal_flow_summary" ;
+    ao:sourceView "ops.vw_terminal_performance" ;
+    ao:warehouseGrain "one row per airport, terminal, and hour" .
+
+ao:TimeDimensionRecord a owl:Class ;
+    rdfs:label "Time Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per hour from 0 through 23."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "hour_key" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_time" ;
+    ao:sourceView "ops.vw_dim_time" ;
+    ao:warehouseGrain "one row per hour from 0 through 23" .
+
+ao:TurnaroundPhase a owl:Class ;
+    rdfs:label "Turnaround Phase"@en ;
+    rdfs:comment "One of five deterministic phase milestones within a flight turnaround."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "phase_event_id" ;
+    ao:sourceTable "fact_turnaround_phase" ;
+    ao:sourceView "ops.vw_fact_turnaround_phase" ;
+    ao:warehouseGrain "one row per flight and turnaround phase" .
+
+ao:TurnaroundPhaseFactRecord a owl:Class ;
+    rdfs:label "Turnaround Phase Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per flight and turnaround phase."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "flight_event_id -> fact_flight_turnaround_events.flight_event_id" ;
+    ao:primaryKey "phase_event_id" ;
+    ao:sourceTable "fact_turnaround_phase" ;
+    ao:sourceView "ops.vw_fact_turnaround_phase" ;
+    ao:warehouseGrain "one row per flight and turnaround phase" .
+
+ao:TurnaroundPhasePerformance a owl:Class ;
+    rdfs:label "Turnaround Phase Performance"@en ;
+    rdfs:comment "Gold analytical product at one row per gate and phase."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_turnaround_phase_performance" ;
+    ao:sourceView "ops.vw_turnaround_phase_performance" ;
+    ao:warehouseGrain "one row per gate and phase" .
+
+ao:WeatherFactRecord a owl:Class ;
+    rdfs:label "Weather Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per airport weather snapshot."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "airport_id -> dim_airport.airport_id" ;
+    ao:primaryKey "weather_id" ;
+    ao:sourceTable "fact_weather" ;
+    ao:sourceView "ops.vw_fact_weather" ;
+    ao:warehouseGrain "one row per airport weather snapshot" .
+
+ao:WeatherObservation a owl:Class ;
+    rdfs:label "Weather Observation"@en ;
+    rdfs:comment "A synthetic hourly weather snapshot for an airport."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:Observation ;
+    ao:primaryKey "weather_id" ;
+    ao:sourceTable "fact_weather" ;
+    ao:sourceView "ops.vw_fact_weather" ;
+    ao:warehouseGrain "one row per airport weather snapshot" .
+
+ao:WorkTeamDimensionRecord a owl:Class ;
+    rdfs:label "Work Team Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per work team."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "work_team_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_work_team" ;
+    ao:sourceView "ops.vw_dim_work_team" ;
+    ao:warehouseGrain "one row per work team" .
+
+ao:WorkforceCoverage a owl:Class ;
+    rdfs:label "Workforce Coverage"@en ;
+    rdfs:comment "Gold analytical product at one row per team and shift."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_workforce_coverage" ;
+    ao:sourceView "ops.vw_workforce_coverage" ;
+    ao:warehouseGrain "one row per team and shift" .
+
+ao:WorkforceKPI a owl:Class ;
+    rdfs:label "Workforce KPI"@en ;
+    rdfs:comment "Gold analytical product at one row per airport and day."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_workforce_kpi" ;
+    ao:sourceView "ops.vw_workforce_kpi" ;
+    ao:warehouseGrain "one row per airport and day" .
+
+ao:ZoneDimensionRecord a owl:Class ;
+    rdfs:label "Zone Dimension Record"@en ;
+    rdfs:comment "Warehouse dimension record at one row per indoor zone."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DimensionRecord ;
+    ao:primaryKey "zone_id" ;
+    ao:scdSemantics "current-state overwrite; no effective_from/effective_to columns" ;
+    ao:sourceTable "dim_zone" ;
+    ao:sourceView "ops.vw_dim_zone" ;
+    ao:warehouseGrain "one row per indoor zone" .
+
+ao:ZoneOccupancyFactRecord a owl:Class ;
+    rdfs:label "Zone Occupancy Fact Record"@en ;
+    rdfs:comment "Warehouse fact record at one row per zone, checkpoint, and 15-minute observation."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:FactRecord ;
+    ao:foreignKey "checkpoint_id -> dim_checkpoint.checkpoint_id",
+        "zone_id -> dim_zone.zone_id" ;
+    ao:primaryKey "zone_occupancy_id" ;
+    ao:sourceTable "fact_zone_occupancy" ;
+    ao:sourceView "ops.vw_fact_zone_occupancy" ;
+    ao:warehouseGrain "one row per zone, checkpoint, and 15-minute observation" .
+
+ao:actualArrival a owl:DatatypeProperty ;
+    rdfs:label "actual arrival"@en ;
+    rdfs:comment "Actual UTC arrival timestamp."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:dateTime .
+
+ao:actualDeparture a owl:DatatypeProperty ;
+    rdfs:label "actual departure"@en ;
+    rdfs:comment "Actual UTC departure timestamp."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:dateTime .
+
+ao:advisoryOnly a owl:DatatypeProperty ;
+    rdfs:label "advisory only"@en ;
+    rdfs:comment "True when a recommendation cannot control an operational system."@en ;
+    rdfs:domain ao:Recommendation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:boolean .
+
+ao:aircraftTypeId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "aircraft type identifier"@en ;
+    rdfs:comment "Value of aircraft_type_id."@en ;
+    rdfs:domain ao:AircraftType ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "aircraft_type_id" .
+
+ao:airlineId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "airline identifier"@en ;
+    rdfs:comment "Value of airline_id."@en ;
+    rdfs:domain ao:Airline ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "airline_id" .
+
+ao:airportId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "airport identifier"@en ;
+    rdfs:comment "Value of airport_id."@en ;
+    rdfs:domain ao:Airport ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "airport_id" .
+
+ao:ambiguityNote a owl:AnnotationProperty ;
+    rdfs:label "ambiguity Note"@en ;
+    rdfs:comment "Known source-model ambiguity that must not be silently strengthened."@en .
+
+ao:anomalyFlag a owl:DatatypeProperty ;
+    rdfs:label "anomaly flag"@en ;
+    rdfs:comment "Synthetic anomaly indicator."@en ;
+    rdfs:domain ao:Observation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:boolean .
+
+ao:assetId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "asset identifier"@en ;
+    rdfs:comment "Value of asset_id."@en ;
+    rdfs:domain ao:PhysicalAsset ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "asset_id" .
+
+ao:assetType a owl:DatatypeProperty ;
+    rdfs:label "asset type"@en ;
+    rdfs:comment "Synthetic asset type."@en ;
+    rdfs:domain ao:PhysicalAsset ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:availabilityPercentage a owl:DatatypeProperty ;
+    rdfs:label "availability percentage"@en ;
+    rdfs:comment "Synthetic asset availability percentage."@en ;
+    rdfs:domain ao:AssetStateObservation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:decimal .
+
+ao:checkpointCode a owl:DatatypeProperty ;
+    rdfs:label "checkpoint code"@en ;
+    rdfs:comment "Synthetic checkpoint code."@en ;
+    rdfs:domain ao:Checkpoint ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:checkpointId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "checkpoint identifier"@en ;
+    rdfs:comment "Value of checkpoint_id."@en ;
+    rdfs:domain ao:Checkpoint ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "checkpoint_id" .
+
+ao:criticality a owl:DatatypeProperty ;
+    rdfs:label "criticality"@en ;
+    rdfs:comment "Narrative synthetic criticality classification."@en ;
+    rdfs:domain ao:PhysicalAsset ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:dataClassification a owl:AnnotationProperty ;
+    rdfs:label "data Classification"@en ;
+    rdfs:comment "Repository classification vocabulary value."@en .
+
+ao:departureDelayMinutes a owl:DatatypeProperty ;
+    rdfs:label "departure delay minutes"@en ;
+    rdfs:comment "Derived departure delay in minutes."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:decimal ;
+    ao:sourceColumn "departure_delay_minutes" .
+
+ao:effectiveFrom a owl:DatatypeProperty ;
+    rdfs:label "effective from"@en ;
+    rdfs:comment "Start of an effective bridge assignment."@en ;
+    rdfs:domain ao:BridgeRecord ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:dateTime ;
+    ao:sourceColumn "effective_from" .
+
+ao:effectiveTo a owl:DatatypeProperty ;
+    rdfs:label "effective to"@en ;
+    rdfs:comment "Optional end of an effective bridge assignment."@en ;
+    rdfs:domain ao:BridgeRecord ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:dateTime ;
+    ao:sourceColumn "effective_to" .
+
+ao:energyKwh a owl:DatatypeProperty ;
+    rdfs:label "energy in kilowatt-hours"@en ;
+    rdfs:comment "Synthetic energy reading in kWh."@en ;
+    rdfs:domain ao:EnergyObservation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:decimal ;
+    ao:sourceColumn "kwh" .
+
+ao:eventTime a owl:DatatypeProperty ;
+    rdfs:label "event time"@en ;
+    rdfs:comment "UTC event or observation timestamp."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:dateTime .
+
+ao:flightEventId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "flight event identifier"@en ;
+    rdfs:comment "Value of flight_event_id."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "flight_event_id" .
+
+ao:foreignKey a owl:AnnotationProperty ;
+    rdfs:label "foreign Key"@en ;
+    rdfs:comment "Foreign-key path validated by repository notebooks or semantic relationships."@en .
+
+ao:formulaReference a owl:AnnotationProperty ;
+    rdfs:label "formula Reference"@en ;
+    rdfs:comment "Source-controlled formula or KPI definition artifact."@en .
+
+ao:formulaText a owl:DatatypeProperty ;
+    rdfs:label "formula text"@en ;
+    rdfs:comment "Source-controlled descriptive formula; DAX remains authoritative for semantic measures."@en ;
+    rdfs:domain ao:MeasureDefinition ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:gateCode a owl:DatatypeProperty ;
+    rdfs:label "gate code"@en ;
+    rdfs:comment "Synthetic gate code."@en ;
+    rdfs:domain ao:Gate ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:gateId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "gate identifier"@en ;
+    rdfs:comment "Value of gate_id."@en ;
+    rdfs:domain ao:Gate ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "gate_id" .
+
+ao:generatorVersion a owl:AnnotationProperty ;
+    rdfs:label "generator Version"@en ;
+    rdfs:comment "Version of the deterministic ontology generator."@en .
+
+ao:grainText a owl:DatatypeProperty ;
+    rdfs:label "grain text"@en ;
+    rdfs:comment "Declared aggregation grain."@en ;
+    rdfs:domain ao:MeasureDefinition ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:humanApprovalRequired a owl:DatatypeProperty ;
+    rdfs:label "human approval required"@en ;
+    rdfs:comment "True when a recommendation requires human approval."@en ;
+    rdfs:domain ao:Recommendation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:boolean .
+
+ao:iataCode a owl:DatatypeProperty ;
+    rdfs:label "IATA code"@en ;
+    rdfs:comment "Public IATA reference code used by airports and airlines."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:icaoCode a owl:DatatypeProperty ;
+    rdfs:label "ICAO code"@en ;
+    rdfs:comment "Public ICAO reference code used by airports and airlines."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:incidentId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "incident identifier"@en ;
+    rdfs:comment "Value of incident_id."@en ;
+    rdfs:domain ao:OperationalIncident ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "incident_id" .
+
+ao:isCurrent a owl:DatatypeProperty ;
+    rdfs:label "is current"@en ;
+    rdfs:comment "Current bridge assignment indicator."@en ;
+    rdfs:domain ao:BridgeRecord ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:boolean ;
+    ao:sourceColumn "is_current" .
+
+ao:isSynthetic a owl:DatatypeProperty ;
+    rdfs:label "is synthetic"@en ;
+    rdfs:comment "True for generated operational/master records; false for public reference anchors."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:boolean .
+
+ao:latitude a owl:DatatypeProperty ;
+    rdfs:label "latitude"@en ;
+    rdfs:comment "WGS84 latitude."@en ;
+    rdfs:domain ao:PhysicalLocation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:decimal .
+
+ao:longitude a owl:DatatypeProperty ;
+    rdfs:label "longitude"@en ;
+    rdfs:comment "WGS84 longitude."@en ;
+    rdfs:domain ao:PhysicalLocation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:decimal .
+
+ao:numericValue a owl:DatatypeProperty ;
+    rdfs:label "numeric value"@en ;
+    rdfs:comment "Numeric measure observation value."@en ;
+    rdfs:domain ao:MeasureObservation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:decimal .
+
+ao:observationTimestamp a owl:DatatypeProperty ;
+    rdfs:label "observation timestamp"@en ;
+    rdfs:comment "Fixed demo as-of timestamp for an analytical observation."@en ;
+    rdfs:domain ao:MeasureObservation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:dateTime .
+
+ao:occupancyCount a owl:DatatypeProperty ;
+    rdfs:label "occupancy count"@en ;
+    rdfs:comment "PII-free aggregate occupancy count."@en ;
+    rdfs:domain ao:ZoneOccupancyObservation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:integer .
+
+ao:passengerCount a owl:DatatypeProperty ;
+    rdfs:label "passenger count"@en ;
+    rdfs:comment "Synthetic aggregate passenger count."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:integer .
+
+ao:primaryKey a owl:AnnotationProperty ;
+    rdfs:label "primary Key"@en ;
+    rdfs:comment "Primary or business key documented by the repository."@en .
+
+ao:queueObservationId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "queue observation identifier"@en ;
+    rdfs:comment "Value of queue_metric_id or DTDL queueId."@en ;
+    rdfs:domain ao:PassengerFlowObservation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier .
+
+ao:recordIdentifier a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "record identifier"@en ;
+    rdfs:comment "Primary/business key value for an analytical record."@en ;
+    rdfs:domain ao:AnalyticalRecord ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:routeId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "route identifier"@en ;
+    rdfs:comment "Value of route_id."@en ;
+    rdfs:domain ao:Route ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "route_id" .
+
+ao:scdSemantics a owl:AnnotationProperty ;
+    rdfs:label "scd Semantics"@en ;
+    rdfs:comment "Implemented slowly changing dimension or current-state behavior."@en .
+
+ao:scheduledArrival a owl:DatatypeProperty ;
+    rdfs:label "scheduled arrival"@en ;
+    rdfs:comment "Scheduled UTC arrival timestamp."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:dateTime .
+
+ao:scheduledDeparture a owl:DatatypeProperty ;
+    rdfs:label "scheduled departure"@en ;
+    rdfs:comment "Scheduled UTC departure timestamp."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:dateTime .
+
+ao:schemaVersion a owl:AnnotationProperty ;
+    rdfs:label "schema Version"@en ;
+    rdfs:comment "Version of the schema contract."@en .
+
+ao:severity a owl:DatatypeProperty ;
+    rdfs:label "severity"@en ;
+    rdfs:comment "Controlled incident or maintenance severity value."@en ;
+    rdfs:domain ao:OperationalEvent ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:sourceArtifact a owl:AnnotationProperty ;
+    rdfs:label "source Artifact"@en ;
+    rdfs:comment "Repository artifact from which a term is derived."@en .
+
+ao:sourceColumn a owl:AnnotationProperty ;
+    rdfs:label "source Column"@en ;
+    rdfs:comment "Relational source column represented by a property."@en .
+
+ao:sourceTable a owl:AnnotationProperty ;
+    rdfs:label "source Table"@en ;
+    rdfs:comment "Lakehouse Delta table implementing a mapped concept or analytical record."@en .
+
+ao:sourceView a owl:AnnotationProperty ;
+    rdfs:label "source View"@en ;
+    rdfs:comment "Curated Fabric Warehouse view exposing a mapped concept or analytical record."@en .
+
+ao:spatialReference a owl:DatatypeProperty ;
+    rdfs:label "spatial reference"@en ;
+    rdfs:comment "GeoJSON, map-feature, or WKT reference used by the spatial model."@en ;
+    rdfs:domain ao:PhysicalLocation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:standId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "stand identifier"@en ;
+    rdfs:comment "Value of stand_id."@en ;
+    rdfs:domain ao:Stand ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "stand_id" .
+
+ao:status a owl:DatatypeProperty ;
+    rdfs:label "status"@en ;
+    rdfs:comment "Controlled status value at the source grain."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:terminalCode a owl:DatatypeProperty ;
+    rdfs:label "terminal code"@en ;
+    rdfs:comment "Synthetic terminal code."@en ;
+    rdfs:domain ao:Terminal ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:terminalId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "terminal identifier"@en ;
+    rdfs:comment "Value of terminal_id."@en ;
+    rdfs:domain ao:Terminal ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "terminal_id" .
+
+ao:throughputPassengerCount a owl:DatatypeProperty ;
+    rdfs:label "throughput passenger count"@en ;
+    rdfs:comment "PII-free aggregate passenger throughput."@en ;
+    rdfs:domain ao:Observation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:integer .
+
+ao:turnaroundMinutes a owl:DatatypeProperty ;
+    rdfs:label "turnaround minutes"@en ;
+    rdfs:comment "Derived turnaround interval in minutes."@en ;
+    rdfs:domain ao:Turnaround ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:decimal ;
+    ao:sourceColumn "turnaround_minutes" .
+
+ao:twinIdentifier a owl:DatatypeProperty ;
+    rdfs:label "digital twin identifier"@en ;
+    rdfs:comment "Azure Digital Twins sample identifier."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:unitCode a owl:DatatypeProperty ;
+    rdfs:label "unit code"@en ;
+    rdfs:comment "Stable display unit such as min, %, count, or kWh."@en ;
+    rdfs:domain ao:MeasureDefinition ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:valueType a owl:DatatypeProperty ;
+    rdfs:label "value type"@en ;
+    rdfs:comment "Actual, target, benchmark, forecast, or proxy semantic."@en ;
+    rdfs:domain ao:MeasureObservation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:waitTimeMinutes a owl:DatatypeProperty ;
+    rdfs:label "wait time minutes"@en ;
+    rdfs:comment "Synthetic queue wait in minutes."@en ;
+    rdfs:domain ao:PassengerFlowObservation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:decimal ;
+    ao:sourceColumn "wait_time_min" .
+
+ao:warehouseGrain a owl:AnnotationProperty ;
+    rdfs:label "warehouse Grain"@en ;
+    rdfs:comment "Human-readable relational grain copied from executable source or repository documentation."@en .
+
+ao:workOrderId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "work order identifier"@en ;
+    rdfs:comment "Value of work_order_id."@en ;
+    rdfs:domain ao:MaintenanceWorkOrder ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "work_order_id" .
+
+ao:zoneId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "zone identifier"@en ;
+    rdfs:comment "Value of zone_id."@en ;
+    rdfs:domain ao:Zone ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ao:identifier ;
+    ao:sourceColumn "zone_id" .
+
+ao:zoneType a owl:DatatypeProperty ;
+    rdfs:label "zone type"@en ;
+    rdfs:comment "Synthetic zone category."@en ;
+    rdfs:domain ao:Zone ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:AssetStateObservation a owl:Class ;
+    rdfs:label "Asset State Observation"@en ;
+    rdfs:comment "A synthetic asset health observation at six-hour grain."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:Observation ;
+    ao:primaryKey "asset_state_id" ;
+    ao:sourceTable "fact_asset_state" ;
+    ao:sourceView "ops.vw_fact_asset_state" ;
+    ao:warehouseGrain "one row per asset and six-hour interval" .
+
+ao:EnergyObservation a owl:Class ;
+    rdfs:label "Energy Observation"@en ;
+    rdfs:comment "A synthetic energy meter reading in kilowatt-hours."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:Observation ;
+    ao:primaryKey "meter_reading_id" ;
+    ao:sourceTable "fact_energy_metering" ;
+    ao:sourceView "ops.vw_fact_energy_metering" ;
+    ao:warehouseGrain "one row per energy meter reading" .
+
+ao:RetailInventoryKPI a owl:Class ;
+    rdfs:label "Retail Inventory KPI"@en ;
+    rdfs:comment "Gold analytical product at one row per airport and day."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AggregateProduct ;
+    ao:sourceTable "gold_retail_inventory_kpi" ;
+    ao:sourceView "ops.vw_retail_inventory_kpi" ;
+    ao:warehouseGrain "one row per airport and day" .
+
+ao:WorkTeam a owl:Class ;
+    rdfs:label "Work Team"@en ;
+    rdfs:comment "A fictional airport service or maintenance team."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BusinessEntity ;
+    ao:primaryKey "work_team_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_work_team" ;
+    ao:sourceView "ops.vw_dim_work_team" ;
+    ao:warehouseGrain "one row per work team" .
+
+ao:ZoneOccupancyObservation a owl:Class ;
+    rdfs:label "Zone Occupancy Observation"@en ;
+    rdfs:comment "A PII-free zone and checkpoint occupancy observation at 15-minute grain."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:Observation ;
+    ao:primaryKey "zone_occupancy_id" ;
+    ao:sourceTable "fact_zone_occupancy" ;
+    ao:sourceView "ops.vw_fact_zone_occupancy" ;
+    ao:warehouseGrain "one row per zone, checkpoint, and 15-minute interval" .
+
+ao:affectedByIncident a owl:ObjectProperty ;
+    rdfs:label "affected by incident"@en ;
+    rdfs:comment "Asset is affected by an operational incident."@en ;
+    rdfs:domain ao:Asset ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:OperationalIncident ;
+    owl:inverseOf ao:affectsAsset .
+
+ao:affectsAsset a owl:ObjectProperty ;
+    rdfs:label "affects asset"@en ;
+    rdfs:comment "Operational incident affects a synthetic asset."@en ;
+    rdfs:domain ao:OperationalIncident ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Asset ;
+    owl:inverseOf ao:affectedByIncident .
+
+ao:aircraftHasRotation a owl:ObjectProperty ;
+    rdfs:label "aircraft has rotation"@en ;
+    rdfs:comment "Aircraft instance participates in a rotation sequence."@en ;
+    rdfs:domain ao:AircraftInstance ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:AircraftRotation ;
+    owl:inverseOf ao:rotationUsesAircraft .
+
+ao:aircraftTypeUsedByFlight a owl:ObjectProperty ;
+    rdfs:label "aircraft type used by flight"@en ;
+    rdfs:comment "Aircraft type is used by a flight."@en ;
+    rdfs:domain ao:AircraftType ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:FlightOperation ;
+    owl:inverseOf ao:usesAircraftType .
+
+ao:airlineOperatesFlight a owl:ObjectProperty ;
+    rdfs:label "airline operates flight"@en ;
+    rdfs:comment "Airline operates a fictional flight."@en ;
+    rdfs:domain ao:Airline ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:FlightOperation ;
+    owl:inverseOf ao:flightOperatedByAirline .
+
+ao:airlineOperatesRoute a owl:ObjectProperty ;
+    rdfs:label "airline operates route"@en ;
+    rdfs:comment "Airline is assigned a fictional route."@en ;
+    rdfs:domain ao:Airline ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Route ;
+    owl:inverseOf ao:routeOperatedByAirline .
+
+ao:containsAsset a owl:ObjectProperty ;
+    rdfs:label "contains asset"@en ;
+    rdfs:comment "Zone contains an asset."@en ;
+    rdfs:domain ao:Zone ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Asset ;
+    rdfs:subPropertyOf ao:contains ;
+    owl:inverseOf ao:assetLocatedInZone .
+
+ao:destinationForRoute a owl:ObjectProperty ;
+    rdfs:label "destination for route"@en ;
+    rdfs:comment "Airport is the destination of a route."@en ;
+    rdfs:domain ao:Airport ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Route ;
+    owl:inverseOf ao:destinationAirport .
+
+ao:dimensionMemberOfFact a owl:ObjectProperty ;
+    rdfs:label "dimension member of fact"@en ;
+    rdfs:comment "Dimension record is referenced by a fact record."@en ;
+    rdfs:domain ao:DimensionRecord ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:FactRecord ;
+    owl:inverseOf ao:hasDimensionMember .
+
+ao:flightHasRotation a owl:ObjectProperty ;
+    rdfs:label "flight has rotation"@en ;
+    rdfs:comment "Flight operation has an aircraft rotation assignment."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:AircraftRotation ;
+    owl:inverseOf ao:rotationForFlight .
+
+ao:hasCheckpoint a owl:ObjectProperty ;
+    rdfs:label "has checkpoint"@en ;
+    rdfs:comment "Zone contains checkpoint."@en ;
+    rdfs:domain ao:Zone ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Checkpoint ;
+    rdfs:subPropertyOf ao:contains ;
+    owl:inverseOf ao:checkpointOfZone .
+
+ao:hasDimensionMember a owl:ObjectProperty ;
+    rdfs:label "has dimension member"@en ;
+    rdfs:comment "Fact record references a dimension record."@en ;
+    rdfs:domain ao:FactRecord ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:DimensionRecord ;
+    owl:inverseOf ao:dimensionMemberOfFact .
+
+ao:hasDimensionRecord a owl:ObjectProperty ;
+    rdfs:label "has dimension record"@en ;
+    rdfs:comment "Domain entity is represented by a dimension record."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:DimensionRecord ;
+    owl:inverseOf ao:representsEntity .
+
+ao:hasFactRecord a owl:ObjectProperty ;
+    rdfs:label "has fact record"@en ;
+    rdfs:comment "Domain event or observation is represented by a fact record."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:FactRecord ;
+    owl:inverseOf ao:representsEvent .
+
+ao:hasGate a owl:ObjectProperty ;
+    rdfs:label "has gate"@en ;
+    rdfs:comment "Terminal contains gate."@en ;
+    rdfs:domain ao:Terminal ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Gate ;
+    rdfs:subPropertyOf ao:contains ;
+    owl:inverseOf ao:gateOfTerminal .
+
+ao:hasMeasureObservation a owl:ObjectProperty ;
+    rdfs:label "has measure observation"@en ;
+    rdfs:comment "Domain entity has a measure observation."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:MeasureObservation ;
+    owl:inverseOf ao:observedFor .
+
+ao:hasObservation a owl:ObjectProperty ;
+    rdfs:label "has observation"@en ;
+    rdfs:comment "Measure definition has observations."@en ;
+    rdfs:domain ao:MeasureDefinition ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:MeasureObservation ;
+    owl:inverseOf ao:observesMeasure .
+
+ao:hasPassengerFlowObservation a owl:ObjectProperty ;
+    rdfs:label "has passenger flow observation"@en ;
+    rdfs:comment "Zone has a PII-free passenger-flow observation."@en ;
+    rdfs:domain ao:Zone ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:PassengerFlowObservation ;
+    owl:inverseOf ao:passengerFlowObservedInZone .
+
+ao:hasWorkOrder a owl:ObjectProperty ;
+    rdfs:label "has work order"@en ;
+    rdfs:comment "Asset has an analytical maintenance work order."@en ;
+    rdfs:domain ao:Asset ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:MaintenanceWorkOrder ;
+    owl:inverseOf ao:workOrderForAsset .
+
+ao:hasZone a owl:ObjectProperty ;
+    rdfs:label "has zone"@en ;
+    rdfs:comment "Terminal contains zone."@en ;
+    rdfs:domain ao:Terminal ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Zone ;
+    rdfs:subPropertyOf ao:contains ;
+    owl:inverseOf ao:zoneOfTerminal .
+
+ao:monitoredBy a owl:ObjectProperty ;
+    rdfs:label "monitored by"@en ;
+    rdfs:comment "Asset is monitored by an energy meter."@en ;
+    rdfs:domain ao:Asset ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:EnergyMeter ;
+    owl:inverseOf ao:monitorsAsset .
+
+ao:monitorsAsset a owl:ObjectProperty ;
+    rdfs:label "monitors asset"@en ;
+    rdfs:comment "Energy meter monitors an asset."@en ;
+    rdfs:domain ao:EnergyMeter ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Asset ;
+    owl:inverseOf ao:monitoredBy .
+
+ao:observedFor a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "observed for"@en ;
+    rdfs:comment "Measure observation applies to a domain entity or analytical record."@en ;
+    rdfs:domain ao:MeasureObservation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:DomainEntity ;
+    owl:inverseOf ao:hasMeasureObservation .
+
+ao:observesMeasure a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "observes measure"@en ;
+    rdfs:comment "Measure observation instantiates a governed measure definition."@en ;
+    rdfs:domain ao:MeasureObservation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:MeasureDefinition ;
+    owl:inverseOf ao:hasObservation .
+
+ao:originForRoute a owl:ObjectProperty ;
+    rdfs:label "origin for route"@en ;
+    rdfs:comment "Airport is the origin of a route."@en ;
+    rdfs:domain ao:Airport ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Route ;
+    owl:inverseOf ao:originAirport .
+
+ao:passengerFlowObservedInZone a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "passenger flow observed in zone"@en ;
+    rdfs:comment "Passenger-flow observation occurs in one zone."@en ;
+    rdfs:domain ao:PassengerFlowObservation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Zone ;
+    owl:inverseOf ao:hasPassengerFlowObservation .
+
+ao:representsEntity a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "represents entity"@en ;
+    rdfs:comment "Dimension record represents a domain entity."@en ;
+    rdfs:domain ao:DimensionRecord ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:DomainEntity ;
+    owl:inverseOf ao:hasDimensionRecord .
+
+ao:representsEvent a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "represents event"@en ;
+    rdfs:comment "Fact record represents an event or observation."@en ;
+    rdfs:domain ao:FactRecord ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:DomainEntity ;
+    owl:inverseOf ao:hasFactRecord .
+
+ao:routeHasFlight a owl:ObjectProperty ;
+    rdfs:label "route has flight"@en ;
+    rdfs:comment "Route has a fictional flight operation."@en ;
+    rdfs:domain ao:Route ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:FlightOperation ;
+    owl:inverseOf ao:flightOnRoute .
+
+ao:servesFlight a owl:ObjectProperty ;
+    rdfs:label "serves flight"@en ;
+    rdfs:comment "Gate serves a flight operation."@en ;
+    rdfs:domain ao:Gate ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:FlightOperation ;
+    owl:inverseOf ao:servedAtGate .
+
+ao:servesStand a owl:ObjectProperty ;
+    rdfs:label "serves stand"@en ;
+    rdfs:comment "Gate serves an adjacent stand."@en ;
+    rdfs:domain ao:Gate ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Stand ;
+    owl:inverseOf ao:standServedByGate .
+
+ao:workOrderForAsset a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "work order for asset"@en ;
+    rdfs:comment "Maintenance work order concerns an asset."@en ;
+    rdfs:domain ao:MaintenanceWorkOrder ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Asset ;
+    owl:inverseOf ao:hasWorkOrder .
+
+ao:EnergyMeter a owl:Class ;
+    rdfs:label "Energy Meter"@en ;
+    rdfs:comment "A synthetic meter that produces energy observations."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:PhysicalAsset ;
+    ao:primaryKey "asset_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_asset" ;
+    ao:sourceView "ops.vw_dim_asset" ;
+    ao:warehouseGrain "one row per energy meter asset" .
+
+ao:InformationArtifact a owl:Class ;
+    rdfs:label "Information Artifact"@en ;
+    rdfs:comment "A data, analytical, or governance artifact rather than a physical or operational entity."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> .
+
+ao:Recommendation a owl:Class ;
+    rdfs:label "Recommendation"@en ;
+    rdfs:comment "An advisory-only synthetic recommendation requiring human approval."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "recommendation_id" ;
+    ao:sourceTable "fact_recommendation" ;
+    ao:warehouseGrain "one row per recommendation" .
+
+ao:assetLocatedInZone a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "asset located in zone"@en ;
+    rdfs:comment "Asset is assigned to a zone in the generated spatial model."@en ;
+    rdfs:domain ao:Asset ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Zone ;
+    rdfs:subPropertyOf ao:containedIn ;
+    owl:inverseOf ao:containsAsset .
+
+ao:checkpointOfZone a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "checkpoint of zone"@en ;
+    rdfs:comment "Checkpoint belongs to one zone."@en ;
+    rdfs:domain ao:Checkpoint ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Zone ;
+    rdfs:subPropertyOf ao:containedIn ;
+    owl:inverseOf ao:hasCheckpoint .
+
+ao:destinationAirport a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "destination airport"@en ;
+    rdfs:comment "Route terminates at one airport."@en ;
+    rdfs:domain ao:Route ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Airport ;
+    owl:inverseOf ao:destinationForRoute .
+
+ao:flightOnRoute a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "flight on route"@en ;
+    rdfs:comment "Flight operation is assigned to a route by bridge_flight_route."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Route ;
+    owl:inverseOf ao:routeHasFlight .
+
+ao:flightOperatedByAirline a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "flight operated by airline"@en ;
+    rdfs:comment "Flight operation is operated by one airline reference."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Airline ;
+    owl:inverseOf ao:airlineOperatesFlight .
+
+ao:gateOfTerminal a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "gate of terminal"@en ;
+    rdfs:comment "Gate belongs to one terminal."@en ;
+    rdfs:domain ao:Gate ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Terminal ;
+    rdfs:subPropertyOf ao:containedIn ;
+    owl:inverseOf ao:hasGate .
+
+ao:hasTerminal a owl:ObjectProperty ;
+    rdfs:label "has terminal"@en ;
+    rdfs:comment "Airport contains terminal."@en ;
+    rdfs:domain ao:Airport ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Terminal ;
+    rdfs:subPropertyOf ao:contains ;
+    owl:inverseOf ao:terminalOfAirport .
+
+ao:hasTurnaround a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has turnaround"@en ;
+    rdfs:comment "Flight has one turnaround interval in the base fact."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Turnaround ;
+    owl:inverseOf ao:turnaroundOfFlight .
+
+ao:originAirport a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "origin airport"@en ;
+    rdfs:comment "Route originates at one airport."@en ;
+    rdfs:domain ao:Route ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Airport ;
+    owl:inverseOf ao:originForRoute .
+
+ao:rotationForFlight a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "rotation for flight"@en ;
+    rdfs:comment "Rotation assigns one flight operation."@en ;
+    rdfs:domain ao:AircraftRotation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:FlightOperation ;
+    owl:inverseOf ao:flightHasRotation .
+
+ao:rotationUsesAircraft a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "rotation uses aircraft"@en ;
+    rdfs:comment "Rotation assigns one aircraft instance."@en ;
+    rdfs:domain ao:AircraftRotation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:AircraftInstance ;
+    owl:inverseOf ao:aircraftHasRotation .
+
+ao:routeOperatedByAirline a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "route operated by airline"@en ;
+    rdfs:comment "Route service assumption names one airline."@en ;
+    rdfs:domain ao:Route ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Airline ;
+    owl:inverseOf ao:airlineOperatesRoute .
+
+ao:servedAtGate a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "served at gate"@en ;
+    rdfs:comment "Flight operation occurs at one gate."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Gate ;
+    owl:inverseOf ao:servesFlight .
+
+ao:standServedByGate a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "stand served by gate"@en ;
+    rdfs:comment "Stand is served by one gate in the current bridge."@en ;
+    rdfs:domain ao:Stand ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Gate ;
+    owl:inverseOf ao:servesStand .
+
+ao:terminalOfAirport a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "terminal of airport"@en ;
+    rdfs:comment "Terminal belongs to one airport."@en ;
+    rdfs:domain ao:Terminal ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Airport ;
+    rdfs:subPropertyOf ao:containedIn ;
+    owl:inverseOf ao:hasTerminal .
+
+ao:turnaroundOfFlight a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "turnaround of flight"@en ;
+    rdfs:comment "Turnaround corresponds to one flight operation."@en ;
+    rdfs:domain ao:Turnaround ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:FlightOperation ;
+    owl:inverseOf ao:hasTurnaround .
+
+ao:usesAircraftType a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "uses aircraft type"@en ;
+    rdfs:comment "Flight operation uses one aircraft type."@en ;
+    rdfs:domain ao:FlightOperation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:AircraftType ;
+    owl:inverseOf ao:aircraftTypeUsedByFlight .
+
+ao:zoneOfTerminal a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "zone of terminal"@en ;
+    rdfs:comment "Zone belongs to one terminal."@en ;
+    rdfs:domain ao:Zone ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:Terminal ;
+    rdfs:subPropertyOf ao:containedIn ;
+    owl:inverseOf ao:hasZone .
+
+ao:MaintenanceWorkOrder a owl:Class ;
+    rdfs:label "Maintenance Work Order"@en ;
+    rdfs:comment "A synthetic analytical maintenance work order requiring governed approval metadata."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:primaryKey "work_order_id" ;
+    ao:sourceTable "fact_maintenance_work_order" ;
+    ao:warehouseGrain "one row per maintenance work order" .
+
+ao:OperationalIncident a owl:Class ;
+    rdfs:label "Operational Incident"@en ;
+    rdfs:comment "A synthetic operational incident; it is not a real safety or security record."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:OperationalEvent ;
+    ao:ambiguityNote "delay_reason is a primary narrative cause; the source does not implement an atomic many-cause delay bridge." ;
+    ao:primaryKey "incident_id" ;
+    ao:sourceTable "fact_operational_incidents" ;
+    ao:sourceView "ops.vw_incident_details" ;
+    ao:warehouseGrain "one row per operational incident" .
+
+ao:Stand a owl:Class ;
+    rdfs:label "Stand"@en ;
+    rdfs:comment "A synthetic aircraft parking position served by a gate."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass ao:Gate ;
+            owl:onProperty ao:standServedByGate ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        ao:PhysicalLocation ;
+    ao:primaryKey "stand_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_stand" ;
+    ao:sourceView "ops.vw_dim_stand" ;
+    ao:warehouseGrain "one row per aircraft stand" .
+
+ao:AircraftInstance a owl:Class ;
+    rdfs:label "Aircraft Instance"@en ;
+    rdfs:comment "A synthetic aircraft instance identified by a tail token."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:PhysicalAsset ;
+    ao:primaryKey "aircraft_instance_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_aircraft_fleet" ;
+    ao:sourceView "ops.vw_dim_aircraft_fleet" ;
+    ao:warehouseGrain "one row per synthetic aircraft instance" .
+
+ao:AircraftRotation a owl:Class ;
+    rdfs:label "Aircraft Rotation"@en ;
+    rdfs:comment "A sequenced assignment of an aircraft instance to a flight."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass ao:FlightOperation ;
+            owl:onProperty ao:rotationForFlight ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass ao:AircraftInstance ;
+            owl:onProperty ao:rotationUsesAircraft ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        ao:OperationalEvent ;
+    ao:primaryKey "rotation_id" ;
+    ao:sourceTable "fact_aircraft_rotation" ;
+    ao:warehouseGrain "one row per aircraft rotation sequence and flight" .
+
+ao:Checkpoint a owl:Class ;
+    rdfs:label "Checkpoint"@en ;
+    rdfs:comment "A synthetic passenger processing checkpoint within a zone."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass ao:Zone ;
+            owl:onProperty ao:checkpointOfZone ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        ao:PhysicalLocation ;
+    ao:primaryKey "checkpoint_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_checkpoint" ;
+    ao:sourceView "ops.vw_dim_checkpoint" ;
+    ao:warehouseGrain "one row per passenger checkpoint" .
+
+ao:PassengerFlowObservation a owl:Class ;
+    rdfs:label "Passenger Flow Observation"@en ;
+    rdfs:comment "A PII-free aggregate checkpoint queue observation at 15-minute grain."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:Observation ;
+    ao:primaryKey "queue_metric_id" ;
+    ao:sourceTable "fact_passenger_queue_metrics" ;
+    ao:sourceView "ops.vw_fact_passenger_flow" ;
+    ao:warehouseGrain "one row per checkpoint and 15-minute interval" .
+
+ao:Turnaround a owl:Class ;
+    rdfs:label "Turnaround"@en ;
+    rdfs:comment "The ground-operation interval associated one-to-one with a flight operation in the base fact."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass ao:FlightOperation ;
+            owl:onProperty ao:turnaroundOfFlight ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        ao:OperationalEvent ;
+    ao:primaryKey "flight_event_id" ;
+    ao:sourceTable "fact_flight_turnaround_events" ;
+    ao:sourceView "ops.vw_fact_turnaround" ;
+    ao:warehouseGrain "one row per flight turnaround event" .
+
+ao:AircraftType a owl:Class ;
+    rdfs:label "Aircraft Type"@en ;
+    rdfs:comment "A public aircraft-type reference with synthetic operating assumptions."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BusinessEntity ;
+    ao:primaryKey "aircraft_type_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_aircraft" ;
+    ao:sourceView "ops.vw_dim_aircraft" ;
+    ao:warehouseGrain "one row per aircraft type" .
+
+ao:AnalyticalRecord a owl:Class ;
+    rdfs:label "Analytical Record"@en ;
+    rdfs:comment "A record in the conformed Warehouse or Gold analytical model."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:InformationArtifact .
+
+ao:MeasureDefinition a owl:Class ;
+    rdfs:label "Measure Definition"@en ;
+    rdfs:comment "A governed KPI or measure definition with formula, unit, grain, and caveats."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:InformationArtifact ;
+    ao:ambiguityNote "semantic-model/measures.dax is authoritative; gold_kpi_catalog formula text is descriptive metadata." .
+
+ao:containedIn a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "contained in"@en ;
+    rdfs:comment "Inverse of physical containment."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:PhysicalLocation ;
+    owl:inverseOf ao:contains .
+
+ao:contains a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "contains"@en ;
+    rdfs:comment "Transitive physical containment relation."@en ;
+    rdfs:domain ao:PhysicalLocation ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range ao:DomainEntity ;
+    owl:inverseOf ao:containedIn .
+
+ao:Airline a owl:Class ;
+    rdfs:label "Airline"@en ;
+    rdfs:comment "A public airline reference entity used by fictional schedules and routes."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:BusinessEntity ;
+    ao:primaryKey "airline_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_airline" ;
+    ao:sourceView "ops.vw_dim_airline" ;
+    ao:warehouseGrain "one row per airline" .
+
+ao:MeasureObservation a owl:Class ;
+    rdfs:label "Measure Observation"@en ;
+    rdfs:comment "A numeric observation of a governed measure for a subject and timestamp."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AnalyticalRecord .
+
+ao:PhysicalAsset a owl:Class ;
+    rdfs:label "Physical Asset"@en ;
+    rdfs:comment "A physical item, equipment instance, meter, or aircraft instance."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DomainEntity ;
+    owl:disjointWith ao:BusinessEntity,
+        ao:Observation,
+        ao:OperationalEvent .
+
+ao:Asset a owl:Class ;
+    rdfs:label "Asset"@en ;
+    rdfs:comment "A synthetic maintainable airport asset."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass ao:Zone ;
+            owl:onProperty ao:assetLocatedInZone ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        ao:PhysicalAsset ;
+    ao:ambiguityNote "dim_asset contains zone_id, gate_id, terminal_id, and airport_id; bridge_asset_location is the effective-dated spatial assignment authority." ;
+    ao:primaryKey "asset_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_asset" ;
+    ao:sourceView "ops.vw_dim_asset" ;
+    ao:warehouseGrain "one row per maintainable asset or energy meter" .
+
+ao:BridgeRecord a owl:Class ;
+    rdfs:label "Bridge Record"@en ;
+    rdfs:comment "An explicit relationship record connecting dimensions or facts."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AnalyticalRecord .
+
+ao:Airport a owl:Class ;
+    rdfs:label "Airport"@en ;
+    rdfs:comment "A public geographic airport anchor participating in a fictional demonstration portfolio."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass ao:Terminal ;
+            owl:onProperty ao:hasTerminal ],
+        ao:PhysicalLocation ;
+    ao:primaryKey "airport_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_airport" ;
+    ao:sourceView "ops.vw_dim_airport" ;
+    ao:warehouseGrain "one row per airport" .
+
+ao:Gate a owl:Class ;
+    rdfs:label "Gate"@en ;
+    rdfs:comment "A synthetic aircraft gate belonging to an airport terminal."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass ao:Terminal ;
+            owl:onProperty ao:gateOfTerminal ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        ao:PhysicalLocation ;
+    ao:primaryKey "gate_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_gate" ;
+    ao:sourceView "ops.vw_dim_gate" ;
+    ao:warehouseGrain "one row per gate" .
+
+ao:Route a owl:Class ;
+    rdfs:label "Route"@en ;
+    rdfs:comment "A fictional origin, destination, and airline service assumption."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass ao:Airport ;
+            owl:onProperty ao:destinationAirport ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass ao:Airport ;
+            owl:onProperty ao:originAirport ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass ao:Airline ;
+            owl:onProperty ao:routeOperatedByAirline ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        ao:BusinessEntity ;
+    ao:primaryKey "route_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_route" ;
+    ao:sourceView "ops.vw_dim_route" ;
+    ao:warehouseGrain "one row per fictional route" .
+
+ao:PhysicalLocation a owl:Class ;
+    rdfs:label "Physical Location"@en ;
+    rdfs:comment "A geographic or built-environment location in the airport hierarchy."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DomainEntity ;
+    owl:disjointWith ao:BusinessEntity,
+        ao:Observation,
+        ao:OperationalEvent,
+        ao:PhysicalAsset .
+
+ao:Terminal a owl:Class ;
+    rdfs:label "Terminal"@en ;
+    rdfs:comment "A synthetic passenger terminal contained by one airport."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass ao:Airport ;
+            owl:onProperty ao:terminalOfAirport ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        ao:PhysicalLocation ;
+    ao:primaryKey "terminal_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_terminal" ;
+    ao:sourceView "ops.vw_dim_terminal" ;
+    ao:warehouseGrain "one row per terminal" .
+
+ao:Zone a owl:Class ;
+    rdfs:label "Zone"@en ;
+    rdfs:comment "A synthetic indoor processing or secure-operations zone within a terminal."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass ao:Terminal ;
+            owl:onProperty ao:zoneOfTerminal ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        ao:PhysicalLocation ;
+    ao:primaryKey "zone_id" ;
+    ao:scdSemantics "current-state overwrite; no effective dating" ;
+    ao:sourceTable "dim_zone" ;
+    ao:sourceView "ops.vw_dim_zone" ;
+    ao:warehouseGrain "one row per indoor zone" .
+
+ao:Observation a owl:Class ;
+    rdfs:label "Observation"@en ;
+    rdfs:comment "A synthetic measurement or status observation at a declared grain."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DomainEntity .
+
+ao:BusinessEntity a owl:Class ;
+    rdfs:label "Business Entity"@en ;
+    rdfs:comment "An organizational, commercial, workforce, route, or reference concept."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DomainEntity ;
+    owl:disjointWith ao:Observation,
+        ao:OperationalEvent .
+
+ao:identifier a owl:DatatypeProperty ;
+    rdfs:label "identifier"@en ;
+    rdfs:comment "Stable source-system or ontology identifier."@en ;
+    rdfs:domain ao:DomainEntity ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:range xsd:string .
+
+ao:OperationalEvent a owl:Class ;
+    rdfs:label "Operational Event"@en ;
+    rdfs:comment "A time-bounded synthetic operational occurrence or assignment."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:DomainEntity ;
+    owl:disjointWith ao:Observation .
+
+ao:DomainEntity a owl:Class ;
+    rdfs:label "Domain Entity"@en ;
+    rdfs:comment "A physical, business, operational, or observational concept represented by the airport-operations domain."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> .
+
+ao:FlightOperation a owl:Class ;
+    rdfs:label "Flight Operation"@en ;
+    rdfs:comment "A fictional scheduled flight movement represented by a turnaround fact."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass ao:Route ;
+            owl:onProperty ao:flightOnRoute ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass ao:Airline ;
+            owl:onProperty ao:flightOperatedByAirline ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass ao:Turnaround ;
+            owl:onProperty ao:hasTurnaround ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass ao:Gate ;
+            owl:onProperty ao:servedAtGate ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass ao:AircraftType ;
+            owl:onProperty ao:usesAircraftType ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        ao:OperationalEvent ;
+    ao:primaryKey "flight_event_id" ;
+    ao:sourceTable "fact_flight_turnaround_events" ;
+    ao:sourceView "ops.vw_fact_turnaround" ;
+    ao:warehouseGrain "one row per flight turnaround event" .
+
+ao:AggregateProduct a owl:Class ;
+    rdfs:label "Aggregate Product"@en ;
+    rdfs:comment "A business-ready Gold aggregate or scorecard product."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AnalyticalRecord .
+
+ao:DimensionRecord a owl:Class ;
+    rdfs:label "Dimension Record"@en ;
+    rdfs:comment "A conformed descriptive record used to filter and group facts."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AnalyticalRecord ;
+    owl:disjointWith ao:BridgeRecord,
+        ao:FactRecord .
+
+ao:FactRecord a owl:Class ;
+    rdfs:label "Fact Record"@en ;
+    rdfs:comment "A record at a declared event, transaction, assignment, or observation grain."@en ;
+    rdfs:isDefinedBy <https://data.fictional-airport-group.example/airport-operations/ontology> ;
+    rdfs:subClassOf ao:AnalyticalRecord ;
+    owl:disjointWith ao:BridgeRecord .
+
+<https://data.fictional-airport-group.example/airport-operations/ontology> a owl:Ontology ;
+    dcterms:description "OWL 2 ontology for the repository's airport physical hierarchy, operational events, warehouse star schema, and governed measures."@en ;
+    dcterms:issued "2026-08-13"^^xsd:date ;
+    dcterms:license <https://opensource.org/license/mit> ;
+    dcterms:modified "2026-08-13"^^xsd:date ;
+    dcterms:title "Airport Operations Fabric Ontology"@en ;
+    owl:versionIRI <https://data.fictional-airport-group.example/airport-operations/ontology/1.0.0> ;
+    owl:versionInfo "1.0.0" ;
+    prov:wasDerivedFrom <urn:repo:fabric-airport-ops-mvp> ;
+    ao:generatorVersion "1.0.0" ;
+    ao:schemaVersion "1.0.0" ;
+    ao:sourceArtifact "ontology/generate_ontology.py" .
+

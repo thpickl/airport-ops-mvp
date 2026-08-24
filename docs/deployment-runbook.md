@@ -22,10 +22,12 @@ From the repository root:
 
 ```powershell
 python -m pip install -r requirements.txt
+python ontology/generate_ontology.py --check
+python ontology/validate_ontology.py
 python tests/validate_platform.py
 ```
 
-The second command must report zero failures. This validates portable artifacts and the 18-airport smoke scenario, not a tenant deployment.
+The validation commands must report zero failures. They validate portable artifacts and the 18-airport smoke scenario, not a tenant deployment.
 
 Fabric dry-run dependency plan:
 
@@ -37,6 +39,22 @@ Fabric apply requires runtime-only `FABRIC_WORKSPACE_ID`, `FABRIC_CAPACITY_REFER
 
 ```powershell
 python deployment/scripts/fabric.py apply
+```
+
+Optional runtime variables:
+
+| Variable | Effect |
+|---|---|
+| `FABRIC_TOKEN_COMMAND` | Command printing a fresh bearer token. Without it a run outliving the token lifetime fails the poll with `401` even though the Fabric job is still running. |
+| `FABRIC_WAREHOUSE_SQL_ENDPOINT` | Serving endpoint for notebook 10. |
+| `FABRIC_KQL_QUERY_URI` | Eventhouse query URI for notebook 10. |
+
+`include_platform_deployment` is derived: it is enabled only when **both** endpoints are supplied. Without them notebook 10 reports `SKIPPED_PREREQUISITE` and **no semantic model, report, or Data Agent is deployed** — the apply result records this explicitly rather than implying BI content exists.
+
+```powershell
+$env:FABRIC_TOKEN_COMMAND = "az account get-access-token --resource https://api.fabric.microsoft.com --query accessToken -o tsv"
+$env:FABRIC_WAREHOUSE_SQL_ENDPOINT = "<warehouse-sql-endpoint>"
+$env:FABRIC_KQL_QUERY_URI = "<eventhouse-query-uri>"
 ```
 
 Post-deployment retrieval validation:
@@ -61,31 +79,32 @@ Notebook 00 reuses same-name/same-type items. Duplicate matches are a hard failu
 Run `11_Orchestrate_Deployment` with runtime parameters:
 
 - `workspace_id`
-- `dry_run = False`
+- `capacity_reference`
+- `deployment_mode = 'apply'` (`dry-run` and `plan` both validate without submitting jobs)
 - `run_second_pass = True`
 - `include_platform_deployment = True` when serving and BI deployment is required
+- `include_lakehouse_maintenance = True` only when Delta maintenance is intended
+- `deploy_conditional_artifacts = True` only when Data Agent/app deployment is intended
 - `artifact_root`
 - `warehouse_sql_endpoint`
 - `kql_query_uri`
 
 Execution order:
 
-1. Base simulation and Bronze (`01`)
-2. Base Silver (`02`)
-3. Base Gold (`03`)
-4. Physical/spatial context (`04`)
-5. Extended Gold and core agent context (`05`)
-6. Enterprise Bronze (`07`)
-7. Enterprise Silver (`08`)
-8. Enterprise Gold (`09`)
-9. Core validation (`06`)
-10. Production baseline validation (`12`)
-11. Deterministic second pass of `01`-`09`
-12. Second core validation (`06`)
-13. Optional serving/TMDL/PBIR/app/agent deployment (`10`)
-14. Required second-run fingerprint comparison (`12`)
+1. Preflight (`00_Validate_Prerequisites`)
+2. First pass data: `01`, `02`, `03`, `04`, `05`, `07`, `08`, `09`
+3. First pass validation: core (`06`), then production baseline (`12` with `validation_phase = BASELINE`, `require_second_run = False`)
+4. Second pass data: the same `01`-`09` sequence, when `run_second_pass = True`
+5. Second pass validation: core (`06`), then required fingerprint comparison (`12` with `validation_phase = SECOND_RUN`, `require_second_run = True`)
+6. Optional Delta maintenance (`16`) when `include_lakehouse_maintenance = True`
+7. Optional serving/TMDL/PBIR/app/agent deployment (`10`) when `include_platform_deployment = True`
+8. Read-only status summary (`15`)
+
+Notebook `12` therefore runs its required second-run comparison before notebook `10`. Platform deployment does not gate idempotency evidence, and idempotency evidence does not depend on BI content existing.
 
 Use a stable `orchestration_run_id` to resume the same run. Set `force = True` only when intentionally rerunning completed checkpoints.
+
+The EASA notebooks `17` and `18` are not part of this orchestration. They are run separately and remain fail-closed until a named compliance owner approves a submission inventory; see [easa/README.md](easa/README.md).
 
 ## Platform artifacts
 

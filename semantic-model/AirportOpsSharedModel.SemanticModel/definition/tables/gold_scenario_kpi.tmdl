@@ -1,0 +1,59 @@
+table gold_scenario_kpi
+	column scenario_id
+		dataType: string
+		sourceColumn: scenario_id
+	column scenario_name
+		dataType: string
+		sourceColumn: scenario_name
+	column scenario_order
+		dataType: int64
+		isHidden
+		sourceColumn: scenario_order
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+	column turnaround_narrow_body_min
+		dataType: double
+		sourceColumn: turnaround_narrow_body_min
+	column turnaround_target_narrow_body_min
+		dataType: double
+		sourceColumn: turnaround_target_narrow_body_min
+	column peak_queue_wait_min
+		dataType: double
+		sourceColumn: peak_queue_wait_min
+	column retail_conversion_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: retail_conversion_pct
+	column revenue_per_passenger_proxy
+		dataType: double
+		sourceColumn: revenue_per_passenger_proxy
+	column kwh_per_gate_hour
+		dataType: double
+		sourceColumn: kwh_per_gate_hour
+	column energy_benchmark_variance_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: energy_benchmark_variance_pct
+	column provenance_nature
+		dataType: string
+		sourceColumn: provenance_nature
+	column review_status
+		dataType: string
+		sourceColumn: review_status
+	measure 'Scenario Turnaround Narrow Body' = AVERAGE(gold_scenario_kpi[turnaround_narrow_body_min])
+		formatString: 0.0
+		displayFolder: Scenario
+	measure 'Scenario Peak Queue Wait' = AVERAGE(gold_scenario_kpi[peak_queue_wait_min])
+		formatString: 0.0
+		displayFolder: Scenario
+	measure 'Scenario Revenue per Passenger' = AVERAGE(gold_scenario_kpi[revenue_per_passenger_proxy])
+		formatString: 0.00
+		displayFolder: Scenario
+	measure 'Scenario Energy Benchmark Variance %' = DIVIDE(AVERAGE(gold_scenario_kpi[energy_benchmark_variance_pct]),100.0)
+		formatString: 0.0%
+		displayFolder: Scenario
+	partition gold_scenario_kpi = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_scenario_kpi"]}[Data] in Data

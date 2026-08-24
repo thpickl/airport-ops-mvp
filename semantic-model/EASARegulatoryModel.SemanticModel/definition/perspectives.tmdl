@@ -1,0 +1,23 @@
+perspective Executive
+	perspectiveTable easa_submission_status
+	perspectiveTable easa_automation_coverage
+	perspectiveTable easa_manual_inventory
+	perspectiveTable easa_exceptions
+
+perspective Compliance
+	perspectiveTable easa_submission_status
+	perspectiveTable easa_requirement_inventory
+	perspectiveTable easa_data_quality
+	perspectiveTable easa_exceptions
+	perspectiveTable easa_automation_coverage
+	perspectiveTable easa_manual_inventory
+
+perspective DataQuality
+	perspectiveTable easa_data_quality
+	perspectiveTable easa_exceptions
+	perspectiveTable easa_submission_status
+
+perspective Airport
+	perspectiveTable easa_submission_status
+	perspectiveTable easa_data_quality
+	perspectiveTable easa_exceptions

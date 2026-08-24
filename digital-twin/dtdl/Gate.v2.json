@@ -1,0 +1,13 @@
+{
+  "@id": "dtmi:com:fictionalairport:Gate;2",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Gate (observed)",
+  "description": "Adds observed turnaround and disruption state projected from TurnaroundTaskEventsCurated and IncidentEventsCurated. Descriptive synthetic state only; no control commands are exposed.",
+  "extends": "dtmi:com:fictionalairport:Gate;1",
+  "contents": [
+    {"@type": "Property", "name": "taskDurationMinutes", "schema": "double"},
+    {"@type": "Property", "name": "delayMinutes", "schema": "double"},
+    {"@type": "Property", "name": "observedAt", "schema": "dateTime"}
+  ]
+}

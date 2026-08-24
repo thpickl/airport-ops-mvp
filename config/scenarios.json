@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "config_id": "airport-ops-scenarios-v1",
+  "data_classification": "SyntheticAssumption",
+  "is_synthetic": true,
+  "provenance": {
+    "nature": "MODELLED_INTERVENTION_ASSUMPTION",
+    "derivation": "Effect sizes are stated engineering assumptions about what each intervention changes in the operating process. They are NOT measured results, NOT vendor benchmarks, and NOT derived from the programme's headline outcome targets.",
+    "calculation": "Each optimised measure is computed from the observed baseline facts by applying the intervention to the mechanism it acts on. Resulting KPI deltas are emergent and are reported as-is, including where they fall short of the programme target.",
+    "review_status": "REQUIRES_DOMAIN_OWNER_REVIEW",
+    "prohibited": "Effect sizes must not be adjusted to make a headline target appear achieved."
+  },
+  "outcome_targets": [
+    {
+      "outcome_measure": "turnaround_narrow_body_min",
+      "comparison": "ABSOLUTE_VALUE",
+      "baseline_reference": 48.0,
+      "target_value": 39.0,
+      "direction": "LOWER_IS_BETTER",
+      "status": "MODELLED",
+      "note": "Recorded for gap reporting only; never feeds the generator or the scenario maths."
+    },
+    {
+      "outcome_measure": "peak_queue_wait_min",
+      "comparison": "PCT_CHANGE_VS_BASELINE",
+      "baseline_reference": null,
+      "target_value": -38.0,
+      "direction": "LOWER_IS_BETTER",
+      "status": "MODELLED",
+      "note": "Target expressed as percentage reduction against the modelled baseline."
+    },
+    {
+      "outcome_measure": "revenue_per_passenger_proxy",
+      "comparison": "PCT_CHANGE_VS_BASELINE",
+      "baseline_reference": null,
+      "target_value": 22.0,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "MODELLED",
+      "note": "Target expressed as percentage uplift against the modelled baseline."
+    },
+    {
+      "outcome_measure": "energy_benchmark_variance_pct",
+      "comparison": "ABSOLUTE_VALUE",
+      "baseline_reference": null,
+      "target_value": 0.0,
+      "direction": "TOWARDS_ZERO",
+      "status": "MODELLED",
+      "note": "Programme states improvement against a benchmark overrun; target modelled as convergence to benchmark."
+    },
+    {
+      "outcome_measure": "regulatory_submission_automation_pct",
+      "comparison": "ABSOLUTE_VALUE",
+      "baseline_reference": null,
+      "target_value": 78.0,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "BLOCKED_NO_APPROVED_INVENTORY",
+      "note": "config/easa_requirements_matrix.json carries matrix_status BLOCKED_NO_APPROVED_INVENTORY, is_synthetic=false, unassigned compliance/legal/data owners, and coverage_policy.unverified_rows_contribute_to_coverage=false. Modelling an automation share would fabricate regulatory obligations and bypass a deliberate governance control."
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "baseline",
+      "scenario_name": "Pre-transformation baseline",
+      "scenario_order": 1,
+      "description": "Observed synthetic operations with no AI-assisted intervention applied.",
+      "interventions": {
+        "turnaround_avoidable_variance_reduction": 0.0,
+        "queue_peak_wait_reduction": 0.0,
+        "retail_conversion_uplift": 0.0,
+        "energy_controllable_load_share": 0.0,
+        "energy_controllable_load_reduction": 0.0
+      }
+    },
+    {
+      "scenario_id": "optimised",
+      "scenario_name": "Post-transformation",
+      "scenario_order": 2,
+      "description": "AI-assisted ground-operations orchestration, 15-minute passenger-flow forecasting, retail personalisation, and terminal energy optimisation.",
+      "interventions": {
+        "turnaround_avoidable_variance_reduction": 0.6,
+        "queue_peak_wait_reduction": 0.4,
+        "retail_conversion_uplift": 0.3,
+        "energy_controllable_load_share": 0.45,
+        "energy_controllable_load_reduction": 0.3
+      },
+      "intervention_rationale": {
+        "turnaround_avoidable_variance_reduction": "Orchestration acts only on the avoidable variance above the aircraft-type turnaround target (ramp, catering and cleaning sequencing). It cannot compress the aircraft-type target itself. 0.6 assumes most, not all, sequencing loss is recoverable.",
+        "queue_peak_wait_reduction": "A 15-minute demand forecast enables proactive lane opening ahead of a surge. 0.4 assumes redeployment is possible for most but not all peaks, bounded by rostered staff availability.",
+        "retail_conversion_uplift": "Personalised in-transit offers raise the share of passengers transacting. 0.3 is a relative uplift on the configured conversion propensity, not an absolute conversion rate.",
+        "energy_controllable_load_share": "Only HVAC and lighting are schedulable; jetbridge and GPU load follow aircraft presence. 0.45 is the schedulable share of the modelled base load.",
+        "energy_controllable_load_reduction": "0.3 reduction on the schedulable share only, reflecting setpoint and occupancy-driven control rather than plant replacement."
+      }
+    }
+  ]
+}

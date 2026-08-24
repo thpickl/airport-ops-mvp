@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "matrix_id": "easa-regulatory-requirements",
+  "matrix_status": "BLOCKED_NO_APPROVED_INVENTORY",
+  "is_synthetic": false,
+  "scope": {
+    "airport_group_size": 18,
+    "airport_selection": "ALL_CONFIGURED_AIRPORTS",
+    "jurisdictions": "TODO_COMPLIANCE_OWNER_VERIFY"
+  },
+  "governance": {
+    "compliance_owner": "TODO_ASSIGN_NAMED_OWNER",
+    "legal_owner": "TODO_ASSIGN_NAMED_OWNER",
+    "data_owner": "TODO_ASSIGN_NAMED_OWNER",
+    "approval_required": true,
+    "official_interface_required_for_transmission": true,
+    "explicit_transmission_authorization_required": true,
+    "default_action": "BLOCK_EXPORT_AND_TRANSMISSION"
+  },
+  "coverage_policy": {
+    "target_percent": 78.0,
+    "denominator": "COMPLIANCE_OWNER_APPROVED_ANNUAL_SUBMISSION_INVENTORY",
+    "numerator": "APPROVED_INVENTORY_ROWS_WITH_AUTOMATION_ELIGIBILITY_ELIGIBLE",
+    "unverified_rows_contribute_to_coverage": false,
+    "status_when_denominator_is_zero": "BLOCKED_NO_APPROVED_INVENTORY"
+  },
+  "requirements": [
+    {
+      "requirement_id": "TODO-EASA-0001",
+      "regulation": "TODO_COMPLIANCE_OWNER_VERIFY_OFFICIAL_CITATION",
+      "submission": "TODO_COMPLIANCE_OWNER_DEFINE",
+      "airport": "ALL_CONFIGURED_AIRPORTS",
+      "authority": "TODO_COMPLIANCE_OWNER_VERIFY",
+      "frequency": "TODO_COMPLIANCE_OWNER_VERIFY",
+      "annual_submission_count": null,
+      "deadline": {
+        "rule": "TODO_COMPLIANCE_OWNER_VERIFY",
+        "timezone": "TODO_COMPLIANCE_OWNER_VERIFY",
+        "calendar": "TODO_COMPLIANCE_OWNER_VERIFY"
+      },
+      "source_fields": [
+        "TODO_DATA_OWNER_MAP_APPROVED_SOURCE_FIELDS"
+      ],
+      "validation_rules": [
+        {
+          "rule_id": "TODO-RULE-0001",
+          "rule_type": "TODO_VERIFY",
+          "definition": "TODO_COMPLIANCE_OWNER_VERIFY",
+          "severity": "BLOCKING",
+          "sql_expression": null
+        }
+      ],
+      "output_format": "TODO_COMPLIANCE_OWNER_ATTACH_VERIFIED_AUTHORITY_TEMPLATE",
+      "automation_eligibility": "NOT_ELIGIBLE_UNVERIFIED",
+      "approval_status": "PENDING_COMPLIANCE_OWNER",
+      "inventory_approved": false,
+      "official_interface": {
+        "documented": false,
+        "reference": "TODO_OFFICIAL_INTERFACE_DOCUMENTATION",
+        "transmission_authorized": false,
+        "authorization_reference": "TODO_EXPLICIT_AUTHORIZATION"
+      },
+      "effective_from": null,
+      "effective_to": null,
+      "compliance_owner_signoff": {
+        "approved_by": null,
+        "approved_at_utc": null,
+        "evidence_reference": null
+      },
+      "manual_reason": "Unverified regulatory obligation; automation and export are blocked until compliance-owner sign-off."
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "QualityDetail",
+  "position": {
+    "x": 30,
+    "y": 190,
+    "z": 0,
+    "height": 480,
+    "width": 730,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_data_quality"
+                    }
+                  },
+                  "Property": "airport_id"
+                }
+              },
+              "queryRef": "easa_data_quality.airport_id",
+              "nativeQueryRef": "airport_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_data_quality"
+                    }
+                  },
+                  "Property": "quality_dimension"
+                }
+              },
+              "queryRef": "easa_data_quality.quality_dimension",
+              "nativeQueryRef": "quality_dimension"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_data_quality"
+                    }
+                  },
+                  "Property": "rule_id"
+                }
+              },
+              "queryRef": "easa_data_quality.rule_id",
+              "nativeQueryRef": "rule_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_data_quality"
+                    }
+                  },
+                  "Property": "severity"
+                }
+              },
+              "queryRef": "easa_data_quality.severity",
+              "nativeQueryRef": "severity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_data_quality"
+                    }
+                  },
+                  "Property": "result_status"
+                }
+              },
+              "queryRef": "easa_data_quality.result_status",
+              "nativeQueryRef": "result_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_data_quality"
+                    }
+                  },
+                  "Property": "failed_record_count"
+                }
+              },
+              "queryRef": "easa_data_quality.failed_record_count",
+              "nativeQueryRef": "failed_record_count"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "easa_data_quality"
+                    }
+                  },
+                  "Property": "evaluated_at_utc"
+                }
+              },
+              "queryRef": "easa_data_quality.evaluated_at_utc",
+              "nativeQueryRef": "evaluated_at_utc"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Quality rule results'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Quality rule results'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": []
+  }
+}

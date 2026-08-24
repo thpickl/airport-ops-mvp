@@ -1,0 +1,16 @@
+PREFIX ao: <https://data.fictional-airport-group.example/airport-operations/ontology#>
+
+# Competency: resolve a flight to gate, aircraft type, carrier, route, airports, and turnaround.
+SELECT ?flight ?gate ?aircraftType ?airline ?origin ?destination ?turnaround ?turnaroundMinutes
+WHERE {
+  ?flight a ao:FlightOperation ;
+          ao:servedAtGate ?gate ;
+          ao:usesAircraftType ?aircraftType ;
+          ao:flightOperatedByAirline ?airline ;
+          ao:flightOnRoute ?route ;
+          ao:hasTurnaround ?turnaround .
+  ?route ao:originAirport ?origin ;
+         ao:destinationAirport ?destination .
+  ?turnaround ao:turnaroundMinutes ?turnaroundMinutes .
+}
+ORDER BY ?flight

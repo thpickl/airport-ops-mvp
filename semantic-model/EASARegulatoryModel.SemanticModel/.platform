@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "EASARegulatoryModel",
+    "description": "Governed regulatory reporting model. Unverified obligations and release candidates are blocked."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "39dbc4fa-d826-4f71-ae27-3a557949730a"
+  }
+}

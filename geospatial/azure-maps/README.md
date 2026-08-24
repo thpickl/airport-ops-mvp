@@ -2,17 +2,22 @@
 
 > Every airport centroid, terminal, zone, gate, stand, flow, heat-map, and incident geometry is fictional and illustrative; none represents real airport geometry, routes, security boundaries, or operating areas. No Azure Maps account or endpoint is called.
 
-| File | Geometry | Join keys |
-|---|---|---|
-| `airports.geojson` | Point | `airport_id` |
-| `terminals.geojson` | Polygon | `airport_id`, `terminal_id` |
-| `zones.geojson` | Polygon | `airport_id`, `terminal_id`, `zone_id` |
-| `gates.geojson` | Point | `airport_id`, `gate_id`, `stand_id` |
-| `stands.geojson` | Point | `airport_id`, `stand_id`, `gate_id` |
-| `passenger_flows.geojson` | LineString | `airport_id`, `terminal_id` |
-| `baggage_flows.geojson` | LineString | `airport_id` |
-| `energy.geojson` | Point/heat feature | `airport_id`, `gate_id` |
-| `incidents.geojson` | Point | `airport_id`, `incident_id` |
+| File | Geometry | Features | Join keys |
+|---|---|---|---|
+| `airports.geojson` | Point | 18 | `airport_id` |
+| `operating_regions.geojson` | Polygon | 4 | `region_id` |
+| `terminals.geojson` | Polygon | 36 | `airport_id`, `terminal_id` |
+| `zones.geojson` | Polygon | 72 | `airport_id`, `terminal_id`, `zone_id` |
+| `gates.geojson` | Point | 108 | `airport_id`, `gate_id`, `stand_id` |
+| `stands.geojson` | Point | 108 | `airport_id`, `stand_id`, `gate_id` |
+| `routes.geojson` | LineString | 18 | `airport_id`, `route_id` |
+| `passenger_flows.geojson` | LineString | 36 | `airport_id`, `terminal_id` |
+| `baggage_flows.geojson` | LineString | 18 | `airport_id` |
+| `assets.geojson` | Point | 108 | `airport_id`, `asset_id` |
+| `energy.geojson` | Point/heat feature | 108 | `airport_id`, `gate_id` |
+| `incidents.geojson` | Point | 54 | `airport_id`, `incident_id` |
+
+Feature counts and per-file SHA-256 digests are recorded in `geojson-manifest.json`.
 
 `geospatial/generate_geojson.py` deterministically generates the files and `geojson-manifest.json`. Notebook `04` produces the relational spatial model and `dim_location` using the same stable keys.
 

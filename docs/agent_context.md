@@ -1,9 +1,9 @@
 # `agent_context` - Extended Data Agent Grounding Contract
 
-> This is a **synthetic, advisory** grounding surface. No agent or action tool is
-> deployed. Notebook `03` creates the legacy five-column table; notebook `05`
-> replaces it with a backward-compatible superset at the same one-row-per-gate
-> grain. Consequential recommendations require human approval.
+> This is a **synthetic, advisory** grounding surface. The published Data Agent has
+> no action tools and no write path. Notebook `03` creates the legacy five-column
+> table; notebook `05` replaces it with a backward-compatible superset at the same
+> one-row-per-gate grain. Consequential recommendations require human approval.
 
 ## Purpose
 
@@ -46,7 +46,7 @@ The original columns (`airport_id`, `gate_id`, `operational_status`,
 `delay_reason`, `recommended_action`) are unchanged. Existing consumers need no
 migration. New consumers should prefer `ops.vw_data_agent_grounding`.
 
-## How a future Data Agent would use this
+## How the Data Agent uses this
 
 1. **Ground** only on curated Gold / Warehouse views per
    `ontology/data-agent-instructions.md`.

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "EASA Event Ingestion",
+    "description": "Governed event-ingestion shell. Disabled until an approved event source and notebook binding are signed."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "aa70c08c-a041-4970-8e2b-dd652fd5d19c"
+  }
+}

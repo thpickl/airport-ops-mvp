@@ -6,6 +6,8 @@ DROP VIEW IF EXISTS ops.vw_aircraft_rotation_kpi;
 DROP VIEW IF EXISTS ops.vw_incident_customer_kpi;
 DROP VIEW IF EXISTS ops.vw_commercial_kpi;
 DROP VIEW IF EXISTS ops.vw_energy_sustainability_kpi;
+DROP VIEW IF EXISTS ops.vw_scenario_kpi;
+DROP VIEW IF EXISTS ops.vw_scenario_outcome_comparison;
 DROP VIEW IF EXISTS ops.vw_maintenance_kpi;
 DROP VIEW IF EXISTS ops.vw_workforce_kpi;
 DROP VIEW IF EXISTS ops.vw_baggage_kpi;

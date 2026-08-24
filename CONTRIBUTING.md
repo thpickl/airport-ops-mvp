@@ -18,6 +18,9 @@
 python data/reference/generate_fictional_reference.py
 python geospatial/generate_geojson.py
 python reports/generate_pbir.py
+python reports/generate_easa_pbir.py
+python ontology/generate_ontology.py --check
+python ontology/validate_ontology.py
 python tests/validate_platform.py
 ```
 

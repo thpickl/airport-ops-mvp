@@ -20,6 +20,15 @@ table gold_flight_operations_kpi
 	column avg_turnaround_min
 		dataType: double
 		sourceColumn: avg_turnaround_min
+	column avg_turnaround_narrow_body_min
+		dataType: double
+		sourceColumn: avg_turnaround_narrow_body_min
+	column avg_turnaround_target_narrow_body_min
+		dataType: double
+		sourceColumn: avg_turnaround_target_narrow_body_min
+	column narrow_body_flights
+		dataType: int64
+		sourceColumn: narrow_body_flights
 	column turnaround_target_attainment_pct
 		dataType: double
 		formatString: 0.0\%

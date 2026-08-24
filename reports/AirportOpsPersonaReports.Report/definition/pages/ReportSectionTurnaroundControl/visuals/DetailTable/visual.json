@@ -37,39 +37,39 @@
                       "Entity": "gold_flight_operations_kpi"
                     }
                   },
+                  "Property": "avg_turnaround_narrow_body_min"
+                }
+              },
+              "queryRef": "gold_flight_operations_kpi.avg_turnaround_narrow_body_min",
+              "nativeQueryRef": "avg_turnaround_narrow_body_min"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_flight_operations_kpi"
+                    }
+                  },
+                  "Property": "avg_turnaround_target_narrow_body_min"
+                }
+              },
+              "queryRef": "gold_flight_operations_kpi.avg_turnaround_target_narrow_body_min",
+              "nativeQueryRef": "avg_turnaround_target_narrow_body_min"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_flight_operations_kpi"
+                    }
+                  },
                   "Property": "turnaround_target_attainment_pct"
                 }
               },
               "queryRef": "gold_flight_operations_kpi.turnaround_target_attainment_pct",
               "nativeQueryRef": "turnaround_target_attainment_pct"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "gold_flight_operations_kpi"
-                    }
-                  },
-                  "Property": "milestone_adherence_pct"
-                }
-              },
-              "queryRef": "gold_flight_operations_kpi.milestone_adherence_pct",
-              "nativeQueryRef": "milestone_adherence_pct"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "gold_flight_operations_kpi"
-                    }
-                  },
-                  "Property": "gate_conflict_count"
-                }
-              },
-              "queryRef": "gold_flight_operations_kpi.gate_conflict_count",
-              "nativeQueryRef": "gate_conflict_count"
             }
           ]
         }

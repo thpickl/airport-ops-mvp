@@ -1,0 +1,120 @@
+table easa_submission_status
+
+	column submission_id
+		dataType: string
+		isHidden
+		sourceColumn: submission_id
+
+	column requirement_id
+		dataType: string
+		isHidden
+		sourceColumn: requirement_id
+
+	column airport_id
+		dataType: string
+		sourceColumn: airport_id
+
+	column submission_name
+		dataType: string
+		sourceColumn: submission_name
+
+	column regulation
+		dataType: string
+		sourceColumn: regulation
+
+	column authority_name
+		dataType: string
+		sourceColumn: authority_name
+
+	column reporting_period_start
+		dataType: dateTime
+		formatString: dd MMM yyyy
+		sourceColumn: reporting_period_start
+
+	column reporting_period_end
+		dataType: dateTime
+		formatString: dd MMM yyyy
+		sourceColumn: reporting_period_end
+
+	column due_at_utc
+		dataType: dateTime
+		formatString: dd MMM yyyy HH:mm
+		sourceColumn: due_at_utc
+
+	column submission_status
+		dataType: string
+		sourceColumn: submission_status
+
+	column approval_status
+		dataType: string
+		sourceColumn: approval_status
+
+	column release_status
+		dataType: string
+		sourceColumn: release_status
+
+	column automation_eligibility
+		dataType: string
+		sourceColumn: automation_eligibility
+
+	column quality_check_count
+		dataType: int64
+		sourceColumn: quality_check_count
+
+	column passed_check_count
+		dataType: int64
+		sourceColumn: passed_check_count
+
+	column blocking_failure_count
+		dataType: int64
+		sourceColumn: blocking_failure_count
+
+	column open_blocking_exception_count
+		dataType: int64
+		sourceColumn: open_blocking_exception_count
+
+	column is_overdue
+		dataType: int64
+		sourceColumn: is_overdue
+
+	column days_until_due
+		dataType: int64
+		sourceColumn: days_until_due
+
+	column report_version_hash
+		dataType: string
+		isHidden
+		sourceColumn: report_version_hash
+
+	measure 'Submission Count' = COUNTROWS(easa_submission_status)
+		formatString: #,0
+		displayFolder: Submission Status
+
+	measure 'Ready for Export' = CALCULATE([Submission Count], easa_submission_status[release_status] = "READY_FOR_EXPORT")
+		formatString: #,0
+		displayFolder: Submission Status
+
+	measure 'Awaiting Human Approval' = CALCULATE([Submission Count], easa_submission_status[release_status] = "AWAITING_HUMAN_APPROVAL")
+		formatString: #,0
+		displayFolder: Submission Status
+
+	measure 'Overdue Submissions' = CALCULATE([Submission Count], easa_submission_status[is_overdue] = 1)
+		formatString: #,0
+		displayFolder: Due Dates
+
+	measure 'Due in 30 Days' = CALCULATE([Submission Count], easa_submission_status[days_until_due] >= 0, easa_submission_status[days_until_due] <= 30)
+		formatString: #,0
+		displayFolder: Due Dates
+
+	measure 'Release Blocker Count' = CALCULATE([Submission Count], easa_submission_status[release_status] <> "READY_FOR_EXPORT")
+		formatString: #,0
+		displayFolder: Compliance
+
+	partition easa_submission_status = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_easa_submission_status"]}[Data]
+				in
+					Data

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "monitoring_view": "ops.vw_easa_monitoring_alerts",
+  "alert_rules": [
+    {
+      "alert_type": "PIPELINE_FAILURE",
+      "condition": "Any failed scheduled or event-driven pipeline run",
+      "severity": "CRITICAL",
+      "owner": "TODO_ASSIGN_DATA_OPERATIONS_OWNER",
+      "destination": "${EASA_DATA_OPERATIONS_ALERT_DESTINATION}",
+      "enabled": false
+    },
+    {
+      "alert_type": "UNAPPROVED_SOURCE_ENABLED",
+      "condition": "Any ingestion-enabled source without recorded approval",
+      "severity": "CRITICAL",
+      "owner": "TODO_ASSIGN_DATA_OWNER",
+      "destination": "${EASA_DATA_GOVERNANCE_ALERT_DESTINATION}",
+      "enabled": false
+    },
+    {
+      "alert_type": "RELEASE_GATE_BLOCKED",
+      "condition": "Any submission candidate that is not ready for export",
+      "severity": "WARNING",
+      "owner": "TODO_ASSIGN_COMPLIANCE_OPERATIONS_OWNER",
+      "destination": "${EASA_COMPLIANCE_ALERT_DESTINATION}",
+      "enabled": false
+    },
+    {
+      "alert_type": "UNAUTHORIZED_ACTION",
+      "condition": "Any successful export or transmission without a passing release gate and required authorization evidence",
+      "severity": "CRITICAL",
+      "owner": "TODO_ASSIGN_SECURITY_OWNER",
+      "destination": "${EASA_SECURITY_ALERT_DESTINATION}",
+      "enabled": false
+    }
+  ],
+  "activation_gate": "Alert destinations and named owners must be approved before enabled is set to true."
+}

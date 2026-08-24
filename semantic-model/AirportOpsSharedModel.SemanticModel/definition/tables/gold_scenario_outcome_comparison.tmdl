@@ -1,0 +1,44 @@
+table gold_scenario_outcome_comparison
+	column outcome_measure
+		dataType: string
+		sourceColumn: outcome_measure
+	column comparison
+		dataType: string
+		sourceColumn: comparison
+	column direction
+		dataType: string
+		sourceColumn: direction
+	column target_value
+		dataType: double
+		sourceColumn: target_value
+	column target_status
+		dataType: string
+		sourceColumn: target_status
+	column target_note
+		dataType: string
+		sourceColumn: target_note
+	column baseline_value
+		dataType: double
+		sourceColumn: baseline_value
+	column optimised_value
+		dataType: double
+		sourceColumn: optimised_value
+	column delta_absolute
+		dataType: double
+		sourceColumn: delta_absolute
+	column delta_pct
+		dataType: double
+		formatString: 0.0\%
+		sourceColumn: delta_pct
+	column outcome_result
+		dataType: string
+		sourceColumn: outcome_result
+	measure 'Outcomes Meeting Target' = CALCULATE(COUNTROWS(gold_scenario_outcome_comparison),gold_scenario_outcome_comparison[outcome_result]="MET")
+		formatString: 0
+		displayFolder: Scenario
+	measure 'Outcomes Evaluated' = CALCULATE(COUNTROWS(gold_scenario_outcome_comparison),gold_scenario_outcome_comparison[outcome_result]<>"NOT_EVALUATED")
+		formatString: 0
+		displayFolder: Scenario
+	partition gold_scenario_outcome_comparison = m
+		mode: directQuery
+		source = let Source=Sql.Database(WarehouseServer,WarehouseDatabase), Data=Source{[Schema="ops",Item="vw_scenario_outcome_comparison"]}[Data] in Data

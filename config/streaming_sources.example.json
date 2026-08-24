@@ -1,0 +1,109 @@
+{
+  "$comment": "Streaming source registry template. Runtime identifiers are environment placeholders; copy to config/streaming_sources.json (gitignored) or export the variables and let the loader expand them. The producer authenticates with Microsoft Entra (Data Sender) and stores no secret. The Fabric connections use a Listen-only shared access key because Eventstream rejects WorkspaceIdentity for EventHub sources; that key is never stored here.",
+  "namespace_fqdn": "${FABRIC_EVENTHUBS_NAMESPACE_FQDN}",
+  "consumer_group": "fabric-eventstream",
+  "eventhouse_item_name": "AirportOpsEventhouse",
+  "eventhouse_item_id": "${FABRIC_EVENTHOUSE_ITEM_ID}",
+  "kql_database_name": "AirportOpsRealtime",
+  "kql_database_item_id": "${FABRIC_KQL_DATABASE_ITEM_ID}",
+  "kql_query_uri": "${FABRIC_KQL_QUERY_URI}",
+  "data_classification": "SyntheticRealtime",
+  "sources": [
+    {
+      "key": "flight",
+      "event_hub": "flight-events",
+      "kql_table": "FlightOperationsRaw",
+      "ingestion_mapping": "FlightOperationsRawJson",
+      "connection_name": "fao-demo-eh-flight-events",
+      "connection_id": "${FABRIC_EH_CONNECTION_ID_FLIGHT}",
+      "eventstream_name": "es-flight-events",
+      "partition_key_field": "airport_id",
+      "events_per_batch": 40,
+      "publish_interval_seconds": 5
+    },
+    {
+      "key": "turnaround",
+      "event_hub": "turnaround-events",
+      "kql_table": "TurnaroundTaskEventsRaw",
+      "ingestion_mapping": "TurnaroundTaskEventsRawJson",
+      "connection_name": "fao-demo-eh-turnaround-events",
+      "connection_id": "${FABRIC_EH_CONNECTION_ID_TURNAROUND}",
+      "eventstream_name": "es-turnaround-events",
+      "partition_key_field": "airport_id",
+      "events_per_batch": 40,
+      "publish_interval_seconds": 5
+    },
+    {
+      "key": "queue",
+      "event_hub": "passenger-flow",
+      "kql_table": "QueueEventsRaw",
+      "ingestion_mapping": "QueueEventsRawJson",
+      "connection_name": "fao-demo-eh-passenger-flow",
+      "connection_id": "${FABRIC_EH_CONNECTION_ID_QUEUE}",
+      "eventstream_name": "es-passenger-flow",
+      "partition_key_field": "airport_id",
+      "events_per_batch": 40,
+      "publish_interval_seconds": 5
+    },
+    {
+      "key": "energy",
+      "event_hub": "energy-telemetry",
+      "kql_table": "EnergyEventsRaw",
+      "ingestion_mapping": "EnergyEventsRawJson",
+      "connection_name": "fao-demo-eh-energy-telemetry",
+      "connection_id": "${FABRIC_EH_CONNECTION_ID_ENERGY}",
+      "eventstream_name": "es-energy-telemetry",
+      "partition_key_field": "airport_id",
+      "events_per_batch": 30,
+      "publish_interval_seconds": 5
+    },
+    {
+      "key": "baggage",
+      "event_hub": "baggage-events",
+      "kql_table": "BaggageEventsRaw",
+      "ingestion_mapping": "BaggageEventsRawJson",
+      "connection_name": "fao-demo-eh-baggage-events",
+      "connection_id": "${FABRIC_EH_CONNECTION_ID_BAGGAGE}",
+      "eventstream_name": "es-baggage-events",
+      "partition_key_field": "airport_id",
+      "events_per_batch": 40,
+      "publish_interval_seconds": 5
+    },
+    {
+      "key": "asset",
+      "event_hub": "asset-telemetry",
+      "kql_table": "AssetTelemetryRaw",
+      "ingestion_mapping": "AssetTelemetryRawJson",
+      "connection_name": "fao-demo-eh-asset-telemetry",
+      "connection_id": "${FABRIC_EH_CONNECTION_ID_ASSET}",
+      "eventstream_name": "es-asset-telemetry",
+      "partition_key_field": "airport_id",
+      "events_per_batch": 30,
+      "publish_interval_seconds": 5
+    },
+    {
+      "key": "pos",
+      "event_hub": "retail-pos",
+      "kql_table": "PosEventsRaw",
+      "ingestion_mapping": "PosEventsRawJson",
+      "connection_name": "fao-demo-eh-retail-pos",
+      "connection_id": "${FABRIC_EH_CONNECTION_ID_POS}",
+      "eventstream_name": "es-retail-pos",
+      "partition_key_field": "airport_id",
+      "events_per_batch": 30,
+      "publish_interval_seconds": 5
+    },
+    {
+      "key": "incident",
+      "event_hub": "incident-events",
+      "kql_table": "IncidentEventsRaw",
+      "ingestion_mapping": "IncidentEventsRawJson",
+      "connection_name": "fao-demo-eh-incident-events",
+      "connection_id": "${FABRIC_EH_CONNECTION_ID_INCIDENT}",
+      "eventstream_name": "es-incident-events",
+      "partition_key_field": "airport_id",
+      "events_per_batch": 20,
+      "publish_interval_seconds": 5
+    }
+  ]
+}

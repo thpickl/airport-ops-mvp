@@ -30,17 +30,18 @@ DETAIL_PAGES = {
     "GroupOverview": ("Group overview", "gold_persona_scorecard", ["persona", "primary_kpi_name", "primary_kpi_value", "scorecard_status"]),
     "AirportComparison": ("Airport comparison", "dim_airport", ["airport_name", "region", "latitude", "longitude"]),
     "FlightPerformance": ("Flight performance", "gold_flight_operations_kpi", ["on_time_arrival_pct", "on_time_departure_pct", "avg_arrival_delay_min", "avg_departure_delay_min"]),
-    "TurnaroundControl": ("Turnaround control", "gold_flight_operations_kpi", ["avg_turnaround_min", "turnaround_target_attainment_pct", "milestone_adherence_pct", "gate_conflict_count"]),
+    "TurnaroundControl": ("Turnaround control", "gold_flight_operations_kpi", ["avg_turnaround_min", "avg_turnaround_narrow_body_min", "avg_turnaround_target_narrow_body_min", "turnaround_target_attainment_pct"]),
     "PassengerFlow": ("Passenger flow", "gold_passenger_flow_kpi", ["avg_queue_length", "peak_wait_min", "throughput_pax", "predicted_congestion_risk_pct"]),
     "Baggage": ("Baggage", "gold_baggage_kpi", ["bags_processed", "bags_per_flight", "mishandled_bags_per_1000", "scan_completeness_pct"]),
     "GatesAndStands": ("Gates and stands", "gold_flight_operations_kpi", ["gate_utilization_pct", "stand_utilization_pct", "gate_conflict_count"]),
     "Workforce": ("Workforce", "gold_workforce_kpi", ["planned_hours", "actual_hours", "overtime_hours", "roster_coverage_pct", "skill_coverage_pct"]),
     "MaintenanceAssets": ("Maintenance and assets", "gold_maintenance_kpi", ["asset_availability_pct", "failure_count", "mean_time_to_repair_hours", "open_work_order_backlog", "predicted_failure_risk_pct", "avg_inspection_score", "inspection_compliance_pct", "inspection_follow_up_count"]),
-    "Energy": ("Energy", "gold_energy_sustainability_kpi", ["total_kwh", "kwh_per_passenger", "kwh_per_flight", "energy_benchmark_variance_pct"]),
+    "Energy": ("Energy", "gold_energy_sustainability_kpi", ["total_kwh", "kwh_per_passenger", "kwh_per_gate_hour", "energy_benchmark_variance_pct"]),
     "RetailRevenue": ("Retail and revenue", "gold_commercial_kpi", ["revenue_proxy", "revenue_per_passenger_proxy", "conversion_rate_pct", "average_transaction_value_proxy"]),
     "Incidents": ("Incidents", "gold_incident_customer_kpi", ["incident_count", "incidents_per_100_flights", "high_severity_incidents", "time_to_resolution_proxy_min"]),
     "CustomerExperienceDetail": ("Customer experience", "gold_incident_customer_kpi", ["customer_satisfaction", "synthetic_nps", "complaints_per_1000_responses", "recommendation_acceptance_pct"]),
     "DataQualityPlatform": ("Data quality and platform operations", "gold_it_service_health", ["data_product", "data_quality_pass_pct", "pipeline_run_status", "refresh_status", "security_control_status"]),
+    "ScenarioOutcomes": ("Scenario outcomes", "gold_scenario_outcome_comparison", ["outcome_measure", "baseline_value", "optimised_value", "delta_pct", "target_value", "outcome_result"]),
 }
 DETAIL_PAGE_NAMES = {key: "ReportSection" + key for key in DETAIL_PAGES}
 

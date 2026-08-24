@@ -4,10 +4,12 @@
 
 ```powershell
 python -m pip install -r requirements.txt
+python ontology/generate_ontology.py --check
+python ontology/validate_ontology.py
 python tests/validate_platform.py
 ```
 
-The suite runs without Fabric credentials and covers configuration, source provenance, two-run deterministic checksums, UUID stability, event fault handling, same-batch idempotency, Silver uniqueness/quarantine, Gold metadata, smoke outcomes, DST transitions, notebook syntax, KQL/SQL/TMDL/PBIR source structure, DTDL v2, GeoJSON, Data Agent controls, secret scanning, deployment planning, and teardown safeguards.
+`validate_platform.py` discovers `test_platform`, `test_easa`, and `test_ontology`. The suite runs without Fabric credentials and covers configuration, source provenance, two-run deterministic checksums, UUID stability, event fault handling, same-batch idempotency, Silver uniqueness/quarantine, Gold metadata, smoke outcomes, DST transitions, notebook syntax, KQL/SQL/TMDL/PBIR source structure, DTDL v2, the generated 3D scene graph, GeoJSON, Data Agent controls, EASA fail-closed governance, secret scanning, deployment planning, and teardown safeguards.
 
 ## Generated source check
 
@@ -15,6 +17,7 @@ The suite runs without Fabric credentials and covers configuration, source prove
 python data/reference/generate_fictional_reference.py
 python geospatial/generate_geojson.py
 python reports/generate_pbir.py
+python reports/generate_easa_pbir.py
 git diff --exit-code
 ```
 

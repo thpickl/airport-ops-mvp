@@ -1,0 +1,244 @@
+@prefix ao: <https://data.fictional-airport-group.example/airport-operations/ontology#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ao:AirportShape a sh:NodeShape ;
+    rdfs:label "Airport shape"@en ;
+    rdfs:comment "Public airport anchor."@en ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:airportId ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:isSynthetic ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 90.0 ;
+            sh:minInclusive -90.0 ;
+            sh:path ao:latitude ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 180.0 ;
+            sh:minInclusive -180.0 ;
+            sh:path ao:longitude ] ;
+    sh:sparql [ sh:message "airportId must be unique within Airport." ;
+            sh:select "SELECT $this WHERE { $this <https://data.fictional-airport-group.example/airport-operations/ontology#airportId> ?value . ?other a <https://data.fictional-airport-group.example/airport-operations/ontology#Airport> ; <https://data.fictional-airport-group.example/airport-operations/ontology#airportId> ?value . FILTER (?other != $this) }" ] ;
+    sh:targetClass ao:Airport .
+
+ao:AssetShape a sh:NodeShape ;
+    rdfs:label "Asset shape"@en ;
+    rdfs:comment "Synthetic airport asset."@en ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:assetId ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:isSynthetic ] ;
+    sh:sparql [ sh:message "assetId must be unique within Asset." ;
+            sh:select "SELECT $this WHERE { $this <https://data.fictional-airport-group.example/airport-operations/ontology#assetId> ?value . ?other a <https://data.fictional-airport-group.example/airport-operations/ontology#Asset> ; <https://data.fictional-airport-group.example/airport-operations/ontology#assetId> ?value . FILTER (?other != $this) }" ] ;
+    sh:targetClass ao:Asset .
+
+ao:CheckpointShape a sh:NodeShape ;
+    rdfs:label "Checkpoint shape"@en ;
+    rdfs:comment "Synthetic checkpoint."@en ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:checkpointId ],
+        [ sh:class ao:Zone ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:checkpointOfZone ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:isSynthetic ] ;
+    sh:sparql [ sh:message "checkpointId must be unique within Checkpoint." ;
+            sh:select "SELECT $this WHERE { $this <https://data.fictional-airport-group.example/airport-operations/ontology#checkpointId> ?value . ?other a <https://data.fictional-airport-group.example/airport-operations/ontology#Checkpoint> ; <https://data.fictional-airport-group.example/airport-operations/ontology#checkpointId> ?value . FILTER (?other != $this) }" ] ;
+    sh:targetClass ao:Checkpoint .
+
+ao:FlightOperationShape a sh:NodeShape ;
+    rdfs:label "Flight Operation shape"@en ;
+    rdfs:comment "Fictional flight operation."@en ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:flightEventId ],
+        [ sh:class ao:Route ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:flightOnRoute ],
+        [ sh:class ao:Airline ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:flightOperatedByAirline ],
+        [ sh:class ao:Turnaround ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:hasTurnaround ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:isSynthetic ],
+        [ sh:class ao:Gate ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:servedAtGate ],
+        [ sh:class ao:AircraftType ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:usesAircraftType ] ;
+    sh:sparql [ sh:message "flightEventId must be unique within FlightOperation." ;
+            sh:select "SELECT $this WHERE { $this <https://data.fictional-airport-group.example/airport-operations/ontology#flightEventId> ?value . ?other a <https://data.fictional-airport-group.example/airport-operations/ontology#FlightOperation> ; <https://data.fictional-airport-group.example/airport-operations/ontology#flightEventId> ?value . FILTER (?other != $this) }" ] ;
+    sh:targetClass ao:FlightOperation .
+
+ao:GateShape a sh:NodeShape ;
+    rdfs:label "Gate shape"@en ;
+    rdfs:comment "Synthetic gate."@en ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:gateId ],
+        [ sh:class ao:Terminal ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:gateOfTerminal ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:isSynthetic ] ;
+    sh:sparql [ sh:message "gateId must be unique within Gate." ;
+            sh:select "SELECT $this WHERE { $this <https://data.fictional-airport-group.example/airport-operations/ontology#gateId> ?value . ?other a <https://data.fictional-airport-group.example/airport-operations/ontology#Gate> ; <https://data.fictional-airport-group.example/airport-operations/ontology#gateId> ?value . FILTER (?other != $this) }" ] ;
+    sh:targetClass ao:Gate .
+
+ao:MeasureObservationShape a sh:NodeShape ;
+    rdfs:label "Measure Observation shape"@en ;
+    rdfs:comment "Governed measure observation."@en ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:numericValue ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:observationTimestamp ],
+        [ sh:class ao:DomainEntity ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:observedFor ],
+        [ sh:class ao:MeasureDefinition ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:observesMeasure ] ;
+    sh:targetClass ao:MeasureObservation .
+
+ao:OperationalIncidentShape a sh:NodeShape ;
+    rdfs:label "Operational Incident shape"@en ;
+    rdfs:comment "Synthetic operational incident."@en ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:incidentId ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:isSynthetic ] ;
+    sh:sparql [ sh:message "incidentId must be unique within OperationalIncident." ;
+            sh:select "SELECT $this WHERE { $this <https://data.fictional-airport-group.example/airport-operations/ontology#incidentId> ?value . ?other a <https://data.fictional-airport-group.example/airport-operations/ontology#OperationalIncident> ; <https://data.fictional-airport-group.example/airport-operations/ontology#incidentId> ?value . FILTER (?other != $this) }" ] ;
+    sh:targetClass ao:OperationalIncident .
+
+ao:RouteShape a sh:NodeShape ;
+    rdfs:label "Route shape"@en ;
+    rdfs:comment "Fictional route."@en ;
+    sh:property [ sh:class ao:Airport ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:destinationAirport ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:isSynthetic ],
+        [ sh:class ao:Airport ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:originAirport ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:routeId ],
+        [ sh:class ao:Airline ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:routeOperatedByAirline ] ;
+    sh:sparql [ sh:message "routeId must be unique within Route." ;
+            sh:select "SELECT $this WHERE { $this <https://data.fictional-airport-group.example/airport-operations/ontology#routeId> ?value . ?other a <https://data.fictional-airport-group.example/airport-operations/ontology#Route> ; <https://data.fictional-airport-group.example/airport-operations/ontology#routeId> ?value . FILTER (?other != $this) }" ] ;
+    sh:targetClass ao:Route .
+
+ao:StandShape a sh:NodeShape ;
+    rdfs:label "Stand shape"@en ;
+    rdfs:comment "Synthetic stand."@en ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:isSynthetic ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:standId ],
+        [ sh:class ao:Gate ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:standServedByGate ] ;
+    sh:sparql [ sh:message "standId must be unique within Stand." ;
+            sh:select "SELECT $this WHERE { $this <https://data.fictional-airport-group.example/airport-operations/ontology#standId> ?value . ?other a <https://data.fictional-airport-group.example/airport-operations/ontology#Stand> ; <https://data.fictional-airport-group.example/airport-operations/ontology#standId> ?value . FILTER (?other != $this) }" ] ;
+    sh:targetClass ao:Stand .
+
+ao:TerminalShape a sh:NodeShape ;
+    rdfs:label "Terminal shape"@en ;
+    rdfs:comment "Synthetic terminal."@en ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:isSynthetic ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:terminalId ],
+        [ sh:class ao:Airport ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:terminalOfAirport ] ;
+    sh:sparql [ sh:message "terminalId must be unique within Terminal." ;
+            sh:select "SELECT $this WHERE { $this <https://data.fictional-airport-group.example/airport-operations/ontology#terminalId> ?value . ?other a <https://data.fictional-airport-group.example/airport-operations/ontology#Terminal> ; <https://data.fictional-airport-group.example/airport-operations/ontology#terminalId> ?value . FILTER (?other != $this) }" ] ;
+    sh:targetClass ao:Terminal .
+
+ao:ZoneShape a sh:NodeShape ;
+    rdfs:label "Zone shape"@en ;
+    rdfs:comment "Synthetic zone."@en ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:isSynthetic ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:zoneId ],
+        [ sh:class ao:Terminal ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ao:zoneOfTerminal ] ;
+    sh:sparql [ sh:message "zoneId must be unique within Zone." ;
+            sh:select "SELECT $this WHERE { $this <https://data.fictional-airport-group.example/airport-operations/ontology#zoneId> ?value . ?other a <https://data.fictional-airport-group.example/airport-operations/ontology#Zone> ; <https://data.fictional-airport-group.example/airport-operations/ontology#zoneId> ?value . FILTER (?other != $this) }" ] ;
+    sh:targetClass ao:Zone .
+
+<https://data.fictional-airport-group.example/airport-operations/ontology/shapes> a owl:Ontology ;
+    dcterms:title "Airport Operations SHACL Shapes"@en ;
+    owl:versionInfo "1.0.0" .
+

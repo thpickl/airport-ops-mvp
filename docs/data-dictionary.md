@@ -9,7 +9,7 @@ This document covers the base operational, physical/spatial, enterprise, reliabi
 | Table | Grain | Classification |
 |---|---|---|
 | `bronze_country` | fictional region/time-zone group | Synthetic master data |
-| `bronze_airport` | fictional airport | Synthetic master data; exactly 15 |
+| `bronze_airport` | fictional airport | Synthetic master data; exactly 18 |
 | `bronze_airline` | fictional airline | Synthetic master data; exactly 20 |
 | `bronze_aircraft` | fictional aircraft type | Synthetic master data and operating assumptions; exactly 16 |
 

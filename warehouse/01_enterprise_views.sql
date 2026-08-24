@@ -61,6 +61,14 @@ CREATE OR ALTER VIEW ops.vw_maintenance_kpi AS SELECT * FROM [AirportOpsLakehous
 GO
 CREATE OR ALTER VIEW ops.vw_energy_sustainability_kpi AS SELECT * FROM [AirportOpsLakehouse].[dbo].[gold_energy_sustainability_kpi];
 GO
+
+-- SERVING GRAIN: one row per scenario and airport. Optimised rows are modelled projections.
+CREATE OR ALTER VIEW ops.vw_scenario_kpi AS SELECT * FROM [AirportOpsLakehouse].[dbo].[gold_scenario_kpi];
+GO
+
+-- SERVING GRAIN: one row per programme outcome measure.
+CREATE OR ALTER VIEW ops.vw_scenario_outcome_comparison AS SELECT * FROM [AirportOpsLakehouse].[dbo].[gold_scenario_outcome_comparison];
+GO
 CREATE OR ALTER VIEW ops.vw_commercial_kpi AS SELECT * FROM [AirportOpsLakehouse].[dbo].[gold_commercial_kpi];
 GO
 CREATE OR ALTER VIEW ops.vw_incident_customer_kpi AS SELECT * FROM [AirportOpsLakehouse].[dbo].[gold_incident_customer_kpi];

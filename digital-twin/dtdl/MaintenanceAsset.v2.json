@@ -1,0 +1,14 @@
+{
+  "@id": "dtmi:com:fictionalairport:MaintenanceAsset;2",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Synthetic Maintainable Asset (observed)",
+  "description": "Adds observed availability projected from AssetTelemetryRaw. Descriptive synthetic state only; no control commands are exposed and no maintenance action is triggered.",
+  "extends": "dtmi:com:fictionalairport:MaintenanceAsset;1",
+  "contents": [
+    {"@type": "Property", "name": "availabilityPct", "schema": "double"},
+    {"@type": "Property", "name": "healthStatus", "schema": "string"},
+    {"@type": "Property", "name": "anomalyFlag", "schema": "boolean"},
+    {"@type": "Property", "name": "observedAt", "schema": "dateTime"}
+  ]
+}

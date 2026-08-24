@@ -3,6 +3,8 @@
 .env.*
 !config/environments.example.json
 config/environments.local.json
+config/streaming_sources.json
+!config/streaming_sources.example.json
 *.token
 *.secret
 
@@ -10,6 +12,17 @@ config/environments.local.json
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
+.pytest_cache/
+
+# Local operator scripts and run logs.
+# These carry runtime workspace/endpoint identifiers and must never be committed.
+# See docs/limitations.md "Out-of-band operator scripts".
+/_*.py
+/_*.ps1
+/_*.txt
+/_*.json
+/_*.log
+/_*.err
 
 # Power BI/Fabric local caches
 **/.pbi/localSettings.json

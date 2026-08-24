@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>f1935afc-939f-45bc-97f0-f875ad44a35a</rd:ReportID>
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="EASARegulatoryModel">
+      <ConnectionProperties>
+        <DataProvider>PBIDATASET</DataProvider>
+        <ConnectString>Data Source=powerbi://api.powerbi.com/v1.0/myorg/${FABRIC_WORKSPACE_NAME};Initial Catalog=${EASA_SEMANTIC_MODEL_NAME}</ConnectString>
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>48b019d1-235a-4414-8bcf-0b23371cfa82</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="EASASubmission">
+      <Query>
+        <DataSourceName>EASARegulatoryModel</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="SubmissionId">
+            <Value>=Parameters!SubmissionId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>DEFINE
+VAR SubmissionFilter = TREATAS({@SubmissionId}, 'easa_submission_status'[submission_id])
+EVALUATE
+SUMMARIZECOLUMNS(
+  SubmissionFilter,
+  'easa_submission_status'[submission_id],
+  'easa_submission_status'[submission_name],
+  'easa_submission_status'[airport_id],
+  'easa_submission_status'[authority_name],
+  'easa_submission_status'[regulation],
+  'easa_submission_status'[reporting_period_start],
+  'easa_submission_status'[reporting_period_end],
+  'easa_submission_status'[due_at_utc],
+  'easa_submission_status'[submission_status],
+  'easa_submission_status'[approval_status],
+  'easa_submission_status'[release_status]
+)</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="submission_id"><DataField>easa_submission_status[submission_id]</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="submission_name"><DataField>easa_submission_status[submission_name]</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="airport_id"><DataField>easa_submission_status[airport_id]</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="authority_name"><DataField>easa_submission_status[authority_name]</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="regulation"><DataField>easa_submission_status[regulation]</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="reporting_period_start"><DataField>easa_submission_status[reporting_period_start]</DataField><rd:TypeName>System.DateTime</rd:TypeName></Field>
+        <Field Name="reporting_period_end"><DataField>easa_submission_status[reporting_period_end]</DataField><rd:TypeName>System.DateTime</rd:TypeName></Field>
+        <Field Name="due_at_utc"><DataField>easa_submission_status[due_at_utc]</DataField><rd:TypeName>System.DateTime</rd:TypeName></Field>
+        <Field Name="submission_status"><DataField>easa_submission_status[submission_status]</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="approval_status"><DataField>easa_submission_status[approval_status]</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="release_status"><DataField>easa_submission_status[release_status]</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="ReportTitle">
+            <CanGrow>true</CanGrow><KeepTogether>true</KeepTogether>
+            <Paragraphs><Paragraph><TextRuns><TextRun><Value>=First(Fields!submission_name.Value, "EASASubmission")</Value><Style><FontSize>20pt</FontSize><FontWeight>Bold</FontWeight><Color>#17324D</Color></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <rd:DefaultName>ReportTitle</rd:DefaultName><Top>0.15in</Top><Left>0.25in</Left><Height>0.45in</Height><Width>7.5in</Width><Style><Border><Style>None</Style></Border><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+          </Textbox>
+          <Textbox Name="Warning">
+            <CanGrow>true</CanGrow><KeepTogether>true</KeepTogether>
+            <Paragraphs><Paragraph><TextRuns><TextRun><Value>NOT AN OFFICIAL SUBMISSION - AUTHORITY TEMPLATE UNVERIFIED - HUMAN APPROVAL REQUIRED</Value><Style><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight><Color>#A4262C</Color></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <Top>0.7in</Top><Left>0.25in</Left><Height>0.35in</Height><Width>7.5in</Width><Style><BackgroundColor>#FDE7E9</BackgroundColor><Border><Style>Solid</Style><Color>#A4262C</Color></Border><PaddingLeft>6pt</PaddingLeft><PaddingTop>4pt</PaddingTop></Style>
+          </Textbox>
+          <Textbox Name="SubmissionDetails">
+            <CanGrow>true</CanGrow><KeepTogether>true</KeepTogether>
+            <Paragraphs><Paragraph><TextRuns><TextRun><Value>="Submission ID: " &amp; First(Fields!submission_id.Value, "EASASubmission") &amp; vbCrLf &amp; "Airport: " &amp; First(Fields!airport_id.Value, "EASASubmission") &amp; vbCrLf &amp; "Authority: " &amp; First(Fields!authority_name.Value, "EASASubmission") &amp; vbCrLf &amp; "Regulation: " &amp; First(Fields!regulation.Value, "EASASubmission") &amp; vbCrLf &amp; "Reporting period: " &amp; Format(First(Fields!reporting_period_start.Value, "EASASubmission"), "dd MMM yyyy") &amp; " to " &amp; Format(First(Fields!reporting_period_end.Value, "EASASubmission"), "dd MMM yyyy") &amp; vbCrLf &amp; "Due (UTC): " &amp; Format(First(Fields!due_at_utc.Value, "EASASubmission"), "dd MMM yyyy HH:mm") &amp; vbCrLf &amp; "Submission status: " &amp; First(Fields!submission_status.Value, "EASASubmission") &amp; vbCrLf &amp; "Approval status: " &amp; First(Fields!approval_status.Value, "EASASubmission") &amp; vbCrLf &amp; "Release status: " &amp; First(Fields!release_status.Value, "EASASubmission")</Value><Style><FontSize>10pt</FontSize></Style></TextRun></TextRuns><Style><LineHeight>18pt</LineHeight></Style></Paragraph></Paragraphs>
+            <Top>1.3in</Top><Left>0.25in</Left><Height>3.4in</Height><Width>7.5in</Width><Style><Border><Style>Solid</Style><Color>#C8C8C8</Color></Border><PaddingLeft>10pt</PaddingLeft><PaddingRight>10pt</PaddingRight><PaddingTop>10pt</PaddingTop><PaddingBottom>10pt</PaddingBottom></Style>
+          </Textbox>
+          <Textbox Name="ApprovalBoundary">
+            <CanGrow>true</CanGrow><KeepTogether>true</KeepTogether>
+            <Paragraphs><Paragraph><TextRuns><TextRun><Value>This review artifact does not certify compliance and cannot be released or transmitted unless the exact report-version hash has approved quality evidence and a recorded human approval. No authority endpoint is called by this report.</Value><Style><FontSize>9pt</FontSize><Color>#555555</Color></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <Top>4.95in</Top><Left>0.25in</Left><Height>0.7in</Height><Width>7.5in</Width><Style><PaddingLeft>2pt</PaddingLeft><PaddingTop>2pt</PaddingTop></Style>
+          </Textbox>
+        </ReportItems>
+        <Height>6in</Height>
+        <Style />
+      </Body>
+      <Width>8in</Width>
+      <Page><PageHeight>11.7in</PageHeight><PageWidth>8.3in</PageWidth><LeftMargin>0.15in</LeftMargin><RightMargin>0.15in</RightMargin><TopMargin>0.25in</TopMargin><BottomMargin>0.25in</BottomMargin><Style /></Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="SubmissionId"><DataType>String</DataType><Prompt>Submission ID</Prompt></ReportParameter>
+  </ReportParameters>
+  <Language>en-GB</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportTemplate>true</rd:ReportTemplate>
+</Report>

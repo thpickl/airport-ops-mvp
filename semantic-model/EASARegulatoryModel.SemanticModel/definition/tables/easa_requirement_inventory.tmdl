@@ -1,0 +1,75 @@
+table easa_requirement_inventory
+
+	column requirement_id
+		dataType: string
+		isHidden
+		sourceColumn: requirement_id
+
+	column regulation
+		dataType: string
+		sourceColumn: regulation
+
+	column submission_name
+		dataType: string
+		sourceColumn: submission_name
+
+	column airport_scope
+		dataType: string
+		sourceColumn: airport_scope
+
+	column authority_name
+		dataType: string
+		sourceColumn: authority_name
+
+	column frequency_rule
+		dataType: string
+		sourceColumn: frequency_rule
+
+	column annual_submission_count
+		dataType: int64
+		sourceColumn: annual_submission_count
+
+	column deadline_rule
+		dataType: string
+		sourceColumn: deadline_rule
+
+	column deadline_timezone
+		dataType: string
+		sourceColumn: deadline_timezone
+
+	column output_format_reference
+		dataType: string
+		sourceColumn: output_format_reference
+
+	column automation_eligibility
+		dataType: string
+		sourceColumn: automation_eligibility
+
+	column approval_status
+		dataType: string
+		sourceColumn: approval_status
+
+	column inventory_approved
+		dataType: boolean
+		sourceColumn: inventory_approved
+
+	column manual_reason
+		dataType: string
+		sourceColumn: manual_reason
+
+	column is_placeholder
+		dataType: boolean
+		sourceColumn: is_placeholder
+
+	measure 'Approved Inventory Rows' = CALCULATE(COUNTROWS(easa_requirement_inventory), easa_requirement_inventory[inventory_approved] = TRUE())
+		formatString: #,0
+		displayFolder: Inventory
+
+	partition easa_requirement_inventory = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_easa_requirement_inventory"]}[Data]
+				in
+					Data

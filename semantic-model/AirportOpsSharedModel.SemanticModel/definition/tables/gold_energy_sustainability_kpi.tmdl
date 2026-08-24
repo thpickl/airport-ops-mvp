@@ -12,6 +12,9 @@ table gold_energy_sustainability_kpi
 	column kwh_per_flight
 		dataType: double
 		sourceColumn: kwh_per_flight
+	column kwh_per_gate_hour
+		dataType: double
+		sourceColumn: kwh_per_gate_hour
 	column peak_demand_kwh
 		dataType: double
 		sourceColumn: peak_demand_kwh
@@ -24,6 +27,9 @@ table gold_energy_sustainability_kpi
 		sourceColumn: estimated_synthetic_emissions_kg_co2e
 	measure 'Energy Benchmark Variance %' = DIVIDE(AVERAGE(gold_energy_sustainability_kpi[energy_benchmark_variance_pct]),100.0)
 		formatString: 0.0%
+		displayFolder: Energy
+	measure 'Energy kWh per Gate Hour' = AVERAGE(gold_energy_sustainability_kpi[kwh_per_gate_hour])
+		formatString: 0.00
 		displayFolder: Energy
 	partition gold_energy_sustainability_kpi = m
 		mode: directQuery

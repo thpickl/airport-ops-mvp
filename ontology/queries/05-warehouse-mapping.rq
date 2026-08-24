@@ -1,0 +1,14 @@
+PREFIX ao: <https://data.fictional-airport-group.example/airport-operations/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# Competency: enumerate Warehouse fact classes with source, grain, key, and optional serving view.
+SELECT ?recordClass ?label ?table ?view ?grain ?primaryKey
+WHERE {
+  ?recordClass rdfs:subClassOf ao:FactRecord ;
+               rdfs:label ?label ;
+               ao:sourceTable ?table ;
+               ao:warehouseGrain ?grain ;
+               ao:primaryKey ?primaryKey .
+  OPTIONAL { ?recordClass ao:sourceView ?view }
+}
+ORDER BY ?table

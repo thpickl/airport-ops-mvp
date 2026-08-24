@@ -8,15 +8,16 @@ From the repository root:
 python tests/validate_platform.py
 ```
 
-This standard-library script returns exit code `1` on any failure. It validates:
+This script returns exit code `1` on any failure. Most checks use only the standard library; the ontology checks require the `rdflib` and `pyshacl` packages from [requirements.txt](../requirements.txt). It validates:
 
 - versioned seed/date/profile and public-reference configuration;
 - all notebook JSON documents, required metadata, and Python cell syntax;
 - DTDL v2 model IDs, relationship targets, complete twin instances, and graph endpoints;
 - GeoJSON layer coverage, WGS84 ranges, stable keys, public-anchor/synthetic classification, and polygon closure;
 - core and enterprise ontology completeness and Gold/Warehouse-only source mappings;
+- canonical OWL/RDF syntax and equivalence, OWL-RL consistency, SHACL conformance, source mapping, SPARQL competencies, and deterministic regeneration;
 - Warehouse and Eventhouse serving coverage, security, and rerunnable syntax markers;
-- Date/Time and event-grain TMDL, 11 persona perspectives/pages plus 14 detail PBIR pages, Azure Maps/GeoJSON resources, and explicit measures;
+- Date/Time and event-grain TMDL, 11 persona perspectives/pages plus 15 detail PBIR pages, Azure Maps/GeoJSON resources, and explicit measures;
 - Fabric app, Rayfin fallback, Data Agent allowlist/evaluations, deployment manifest, orchestration, and scoped teardown;
 - absence of common credential patterns.
 

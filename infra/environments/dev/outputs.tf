@@ -1,11 +1,11 @@
 output "workspace_id" {
-  value       = module.workspace.workspace_id
-  description = "Provisioned Fabric workspace ID. Pass to the notebook deployment path as FABRIC_WORKSPACE_ID."
+  value       = local.effective_workspace_id
+  description = "Target Fabric workspace ID. Pass to the notebook deployment path as FABRIC_WORKSPACE_ID."
 }
 
 output "workspace_display_name" {
-  value       = module.workspace.workspace_display_name
-  description = "Provisioned Fabric workspace display name."
+  value       = local.effective_workspace_display_name
+  description = "Target Fabric workspace display name."
 }
 
 output "lakehouse_id" {

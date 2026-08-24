@@ -125,20 +125,59 @@ class ArtifactAndGovernanceTests(unittest.TestCase):
                     ast.parse("".join(cell["source"]), filename=path.name)
 
     def test_dtdl_v2_models_and_relationships(self) -> None:
-        models = [json.loads(path.read_text(encoding="utf-8")) for path in (ROOT / "digital-twin" / "dtdl").glob("*.json")]
+        dtdl_root = ROOT / "digital-twin" / "dtdl"
+        # `*.v2.json` are the ;2 observed-state interfaces used only by the 3D scene graph.
+        base_paths = sorted(path for path in dtdl_root.glob("*.json") if not path.name.endswith(".v2.json"))
+        scene_paths = sorted(dtdl_root.glob("*.v2.json"))
+        models = [json.loads(path.read_text(encoding="utf-8")) for path in base_paths]
+        scene_models = [json.loads(path.read_text(encoding="utf-8")) for path in scene_paths]
         ids = {model["@id"] for model in models}
         targets = [content["target"] for model in models for content in model.get("contents", []) if content.get("@type") == "Relationship"]
         self.assertEqual(len(models), 15)
-        self.assertTrue(all(model["@context"] == "dtmi:dtdl:context;2" for model in models))
+        self.assertEqual(len(scene_models), 5)
+        self.assertTrue(all(model["@context"] == "dtmi:dtdl:context;2" for model in models + scene_models))
+        self.assertTrue(all(model["@id"].endswith(";2") for model in scene_models))
         self.assertLessEqual(set(targets), ids)
         required = {"Airport", "Terminal", "Zone", "Gate", "Stand", "Flight", "Queue", "BaggageAsset", "EnergyMeter", "Asset", "MaintenanceWorkOrder", "Incident"}
-        self.assertLessEqual(required, {Path(path).stem for path in (ROOT / "digital-twin" / "dtdl").glob("*.json")})
+        self.assertLessEqual(required, {path.stem for path in base_paths})
         twins = json.loads((ROOT / "digital-twin" / "instances" / "sample-twins.json").read_text(encoding="utf-8"))
         relationships = json.loads((ROOT / "digital-twin" / "relationships" / "sample-relationships.json").read_text(encoding="utf-8"))
         twin_ids = {twin["$dtId"] for twin in twins}
         self.assertEqual({twin["$metadata"]["$model"] for twin in twins}, ids)
         self.assertTrue(all(twin["$dtId"].startswith("SYN-TWIN-") for twin in twins))
         self.assertTrue(all(rel["$relationshipId"].startswith("SYN-REL-") and rel["$sourceId"] in twin_ids and rel["$targetId"] in twin_ids for rel in relationships))
+
+        sys.path.insert(0, str(ROOT / "deployment" / "scripts"))
+        import digital_twin
+
+        package = digital_twin.load_package(ROOT / "digital-twin")
+        payloads = {twin["$dtId"]: (twin, telemetry) for twin, telemetry in digital_twin.split_twin_payloads(package)}
+        queue, queue_telemetry = payloads["SYN-TWIN-QUE-CDG-01"]
+        self.assertNotIn("waitMinutes", queue)
+        self.assertNotIn("passengerCount", queue)
+        self.assertEqual(queue_telemetry, {"passengerCount": 42, "waitMinutes": 18.4})
+        self.assertTrue(all(set(relationship) == {"$relationshipId", "$sourceId", "$relationshipName", "$targetId"} for relationship in package.relationships))
+
+    def test_all_airport_3d_scene_graph_and_glbs(self) -> None:
+        sys.path.insert(0, str(ROOT / "deployment" / "scripts"))
+        import generate_3d_scenes
+
+        twins, relationships, manifest, glbs = generate_3d_scenes.build_artifacts()
+        self.assertEqual(len(twins), 1134)
+        self.assertEqual(len(relationships), 2304)
+        self.assertEqual(manifest["sceneCount"], 18)
+        self.assertEqual(len({twin["$dtId"] for twin in twins}), 1134)
+        self.assertEqual(len({relationship["$relationshipId"] for relationship in relationships}), 2304)
+        self.assertTrue(all(scene["expectedTwinCount"] == 63 for scene in manifest["scenes"]))
+        self.assertTrue(all(scene["expectedRelationshipCount"] == 128 for scene in manifest["scenes"]))
+        self.assertEqual(len(glbs), 18)
+        for scene in manifest["scenes"]:
+            gltf = generate_3d_scenes.parse_glb(glbs[scene["glbBlobPath"]])
+            self.assertEqual(len(gltf["meshes"]), 63)
+            self.assertEqual(
+                {mesh["name"] for mesh in gltf["meshes"]},
+                {element["meshName"] for element in scene["elements"]},
+            )
 
     def test_geojson_structure(self) -> None:
         all_ids: set[str] = set()

@@ -1,0 +1,6866 @@
+{
+ "airports": [
+  {
+   "airport_id": "SYN-AP-AMM"
+  },
+  {
+   "airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "airport_id": "SYN-AP-CDG"
+  },
+  {
+   "airport_id": "SYN-AP-FAO"
+  },
+  {
+   "airport_id": "SYN-AP-FCO"
+  },
+  {
+   "airport_id": "SYN-AP-FNC"
+  },
+  {
+   "airport_id": "SYN-AP-LIS"
+  },
+  {
+   "airport_id": "SYN-AP-LYS"
+  },
+  {
+   "airport_id": "SYN-AP-MRS"
+  },
+  {
+   "airport_id": "SYN-AP-MXP"
+  },
+  {
+   "airport_id": "SYN-AP-NAP"
+  },
+  {
+   "airport_id": "SYN-AP-NCE"
+  },
+  {
+   "airport_id": "SYN-AP-OPO"
+  },
+  {
+   "airport_id": "SYN-AP-ORY"
+  },
+  {
+   "airport_id": "SYN-AP-PDL"
+  },
+  {
+   "airport_id": "SYN-AP-TLS"
+  },
+  {
+   "airport_id": "SYN-AP-VCE"
+  }
+ ],
+ "gates": [
+  {
+   "gate_id": "SYN-AP-AMM-G1",
+   "airport_id": "SYN-AP-AMM"
+  },
+  {
+   "gate_id": "SYN-AP-AMM-G2",
+   "airport_id": "SYN-AP-AMM"
+  },
+  {
+   "gate_id": "SYN-AP-AMM-G3",
+   "airport_id": "SYN-AP-AMM"
+  },
+  {
+   "gate_id": "SYN-AP-AMM-G4",
+   "airport_id": "SYN-AP-AMM"
+  },
+  {
+   "gate_id": "SYN-AP-AMM-G5",
+   "airport_id": "SYN-AP-AMM"
+  },
+  {
+   "gate_id": "SYN-AP-AMM-G6",
+   "airport_id": "SYN-AP-AMM"
+  },
+  {
+   "gate_id": "SYN-AP-AQJ-G1",
+   "airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "gate_id": "SYN-AP-AQJ-G2",
+   "airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "gate_id": "SYN-AP-AQJ-G3",
+   "airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "gate_id": "SYN-AP-AQJ-G4",
+   "airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "gate_id": "SYN-AP-AQJ-G5",
+   "airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "gate_id": "SYN-AP-AQJ-G6",
+   "airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "gate_id": "SYN-AP-BLQ-G1",
+   "airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "gate_id": "SYN-AP-BLQ-G2",
+   "airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "gate_id": "SYN-AP-BLQ-G3",
+   "airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "gate_id": "SYN-AP-BLQ-G4",
+   "airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "gate_id": "SYN-AP-BLQ-G5",
+   "airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "gate_id": "SYN-AP-BLQ-G6",
+   "airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "gate_id": "SYN-AP-CDG-G1",
+   "airport_id": "SYN-AP-CDG"
+  },
+  {
+   "gate_id": "SYN-AP-CDG-G2",
+   "airport_id": "SYN-AP-CDG"
+  },
+  {
+   "gate_id": "SYN-AP-CDG-G3",
+   "airport_id": "SYN-AP-CDG"
+  },
+  {
+   "gate_id": "SYN-AP-CDG-G4",
+   "airport_id": "SYN-AP-CDG"
+  },
+  {
+   "gate_id": "SYN-AP-CDG-G5",
+   "airport_id": "SYN-AP-CDG"
+  },
+  {
+   "gate_id": "SYN-AP-CDG-G6",
+   "airport_id": "SYN-AP-CDG"
+  },
+  {
+   "gate_id": "SYN-AP-FAO-G1",
+   "airport_id": "SYN-AP-FAO"
+  },
+  {
+   "gate_id": "SYN-AP-FAO-G2",
+   "airport_id": "SYN-AP-FAO"
+  },
+  {
+   "gate_id": "SYN-AP-FAO-G3",
+   "airport_id": "SYN-AP-FAO"
+  },
+  {
+   "gate_id": "SYN-AP-FAO-G4",
+   "airport_id": "SYN-AP-FAO"
+  },
+  {
+   "gate_id": "SYN-AP-FAO-G5",
+   "airport_id": "SYN-AP-FAO"
+  },
+  {
+   "gate_id": "SYN-AP-FAO-G6",
+   "airport_id": "SYN-AP-FAO"
+  },
+  {
+   "gate_id": "SYN-AP-FCO-G1",
+   "airport_id": "SYN-AP-FCO"
+  },
+  {
+   "gate_id": "SYN-AP-FCO-G2",
+   "airport_id": "SYN-AP-FCO"
+  },
+  {
+   "gate_id": "SYN-AP-FCO-G3",
+   "airport_id": "SYN-AP-FCO"
+  },
+  {
+   "gate_id": "SYN-AP-FCO-G4",
+   "airport_id": "SYN-AP-FCO"
+  },
+  {
+   "gate_id": "SYN-AP-FCO-G5",
+   "airport_id": "SYN-AP-FCO"
+  },
+  {
+   "gate_id": "SYN-AP-FCO-G6",
+   "airport_id": "SYN-AP-FCO"
+  },
+  {
+   "gate_id": "SYN-AP-FNC-G1",
+   "airport_id": "SYN-AP-FNC"
+  },
+  {
+   "gate_id": "SYN-AP-FNC-G2",
+   "airport_id": "SYN-AP-FNC"
+  },
+  {
+   "gate_id": "SYN-AP-FNC-G3",
+   "airport_id": "SYN-AP-FNC"
+  },
+  {
+   "gate_id": "SYN-AP-FNC-G4",
+   "airport_id": "SYN-AP-FNC"
+  },
+  {
+   "gate_id": "SYN-AP-FNC-G5",
+   "airport_id": "SYN-AP-FNC"
+  },
+  {
+   "gate_id": "SYN-AP-FNC-G6",
+   "airport_id": "SYN-AP-FNC"
+  },
+  {
+   "gate_id": "SYN-AP-LIS-G1",
+   "airport_id": "SYN-AP-LIS"
+  },
+  {
+   "gate_id": "SYN-AP-LIS-G2",
+   "airport_id": "SYN-AP-LIS"
+  },
+  {
+   "gate_id": "SYN-AP-LIS-G3",
+   "airport_id": "SYN-AP-LIS"
+  },
+  {
+   "gate_id": "SYN-AP-LIS-G4",
+   "airport_id": "SYN-AP-LIS"
+  },
+  {
+   "gate_id": "SYN-AP-LIS-G5",
+   "airport_id": "SYN-AP-LIS"
+  },
+  {
+   "gate_id": "SYN-AP-LIS-G6",
+   "airport_id": "SYN-AP-LIS"
+  },
+  {
+   "gate_id": "SYN-AP-LYS-G1",
+   "airport_id": "SYN-AP-LYS"
+  },
+  {
+   "gate_id": "SYN-AP-LYS-G2",
+   "airport_id": "SYN-AP-LYS"
+  },
+  {
+   "gate_id": "SYN-AP-LYS-G3",
+   "airport_id": "SYN-AP-LYS"
+  },
+  {
+   "gate_id": "SYN-AP-LYS-G4",
+   "airport_id": "SYN-AP-LYS"
+  },
+  {
+   "gate_id": "SYN-AP-LYS-G5",
+   "airport_id": "SYN-AP-LYS"
+  },
+  {
+   "gate_id": "SYN-AP-LYS-G6",
+   "airport_id": "SYN-AP-LYS"
+  },
+  {
+   "gate_id": "SYN-AP-MRS-G1",
+   "airport_id": "SYN-AP-MRS"
+  },
+  {
+   "gate_id": "SYN-AP-MRS-G2",
+   "airport_id": "SYN-AP-MRS"
+  },
+  {
+   "gate_id": "SYN-AP-MRS-G3",
+   "airport_id": "SYN-AP-MRS"
+  },
+  {
+   "gate_id": "SYN-AP-MRS-G4",
+   "airport_id": "SYN-AP-MRS"
+  },
+  {
+   "gate_id": "SYN-AP-MRS-G5",
+   "airport_id": "SYN-AP-MRS"
+  },
+  {
+   "gate_id": "SYN-AP-MRS-G6",
+   "airport_id": "SYN-AP-MRS"
+  },
+  {
+   "gate_id": "SYN-AP-MXP-G1",
+   "airport_id": "SYN-AP-MXP"
+  },
+  {
+   "gate_id": "SYN-AP-MXP-G2",
+   "airport_id": "SYN-AP-MXP"
+  },
+  {
+   "gate_id": "SYN-AP-MXP-G3",
+   "airport_id": "SYN-AP-MXP"
+  },
+  {
+   "gate_id": "SYN-AP-MXP-G4",
+   "airport_id": "SYN-AP-MXP"
+  },
+  {
+   "gate_id": "SYN-AP-MXP-G5",
+   "airport_id": "SYN-AP-MXP"
+  },
+  {
+   "gate_id": "SYN-AP-MXP-G6",
+   "airport_id": "SYN-AP-MXP"
+  },
+  {
+   "gate_id": "SYN-AP-NAP-G1",
+   "airport_id": "SYN-AP-NAP"
+  },
+  {
+   "gate_id": "SYN-AP-NAP-G2",
+   "airport_id": "SYN-AP-NAP"
+  },
+  {
+   "gate_id": "SYN-AP-NAP-G3",
+   "airport_id": "SYN-AP-NAP"
+  },
+  {
+   "gate_id": "SYN-AP-NAP-G4",
+   "airport_id": "SYN-AP-NAP"
+  },
+  {
+   "gate_id": "SYN-AP-NAP-G5",
+   "airport_id": "SYN-AP-NAP"
+  },
+  {
+   "gate_id": "SYN-AP-NAP-G6",
+   "airport_id": "SYN-AP-NAP"
+  },
+  {
+   "gate_id": "SYN-AP-NCE-G1",
+   "airport_id": "SYN-AP-NCE"
+  },
+  {
+   "gate_id": "SYN-AP-NCE-G2",
+   "airport_id": "SYN-AP-NCE"
+  },
+  {
+   "gate_id": "SYN-AP-NCE-G3",
+   "airport_id": "SYN-AP-NCE"
+  },
+  {
+   "gate_id": "SYN-AP-NCE-G4",
+   "airport_id": "SYN-AP-NCE"
+  },
+  {
+   "gate_id": "SYN-AP-NCE-G5",
+   "airport_id": "SYN-AP-NCE"
+  },
+  {
+   "gate_id": "SYN-AP-NCE-G6",
+   "airport_id": "SYN-AP-NCE"
+  },
+  {
+   "gate_id": "SYN-AP-OPO-G1",
+   "airport_id": "SYN-AP-OPO"
+  },
+  {
+   "gate_id": "SYN-AP-OPO-G2",
+   "airport_id": "SYN-AP-OPO"
+  },
+  {
+   "gate_id": "SYN-AP-OPO-G3",
+   "airport_id": "SYN-AP-OPO"
+  },
+  {
+   "gate_id": "SYN-AP-OPO-G4",
+   "airport_id": "SYN-AP-OPO"
+  },
+  {
+   "gate_id": "SYN-AP-OPO-G5",
+   "airport_id": "SYN-AP-OPO"
+  },
+  {
+   "gate_id": "SYN-AP-OPO-G6",
+   "airport_id": "SYN-AP-OPO"
+  },
+  {
+   "gate_id": "SYN-AP-ORY-G1",
+   "airport_id": "SYN-AP-ORY"
+  },
+  {
+   "gate_id": "SYN-AP-ORY-G2",
+   "airport_id": "SYN-AP-ORY"
+  },
+  {
+   "gate_id": "SYN-AP-ORY-G3",
+   "airport_id": "SYN-AP-ORY"
+  },
+  {
+   "gate_id": "SYN-AP-ORY-G4",
+   "airport_id": "SYN-AP-ORY"
+  },
+  {
+   "gate_id": "SYN-AP-ORY-G5",
+   "airport_id": "SYN-AP-ORY"
+  },
+  {
+   "gate_id": "SYN-AP-ORY-G6",
+   "airport_id": "SYN-AP-ORY"
+  },
+  {
+   "gate_id": "SYN-AP-PDL-G1",
+   "airport_id": "SYN-AP-PDL"
+  },
+  {
+   "gate_id": "SYN-AP-PDL-G2",
+   "airport_id": "SYN-AP-PDL"
+  },
+  {
+   "gate_id": "SYN-AP-PDL-G3",
+   "airport_id": "SYN-AP-PDL"
+  },
+  {
+   "gate_id": "SYN-AP-PDL-G4",
+   "airport_id": "SYN-AP-PDL"
+  },
+  {
+   "gate_id": "SYN-AP-PDL-G5",
+   "airport_id": "SYN-AP-PDL"
+  },
+  {
+   "gate_id": "SYN-AP-PDL-G6",
+   "airport_id": "SYN-AP-PDL"
+  },
+  {
+   "gate_id": "SYN-AP-TLS-G1",
+   "airport_id": "SYN-AP-TLS"
+  },
+  {
+   "gate_id": "SYN-AP-TLS-G2",
+   "airport_id": "SYN-AP-TLS"
+  },
+  {
+   "gate_id": "SYN-AP-TLS-G3",
+   "airport_id": "SYN-AP-TLS"
+  },
+  {
+   "gate_id": "SYN-AP-TLS-G4",
+   "airport_id": "SYN-AP-TLS"
+  },
+  {
+   "gate_id": "SYN-AP-TLS-G5",
+   "airport_id": "SYN-AP-TLS"
+  },
+  {
+   "gate_id": "SYN-AP-TLS-G6",
+   "airport_id": "SYN-AP-TLS"
+  },
+  {
+   "gate_id": "SYN-AP-VCE-G1",
+   "airport_id": "SYN-AP-VCE"
+  },
+  {
+   "gate_id": "SYN-AP-VCE-G2",
+   "airport_id": "SYN-AP-VCE"
+  },
+  {
+   "gate_id": "SYN-AP-VCE-G3",
+   "airport_id": "SYN-AP-VCE"
+  },
+  {
+   "gate_id": "SYN-AP-VCE-G4",
+   "airport_id": "SYN-AP-VCE"
+  },
+  {
+   "gate_id": "SYN-AP-VCE-G5",
+   "airport_id": "SYN-AP-VCE"
+  },
+  {
+   "gate_id": "SYN-AP-VCE-G6",
+   "airport_id": "SYN-AP-VCE"
+  }
+ ],
+ "terminals": [
+  {
+   "terminal_id": "SYN-AP-AMM-T1",
+   "airport_id": "SYN-AP-AMM"
+  },
+  {
+   "terminal_id": "SYN-AP-AMM-T2",
+   "airport_id": "SYN-AP-AMM"
+  },
+  {
+   "terminal_id": "SYN-AP-AQJ-T1",
+   "airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "terminal_id": "SYN-AP-AQJ-T2",
+   "airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "terminal_id": "SYN-AP-BLQ-T1",
+   "airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "terminal_id": "SYN-AP-BLQ-T2",
+   "airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "terminal_id": "SYN-AP-CDG-T1",
+   "airport_id": "SYN-AP-CDG"
+  },
+  {
+   "terminal_id": "SYN-AP-CDG-T2",
+   "airport_id": "SYN-AP-CDG"
+  },
+  {
+   "terminal_id": "SYN-AP-FAO-T1",
+   "airport_id": "SYN-AP-FAO"
+  },
+  {
+   "terminal_id": "SYN-AP-FAO-T2",
+   "airport_id": "SYN-AP-FAO"
+  },
+  {
+   "terminal_id": "SYN-AP-FCO-T1",
+   "airport_id": "SYN-AP-FCO"
+  },
+  {
+   "terminal_id": "SYN-AP-FCO-T2",
+   "airport_id": "SYN-AP-FCO"
+  },
+  {
+   "terminal_id": "SYN-AP-FNC-T1",
+   "airport_id": "SYN-AP-FNC"
+  },
+  {
+   "terminal_id": "SYN-AP-FNC-T2",
+   "airport_id": "SYN-AP-FNC"
+  },
+  {
+   "terminal_id": "SYN-AP-LIS-T1",
+   "airport_id": "SYN-AP-LIS"
+  },
+  {
+   "terminal_id": "SYN-AP-LIS-T2",
+   "airport_id": "SYN-AP-LIS"
+  },
+  {
+   "terminal_id": "SYN-AP-LYS-T1",
+   "airport_id": "SYN-AP-LYS"
+  },
+  {
+   "terminal_id": "SYN-AP-LYS-T2",
+   "airport_id": "SYN-AP-LYS"
+  },
+  {
+   "terminal_id": "SYN-AP-MRS-T1",
+   "airport_id": "SYN-AP-MRS"
+  },
+  {
+   "terminal_id": "SYN-AP-MRS-T2",
+   "airport_id": "SYN-AP-MRS"
+  },
+  {
+   "terminal_id": "SYN-AP-MXP-T1",
+   "airport_id": "SYN-AP-MXP"
+  },
+  {
+   "terminal_id": "SYN-AP-MXP-T2",
+   "airport_id": "SYN-AP-MXP"
+  },
+  {
+   "terminal_id": "SYN-AP-NAP-T1",
+   "airport_id": "SYN-AP-NAP"
+  },
+  {
+   "terminal_id": "SYN-AP-NAP-T2",
+   "airport_id": "SYN-AP-NAP"
+  },
+  {
+   "terminal_id": "SYN-AP-NCE-T1",
+   "airport_id": "SYN-AP-NCE"
+  },
+  {
+   "terminal_id": "SYN-AP-NCE-T2",
+   "airport_id": "SYN-AP-NCE"
+  },
+  {
+   "terminal_id": "SYN-AP-OPO-T1",
+   "airport_id": "SYN-AP-OPO"
+  },
+  {
+   "terminal_id": "SYN-AP-OPO-T2",
+   "airport_id": "SYN-AP-OPO"
+  },
+  {
+   "terminal_id": "SYN-AP-ORY-T1",
+   "airport_id": "SYN-AP-ORY"
+  },
+  {
+   "terminal_id": "SYN-AP-ORY-T2",
+   "airport_id": "SYN-AP-ORY"
+  },
+  {
+   "terminal_id": "SYN-AP-PDL-T1",
+   "airport_id": "SYN-AP-PDL"
+  },
+  {
+   "terminal_id": "SYN-AP-PDL-T2",
+   "airport_id": "SYN-AP-PDL"
+  },
+  {
+   "terminal_id": "SYN-AP-TLS-T1",
+   "airport_id": "SYN-AP-TLS"
+  },
+  {
+   "terminal_id": "SYN-AP-TLS-T2",
+   "airport_id": "SYN-AP-TLS"
+  },
+  {
+   "terminal_id": "SYN-AP-VCE-T1",
+   "airport_id": "SYN-AP-VCE"
+  },
+  {
+   "terminal_id": "SYN-AP-VCE-T2",
+   "airport_id": "SYN-AP-VCE"
+  }
+ ],
+ "airlines": [
+  {
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "airline_id": "REF-AL-020"
+  }
+ ],
+ "routes": [
+  {
+   "route_id": "R-SYN-AP-AMM-01",
+   "airline_id": "REF-AL-001",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-02",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-03",
+   "airline_id": "REF-AL-004",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-04",
+   "airline_id": "REF-AL-005",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-05",
+   "airline_id": "REF-AL-007",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-06",
+   "airline_id": "REF-AL-008",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-07",
+   "airline_id": "REF-AL-010",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-08",
+   "airline_id": "REF-AL-011",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-AIRLINE-REF-AL-013",
+   "airline_id": "REF-AL-013",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-AIRLINE-REF-AL-014",
+   "airline_id": "REF-AL-014",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-AIRLINE-REF-AL-016",
+   "airline_id": "REF-AL-016",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-AIRLINE-REF-AL-017",
+   "airline_id": "REF-AL-017",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-AIRLINE-REF-AL-019",
+   "airline_id": "REF-AL-019",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AMM-AIRLINE-REF-AL-020",
+   "airline_id": "REF-AL-020",
+   "origin_airport_id": "SYN-AP-AMM"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-01",
+   "airline_id": "REF-AL-001",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-02",
+   "airline_id": "REF-AL-003",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-03",
+   "airline_id": "REF-AL-004",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-04",
+   "airline_id": "REF-AL-006",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-05",
+   "airline_id": "REF-AL-007",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-06",
+   "airline_id": "REF-AL-009",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-07",
+   "airline_id": "REF-AL-010",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-08",
+   "airline_id": "REF-AL-012",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-AIRLINE-REF-AL-013",
+   "airline_id": "REF-AL-013",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-AIRLINE-REF-AL-015",
+   "airline_id": "REF-AL-015",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-AIRLINE-REF-AL-016",
+   "airline_id": "REF-AL-016",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-AIRLINE-REF-AL-018",
+   "airline_id": "REF-AL-018",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-AQJ-AIRLINE-REF-AL-019",
+   "airline_id": "REF-AL-019",
+   "origin_airport_id": "SYN-AP-AQJ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-01",
+   "airline_id": "REF-AL-001",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-02",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-03",
+   "airline_id": "REF-AL-004",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-04",
+   "airline_id": "REF-AL-005",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-05",
+   "airline_id": "REF-AL-007",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-06",
+   "airline_id": "REF-AL-008",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-07",
+   "airline_id": "REF-AL-010",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-08",
+   "airline_id": "REF-AL-011",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-AIRLINE-REF-AL-013",
+   "airline_id": "REF-AL-013",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-AIRLINE-REF-AL-014",
+   "airline_id": "REF-AL-014",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-AIRLINE-REF-AL-016",
+   "airline_id": "REF-AL-016",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-AIRLINE-REF-AL-017",
+   "airline_id": "REF-AL-017",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-AIRLINE-REF-AL-019",
+   "airline_id": "REF-AL-019",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-BLQ-AIRLINE-REF-AL-020",
+   "airline_id": "REF-AL-020",
+   "origin_airport_id": "SYN-AP-BLQ"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-01",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-02",
+   "airline_id": "REF-AL-003",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-03",
+   "airline_id": "REF-AL-005",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-04",
+   "airline_id": "REF-AL-006",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-05",
+   "airline_id": "REF-AL-008",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-06",
+   "airline_id": "REF-AL-009",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-07",
+   "airline_id": "REF-AL-011",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-08",
+   "airline_id": "REF-AL-012",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-AIRLINE-REF-AL-014",
+   "airline_id": "REF-AL-014",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-AIRLINE-REF-AL-015",
+   "airline_id": "REF-AL-015",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-AIRLINE-REF-AL-017",
+   "airline_id": "REF-AL-017",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-AIRLINE-REF-AL-018",
+   "airline_id": "REF-AL-018",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-CDG-AIRLINE-REF-AL-020",
+   "airline_id": "REF-AL-020",
+   "origin_airport_id": "SYN-AP-CDG"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-01",
+   "airline_id": "REF-AL-001",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-02",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-03",
+   "airline_id": "REF-AL-004",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-04",
+   "airline_id": "REF-AL-005",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-05",
+   "airline_id": "REF-AL-007",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-06",
+   "airline_id": "REF-AL-008",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-07",
+   "airline_id": "REF-AL-010",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-08",
+   "airline_id": "REF-AL-011",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-AIRLINE-REF-AL-013",
+   "airline_id": "REF-AL-013",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-AIRLINE-REF-AL-014",
+   "airline_id": "REF-AL-014",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-AIRLINE-REF-AL-016",
+   "airline_id": "REF-AL-016",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-AIRLINE-REF-AL-017",
+   "airline_id": "REF-AL-017",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-AIRLINE-REF-AL-019",
+   "airline_id": "REF-AL-019",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FAO-AIRLINE-REF-AL-020",
+   "airline_id": "REF-AL-020",
+   "origin_airport_id": "SYN-AP-FAO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-01",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-02",
+   "airline_id": "REF-AL-003",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-03",
+   "airline_id": "REF-AL-005",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-04",
+   "airline_id": "REF-AL-006",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-05",
+   "airline_id": "REF-AL-008",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-06",
+   "airline_id": "REF-AL-009",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-07",
+   "airline_id": "REF-AL-011",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-08",
+   "airline_id": "REF-AL-012",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-AIRLINE-REF-AL-014",
+   "airline_id": "REF-AL-014",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-AIRLINE-REF-AL-015",
+   "airline_id": "REF-AL-015",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-AIRLINE-REF-AL-018",
+   "airline_id": "REF-AL-018",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FCO-AIRLINE-REF-AL-020",
+   "airline_id": "REF-AL-020",
+   "origin_airport_id": "SYN-AP-FCO"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-01",
+   "airline_id": "REF-AL-001",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-02",
+   "airline_id": "REF-AL-003",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-03",
+   "airline_id": "REF-AL-004",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-04",
+   "airline_id": "REF-AL-006",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-05",
+   "airline_id": "REF-AL-007",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-06",
+   "airline_id": "REF-AL-009",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-07",
+   "airline_id": "REF-AL-010",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-08",
+   "airline_id": "REF-AL-012",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-AIRLINE-REF-AL-013",
+   "airline_id": "REF-AL-013",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-AIRLINE-REF-AL-015",
+   "airline_id": "REF-AL-015",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-AIRLINE-REF-AL-016",
+   "airline_id": "REF-AL-016",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-AIRLINE-REF-AL-018",
+   "airline_id": "REF-AL-018",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-FNC-AIRLINE-REF-AL-019",
+   "airline_id": "REF-AL-019",
+   "origin_airport_id": "SYN-AP-FNC"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-01",
+   "airline_id": "REF-AL-001",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-02",
+   "airline_id": "REF-AL-003",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-03",
+   "airline_id": "REF-AL-004",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-04",
+   "airline_id": "REF-AL-006",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-05",
+   "airline_id": "REF-AL-007",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-06",
+   "airline_id": "REF-AL-009",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-07",
+   "airline_id": "REF-AL-010",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-08",
+   "airline_id": "REF-AL-012",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-AIRLINE-REF-AL-013",
+   "airline_id": "REF-AL-013",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-AIRLINE-REF-AL-015",
+   "airline_id": "REF-AL-015",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-AIRLINE-REF-AL-016",
+   "airline_id": "REF-AL-016",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-AIRLINE-REF-AL-018",
+   "airline_id": "REF-AL-018",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LIS-AIRLINE-REF-AL-019",
+   "airline_id": "REF-AL-019",
+   "origin_airport_id": "SYN-AP-LIS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-01",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-02",
+   "airline_id": "REF-AL-003",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-03",
+   "airline_id": "REF-AL-005",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-04",
+   "airline_id": "REF-AL-006",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-05",
+   "airline_id": "REF-AL-008",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-06",
+   "airline_id": "REF-AL-009",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-07",
+   "airline_id": "REF-AL-011",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-08",
+   "airline_id": "REF-AL-012",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-AIRLINE-REF-AL-014",
+   "airline_id": "REF-AL-014",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-AIRLINE-REF-AL-015",
+   "airline_id": "REF-AL-015",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-AIRLINE-REF-AL-017",
+   "airline_id": "REF-AL-017",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-AIRLINE-REF-AL-018",
+   "airline_id": "REF-AL-018",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-LYS-AIRLINE-REF-AL-020",
+   "airline_id": "REF-AL-020",
+   "origin_airport_id": "SYN-AP-LYS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-01",
+   "airline_id": "REF-AL-001",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-02",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-03",
+   "airline_id": "REF-AL-004",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-04",
+   "airline_id": "REF-AL-005",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-05",
+   "airline_id": "REF-AL-007",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-06",
+   "airline_id": "REF-AL-008",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-07",
+   "airline_id": "REF-AL-010",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-08",
+   "airline_id": "REF-AL-011",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-AIRLINE-REF-AL-013",
+   "airline_id": "REF-AL-013",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-AIRLINE-REF-AL-014",
+   "airline_id": "REF-AL-014",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-AIRLINE-REF-AL-016",
+   "airline_id": "REF-AL-016",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-AIRLINE-REF-AL-017",
+   "airline_id": "REF-AL-017",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-AIRLINE-REF-AL-019",
+   "airline_id": "REF-AL-019",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MRS-AIRLINE-REF-AL-020",
+   "airline_id": "REF-AL-020",
+   "origin_airport_id": "SYN-AP-MRS"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-01",
+   "airline_id": "REF-AL-001",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-02",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-03",
+   "airline_id": "REF-AL-004",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-04",
+   "airline_id": "REF-AL-005",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-05",
+   "airline_id": "REF-AL-007",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-06",
+   "airline_id": "REF-AL-008",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-07",
+   "airline_id": "REF-AL-010",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-08",
+   "airline_id": "REF-AL-011",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-AIRLINE-REF-AL-013",
+   "airline_id": "REF-AL-013",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-AIRLINE-REF-AL-014",
+   "airline_id": "REF-AL-014",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-AIRLINE-REF-AL-016",
+   "airline_id": "REF-AL-016",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-AIRLINE-REF-AL-017",
+   "airline_id": "REF-AL-017",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-AIRLINE-REF-AL-019",
+   "airline_id": "REF-AL-019",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-MXP-AIRLINE-REF-AL-020",
+   "airline_id": "REF-AL-020",
+   "origin_airport_id": "SYN-AP-MXP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-01",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-02",
+   "airline_id": "REF-AL-003",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-03",
+   "airline_id": "REF-AL-005",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-04",
+   "airline_id": "REF-AL-006",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-05",
+   "airline_id": "REF-AL-008",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-06",
+   "airline_id": "REF-AL-009",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-07",
+   "airline_id": "REF-AL-011",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-08",
+   "airline_id": "REF-AL-012",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-AIRLINE-REF-AL-014",
+   "airline_id": "REF-AL-014",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-AIRLINE-REF-AL-015",
+   "airline_id": "REF-AL-015",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-AIRLINE-REF-AL-017",
+   "airline_id": "REF-AL-017",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NAP-AIRLINE-REF-AL-020",
+   "airline_id": "REF-AL-020",
+   "origin_airport_id": "SYN-AP-NAP"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-01",
+   "airline_id": "REF-AL-001",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-02",
+   "airline_id": "REF-AL-003",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-03",
+   "airline_id": "REF-AL-004",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-04",
+   "airline_id": "REF-AL-006",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-05",
+   "airline_id": "REF-AL-007",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-06",
+   "airline_id": "REF-AL-009",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-07",
+   "airline_id": "REF-AL-010",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-08",
+   "airline_id": "REF-AL-012",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-AIRLINE-REF-AL-013",
+   "airline_id": "REF-AL-013",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-AIRLINE-REF-AL-015",
+   "airline_id": "REF-AL-015",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-AIRLINE-REF-AL-016",
+   "airline_id": "REF-AL-016",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-AIRLINE-REF-AL-018",
+   "airline_id": "REF-AL-018",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-NCE-AIRLINE-REF-AL-019",
+   "airline_id": "REF-AL-019",
+   "origin_airport_id": "SYN-AP-NCE"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-01",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-02",
+   "airline_id": "REF-AL-003",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-03",
+   "airline_id": "REF-AL-005",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-04",
+   "airline_id": "REF-AL-006",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-05",
+   "airline_id": "REF-AL-008",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-06",
+   "airline_id": "REF-AL-009",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-07",
+   "airline_id": "REF-AL-011",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-08",
+   "airline_id": "REF-AL-012",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-AIRLINE-REF-AL-014",
+   "airline_id": "REF-AL-014",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-AIRLINE-REF-AL-015",
+   "airline_id": "REF-AL-015",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-AIRLINE-REF-AL-017",
+   "airline_id": "REF-AL-017",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-AIRLINE-REF-AL-018",
+   "airline_id": "REF-AL-018",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-OPO-AIRLINE-REF-AL-020",
+   "airline_id": "REF-AL-020",
+   "origin_airport_id": "SYN-AP-OPO"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-01",
+   "airline_id": "REF-AL-001",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-02",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-03",
+   "airline_id": "REF-AL-004",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-04",
+   "airline_id": "REF-AL-005",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-05",
+   "airline_id": "REF-AL-007",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-06",
+   "airline_id": "REF-AL-008",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-07",
+   "airline_id": "REF-AL-010",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-08",
+   "airline_id": "REF-AL-011",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-AIRLINE-REF-AL-013",
+   "airline_id": "REF-AL-013",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-AIRLINE-REF-AL-014",
+   "airline_id": "REF-AL-014",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-AIRLINE-REF-AL-016",
+   "airline_id": "REF-AL-016",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-AIRLINE-REF-AL-017",
+   "airline_id": "REF-AL-017",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-AIRLINE-REF-AL-019",
+   "airline_id": "REF-AL-019",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-ORY-AIRLINE-REF-AL-020",
+   "airline_id": "REF-AL-020",
+   "origin_airport_id": "SYN-AP-ORY"
+  },
+  {
+   "route_id": "R-SYN-AP-PDL-01",
+   "airline_id": "REF-AL-002",
+   "origin_airport_id": "SYN-AP-PDL"
+  }
+ ],
+ "flights": [
+  {
+   "flight_event_id": "SYN-FE-0000001",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G1",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000002",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G1",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000003",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G1",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000004",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G1",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000005",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G1",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000006",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G1",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000007",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G1",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000008",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G1",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000009",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G2",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000010",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G2",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000011",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G2",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000012",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G2",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000013",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G2",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000014",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G2",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000015",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G2",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000016",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G2",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000017",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G3",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000018",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G3",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000019",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G3",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000020",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G3",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000021",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G3",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000022",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G3",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000023",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G3",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000024",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G3",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000025",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G4",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000026",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G4",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000027",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G4",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000028",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G4",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000029",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G4",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000030",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G4",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000031",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G4",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000032",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G4",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000033",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G5",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000034",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G5",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000035",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G5",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000036",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G5",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000037",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G5",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000038",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G5",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000039",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G5",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000040",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G5",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000041",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G6",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000042",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G6",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000043",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G6",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000044",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G6",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000045",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G6",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000046",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G6",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000047",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G6",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000048",
+   "airport_id": "SYN-AP-CDG",
+   "gate_id": "SYN-AP-CDG-G6",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000049",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G1",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000050",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G1",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000051",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G1",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000052",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G1",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000053",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G1",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000054",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G1",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000055",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G1",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000056",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G1",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000057",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G2",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000058",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G2",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000059",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G2",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000060",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G2",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000061",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G2",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000062",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G2",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000063",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G2",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000064",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G2",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000065",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G3",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000066",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G3",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000067",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G3",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000068",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G3",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000069",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G3",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000070",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G3",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000071",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G3",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000072",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G3",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000073",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G4",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000074",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G4",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000075",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G4",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000076",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G4",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000077",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G4",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000078",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G4",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000079",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G4",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000080",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G4",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000081",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G5",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000082",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G5",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000083",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G5",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000084",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G5",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000085",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G5",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000086",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G5",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000087",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G5",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000088",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G5",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000089",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G6",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000090",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G6",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000091",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G6",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000092",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G6",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000093",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G6",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000094",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G6",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000095",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G6",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000096",
+   "airport_id": "SYN-AP-ORY",
+   "gate_id": "SYN-AP-ORY-G6",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000097",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G1",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000098",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G1",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000099",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G1",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000100",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G1",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000101",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G1",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000102",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G1",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000103",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G1",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000104",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G1",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000105",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G2",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000106",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G2",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000107",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G2",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000108",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G2",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000109",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G2",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000110",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G2",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000111",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G2",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000112",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G2",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000113",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G3",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000114",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G3",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000115",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G3",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000116",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G3",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000117",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G3",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000118",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G3",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000119",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G3",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000120",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G3",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000121",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G4",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000122",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G4",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000123",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G4",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000124",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G4",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000125",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G4",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000126",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G4",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000127",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G4",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000128",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G4",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000129",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G5",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000130",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G5",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000131",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G5",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000132",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G5",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000133",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G5",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000134",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G5",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000135",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G5",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000136",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G5",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000137",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G6",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000138",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G6",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000139",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G6",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000140",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G6",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000141",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G6",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000142",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G6",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000143",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G6",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000144",
+   "airport_id": "SYN-AP-NCE",
+   "gate_id": "SYN-AP-NCE-G6",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000145",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G1",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000146",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G1",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000147",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G1",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000148",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G1",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000149",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G1",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000150",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G1",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000151",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G1",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000152",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G1",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000153",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G2",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000154",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G2",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000155",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G2",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000156",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G2",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000157",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G2",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000158",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G2",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000159",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G2",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000160",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G2",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000161",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G3",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000162",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G3",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000163",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G3",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000164",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G3",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000165",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G3",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000166",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G3",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000167",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G3",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000168",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G3",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000169",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G4",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000170",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G4",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000171",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G4",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000172",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G4",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000173",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G4",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000174",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G4",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000175",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G4",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000176",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G4",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000177",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G5",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000178",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G5",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000179",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G5",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000180",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G5",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000181",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G5",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000182",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G5",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000183",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G5",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000184",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G5",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000185",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G6",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000186",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G6",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000187",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G6",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000188",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G6",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000189",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G6",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000190",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G6",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000191",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G6",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000192",
+   "airport_id": "SYN-AP-LYS",
+   "gate_id": "SYN-AP-LYS-G6",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000193",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G1",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000194",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G1",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000195",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G1",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000196",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G1",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000197",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G1",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000198",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G1",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000199",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G1",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000200",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G1",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000201",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G2",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000202",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G2",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000203",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G2",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000204",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G2",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000205",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G2",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000206",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G2",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000207",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G2",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000208",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G2",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000209",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G3",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000210",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G3",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000211",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G3",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000212",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G3",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000213",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G3",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000214",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G3",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000215",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G3",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000216",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G3",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000217",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G4",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000218",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G4",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000219",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G4",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000220",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G4",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000221",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G4",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000222",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G4",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000223",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G4",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000224",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G4",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000225",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G5",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000226",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G5",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000227",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G5",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000228",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G5",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000229",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G5",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000230",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G5",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000231",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G5",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000232",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G5",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000233",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G6",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000234",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G6",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000235",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G6",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000236",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G6",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000237",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G6",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000238",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G6",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000239",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G6",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000240",
+   "airport_id": "SYN-AP-MRS",
+   "gate_id": "SYN-AP-MRS-G6",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000241",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G1",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000242",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G1",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000243",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G1",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000244",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G1",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000245",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G1",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000246",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G1",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000247",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G1",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000248",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G1",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000249",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G2",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000250",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G2",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000251",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G2",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000252",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G2",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000253",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G2",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000254",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G2",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000255",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G2",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000256",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G2",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000257",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G3",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000258",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G3",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000259",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G3",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000260",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G3",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000261",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G3",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000262",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G3",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000263",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G3",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000264",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G3",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000265",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G4",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000266",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G4",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000267",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G4",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000268",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G4",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000269",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G4",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000270",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G4",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000271",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G4",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000272",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G4",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000273",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G5",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000274",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G5",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000275",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G5",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000276",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G5",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000277",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G5",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000278",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G5",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000279",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G5",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000280",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G5",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000281",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G6",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000282",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G6",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000283",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G6",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000284",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G6",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000285",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G6",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000286",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G6",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000287",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G6",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000288",
+   "airport_id": "SYN-AP-TLS",
+   "gate_id": "SYN-AP-TLS-G6",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000289",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G1",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000290",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G1",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000291",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G1",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000292",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G1",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000293",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G1",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000294",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G1",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000295",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G1",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000296",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G1",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000297",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G2",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000298",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G2",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000299",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G2",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000300",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G2",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000301",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G2",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000302",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G2",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000303",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G2",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000304",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G2",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000305",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G3",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000306",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G3",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000307",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G3",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000308",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G3",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000309",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G3",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000310",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G3",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000311",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G3",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000312",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G3",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000313",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G4",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000314",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G4",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000315",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G4",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000316",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G4",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000317",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G4",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000318",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G4",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000319",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G4",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000320",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G4",
+   "airline_id": "REF-AL-018"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000321",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G5",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000322",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G5",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000323",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G5",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000324",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G5",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000325",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G5",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000326",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G5",
+   "airline_id": "REF-AL-006"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000327",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G5",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000328",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G5",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000329",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G6",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000330",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G6",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000331",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G6",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000332",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G6",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000333",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G6",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000334",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G6",
+   "airline_id": "REF-AL-009"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000335",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G6",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000336",
+   "airport_id": "SYN-AP-FCO",
+   "gate_id": "SYN-AP-FCO-G6",
+   "airline_id": "REF-AL-003"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000337",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G1",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000338",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G1",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000339",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G1",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000340",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G1",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000341",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G1",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000342",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G1",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000343",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G1",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000344",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G1",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000345",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G2",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000346",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G2",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000347",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G2",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000348",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G2",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000349",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G2",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000350",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G2",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000351",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G2",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000352",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G2",
+   "airline_id": "REF-AL-010"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000353",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G3",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000354",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G3",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000355",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G3",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000356",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G3",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000357",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G3",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000358",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G3",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000359",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G3",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000360",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G3",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000361",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G4",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000362",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G4",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000363",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G4",
+   "airline_id": "REF-AL-008"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000364",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G4",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000365",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G4",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000366",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G4",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000367",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G4",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000368",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G4",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000369",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G5",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000370",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G5",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000371",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G5",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000372",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G5",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000373",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G5",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000374",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G5",
+   "airline_id": "REF-AL-011"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000375",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G5",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000376",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G5",
+   "airline_id": "REF-AL-005"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000377",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G6",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000378",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G6",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000379",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G6",
+   "airline_id": "REF-AL-020"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000380",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G6",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000381",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G6",
+   "airline_id": "REF-AL-014"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000382",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G6",
+   "airline_id": "REF-AL-017"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000383",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G6",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000384",
+   "airport_id": "SYN-AP-MXP",
+   "gate_id": "SYN-AP-MXP-G6",
+   "airline_id": "REF-AL-002"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000385",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G1",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000386",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G1",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000387",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G1",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000388",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G1",
+   "airline_id": "REF-AL-001"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000389",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G1",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000390",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G1",
+   "airline_id": "REF-AL-013"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000391",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G1",
+   "airline_id": "REF-AL-019"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000392",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G1",
+   "airline_id": "REF-AL-016"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000393",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G2",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000394",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G2",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000395",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G2",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000396",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G2",
+   "airline_id": "REF-AL-004"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000397",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G2",
+   "airline_id": "REF-AL-007"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000398",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G2",
+   "airline_id": "REF-AL-015"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000399",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G2",
+   "airline_id": "REF-AL-012"
+  },
+  {
+   "flight_event_id": "SYN-FE-0000400",
+   "airport_id": "SYN-AP-VCE",
+   "gate_id": "SYN-AP-VCE-G2",
+   "airline_id": "REF-AL-010"
+  }
+ ],
+ "assets": [
+  {
+   "asset_id": "SYN-AP-AMM-G1-AST-BGB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G1-AST-ESC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G1-AST-HVC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G1-AST-JTB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G1-AST-LGT",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G1-MTR-ENERGY",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G2-AST-BGB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G2-AST-ESC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G2-AST-HVC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G2-AST-JTB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G2-AST-LGT",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G2-MTR-ENERGY",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G3-AST-BGB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G3-AST-ESC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G3-AST-HVC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G3-AST-JTB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G3-AST-LGT",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G3-MTR-ENERGY",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G4-AST-BGB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G4-AST-ESC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G4-AST-HVC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G4-AST-JTB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G4-AST-LGT",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G4-MTR-ENERGY",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G5-AST-BGB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G5-AST-ESC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G5-AST-HVC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G5-AST-JTB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G5-AST-LGT",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G5-MTR-ENERGY",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G6-AST-BGB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G6-AST-ESC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G6-AST-HVC",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G6-AST-JTB",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G6-AST-LGT",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AMM-G6-MTR-ENERGY",
+   "airport_id": "SYN-AP-AMM",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G1-AST-BGB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G1-AST-ESC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G1-AST-HVC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G1-AST-JTB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G1-AST-LGT",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G1-MTR-ENERGY",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G2-AST-BGB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G2-AST-ESC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G2-AST-HVC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G2-AST-JTB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G2-AST-LGT",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G2-MTR-ENERGY",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G3-AST-BGB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G3-AST-ESC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G3-AST-HVC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G3-AST-JTB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G3-AST-LGT",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G3-MTR-ENERGY",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G4-AST-BGB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G4-AST-ESC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G4-AST-HVC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G4-AST-JTB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G4-AST-LGT",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G4-MTR-ENERGY",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G5-AST-BGB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G5-AST-ESC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G5-AST-HVC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G5-AST-JTB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G5-AST-LGT",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G5-MTR-ENERGY",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G6-AST-BGB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G6-AST-ESC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G6-AST-HVC",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G6-AST-JTB",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G6-AST-LGT",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-AQJ-G6-MTR-ENERGY",
+   "airport_id": "SYN-AP-AQJ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G1-AST-BGB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G1-AST-ESC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G1-AST-HVC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G1-AST-JTB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G1-AST-LGT",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G1-MTR-ENERGY",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G2-AST-BGB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G2-AST-ESC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G2-AST-HVC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G2-AST-JTB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G2-AST-LGT",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G2-MTR-ENERGY",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G3-AST-BGB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G3-AST-ESC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G3-AST-HVC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G3-AST-JTB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G3-AST-LGT",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G3-MTR-ENERGY",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G4-AST-BGB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G4-AST-ESC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G4-AST-HVC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G4-AST-JTB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G4-AST-LGT",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G4-MTR-ENERGY",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G5-AST-BGB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G5-AST-ESC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G5-AST-HVC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G5-AST-JTB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G5-AST-LGT",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G5-MTR-ENERGY",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G6-AST-BGB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G6-AST-ESC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G6-AST-HVC",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G6-AST-JTB",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G6-AST-LGT",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-BLQ-G6-MTR-ENERGY",
+   "airport_id": "SYN-AP-BLQ",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G1-AST-BGB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G1-AST-ESC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G1-AST-HVC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G1-AST-JTB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G1-AST-LGT",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G1-MTR-ENERGY",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G2-AST-BGB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G2-AST-ESC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G2-AST-HVC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G2-AST-JTB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G2-AST-LGT",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G2-MTR-ENERGY",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G3-AST-BGB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G3-AST-ESC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G3-AST-HVC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G3-AST-JTB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G3-AST-LGT",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G3-MTR-ENERGY",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G4-AST-BGB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G4-AST-ESC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G4-AST-HVC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G4-AST-JTB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G4-AST-LGT",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G4-MTR-ENERGY",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G5-AST-BGB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G5-AST-ESC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G5-AST-HVC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G5-AST-JTB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G5-AST-LGT",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G5-MTR-ENERGY",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G6-AST-BGB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G6-AST-ESC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G6-AST-HVC",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G6-AST-JTB",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G6-AST-LGT",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-CDG-G6-MTR-ENERGY",
+   "airport_id": "SYN-AP-CDG",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G1-AST-BGB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G1-AST-ESC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G1-AST-HVC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G1-AST-JTB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G1-AST-LGT",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G1-MTR-ENERGY",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G2-AST-BGB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G2-AST-ESC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G2-AST-HVC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G2-AST-JTB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G2-AST-LGT",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G2-MTR-ENERGY",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G3-AST-BGB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G3-AST-ESC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G3-AST-HVC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G3-AST-JTB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G3-AST-LGT",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G3-MTR-ENERGY",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G4-AST-BGB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G4-AST-ESC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G4-AST-HVC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G4-AST-JTB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G4-AST-LGT",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G4-MTR-ENERGY",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G5-AST-BGB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G5-AST-ESC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G5-AST-HVC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G5-AST-JTB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G5-AST-LGT",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G5-MTR-ENERGY",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G6-AST-BGB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G6-AST-ESC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G6-AST-HVC",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G6-AST-JTB",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G6-AST-LGT",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FAO-G6-MTR-ENERGY",
+   "airport_id": "SYN-AP-FAO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G1-AST-BGB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G1-AST-ESC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G1-AST-HVC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G1-AST-JTB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G1-AST-LGT",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G1-MTR-ENERGY",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G2-AST-BGB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G2-AST-ESC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G2-AST-HVC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G2-AST-JTB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G2-AST-LGT",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G2-MTR-ENERGY",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G3-AST-BGB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G3-AST-ESC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G3-AST-HVC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G3-AST-JTB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G3-AST-LGT",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G3-MTR-ENERGY",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G4-AST-BGB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G4-AST-ESC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G4-AST-HVC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G4-AST-JTB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G4-AST-LGT",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G4-MTR-ENERGY",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G5-AST-BGB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G5-AST-ESC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G5-AST-HVC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G5-AST-JTB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G5-AST-LGT",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G5-MTR-ENERGY",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G6-AST-BGB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G6-AST-ESC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G6-AST-HVC",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G6-AST-JTB",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G6-AST-LGT",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FCO-G6-MTR-ENERGY",
+   "airport_id": "SYN-AP-FCO",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G1-AST-BGB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G1-AST-ESC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G1-AST-HVC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G1-AST-JTB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G1-AST-LGT",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G1-MTR-ENERGY",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G2-AST-BGB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G2-AST-ESC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G2-AST-HVC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G2-AST-JTB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G2-AST-LGT",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G2-MTR-ENERGY",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G3-AST-BGB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G3-AST-ESC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G3-AST-HVC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G3-AST-JTB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G3-AST-LGT",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G3-MTR-ENERGY",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G4-AST-BGB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G4-AST-ESC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G4-AST-HVC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G4-AST-JTB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G4-AST-LGT",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G4-MTR-ENERGY",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G5-AST-BGB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G5-AST-ESC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G5-AST-HVC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G5-AST-JTB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G5-AST-LGT",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G5-MTR-ENERGY",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G6-AST-BGB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G6-AST-ESC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G6-AST-HVC",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G6-AST-JTB",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G6-AST-LGT",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-FNC-G6-MTR-ENERGY",
+   "airport_id": "SYN-AP-FNC",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G1-AST-BGB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G1-AST-ESC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G1-AST-HVC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G1-AST-JTB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G1-AST-LGT",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G1-MTR-ENERGY",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G2-AST-BGB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G2-AST-ESC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G2-AST-HVC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G2-AST-JTB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G2-AST-LGT",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G2-MTR-ENERGY",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G3-AST-BGB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G3-AST-ESC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G3-AST-HVC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G3-AST-JTB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G3-AST-LGT",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G3-MTR-ENERGY",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G4-AST-BGB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G4-AST-ESC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G4-AST-HVC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G4-AST-JTB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G4-AST-LGT",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G4-MTR-ENERGY",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G5-AST-BGB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G5-AST-ESC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G5-AST-HVC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G5-AST-JTB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G5-AST-LGT",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G5-MTR-ENERGY",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G6-AST-BGB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G6-AST-ESC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G6-AST-HVC",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G6-AST-JTB",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G6-AST-LGT",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LIS-G6-MTR-ENERGY",
+   "airport_id": "SYN-AP-LIS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G1-AST-BGB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G1-AST-ESC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G1-AST-HVC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G1-AST-JTB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G1-AST-LGT",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G1-MTR-ENERGY",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G2-AST-BGB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G2-AST-ESC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G2-AST-HVC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G2-AST-JTB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G2-AST-LGT",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G2-MTR-ENERGY",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G3-AST-BGB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G3-AST-ESC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G3-AST-HVC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G3-AST-JTB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G3-AST-LGT",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G3-MTR-ENERGY",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G4-AST-BGB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G4-AST-ESC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G4-AST-HVC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G4-AST-JTB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G4-AST-LGT",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G4-MTR-ENERGY",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G5-AST-BGB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G5-AST-ESC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G5-AST-HVC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G5-AST-JTB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G5-AST-LGT",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G5-MTR-ENERGY",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G6-AST-BGB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G6-AST-ESC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G6-AST-HVC",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G6-AST-JTB",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G6-AST-LGT",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-LYS-G6-MTR-ENERGY",
+   "airport_id": "SYN-AP-LYS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G1-AST-BGB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G1-AST-ESC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G1-AST-HVC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G1-AST-JTB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G1-AST-LGT",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G1-MTR-ENERGY",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G2-AST-BGB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G2-AST-ESC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G2-AST-HVC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G2-AST-JTB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G2-AST-LGT",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G2-MTR-ENERGY",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G3-AST-BGB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G3-AST-ESC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G3-AST-HVC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G3-AST-JTB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G3-AST-LGT",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G3-MTR-ENERGY",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G4-AST-BGB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G4-AST-ESC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G4-AST-HVC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G4-AST-JTB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G4-AST-LGT",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G4-MTR-ENERGY",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G5-AST-BGB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G5-AST-ESC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G5-AST-HVC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G5-AST-JTB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G5-AST-LGT",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G5-MTR-ENERGY",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G6-AST-BGB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G6-AST-ESC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G6-AST-HVC",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G6-AST-JTB",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G6-AST-LGT",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MRS-G6-MTR-ENERGY",
+   "airport_id": "SYN-AP-MRS",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G1-AST-BGB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G1-AST-ESC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G1-AST-HVC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G1-AST-JTB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G1-AST-LGT",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G1-MTR-ENERGY",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G2-AST-BGB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G2-AST-ESC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G2-AST-HVC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G2-AST-JTB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G2-AST-LGT",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G2-MTR-ENERGY",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G3-AST-BGB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G3-AST-ESC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G3-AST-HVC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G3-AST-JTB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G3-AST-LGT",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G3-MTR-ENERGY",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G4-AST-BGB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G4-AST-ESC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G4-AST-HVC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G4-AST-JTB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G4-AST-LGT",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G4-MTR-ENERGY",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G5-AST-BGB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G5-AST-ESC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G5-AST-HVC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G5-AST-JTB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G5-AST-LGT",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G5-MTR-ENERGY",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G6-AST-BGB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G6-AST-ESC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G6-AST-HVC",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G6-AST-JTB",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Jetbridge"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G6-AST-LGT",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "Lighting"
+  },
+  {
+   "asset_id": "SYN-AP-MXP-G6-MTR-ENERGY",
+   "airport_id": "SYN-AP-MXP",
+   "asset_type": "EnergyMeter"
+  },
+  {
+   "asset_id": "SYN-AP-NAP-G1-AST-BGB",
+   "airport_id": "SYN-AP-NAP",
+   "asset_type": "BaggageBelt"
+  },
+  {
+   "asset_id": "SYN-AP-NAP-G1-AST-ESC",
+   "airport_id": "SYN-AP-NAP",
+   "asset_type": "Escalator"
+  },
+  {
+   "asset_id": "SYN-AP-NAP-G1-AST-HVC",
+   "airport_id": "SYN-AP-NAP",
+   "asset_type": "HVAC"
+  },
+  {
+   "asset_id": "SYN-AP-NAP-G1-AST-JTB",
+   "airport_id": "SYN-AP-NAP",
+   "asset_type": "Jetbridge"
+  }
+ ],
+ "outlets": [
+  {
+   "outlet_id": "RTL-SYN-AP-AMM-T1-01",
+   "airport_id": "SYN-AP-AMM",
+   "terminal_id": "SYN-AP-AMM-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AMM-T1-02",
+   "airport_id": "SYN-AP-AMM",
+   "terminal_id": "SYN-AP-AMM-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AMM-T1-03",
+   "airport_id": "SYN-AP-AMM",
+   "terminal_id": "SYN-AP-AMM-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AMM-T1-04",
+   "airport_id": "SYN-AP-AMM",
+   "terminal_id": "SYN-AP-AMM-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AMM-T2-01",
+   "airport_id": "SYN-AP-AMM",
+   "terminal_id": "SYN-AP-AMM-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AMM-T2-02",
+   "airport_id": "SYN-AP-AMM",
+   "terminal_id": "SYN-AP-AMM-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AMM-T2-03",
+   "airport_id": "SYN-AP-AMM",
+   "terminal_id": "SYN-AP-AMM-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AMM-T2-04",
+   "airport_id": "SYN-AP-AMM",
+   "terminal_id": "SYN-AP-AMM-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AQJ-T1-01",
+   "airport_id": "SYN-AP-AQJ",
+   "terminal_id": "SYN-AP-AQJ-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AQJ-T1-02",
+   "airport_id": "SYN-AP-AQJ",
+   "terminal_id": "SYN-AP-AQJ-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AQJ-T1-03",
+   "airport_id": "SYN-AP-AQJ",
+   "terminal_id": "SYN-AP-AQJ-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AQJ-T1-04",
+   "airport_id": "SYN-AP-AQJ",
+   "terminal_id": "SYN-AP-AQJ-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AQJ-T2-01",
+   "airport_id": "SYN-AP-AQJ",
+   "terminal_id": "SYN-AP-AQJ-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AQJ-T2-02",
+   "airport_id": "SYN-AP-AQJ",
+   "terminal_id": "SYN-AP-AQJ-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AQJ-T2-03",
+   "airport_id": "SYN-AP-AQJ",
+   "terminal_id": "SYN-AP-AQJ-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-AQJ-T2-04",
+   "airport_id": "SYN-AP-AQJ",
+   "terminal_id": "SYN-AP-AQJ-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-BLQ-T1-01",
+   "airport_id": "SYN-AP-BLQ",
+   "terminal_id": "SYN-AP-BLQ-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-BLQ-T1-02",
+   "airport_id": "SYN-AP-BLQ",
+   "terminal_id": "SYN-AP-BLQ-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-BLQ-T1-03",
+   "airport_id": "SYN-AP-BLQ",
+   "terminal_id": "SYN-AP-BLQ-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-BLQ-T1-04",
+   "airport_id": "SYN-AP-BLQ",
+   "terminal_id": "SYN-AP-BLQ-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-BLQ-T2-01",
+   "airport_id": "SYN-AP-BLQ",
+   "terminal_id": "SYN-AP-BLQ-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-BLQ-T2-02",
+   "airport_id": "SYN-AP-BLQ",
+   "terminal_id": "SYN-AP-BLQ-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-BLQ-T2-03",
+   "airport_id": "SYN-AP-BLQ",
+   "terminal_id": "SYN-AP-BLQ-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-BLQ-T2-04",
+   "airport_id": "SYN-AP-BLQ",
+   "terminal_id": "SYN-AP-BLQ-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-CDG-T1-01",
+   "airport_id": "SYN-AP-CDG",
+   "terminal_id": "SYN-AP-CDG-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-CDG-T1-02",
+   "airport_id": "SYN-AP-CDG",
+   "terminal_id": "SYN-AP-CDG-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-CDG-T1-03",
+   "airport_id": "SYN-AP-CDG",
+   "terminal_id": "SYN-AP-CDG-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-CDG-T1-04",
+   "airport_id": "SYN-AP-CDG",
+   "terminal_id": "SYN-AP-CDG-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-CDG-T2-01",
+   "airport_id": "SYN-AP-CDG",
+   "terminal_id": "SYN-AP-CDG-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-CDG-T2-02",
+   "airport_id": "SYN-AP-CDG",
+   "terminal_id": "SYN-AP-CDG-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-CDG-T2-03",
+   "airport_id": "SYN-AP-CDG",
+   "terminal_id": "SYN-AP-CDG-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-CDG-T2-04",
+   "airport_id": "SYN-AP-CDG",
+   "terminal_id": "SYN-AP-CDG-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FAO-T1-01",
+   "airport_id": "SYN-AP-FAO",
+   "terminal_id": "SYN-AP-FAO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FAO-T1-02",
+   "airport_id": "SYN-AP-FAO",
+   "terminal_id": "SYN-AP-FAO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FAO-T1-03",
+   "airport_id": "SYN-AP-FAO",
+   "terminal_id": "SYN-AP-FAO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FAO-T1-04",
+   "airport_id": "SYN-AP-FAO",
+   "terminal_id": "SYN-AP-FAO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FAO-T2-01",
+   "airport_id": "SYN-AP-FAO",
+   "terminal_id": "SYN-AP-FAO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FAO-T2-02",
+   "airport_id": "SYN-AP-FAO",
+   "terminal_id": "SYN-AP-FAO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FAO-T2-03",
+   "airport_id": "SYN-AP-FAO",
+   "terminal_id": "SYN-AP-FAO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FAO-T2-04",
+   "airport_id": "SYN-AP-FAO",
+   "terminal_id": "SYN-AP-FAO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FCO-T1-01",
+   "airport_id": "SYN-AP-FCO",
+   "terminal_id": "SYN-AP-FCO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FCO-T1-02",
+   "airport_id": "SYN-AP-FCO",
+   "terminal_id": "SYN-AP-FCO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FCO-T1-03",
+   "airport_id": "SYN-AP-FCO",
+   "terminal_id": "SYN-AP-FCO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FCO-T1-04",
+   "airport_id": "SYN-AP-FCO",
+   "terminal_id": "SYN-AP-FCO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FCO-T2-01",
+   "airport_id": "SYN-AP-FCO",
+   "terminal_id": "SYN-AP-FCO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FCO-T2-02",
+   "airport_id": "SYN-AP-FCO",
+   "terminal_id": "SYN-AP-FCO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FCO-T2-03",
+   "airport_id": "SYN-AP-FCO",
+   "terminal_id": "SYN-AP-FCO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FCO-T2-04",
+   "airport_id": "SYN-AP-FCO",
+   "terminal_id": "SYN-AP-FCO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FNC-T1-01",
+   "airport_id": "SYN-AP-FNC",
+   "terminal_id": "SYN-AP-FNC-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FNC-T1-02",
+   "airport_id": "SYN-AP-FNC",
+   "terminal_id": "SYN-AP-FNC-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FNC-T1-03",
+   "airport_id": "SYN-AP-FNC",
+   "terminal_id": "SYN-AP-FNC-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FNC-T1-04",
+   "airport_id": "SYN-AP-FNC",
+   "terminal_id": "SYN-AP-FNC-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FNC-T2-01",
+   "airport_id": "SYN-AP-FNC",
+   "terminal_id": "SYN-AP-FNC-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FNC-T2-02",
+   "airport_id": "SYN-AP-FNC",
+   "terminal_id": "SYN-AP-FNC-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FNC-T2-03",
+   "airport_id": "SYN-AP-FNC",
+   "terminal_id": "SYN-AP-FNC-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-FNC-T2-04",
+   "airport_id": "SYN-AP-FNC",
+   "terminal_id": "SYN-AP-FNC-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LIS-T1-01",
+   "airport_id": "SYN-AP-LIS",
+   "terminal_id": "SYN-AP-LIS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LIS-T1-02",
+   "airport_id": "SYN-AP-LIS",
+   "terminal_id": "SYN-AP-LIS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LIS-T1-03",
+   "airport_id": "SYN-AP-LIS",
+   "terminal_id": "SYN-AP-LIS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LIS-T1-04",
+   "airport_id": "SYN-AP-LIS",
+   "terminal_id": "SYN-AP-LIS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LIS-T2-01",
+   "airport_id": "SYN-AP-LIS",
+   "terminal_id": "SYN-AP-LIS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LIS-T2-02",
+   "airport_id": "SYN-AP-LIS",
+   "terminal_id": "SYN-AP-LIS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LIS-T2-03",
+   "airport_id": "SYN-AP-LIS",
+   "terminal_id": "SYN-AP-LIS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LIS-T2-04",
+   "airport_id": "SYN-AP-LIS",
+   "terminal_id": "SYN-AP-LIS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LYS-T1-01",
+   "airport_id": "SYN-AP-LYS",
+   "terminal_id": "SYN-AP-LYS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LYS-T1-02",
+   "airport_id": "SYN-AP-LYS",
+   "terminal_id": "SYN-AP-LYS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LYS-T1-03",
+   "airport_id": "SYN-AP-LYS",
+   "terminal_id": "SYN-AP-LYS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LYS-T1-04",
+   "airport_id": "SYN-AP-LYS",
+   "terminal_id": "SYN-AP-LYS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LYS-T2-01",
+   "airport_id": "SYN-AP-LYS",
+   "terminal_id": "SYN-AP-LYS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LYS-T2-02",
+   "airport_id": "SYN-AP-LYS",
+   "terminal_id": "SYN-AP-LYS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LYS-T2-03",
+   "airport_id": "SYN-AP-LYS",
+   "terminal_id": "SYN-AP-LYS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-LYS-T2-04",
+   "airport_id": "SYN-AP-LYS",
+   "terminal_id": "SYN-AP-LYS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MRS-T1-01",
+   "airport_id": "SYN-AP-MRS",
+   "terminal_id": "SYN-AP-MRS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MRS-T1-02",
+   "airport_id": "SYN-AP-MRS",
+   "terminal_id": "SYN-AP-MRS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MRS-T1-03",
+   "airport_id": "SYN-AP-MRS",
+   "terminal_id": "SYN-AP-MRS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MRS-T1-04",
+   "airport_id": "SYN-AP-MRS",
+   "terminal_id": "SYN-AP-MRS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MRS-T2-01",
+   "airport_id": "SYN-AP-MRS",
+   "terminal_id": "SYN-AP-MRS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MRS-T2-02",
+   "airport_id": "SYN-AP-MRS",
+   "terminal_id": "SYN-AP-MRS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MRS-T2-03",
+   "airport_id": "SYN-AP-MRS",
+   "terminal_id": "SYN-AP-MRS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MRS-T2-04",
+   "airport_id": "SYN-AP-MRS",
+   "terminal_id": "SYN-AP-MRS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MXP-T1-01",
+   "airport_id": "SYN-AP-MXP",
+   "terminal_id": "SYN-AP-MXP-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MXP-T1-02",
+   "airport_id": "SYN-AP-MXP",
+   "terminal_id": "SYN-AP-MXP-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MXP-T1-03",
+   "airport_id": "SYN-AP-MXP",
+   "terminal_id": "SYN-AP-MXP-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MXP-T1-04",
+   "airport_id": "SYN-AP-MXP",
+   "terminal_id": "SYN-AP-MXP-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MXP-T2-01",
+   "airport_id": "SYN-AP-MXP",
+   "terminal_id": "SYN-AP-MXP-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MXP-T2-02",
+   "airport_id": "SYN-AP-MXP",
+   "terminal_id": "SYN-AP-MXP-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MXP-T2-03",
+   "airport_id": "SYN-AP-MXP",
+   "terminal_id": "SYN-AP-MXP-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-MXP-T2-04",
+   "airport_id": "SYN-AP-MXP",
+   "terminal_id": "SYN-AP-MXP-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NAP-T1-01",
+   "airport_id": "SYN-AP-NAP",
+   "terminal_id": "SYN-AP-NAP-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NAP-T1-02",
+   "airport_id": "SYN-AP-NAP",
+   "terminal_id": "SYN-AP-NAP-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NAP-T1-03",
+   "airport_id": "SYN-AP-NAP",
+   "terminal_id": "SYN-AP-NAP-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NAP-T1-04",
+   "airport_id": "SYN-AP-NAP",
+   "terminal_id": "SYN-AP-NAP-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NAP-T2-01",
+   "airport_id": "SYN-AP-NAP",
+   "terminal_id": "SYN-AP-NAP-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NAP-T2-02",
+   "airport_id": "SYN-AP-NAP",
+   "terminal_id": "SYN-AP-NAP-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NAP-T2-03",
+   "airport_id": "SYN-AP-NAP",
+   "terminal_id": "SYN-AP-NAP-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NAP-T2-04",
+   "airport_id": "SYN-AP-NAP",
+   "terminal_id": "SYN-AP-NAP-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NCE-T1-01",
+   "airport_id": "SYN-AP-NCE",
+   "terminal_id": "SYN-AP-NCE-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NCE-T1-02",
+   "airport_id": "SYN-AP-NCE",
+   "terminal_id": "SYN-AP-NCE-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NCE-T1-03",
+   "airport_id": "SYN-AP-NCE",
+   "terminal_id": "SYN-AP-NCE-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NCE-T1-04",
+   "airport_id": "SYN-AP-NCE",
+   "terminal_id": "SYN-AP-NCE-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NCE-T2-01",
+   "airport_id": "SYN-AP-NCE",
+   "terminal_id": "SYN-AP-NCE-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NCE-T2-02",
+   "airport_id": "SYN-AP-NCE",
+   "terminal_id": "SYN-AP-NCE-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NCE-T2-03",
+   "airport_id": "SYN-AP-NCE",
+   "terminal_id": "SYN-AP-NCE-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-NCE-T2-04",
+   "airport_id": "SYN-AP-NCE",
+   "terminal_id": "SYN-AP-NCE-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-OPO-T1-01",
+   "airport_id": "SYN-AP-OPO",
+   "terminal_id": "SYN-AP-OPO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-OPO-T1-02",
+   "airport_id": "SYN-AP-OPO",
+   "terminal_id": "SYN-AP-OPO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-OPO-T1-03",
+   "airport_id": "SYN-AP-OPO",
+   "terminal_id": "SYN-AP-OPO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-OPO-T1-04",
+   "airport_id": "SYN-AP-OPO",
+   "terminal_id": "SYN-AP-OPO-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-OPO-T2-01",
+   "airport_id": "SYN-AP-OPO",
+   "terminal_id": "SYN-AP-OPO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-OPO-T2-02",
+   "airport_id": "SYN-AP-OPO",
+   "terminal_id": "SYN-AP-OPO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-OPO-T2-03",
+   "airport_id": "SYN-AP-OPO",
+   "terminal_id": "SYN-AP-OPO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-OPO-T2-04",
+   "airport_id": "SYN-AP-OPO",
+   "terminal_id": "SYN-AP-OPO-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-ORY-T1-01",
+   "airport_id": "SYN-AP-ORY",
+   "terminal_id": "SYN-AP-ORY-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-ORY-T1-02",
+   "airport_id": "SYN-AP-ORY",
+   "terminal_id": "SYN-AP-ORY-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-ORY-T1-03",
+   "airport_id": "SYN-AP-ORY",
+   "terminal_id": "SYN-AP-ORY-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-ORY-T1-04",
+   "airport_id": "SYN-AP-ORY",
+   "terminal_id": "SYN-AP-ORY-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-ORY-T2-01",
+   "airport_id": "SYN-AP-ORY",
+   "terminal_id": "SYN-AP-ORY-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-ORY-T2-02",
+   "airport_id": "SYN-AP-ORY",
+   "terminal_id": "SYN-AP-ORY-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-ORY-T2-03",
+   "airport_id": "SYN-AP-ORY",
+   "terminal_id": "SYN-AP-ORY-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-ORY-T2-04",
+   "airport_id": "SYN-AP-ORY",
+   "terminal_id": "SYN-AP-ORY-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-PDL-T1-01",
+   "airport_id": "SYN-AP-PDL",
+   "terminal_id": "SYN-AP-PDL-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-PDL-T1-02",
+   "airport_id": "SYN-AP-PDL",
+   "terminal_id": "SYN-AP-PDL-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-PDL-T1-03",
+   "airport_id": "SYN-AP-PDL",
+   "terminal_id": "SYN-AP-PDL-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-PDL-T1-04",
+   "airport_id": "SYN-AP-PDL",
+   "terminal_id": "SYN-AP-PDL-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-PDL-T2-01",
+   "airport_id": "SYN-AP-PDL",
+   "terminal_id": "SYN-AP-PDL-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-PDL-T2-02",
+   "airport_id": "SYN-AP-PDL",
+   "terminal_id": "SYN-AP-PDL-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-PDL-T2-03",
+   "airport_id": "SYN-AP-PDL",
+   "terminal_id": "SYN-AP-PDL-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-PDL-T2-04",
+   "airport_id": "SYN-AP-PDL",
+   "terminal_id": "SYN-AP-PDL-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-TLS-T1-01",
+   "airport_id": "SYN-AP-TLS",
+   "terminal_id": "SYN-AP-TLS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-TLS-T1-02",
+   "airport_id": "SYN-AP-TLS",
+   "terminal_id": "SYN-AP-TLS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-TLS-T1-03",
+   "airport_id": "SYN-AP-TLS",
+   "terminal_id": "SYN-AP-TLS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-TLS-T1-04",
+   "airport_id": "SYN-AP-TLS",
+   "terminal_id": "SYN-AP-TLS-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-TLS-T2-01",
+   "airport_id": "SYN-AP-TLS",
+   "terminal_id": "SYN-AP-TLS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-TLS-T2-02",
+   "airport_id": "SYN-AP-TLS",
+   "terminal_id": "SYN-AP-TLS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-TLS-T2-03",
+   "airport_id": "SYN-AP-TLS",
+   "terminal_id": "SYN-AP-TLS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-TLS-T2-04",
+   "airport_id": "SYN-AP-TLS",
+   "terminal_id": "SYN-AP-TLS-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-VCE-T1-01",
+   "airport_id": "SYN-AP-VCE",
+   "terminal_id": "SYN-AP-VCE-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-VCE-T1-02",
+   "airport_id": "SYN-AP-VCE",
+   "terminal_id": "SYN-AP-VCE-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-VCE-T1-03",
+   "airport_id": "SYN-AP-VCE",
+   "terminal_id": "SYN-AP-VCE-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-VCE-T1-04",
+   "airport_id": "SYN-AP-VCE",
+   "terminal_id": "SYN-AP-VCE-T1"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-VCE-T2-01",
+   "airport_id": "SYN-AP-VCE",
+   "terminal_id": "SYN-AP-VCE-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-VCE-T2-02",
+   "airport_id": "SYN-AP-VCE",
+   "terminal_id": "SYN-AP-VCE-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-VCE-T2-03",
+   "airport_id": "SYN-AP-VCE",
+   "terminal_id": "SYN-AP-VCE-T2"
+  },
+  {
+   "outlet_id": "RTL-SYN-AP-VCE-T2-04",
+   "airport_id": "SYN-AP-VCE",
+   "terminal_id": "SYN-AP-VCE-T2"
+  }
+ ],
+ "products": [
+  {
+   "product_id": "PRD-001"
+  },
+  {
+   "product_id": "PRD-002"
+  },
+  {
+   "product_id": "PRD-003"
+  },
+  {
+   "product_id": "PRD-004"
+  },
+  {
+   "product_id": "PRD-005"
+  },
+  {
+   "product_id": "PRD-006"
+  },
+  {
+   "product_id": "PRD-007"
+  },
+  {
+   "product_id": "PRD-008"
+  },
+  {
+   "product_id": "PRD-009"
+  },
+  {
+   "product_id": "PRD-010"
+  },
+  {
+   "product_id": "PRD-011"
+  },
+  {
+   "product_id": "PRD-012"
+  }
+ ]
+}

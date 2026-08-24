@@ -24,7 +24,13 @@ jobs:
       - name: Generate GeoJSON
         run: python geospatial/generate_geojson.py
       - name: Generate PBIR
-        run: python reports/generate_pbir.py
+        run: |
+          python reports/generate_pbir.py
+          python reports/generate_easa_pbir.py
+      - name: Validate OWL RDF ontology
+        run: |
+          python ontology/generate_ontology.py --check
+          python ontology/validate_ontology.py
       - name: Validate portable artifacts
         run: python tests/validate_platform.py
       - name: Validate Fabric dry-run plan

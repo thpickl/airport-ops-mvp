@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "solution": "EASARegulatoryReporting",
+  "deployment_mode": "content_only_existing_dev_workspace",
+  "infrastructure_mutation": false,
+  "artifacts": [
+    {"key": "governance_bundle", "type": "OneLakeFiles", "status": "DEPLOYED", "release_status": "BLOCKED_PENDING_SIGNOFF"},
+    {"key": "warehouse_control_plane", "type": "WarehouseSQL", "status": "DEPLOYED", "release_status": "BLOCKED_PENDING_SIGNOFF"},
+    {"key": "validation_notebook", "type": "Notebook", "display_name": "17_EASA_Validate_Transform", "status": "DEPLOYED", "execution_enabled": false},
+    {"key": "release_notebook", "type": "Notebook", "display_name": "18_EASA_Release_Gate", "status": "DEPLOYED", "automatic_authority_call": false},
+    {"key": "scheduled_pipeline", "type": "DataPipeline", "display_name": "EASA Scheduled Ingestion-Dev", "status": "DEPLOYED", "scheduled": false},
+    {"key": "event_pipeline", "type": "DataPipeline", "display_name": "EASA Event Ingestion-Dev", "status": "DEPLOYED", "scheduled": false},
+    {"key": "semantic_model", "type": "SemanticModel", "display_name": "EASARegulatoryModel-Dev", "status": "DEPLOYED", "certification": "PENDING_TENANT_ENDORSEMENT"},
+    {"key": "interactive_report", "type": "Report", "display_name": "EASAComplianceReports-Dev", "status": "DEPLOYED"},
+    {"key": "paginated_report", "type": "PaginatedReport", "display_name": "EASASubmissionReview-Dev", "status": "BLOCKED_TENANT_CAPABILITY", "source_status": "VALIDATED_UNVERIFIED_AUTHORITY_TEMPLATE"}
+  ],
+  "regulatory_state": {
+    "approved_annual_submission_count": 0,
+    "eligible_annual_submission_count": 0,
+    "automation_coverage_percent": null,
+    "coverage_status": "BLOCKED_NO_APPROVED_INVENTORY",
+    "real_source_ingestion_enabled": false,
+    "export_enabled": false,
+    "transmission_enabled": false
+  },
+  "authoritative_runtime_evidence": "OneLake Files/easa/evidence/deployments/"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "PaginatedReport",
+    "displayName": "EASASubmissionReview",
+    "description": "Human review shell. Not an authority template and blocked from release until the official template is verified and signed."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ba87c5db-af5c-4ae5-9457-0f5a03233cd2"
+  }
+}

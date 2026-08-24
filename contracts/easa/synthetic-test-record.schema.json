@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "repo://contracts/easa/synthetic-test-record.schema.json",
+  "title": "Synthetic EASA pipeline test envelope",
+  "type": "object",
+  "required": ["source_record_id", "airport_id", "requirement_id", "source_event_at", "payload", "is_synthetic"],
+  "properties": {
+    "source_record_id": {"type": "string", "minLength": 1},
+    "airport_id": {"type": "string", "minLength": 1},
+    "requirement_id": {"type": "string", "minLength": 1},
+    "source_event_at": {"type": "string", "format": "date-time"},
+    "payload": {"type": "object"},
+    "is_synthetic": {"const": true}
+  },
+  "additionalProperties": false
+}

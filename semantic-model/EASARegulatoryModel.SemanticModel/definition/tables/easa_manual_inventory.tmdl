@@ -1,0 +1,51 @@
+table easa_manual_inventory
+
+	column requirement_id
+		dataType: string
+		isHidden
+		sourceColumn: requirement_id
+
+	column submission_name
+		dataType: string
+		sourceColumn: submission_name
+
+	column authority_name
+		dataType: string
+		sourceColumn: authority_name
+
+	column airport_scope
+		dataType: string
+		sourceColumn: airport_scope
+
+	column annual_submission_count
+		dataType: int64
+		sourceColumn: annual_submission_count
+
+	column automation_eligibility
+		dataType: string
+		sourceColumn: automation_eligibility
+
+	column approval_status
+		dataType: string
+		sourceColumn: approval_status
+
+	column manual_reason
+		dataType: string
+		sourceColumn: manual_reason
+
+	measure 'Manual Annual Submissions' = SUM(easa_manual_inventory[annual_submission_count])
+		formatString: #,0
+		displayFolder: Manual Inventory
+
+	measure 'Manual Inventory Rows' = COUNTROWS(easa_manual_inventory)
+		formatString: #,0
+		displayFolder: Manual Inventory
+
+	partition easa_manual_inventory = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_easa_manual_inventory"]}[Data]
+				in
+					Data

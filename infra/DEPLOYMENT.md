@@ -65,11 +65,22 @@ Copy-Item terraform.tfvars.example terraform.tfvars
 |---|---|---|
 | `environment` | `dev` | Only `dev` or `test` are accepted; production is rejected. |
 | `resource_prefix` | `fao-demo` | 3-24 lowercase letters/digits/hyphens. |
-| `capacity_id` | `""` | Supply via `TF_VAR_capacity_id` (Step 4). |
+| `existing_workspace_id` | `""` | **Set this to bind to an existing workspace.** Left empty, Terraform provisions an additional workspace. |
+| `capacity_id` | `""` | Supply via `TF_VAR_capacity_id` (Step 4). Ignored when `existing_workspace_id` is set. |
 | `enable_workspace_identity` | `true` | System-assigned workspace identity. |
 | `eventhouse_minimum_consumption_units` | `0` | `0` disables always-on minimum consumption. |
 
-The workspace is named `${resource_prefix}-${environment}-airport-ops` (for example, `fao-demo-dev-airport-ops`).
+The workspace is named `${resource_prefix}-${environment}-airport-ops` (for example, `fao-demo-dev-airport-ops`) **only when a new workspace is created**. When `existing_workspace_id` is set, that workspace is reused and its name is left untouched.
+
+If the core items already exist in the target workspace, import them before the first apply so the run stays idempotent:
+
+```powershell
+terraform import module.core_items.fabric_lakehouse.this    "<workspace-id>/<lakehouse-id>"
+terraform import module.core_items.fabric_warehouse.this    "<workspace-id>/<warehouse-id>"
+terraform import module.core_items.fabric_eventhouse.this   "<workspace-id>/<eventhouse-id>"
+terraform import module.core_items.fabric_kql_database.this "<workspace-id>/<kql-database-id>"
+```
+
 
 ## Step 6 — Initialize
 

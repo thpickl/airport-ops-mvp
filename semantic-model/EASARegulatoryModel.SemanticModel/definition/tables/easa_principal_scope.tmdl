@@ -1,0 +1,46 @@
+table easa_principal_scope
+	isHidden
+
+	column principal_object_id
+		dataType: string
+		isHidden
+		sourceColumn: principal_object_id
+
+	column principal_name
+		dataType: string
+		isHidden
+		sourceColumn: principal_name
+
+	column airport_id
+		dataType: string
+		isHidden
+		sourceColumn: airport_id
+
+	column function_name
+		dataType: string
+		isHidden
+		sourceColumn: function_name
+
+	column access_status
+		dataType: string
+		isHidden
+		sourceColumn: access_status
+
+	column effective_from_utc
+		dataType: dateTime
+		isHidden
+		sourceColumn: effective_from_utc
+
+	column effective_to_utc
+		dataType: dateTime
+		isHidden
+		sourceColumn: effective_to_utc
+
+	partition easa_principal_scope = m
+		mode: directQuery
+		source =
+				let
+					Source = Sql.Database(WarehouseServer, WarehouseDatabase),
+					Data = Source{[Schema="ops", Item="vw_easa_principal_scope"]}[Data]
+				in
+					Data
